@@ -1,0 +1,722 @@
+
+
+:root {
+    --bg-page: #ffffff;
+    --text-main: #1e293b;
+    --accent-pro: #0284c7;
+    --accent-casual: #16a34a;
+    --glass: rgba(255, 255, 255, 0.85);
+    
+    /* ESTA LINHA ABAIXO CONTROLA A COR DAS BORDAS NO MODO CLARO */
+    --glass-border: #1e293b; 
+    
+    --shadow: 6px 6px 0px rgba(0,0,0,0.1);
+}
+
+[data-theme="dark"] {
+    /* ESTA LINHA ABAIXO CONTROLA A COR DAS BORDAS NO MODO ESCURO */
+    --glass-border: #f8fafc; 
+}
+/*
+body {
+    background-color: var(--bg-page);
+    color: var(--text-main);
+    font-family: 'Inter', sans-serif;
+    height: 100vh;
+    overflow: hidden;
+    transition: background 0.5s ease;
+}
+
+/* --- BOTÃO DE TEMA --- */
+/*
+.theme-toggle {
+    position: fixed; top: 25px; right: 25px; z-index: 1000;
+    background: var(--glass); border: 1px solid var(--glass-border);
+    width: 45px; height: 45px; border-radius: 12px; cursor: pointer;
+    display: flex; align-items: center; justify-content: center;
+    backdrop-filter: blur(10px);
+}
+*/
+      /* ==========================================
+           2. RESET E ESTRUTURA GLOBAL
+           ========================================== */
+           * { margin: 0; padding: 0; box-sizing: border-box; outline: none; }
+
+           body {
+               background-color: var(--bg-page);
+               color: var(--text-main);
+               font-family: 'Inter', sans-serif;
+               height: 100vh;
+               overflow: hidden;
+               transition: background 0.5s ease;
+           }
+
+        /* ==========================================
+           3. COMPONENTES: BALÕES DE FALA (BUBBLES)
+           ========================================== */
+           .stage { height: 60vh; display: flex; justify-content: center; align-items: center; position: relative; }
+
+           .bubble {
+               background: var(--glass);
+               backdrop-filter: blur(15px);
+               border: 3px solid var(--glass-border); /* BORDA ESCURA E GROSSA */
+               padding: 25px;
+               border-radius: 20px;
+               position: absolute;
+               width: 380px;
+               box-shadow: var(--shadow);
+               opacity: 0;
+               pointer-events: none;
+               transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+               transform: translateY(30px);
+               z-index: 100;
+           }
+   
+           /* O "Rabicho" do balão de fala com borda escura */
+           .bubble::after {
+               content: '';
+               position: absolute;
+               bottom: -15px;
+               border-left: 12px solid transparent;
+               border-right: 12px solid transparent;
+               border-top: 12px solid var(--glass-border); /* Triângulo com a cor da borda */
+           }
+   
+           /* Posicionamento do triângulo para cada balão */
+           #main-menu::after { left: 50%; transform: translateX(-50%); }
+           #panel-pro::after { left: 50%; }
+           #panel-casual::after { right: 50%; }
+   
+           .visible { opacity: 1; pointer-events: all; transform: translateY(0); }
+   
+           /* ==========================================
+              4. COMPONENTES: BOTÕES E INTERAÇÃO
+              ========================================== */
+           .btn {
+               padding: 12px 18px; margin: 6px; cursor: pointer;
+               font-family: 'Press Start 2P'; font-size: 0.55rem;
+               background: var(--bg-page); color: var(--text-main); 
+               border: 2px solid var(--glass-border); border-radius: 8px;
+               transition: 0.2s;
+           }
+           .btn:hover { background: var(--text-main); color: var(--bg-page); transform: translate(-2px, -2px); }
+   
+           /* ==========================================
+              5. SISTEMA DE MODAIS (CAIXAS DE TÓPICOS)
+              ========================================== */
+           .overlay {
+               position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+               background: rgba(0,0,0,0.6); backdrop-filter: blur(8px);
+               z-index: 2000; display: none; align-items: center; justify-content: center;
+           }
+           .modal {
+            background: var(--bg-page);
+            border-radius: 30px;
+            border: 3px solid var(--glass-border); /* Garante a borda escura */
+            box-shadow: var(--shadow);
+            position: relative;
+            text-align: left;
+        
+            /* --- TRECHO NOVO --- */
+            max-width: 600px; 
+            width: 95%;       
+            padding: 30px;    
+        }
+        
+           .modal h3 { font-family: 'VT323'; font-size: 3rem; margin-bottom: 10px; }
+           .close-modal { position: absolute; top: 15px; right: 20px; cursor: pointer; font-size: 2rem; font-weight: bold; }
+
+/* --- AVATAR SYSTEM --- */
+.footer-nav { 
+    position: relative; 
+    height: 35vh; 
+    width: 100%; 
+    display: flex; 
+    justify-content: center; 
+}
+
+/* 1. O wrapper controla apenas o MOVIMENTO lateral */
+#avatar-wrapper {
+    position: absolute;
+    bottom: 50px;
+    left: 50%;
+    width: 140px;
+    height: 180px;
+    transform: translateX(-50%);
+    /* MUITO IMPORTANTE: Transição apenas para o 'left' */
+    transition: left 1.5s linear !important; 
+    overflow: hidden;
+}
+
+/* 2. O container controla apenas a DIREÇÃO (olhar) */
+#avatar-container {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    /* MUITO IMPORTANTE: 'none' para ele virar instantaneamente e não deslizar */
+    transition: none !important; 
+}
+
+/* 3. Classe que faz o espelhamento */
+.olhar-esquerda {
+    transform: scaleX(-1) !important;
+} 
+
+
+#avatar-static, #avatar-video {
+    width: 100%; 
+    height: 100%; 
+    object-fit: contain;
+    image-rendering: pixelated; 
+    position: absolute;
+    transition: opacity 0.3s; /* Apenas o fade entre parado/andando */
+}
+
+#avatar-video { 
+    opacity: 0; 
+}
+
+/* Casamento de Cores e Inversão */
+[data-theme="dark"] #avatar-video, [data-theme="dark"] #avatar-static { filter: invert(1) hue-rotate(180deg); }
+#avatar-video { mix-blend-mode: multiply; }
+[data-theme="dark"] #avatar-video { mix-blend-mode: screen; }
+
+/* ==========================================
+   COMPONENTES: SIDEBAR VIDEO (ESTILO PORTFOLIO)
+   Adaptado para bordas escuras e sombras sólidas
+   ========================================== */
+
+.sidebar-video-container { 
+    margin-top: 20px; 
+    cursor: pointer; 
+    position: relative; 
+    border-radius: 15px;      /* Bordas arredondadas harmônicas com os balões */
+    overflow: hidden; 
+    border: 3px solid var(--glass-border); /* Borda idêntica aos balões */
+    background: #000; 
+    transition: all 0.3s ease;
+    box-shadow: var(--shadow); /* Sombra sólida igual aos botões */
+}
+
+.sidebar-video-container:hover { 
+    transform: translate(-3px, -3px); /* Movimento de clique estilo retrô */
+    box-shadow: 8px 8px 0px var(--glass-border); /* Sombra aumenta no hover */
+}
+
+.sidebar-video-container video { 
+    width: 100%; 
+    display: block; 
+    opacity: 0.9; 
+    image-rendering: pixelated; /* Mantém a nitidez caso o vídeo seja pixel art */
+}
+
+.video-hint { 
+    position: absolute; 
+    bottom: 0; 
+    background: var(--glass-border); /* Fundo com a cor da borda para contraste */
+    color: var(--bg-page);           /* Texto com a cor oposta (fundo da página) */
+    width: 100%; 
+    font-family: 'Press Start 2P', cursive; /* Fonte do sistema */
+    font-size: 8px; 
+    text-align: center; 
+    padding: 8px 0; 
+    font-weight: normal; 
+    text-transform: uppercase;
+}
+
+/* Estado Expandido (Modal ou Destaque) */
+.video-expande-plus { 
+    width: 100%; 
+    border-radius: 20px; 
+    border: 3px solid var(--glass-border);
+    box-shadow: var(--shadow); 
+    transition: transform 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+
+/* ==========================================
+   COMPONENTES: SIDEBAR VIDEO (ESTILO PORTFOLIO)
+   Ajustado para formato HORIZONTAL (16:9)
+   ========================================== */
+
+.sidebar-video-container { 
+    margin-top: 10px; 
+    margin-bottom: 5px;
+    cursor: pointer; 
+    position: relative; 
+    border-radius: 12px;      
+    overflow: hidden; 
+    border: 3px solid var(--glass-border); 
+    background: #000; 
+    transition: all 0.3s ease;
+    box-shadow: var(--shadow);
+    
+    /* --- ENQUADRAMENTO HORIZONTAL OBRIGATÓRIO (16:9) --- */
+    width: 100%;
+    max-width: 340px; /* Garante que não estoure o balão */
+    margin-left: auto;
+    margin-right: auto;
+    aspect-ratio: 16 / 9; /* Força o formato paisagem (horizontal) */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.sidebar-video-container:hover { 
+    transform: translate(-3px, -3px); 
+    box-shadow: 8px 8px 0px var(--glass-border); 
+}
+
+.sidebar-video-container video { 
+    width: 100%; 
+    height: 100%;
+    /* Preenche o formato horizontal sem deixar barras pretas nas laterais */
+    object-fit: cover; 
+    display: block; 
+    opacity: 0.9; 
+    image-rendering: pixelated; 
+}
+
+.video-hint { 
+    position: absolute; 
+    bottom: 0; 
+    background: var(--glass-border); 
+    color: var(--bg-page);           
+    width: 100%; 
+    font-family: 'Press Start 2P', cursive; 
+    font-size: 8px; 
+    text-align: center; 
+    padding: 8px 0; 
+    text-transform: uppercase;
+    z-index: 2;
+}
+/* --- AJUSTE PARA DEIXAR MENOR --- */
+width: 80%;              /* Ocupa apenas 70% da largura do balão */
+max-width: 220px;        /* Limite máximo bem menor (era 340px) */
+margin-left: auto;       /* Centraliza horizontalmente */
+margin-right: auto;
+
+aspect-ratio: 16 / 9;    /* Mantém o formato horizontal */
+display: flex;
+align-items: center;
+justify-content: center;
+}
+
+/* Ajuste na fonte do texto de ajuda para acompanhar o tamanho menor */
+.video-hint { 
+position: absolute; 
+bottom: 0; 
+background: var(--glass-border); 
+color: var(--bg-page);           
+width: 100%; 
+font-family: 'Press Start 2P', cursive; 
+font-size: 6px;          /* Diminuído de 8px para não poluir o vídeo pequeno */
+text-align: center; 
+padding: 5px 0;          /* Padding reduzido */
+text-transform: uppercase;
+z-index: 2;
+}
+/* ==========================================
+   ESTADO EXPANDIDO (VIDEO DE APRESENTAÇÃO)
+   ========================================== */
+
+.video-expande-plus { 
+    width: 100%; 
+    max-width: 100%;
+    /* Mantém o formato horizontal também no modal */
+    aspect-ratio: 16 / 9;
+    border-radius: 15px; 
+    border: 3px solid var(--glass-border);
+    box-shadow: var(--shadow); 
+    overflow: hidden;
+    background: #000;
+    margin-bottom: 20px;
+}
+
+.video-expande-plus video {
+    width: 100%;
+    height: 100%;
+    /* No modal, mostra o vídeo inteiro sem cortar, mesmo se for horizontal */
+    object-fit: contain; 
+}
+
+/* Ajuste para o conteúdo do modal ter rolagem se o vídeo for grande */
+#modal-text {
+    max-height: 80vh;
+    overflow-y: auto;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Container do Chat dentro do Modal */
+.chat-container {
+    display: flex;
+    flex-direction: column;
+    height: 500px;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.05);
+    border: 3px solid var(--glass-border);
+    border-radius: 12px;
+    overflow: hidden;
+    font-family: 'VT323', monospace;
+}
+
+/* Área de mensagens */
+.chat-messages {
+    flex: 1;
+    padding: 20px;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    font-size: 1.4rem;
+    line-height: 1.3;
+}
+
+/* Estilo das bolhas de texto da IA */
+.message-ai {
+    align-self: flex-start;
+    color: var(--accent-pro);
+    background: var(--bg-page);
+    border: 1px solid var(--glass-border);
+    padding: 10x 15px;
+    border-radius: 8px;
+    max-width: 90%;
+}
+/* Estilo do texto do usuário (direto no JS ou aqui) */
+.user-msg-style {
+    font-size: 1.3rem;
+    margin-bottom: 12px;
+    font-weight: bold;
+}
+.chat-input-area {
+    display: flex;
+    border-top: 3px solid var(--glass-border);
+    background: var(--bg-page);
+    height: 60px;            /* Altura fixa maior para o campo */
+}
+
+.chat-input {
+    flex: 1;
+    border: none;
+    padding: 0 20px;
+    background: transparent;
+    font-family: 'VT323';
+    font-size: 1.4rem;       /* Texto que o usuário digita fica bem visível */
+    color: var(--text-main);
+}
+
+.chat-send-btn {
+    background: var(--glass-border);
+    color: var(--bg-page);
+    border: none;
+    padding: 0 25px;
+    cursor: pointer;
+    font-family: 'Press Start 2P';
+    font-size: 0.7rem;       /* Botão um pouco mais legível */
+    transition: 0.2s;
+}
+
+/* Container do Jogo no Modal */
+.game-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    background: var(--bg-page);
+}
+
+#pingPong {
+    border: 4px solid var(--glass-border); /* Borda grossa estilo retro */
+    background: #000; /* Fundo preto para contraste de jogo antigo */
+    cursor: none; /* Esconde o mouse para usar a raquete */
+    image-rendering: pixelated;
+    box-shadow: var(--shadow);
+    max-width: 100%;
+}
+
+.score-board {
+    font-family: 'Press Start 2P', cursive;
+    font-size: 1.2rem;
+    color: var(--glass-border);
+    border: 2px solid var(--glass-border);
+    padding: 10px 20px;
+    border-radius: 8px;
+    background: var(--glass);
+}
+
+#game-alert {
+    background: var(--bg-page);
+    border: 3px solid var(--accent-casual); /* Borda verde para destacar */
+    padding: 20px;
+    box-shadow: 10px 10px 0px var(--glass-border);
+}
+
+#game-alert .btn {
+    margin-top: 10px;
+    background: var(--accent-casual);
+    color: #000;
+}
+/* Container do campo de currículo */
+.curriculo-box {
+    margin-top: 25px;
+    padding-top: 15px;
+    border-top: 2px dashed var(--glass-border); /* Linha divisória discreta */
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+/* O Botão do Currículo */
+.btn-curriculo {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    
+    padding: 15px;
+    background: var(--bg-page);
+    color: var(--text-main);
+    border: 3px solid var(--glass-border); /* Borda grossa igual aos balões */
+    border-radius: 12px;
+    
+    font-family: 'Press Start 2P', cursive;
+    font-size: 0.65rem;
+    text-decoration: none;
+    text-transform: uppercase;
+    
+    box-shadow: var(--shadow); /* Sombra 6px 6px */
+    transition: all 0.2s ease;
+}
+
+/* Efeito de Hover (Interação) */
+.btn-curriculo:hover {
+    transform: translate(-4px, -4px);
+    background: var(--text-main);
+    color: var(--bg-page);
+    box-shadow: 10px 10px 0px var(--glass-border);
+}
+
+.btn-curriculo:active {
+    transform: translate(0px, 0px);
+    box-shadow: 2px 2px 0px var(--glass-border);
+}
+/* Ajuste apenas para o MENU PRINCIPAL (Apresentação) */
+#main-menu {
+    bottom: 30px !important; /* Teste diminuir este valor para descer */
+}
+
+/* Ajuste apenas para o painel CASUAL (Projetos) */
+#panel-casual {
+    bottom: 30px !important; /* Ajuste para a mesma altura do menu se quiser */
+}
+
+/* Ajuste apenas para o painel PROFISSIONAL (Skills) */
+#panel-pro {
+    bottom: 40px !important; /* Pode deixar este mais alto se tiver muito conteúdo */
+}
+/* CONTAINER DO RODAPÉ */
+.footer-fixo {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 50px;
+    
+    background: var(--glass);
+    backdrop-filter: blur(10px);
+    border-top: 3px solid var(--glass-border); /* Borda grossa no topo */
+    
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 40px;
+    z-index: 500; /* Abaixo dos balões, mas acima do fundo */
+}
+
+/* TEXTOS DO DONO */
+.footer-info p {
+    font-family: 'VT323', monospace;
+    font-size: 1.1rem;
+    color: var(--text-main);
+    letter-spacing: 1px;
+}
+
+/* LINKS RETRO */
+.footer-links {
+    display: flex;
+    gap: 20px;
+}
+
+.link-retro {
+    font-family: 'Press Start 2P', cursive;
+    font-size: 0.55rem;
+    color: var(--text-main);
+    text-decoration: none;
+    border-bottom: 2px solid transparent;
+    transition: 0.2s;
+}
+
+.link-retro:hover {
+    color: var(--accent-pro);
+    border-bottom: 2px solid var(--accent-pro);
+    transform: translateY(-2px);
+}
+
+/* AJUSTE PARA NÃO CONFLITAR COM O AVATAR */
+/* Se o seu avatar estiver muito no canto, podemos encurtar o footer */
+@media (max-width: 768px) {
+    .footer-fixo {
+        flex-direction: column;
+        height: auto;
+        padding: 10px;
+    }
+}
+/* ... [Mantenha todo o seu código original aqui] ... */
+
+/* ==========================================
+   1. NOVOS COMPONENTES (Currículo e Rodapé)
+   ========================================== */
+
+/* Seção de Currículo (Adicionar aqui) */
+.curriculo-box { ... }
+.btn-curriculo { ... }
+.btn-curriculo:hover { ... }
+
+/* Rodapé Fixo (Adicionar aqui) */
+.footer-fixo { ... }
+.footer-info p { ... }
+.footer-links { ... }
+.link-retro { ... }
+.link-retro:hover { ... }
+
+/* ==========================================
+   2. AJUSTES DE POSIÇÃO INDIVIDUAL (IDs)
+   ========================================== */
+
+/* Coloque os IDs no final para eles vencerem a classe .bubble */
+#main-menu { bottom: 30px !important; }
+#panel-casual { bottom: 30px !important; }
+#panel-pro { bottom: 40px !important; }
+
+/* Centralização dos Rabichos */
+#panel-casual::after, #main-menu::after, #panel-pro::after {
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+}
+
+/* ==========================================
+   3. RESPONSIVIDADE (Sempre por último)
+   ========================================== */
+@media (max-width: 768px) {
+    .footer-fixo {
+        flex-direction: column;
+        height: auto;
+        padding: 10px;
+    }
+}
+/* CONTAINER DO RODAPÉ (REDUZIDO) */
+.footer-fixo {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    
+    /* ALTURA: Reduzida para 30px (estilo barra de tarefas fina) */
+    height: 20px !important; 
+    
+    background: var(--glass);
+    backdrop-filter: blur(10px);
+    border-top: 2px solid var(--glass-border); /* Borda um pouco mais fina */
+    
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 15px; /* Menos recuo nas laterais */
+    z-index: 500;
+}
+
+/* TEXTOS DO DONO (FONTE MENOR) */
+.footer-info p {
+    font-family: 'VT323', monospace;
+    font-size: 0.85rem !important; /* Diminuído para 0.85rem */
+    color: var(--text-main);
+    letter-spacing: 0.5px;
+}
+
+/* LINKS RETRO (MINI BOTÕES) */
+.footer-links {
+    display: flex;
+    gap: 15px; /* Links mais próximos uns dos outros */
+}
+
+.link-retro {
+    font-family: 'Press Start 2P', cursive;
+    font-size: 0.45rem !important; /* Fonte bem pequena para os ícones/links */
+    color: var(--text-main);
+    text-decoration: none;
+    transition: 0.2s;
+}
+
+.link-retro:hover {
+    color: var(--accent-pro);
+    transform: translateY(-1px); /* Levanta menos no hover */
+}
+.stage {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 70vh; /* Reduzimos a área útil vertical */
+    position: relative;
+    
+    /* REDUÇÃO GLOBAL: 0.8 significa 80% do tamanho original */
+    transform: scale(0.95); 
+    transform-origin: center bottom; /* Escala a partir do centro inferior */
+}
+html {
+    font-size: 14px; /* O padrão é 16px. Baixar para 14px encolhe o site todo */
+}
+
+.bubble p {
+    font-size: 1rem !important; /* Ajusta o texto interno para ser mais contido */
+    line-height: 1.2;
+}
+.bubble {
+    width: 300px !important; /* Reduzido de 380px */
+    padding: 15px !important; /* Menos espaço interno */
+    max-width: 85vw;
+}
+
+.modal {
+    max-width: 450px !important; /* Deixa a caixa de detalhes mais estreita */
+    padding: 20px !important;
+}
+/* Avatar Menor */
+#avatar-wrapper {
+    width: 190px !important;
+    height: 190px !important;
+    bottom: 45px !important; /* Aproxima do footer menor */
+}
+
+/* Rodapé "Slim" */
+.footer-fixo {
+    height: 28px !important; /* Rodapé bem fino */
+    padding: 0 15px !important;
+}
+
+.link-retro {
+    font-size: 0.4rem !important; /* Links bem pequenos */
+}
+/* Balão Profissional deslocado para a Esquerda */
+#panel-pro {
+    left: 25% !important;           /* Puxa a âncora um pouco para a esquerda */
+    transform: translateX(-100%) !important; /* Faz o corpo do balão crescer 100% para a esquerda */
+}
+
+/* Balão Casual deslocado para a Direita */
+#panel-casual {
+    left: 75% !important;           /* Empurra a âncora para a direita */
+    transform: translateX(0%) !important;    /* Faz o corpo crescer para a direita */
+}
+
+ 

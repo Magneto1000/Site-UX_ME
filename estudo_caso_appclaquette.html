@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Estudo de Caso | CLAQUETTE - Tito Neto</title>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323&family=Inter:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-page: #ffffff;
+            --text-main: #1e293b;
+            --accent-pro: #0284c7;
+            --glass: rgba(255, 255, 255, 0.85);
+            --glass-border: #1e293b; 
+            --shadow: 6px 6px 0px rgba(0,0,0,0.1);
+        }
+
+        [data-theme="dark"] {
+            --bg-page: #0f172a;
+            --text-main: #f8fafc;
+            --glass-border: #f8fafc;
+            --glass: rgba(30, 41, 59, 0.85);
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-page);
+            color: var(--text-main);
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container { 
+            max-width: 850px; /* Consistente com a escala reduzida que definimos */
+            margin: 0 auto; 
+            padding: 40px 20px; 
+        }
+
+        /* Estilo Retro dos Balões e Caixas */
+        .caixa-retro {
+            background: var(--glass);
+            backdrop-filter: blur(10px);
+            border: 3px solid var(--glass-border);
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: var(--shadow);
+            margin-bottom: 40px;
+        }
+
+        /* Títulos */
+        h1, h2, h3 { font-family: 'VT323', monospace; text-transform: uppercase; }
+        h1 { font-size: 3.5rem; line-height: 1; margin-bottom: 20px; }
+        h2 { font-size: 2.5rem; color: var(--accent-pro); border-bottom: 2px dashed var(--glass-border); display: inline-block; margin-bottom: 20px; }
+        
+        .label-retro {
+            font-family: 'Press Start 2P', cursive;
+            font-size: 0.6rem;
+            color: var(--accent-pro);
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        /* Botão Voltar Fixo */
+        .btn-back {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            z-index: 1000;
+            text-decoration: none;
+            font-family: 'Press Start 2P', cursive;
+            font-size: 0.6rem;
+            padding: 10px 15px;
+            background: var(--bg-page);
+            color: var(--text-main);
+            border: 3px solid var(--glass-border);
+            box-shadow: var(--shadow);
+            transition: 0.2s;
+        }
+        .btn-back:hover { transform: translate(-3px, -3px); box-shadow: 8px 8px 0px var(--glass-border); }
+
+        /* Grid de Resumo */
+        .summary-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 20px;
+            margin-top: 30px;
+            font-family: 'VT323';
+            font-size: 1.4rem;
+        }
+
+        /* Imagens Estilizadas */
+        .image-box {
+            border: 3px solid var(--glass-border);
+            background: #000;
+            padding: 10px;
+            border-radius: 12px;
+            box-shadow: var(--shadow);
+            margin: 30px 0;
+        }
+        .image-box img { width: 100%; display: block; border-radius: 4px; }
+        .image-caption { 
+            font-family: 'VT323'; 
+            text-align: center; 
+            margin-top: 10px; 
+            font-size: 1.2rem;
+            color: var(--accent-pro);
+        }
+
+        /* Insights e Listas */
+        .insight-list li {
+            background: rgba(0,0,0,0.05);
+            border-left: 4px solid var(--accent-pro);
+            margin-bottom: 10px;
+            padding: 15px;
+            list-style: none;
+            font-family: 'Inter', sans-serif;
+        }
+
+        /* Botão Principal */
+        .btn-primary {
+            display: inline-block;
+            background: var(--text-main);
+            color: var(--bg-page);
+            padding: 15px 25px;
+            font-family: 'Press Start 2P', cursive;
+            font-size: 0.7rem;
+            text-decoration: none;
+            border: 3px solid var(--glass-border);
+            box-shadow: var(--shadow);
+            transition: 0.2s;
+            margin-top: 20px;
+        }
+        .btn-primary:hover { transform: translate(-4px, -4px); box-shadow: 10px 10px 0px var(--accent-pro); }
+
+        footer { 
+            text-align: center; 
+            padding: 40px; 
+            font-family: 'VT323'; 
+            font-size: 1.2rem;
+            border-top: 2px dashed var(--glass-border);
+        }
+
+        @media (max-width: 768px) {
+            h1 { font-size: 2.2rem; }
+            .container { padding: 60px 15px; }
+        }
+    </style>
+</head>
+<body>
+
+    <a href="index.html?origem=casual" class="btn-back">← VOLTAR</a>
+
+    <div class="container">
+        <header class="caixa-retro">
+            <span class="label-retro">CASE STUDY // GOOGLE UX</span>
+            <span class="badge">Google UX Design Certificate</span>
+    <h1>CLAQUETTE: Decida quais filmes assistir, com quem assistir e onde assistir. Comente e descubra mais sobre os seus filmes e séries favoritos apenas vendo treillers...</h1>
+    <p>Um aplicativo focado em treillers, que te aproxima dos filmes que você gosta e de seus amigos...</p>
+            
+            <div class="summary-grid">
+                <div><span class="label-retro">PAPEL</span>UX Engineer</div>
+                <div><span class="label-retro">DURAÇÃO</span>6 Meses</div>
+                <div><span class="label-retro">TOOLS</span>Figma / React</div>
+            </div>
+        </header>
+
+        <section class="caixa-retro">
+            <h2>O Desafio</h2>
+            <p>Tornar ainda mais importante o papel dos treillers para os usuários: ajudá-los a encontrar bons filmes e compartilhar suas preferencias com amigos e conhecidos. <strong>Ajudando, por fim, os usuários a descobrirem onde assistir os seus filmes favoritos, no cinema ou em plataformas de streaming.</strong> A meta era criar o "Claquette": um app de trailers onde o usuário poderia ver transformada a exepriência de assistir treillers.</p>
+            <div class="image-box">
+                <img src="midias/project_ux/ux/estudo de caso claquette/mockups app-claquette.png" alt="Mockups Claquette">
+                <div class="image-caption">Protótipo de alta fidelidade: Interface imersiva.</div>
+            </div>
+        </section>
+
+        <section class="caixa-retro">
+            <h2> How might we e como entendemos o Usuário</h2>
+            <ul>
+            <li>Como podemos desenvolver um aplicativo somente de trailers que ajude as pessoas a escolherem bons filmes?</li>
+            <li>Como um aplicativo de trailers pode ser divertido e interessante?</li>
+            <li>Um formato de scroll para um aplicativo de trailers seria mais divertido?</li>
+            <li>Como não seria interessante pesquisar filmes através de trailers?</li>
+            <li>Como um aplicativo de trailers ajudaria as pessoas a irem mais aos cinemas e assinarem mais serviços de streaming?</li>
+            </ul>
+            <h2>PERSONAS</h2>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px;">
+                <div class="image-box">
+                    <img src="midias/project_ux/ux/estudo de caso claquette/persona_nina.png" alt="Persona Nina">
+                </div>
+                <div class="image-box">
+                    <img src="midias/project_ux/ux/estudo de caso claquette/persona_augusto.png" alt="Persona Augusto">
+                </div>
+            </div>
+        </section>
+        <section>
+            <h2>Do Papel ao Digital</h2>
+            <p>Iteramos designs lo-fi focando em componentes familiares e acessibilidade.</p>
+            <div class="image-box">
+              <img src="midias/project_ux/ux/estudo de caso claquette/wireframe_de_papel.png" alt="Wireframes Papel">
+              <div class="image-caption">História de usuário e wireframes lo-fi.</div>
+            </div>
+            <div class="image-box">
+              <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px;">
+                <img src="midias/project_ux/ux/estudo de caso claquette/wireframe_lofi.png" alt="Wireframe Digital">
+                <img src="midias/project_ux/ux/estudo de caso claquette/wireframelofi.png" alt="Wireframe Digital">
+              </div>
+              <div class="image-caption">Evolução do design: Esboços e Wireframes digitais.</div>
+            </div>
+          </section>
+        <section class="caixa-retro">
+            <h2>VALIDAÇÃO</h2>
+            <ul class="insight-list">
+                <li><strong>100% DE APROVAÇÃO:</strong> Usuários validaram a navegação via scroll vertical.</li>
+                <li><strong>ACESSIBILIDADE:</strong> Design refinado para visão subnormal e fadiga cognitiva.</li>
+                <li><strong>ARQUITETURA ÉTICA:</strong> Livre de dark patterns; informações sempre claras.</li>
+            </ul>
+            <div class="image-box">
+                <img src="midias/project_ux/ux/estudo de caso claquette/diagrama de notas.jpg" alt="Insights">
+                <div class="image-caption">Diagrama de Afinidade e síntese de dados.</div>
+            </div>
+        </section>
+
+        <section class="caixa-retro" style="text-align: center;">
+                <h2>Resultado Final</h2>
+                <article>
+                  <header>
+                    <h2></h2>
+                    <p>
+                      O projeto <strong>CLAQUETTE</strong> se apresenta como uma solução que vai além da simples experiência de assistir a treillers, abordando diretamente a maior limitação dos treillers que é muitas vezes não atingir diretamente o público que almeja. Ao unir o dinamismo dos treillers e da crescente tendencia das pessoas de se conectar através de redes sociais de vídeos curtos <strong> com os treillers, criou-se o contexto perfeito para aproximar mais as pessoas dos seus gostos de filmes, séries e animes</strong> . E por fim, usando os principios do <strong> Design Thinking </strong> materializamoso projeto.
+                    </p>
+                  </header>
+                
+                  <section>
+                    <h3>Principais Conquistas</h3>
+                    <ul>
+                      <li>
+                        <strong>Validação de Usabilidade:</strong> Em testes com usuários reais, 100% dos participantes (5 de 5) navegaram com facilidade e aprovaram o modelo de descoberta via <em>scroll</em> de trailers.
+                      </li>
+                      <li>
+                        <strong>Acessibilidade Nativa:</strong> O design foi refinado para atender às necessidades de personas como a Nina, garantindo que usuários com visão subnormal ou fadiga cognitiva tenham uma experiência fluida e inclusiva.
+                      </li>
+                      <li>
+                        <strong>Arquitetura Ética:</strong> Implementamos uma navegação livre de <em>dark patterns</em>, garantindo que informações sobre onde assistir, elenco e diretores estivessem sempre a um clique de distância, sem letras miúdas.
+                      </li>
+                      <li>
+                        <strong>Sinergia Técnica:</strong> Como <strong>UX Engineer</strong>, a estrutura do protótipo foi pensada para uma implementação técnica eficiente, utilizando componentes reutilizáveis e uma lógica de fluxo que reduz o tempo de carregamento e a latência de resposta.
+                      </li>
+                    </ul>
+                  </section>
+                
+                  <section>
+                    <h3>O que este projeto demonstra</h3>
+                    <p>
+                      Este estudo de caso é o reflexo da observação ds um cenário cotidiano colocando o usuário em primeiro lugar. Os treillers sempre estiveram aí, mas agora eles podem os usuários ao cinema mais próximo ou ao serviço de straming onde o seu filme favorito está.<strong> O plicativo CLAQUETTE</strong> prova que é possível criar produtos incriveis quando se prioriza o usuário.
+                    </p>
+                  </section>
+                
+
+        <footer>
+            <p>JN TITO NETO // 2026</p>
+            <p style="color: var(--accent-pro)">DESENVOLVIDO COM FOCO EM ÉTICA E PERFORMANCE</p>
+        </footer>
+    </div>
+
+</body>
+</html>

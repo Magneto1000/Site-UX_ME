@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JN Tito Neto | Projetos</title>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style_project.css">
+</head>
+<body class="projeto-page" data-theme="dark">
+
+    <main class="projeto-container">
+        <header class="projeto-header">
+            <a href="index.html?origem=pro" class="btn-back">← VOLTAR</a>
+            <div class="caixa-titulo">
+                <h1 id="projeto-titulo">NOME DO PROJETO</h1>
+            </div>
+        </header>
+
+        <section class="projeto-secao">
+            <span class="label-retro">DESCRIÇÃO</span>
+            <div class="caixa-descricao">
+                <p id="projeto-descricao">
+                    Carregando detalhes do projeto...
+                </p>
+            </div>
+        </section>
+
+        <section class="projeto-secao">
+            <span class="label-retro">VISUALIZAÇÃO</span>
+            <div class="caixa-fotos">
+                <div class="foto-slot-item" onclick="ampliarImagem('caminho/da/sua/foto1.jpg')">
+                    <span class="zoom-icon">⤢</span>
+                    <img src="caminho/da/sua/foto1.jpg" style="width:100%; height:100%; object-fit:cover;">
+                </div>
+                <div class="foto-slot-item" onclick="ampliarImagem('caminho/da/sua/foto1.jpg')">
+                    <span class="zoom-icon">⤢</span>
+                    <img src="caminho/da/sua/foto1.jpg" style="width:100%; height:100%; object-fit:cover;">
+                </div>
+                <div class="foto-slot-item" onclick="ampliarImagem('caminho/da/sua/foto1.jpg')">
+                    <span class="zoom-icon">⤢</span>
+                    <img src="caminho/da/sua/foto1.jpg" style="width:100%; height:100%; object-fit:cover;">
+                </div>
+                <div class="foto-slot-item" onclick="ampliarImagem('caminho/da/sua/foto1.jpg')">
+                    <span class="zoom-icon">⤢</span>
+                    <img src="caminho/da/sua/foto1.jpg" style="width:100%; height:100%; object-fit:cover;">
+                </div>
+                <div class="foto-slot-item" onclick="ampliarImagem('caminho/da/sua/foto1.jpg')">
+                    <span class="zoom-icon">⤢</span>
+                    <img src="caminho/da/sua/foto1.jpg" style="width:100%; height:100%; object-fit:cover;">
+                </div>
+        </section>
+
+        <footer class="projeto-secao">
+            <div class="caixa-link">
+                <strong>LINK SIGMA:</strong> 
+                <a href="#" id="projeto-link" target="_blank">Aguardando link...</a>
+            </div>
+        </footer>
+    </main>
+    <div id="lightbox" class="lightbox-overlay" onclick="fecharJanela(event)">
+        <span class="close-lightbox">&times;</span>
+        <img id="img-ampliada" src="" alt="Visualização ampliada">
+    </div>
+    <script src="js/project1.js"></script>
+</body>
+</html>

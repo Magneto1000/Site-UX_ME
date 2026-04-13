@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dev Portfolio | Experience Pro</title>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Meu site de Portfolio atualizado para UX</title>
+</head>
+<body data-theme="light">
+
+ <!--   <button class="theme-toggle" onclick="toggleTheme()">🌙</button> -->
+
+    <div class="overlay" id="overlay" onclick="fecharModal(event)">
+        <div class="modal" id="modal-content">
+            <span class="close-modal">&times;</span>
+            <div id="modal-text"></div>
+        </div>
+    </div>
+
+    <div class="stage">
+        <div id="main-menu" class="bubble visible">
+            <h1 style="font-family: 'VT323'; font-size: 2.8rem;">Bem-vindo!</h1>
+            <p style="margin-bottom: 20px; font-size: 0.9rem;">Meu nome é JN Tito Neto... Sobre o que devemos conversar?</p>
+            <button class="btn" onclick="mover('pro')">PROFISSIONAL</button>
+            <button class="btn" onclick="mover('casual')">CASUAL</button>
+        </div>
+
+        <div id="panel-pro" class="bubble" style="left: 10%;">
+            <p onclick="voltar()" style="cursor:pointer; text-align: right; font-family: 'VT323'; opacity:1;">[voltar]</p>
+            <h2 style="font-family: 'VT323'; color: var(--accent-pro); font-size: 2.2rem;">Experiências</h2>
+            <div style="margin-top:15px;">
+                <button class="btn" onclick="abrirModal('ux')">PROJETOS UX</button>
+                <button class="btn" onclick="abrirModal('back')">BACKEND</button>
+                <button class="btn" onclick="abrirModal('front')">FRONTEND</button>
+                <button class="btn" onclick="abrirModal('management')">PROJECT MANAGEMENT</button>
+                <button class="btn" onclick="abrirModal('video')">VÍDEO DE APRESENTAÇÃO</button>
+                <div id="experiencias-content">
+                    <div class="curriculo-box">
+                        <span class="label-retro">DOCUMENTAÇÃO</span>
+                        <a href="https://drive.google.com/file/d/1ryQ9ksbi4YMrzgG9-abW3S46ycOA5MoF/view?usp=sharing" target="_blank" class="btn-curriculo">
+                            <span class="icon">📄</span> ACESSAR CURRÍCULO COMPLETO
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+
+        <div id="panel-casual" class="bubble" style="right: 10%;">
+            <p onclick="voltar()" style="cursor:pointer; text-align: right; font-family: 'VT323'; opacity: 0.5;">[voltar]</p>
+            <h2 style="font-family: 'VT323'; color: var(--accent-casual); font-size: 2.2rem;">Casual</h2>
+            <button class="btn" onclick="abrirModal('chat')">CHAT</button>
+            <button class="btn" onclick="abrirModal('game')">GAME</button>
+        </div>
+    </div>
+
+    <div class="footer-nav">
+        <div id="avatar-wrapper">
+            <div id="avatar-container" style="width: 100%; height: 100%; position: relative;">
+                <img src="midias/avatar_stoped.png" id="avatar-static">
+                <video id="avatar-video" muted playsinline loop>
+                    <source src="midias/avatar_andando.mp4" type="video/mp4">
+                </video>
+            </div>
+        </div>
+    </div>
+    <script src="js/javascript_script.js"></script>
+    <footer class="footer-fixo">
+        <div class="footer-info">
+            <p>JN TITO NETO // SOFTWARE ENGINEER</p>
+        </div>
+        
+        <div class="footer-links">
+            <a href="https://www.linkedin.com/in/jn-tito-neto-742385126" target="_blank" class="link-retro">LINKEDIN</a>
+            <a href="https://github.com/Magneto1000" target="_blank" class="link-retro">GITHUB</a>
+            <a href="https://www.tiktok.com/@printdevjtitoneto" target="_blank" class="link-retro">TIKTOK</a>
+            <a href="titojneto@gmail.com" class="link-retro">EMAIL</a>
+        </div>
+    </footer>
+</body>
+</html>
