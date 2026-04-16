@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JN Tito Neto | Projetos</title>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style_project.css">
+    <style>
+        mark {
+        background-color:#eff687; 
+        font-weight: bold; 
+        }
+    /* CONTAINER PAI DAS FOTOS */
+.caixa-fotos {
+    display: flex;          /* Coloca uma foto ao lado da outra */
+    justify-content: center; /* Centraliza o grupo de fotos */
+    gap: 30px;              /* ESTE É O CAMPO QUE SEPARA AS IMAGENS */
+    width: 100%;
+    margin: 20px 0;         /* Espaço em cima e embaixo da galeria */
+}
+
+/* CADA QUADRADO DE FOTO */
+.foto-slot {
+    flex: 1;                /* Faz todas terem o mesmo tamanho */
+    max-width: 250px;       /* Evita que fiquem gigantes em telas largas */
+    height: 160px;          /* Altura reduzida para o seu novo padrão */
+    background: #000;       /* Fundo preto caso a imagem demore a carregar */
+    border: 3px solid var(--glass-border);
+    box-shadow: var(--shadow);
+    position: relative;
+    cursor: pointer;
+    overflow: hidden;       /* Corta o que sobrar da imagem */
+    transition: transform 0.2s ease;
+}
+
+.foto-slot:hover {
+    transform: scale(1.03); /* Efeito de foco ao passar o mouse */
+}
+
+/* ESTILO DA IMAGEM DENTRO DO SLOT */
+.foto-slot img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;      /* Preenche o quadrado sem achatar a imagem */
+    opacity: 0.9;
+    transition: 0.3s;
+}
+
+.foto-slot:hover img {
+    opacity: 1;
+}
+
+/* ÍCONE DE ZOOM (Opcional) */
+.zoom-icon {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    color: #fff;
+    font-size: 1.2rem;
+    z-index: 2;
+    text-shadow: 2px 2px #000;
+}
+/* ESTILO DO SLOT (O QUADRADO) */
+.foto-slot {
+    flex: 1;
+    max-width: 250px;
+    height: 160px;
+    background: #000;
+    
+    /* --- O CONTORNO ESTÁ AQUI --- */
+    /* Use 'solid' para uma borda contínua e grossa */
+    border: 3px solid var(--glass-border) !important; 
+    
+    /* Mantém a sombra sólida característica */
+    box-shadow: var(--shadow);
+    
+    /* Garante que o contorno fique visível */
+    position: relative;
+    cursor: pointer;
+    overflow: hidden; 
+    transition: all 0.2s ease;
+}
+
+/* Efeito de Destaque no Hover (Contorno muda de cor) */
+.foto-slot:hover {
+    transform: translate(-3px, -3px);
+    
+    /* Opcional: Mudar a cor da borda no hover para dar feedback */
+    border-color: var(--accent-pro) !important;
+    box-shadow: 8px 8px 0px var(--glass-border);
+}
+.foto-slot {
+    flex: 1;
+    
+    /* 1. AUMENTE A LARGURA MÁXIMA */
+    /* Era 250px. Para imagens maiores, tente 320px ou 350px */
+    max-width: 350px !important; 
+    
+    /* 2. AUMENTE A ALTURA */
+    /* Era 160px. Para dar destaque, tente 220px ou 250px */
+    height: 220px !important; 
+
+    background: #000;
+    border: 3px solid var(--glass-border);
+    box-shadow: var(--shadow);
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+/* Garante que a imagem preencha o novo tamanho maior */
+.foto-slot img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Mantém a proporção sem achatar */
+}
+</style>
+</head>
+<body class="projeto-page" data-theme="dark">
+
+    <main class="projeto-container">
+        <header class="projeto-header">
+            <a href="index.html?origem=pro" class="btn-back">← VOLTAR</a>
+            <div class="caixa-titulo">
+                <h1 id="projeto-titulo">OVER POWER</h1>
+            </div>
+        </header>
+
+        <section class="projeto-secao">
+            <span class="label-retro">DESCRIÇÃO</span>
+            <div class="caixa-descricao">
+                <p id="projeto-descricao">
+                    O web aplicativo multiplataforma Over Power é um aplicativo de desenvolvimento pessoal com foco em atividades rotineiras gamificadas visando  o progresso pessoal por meio da metodologia de micro-tarefas, com um fim de sua vida funcional útil pré-estabelecido. Sua inspiração é o sistema que auxilia o protagonista (Sung Jin-woo) do anime Solo Leving que ajuda o protagonista a se desenvolver,  mesclada aos elementos da filosofia estoica ao positivismo e ao universo da fantasia isekai. No entanto, a base metodologica da lógica de desenvolvimento do aplicativo gamificado está fundamentada no livro Mini-Hábitos de Ethan Kael: Sendo assim, o universo do aplicativo explorará uma realidade paralela onde as atividades (tarefas) do usuário deverão ser convertidas em missões e desafios. O aplicativo tem como público alvo jovens de 15 à 35 anos, fã de animes e filmes de aventura...
+                    <br><mark>Para este projeto, que ainda está em fase de prototipação. Já forma realizadas pesquisas de usuário, construção de personas, storyboards e mapas de empatia. </mark>
+                </p>
+            </div>
+        </section>
+
+        <section class="projeto-secao">
+            <span class="label-retro">VISUALIZAÇÃO</span>
+            <div class="caixa-fotos">
+                <div class="foto-slot-item" onclick="ampliarImagem('caminho/da/sua/foto1.jpg')">
+                    <span class="zoom-icon">⤢</span>
+                    <img src="midias/project_ux/ux/projeto_over_power/story_board-vision_all.png" style="width:100%; height:100%; object-fit:cover;">
+                </div>
+                <div class="foto-slot-item" onclick="ampliarImagem('caminho/da/sua/foto1.jpg')">
+                    <span class="zoom-icon">⤢</span>
+                    <img src="midias/project_ux/ux/projeto_over_power/story_board_closeup.png" style="width:100%; height:100%; object-fit:cover;">
+                </div>
+                <div class="foto-slot-item" onclick="ampliarImagem('caminho/da/sua/foto1.jpg')">
+                    <span class="zoom-icon">⤢</span>
+                    <img src="midias/project_ux/ux/projeto_over_power/wire_frame_1_a.png" style="width:100%; height:100%; object-fit:cover;">
+                </div>
+                <div class="foto-slot-item" onclick="ampliarImagem('caminho/da/sua/foto1.jpg')">
+                    <span class="zoom-icon">⤢</span>
+                    <img src="midias/project_ux/ux/projeto_over_power/wire_frame_1.png" style="width:100%; height:100%; object-fit:cover;">
+                </div>
+                <div class="foto-slot-item" onclick="ampliarImagem('caminho/da/sua/foto1.jpg')">
+                    <span class="zoom-icon">⤢</span>
+                    <img src="midias/project_ux/ux/projeto_over_power/wire_frame_1_c.png" style="width:100%; height:100%; object-fit:cover;">
+                </div>
+        </section>
+
+        <footer class="projeto-secao">
+            <div class="caixa-link">
+                <strong>LINK SIGMA:</strong> 
+                <a href="https://www.figma.com/design/LR0RVY4gGsG1EgkGTFePWF/OVER-POWER?node-id=0-1&m=dev&t=ZbbrNH4M5LzlMlTc-1" id="projeto-link" target="_blank">Confira os wireframes e mockups aqui</a>
+            </div>
+        </footer>
+    </main>
+    <div id="lightbox" class="lightbox-overlay" onclick="fecharJanela(event)">
+        <span class="close-lightbox">&times;</span>
+        <img id="img-ampliada" src="" alt="Visualização ampliada">
+    </div>
+    <script src="project1.js"></script>
+</body>
+</html>

@@ -693,9 +693,9 @@ html {
 }
 /* Avatar Menor */
 #avatar-wrapper {
-    width: 190px !important;
-    height: 190px !important;
-    bottom: 45px !important; /* Aproxima do footer menor */
+    width: 100px !important;
+    height: 130px !important;
+    bottom: 75px !important; /* Aproxima do footer menor */
 }
 
 /* Rodapé "Slim" */
@@ -713,10 +713,10 @@ html {
     transform: translateX(-100%) !important; /* Faz o corpo do balão crescer 100% para a esquerda */
 }
 
+
 /* Balão Casual deslocado para a Direita */
 #panel-casual {
-    left: 75% !important;           /* Empurra a âncora para a direita */
+    left: 70% !important;           /* Empurra a âncora para a direita */
     transform: translateX(0%) !important;    /* Faz o corpo crescer para a direita */
 }
 
- 

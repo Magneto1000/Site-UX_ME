@@ -13,12 +13,12 @@
                     <div style="display: grid; gap: 2px; margin-top: 20px;">
                         <div class="projeto-card">
                             <strong>App de Treilers de filmes, séries e animes</strong>
-                            <p>Estudo de caso focado em acessibilidade.</p>
+                            <p>Estudo de caso focado em sociabilidade e lazer.</p>
                             <a href="estudo_caso_appclaquette.html" class="btn" style="display:inline-block; margin-top:5px;">Ver Case</a>
                         <div class="projeto-card">
-                            <strong>E-commerce Retro</strong>
-                            <p>Interface pixel-art para loja de games.</p>
-                            <a href="#" class="btn" style="display:inline-block; margin-top:5px;">Ver Case</a>
+                            <strong>Aplicativo de Desenvolvimento Pessoal</strong>
+                            <p>Mockup de aplicativo de gerenciamento de tarefas com foco em micro-tarefas e gamificação.</p>
+                            <a href="index_project_over_power.html" class="btn" style="display:inline-block; margin-top:5px;">Ver Case</a>
                     <div style="display: grid; gap: 2px; margin-top: 10px;">
                     <div class="projeto-card">
                         <strong>App de Finanças</strong>
@@ -31,8 +31,8 @@
                 </div>
                 ` 
             },
-            back: { 
-                t: 'Meus Projetos BackEnd', 
+            full: { 
+                t: 'Meus Projetos Full-stack', 
                 d: `
                     <div style="display: grid; gap: 2px; margin-top: 20px;">
                         <div class="projeto-card">
@@ -55,8 +55,8 @@
                 </div>
                 ` 
             },
-            front: { 
-                t: 'Meus Projetos FrontEnd', 
+            arq: { 
+                t: 'Meus conhecimentos de Arquitetura de Software', 
                 d: `
                     <div style="display: grid; gap: 2px; margin-top: 20px;">
                         <div class="projeto-card">
@@ -375,7 +375,7 @@ function iniciarPingPong() {
     if (!canvas) return;
     const ctx = canvas.getContext('2d');
     
-    // Cores baseadas nas suas variáveis CSS
+    // Cores baseadas nas variáveis CSS
     const colorPlayer = "#4ade80"; // Verde Casual
     const colorAI = "#38bdf8";     // Azul Pro
     const colorLine = "#ffffff";
@@ -406,16 +406,16 @@ function iniciarPingPong() {
     function checarGatilhos() {
         let total = playerScore + aiScore;
         
-        // A cada 15 pontos: Ativa Linha Reta e Raquete Dividida
-        if (total % 15 === 0 && total !== 0) {
+        // A cada 5 pontos: Ativa Linha Reta e Raquete Dividida
+        if (total % 5 === 0 && total !== 0) {
             efeitoLinhaReta = true;
             raqueteDividida = true;
         } else {
             raqueteDividida = false;
         }
 
-        // A cada 20 pontos: Aumenta a velocidade
-        if (total % 20 === 0 && total !== 0) {
+        // A cada 10 pontos: Aumenta a velocidade
+        if (total % 10 === 0 && total !== 0) {
             velocidadeBase += 2;
         }
     }
@@ -425,7 +425,7 @@ function iniciarPingPong() {
 
         // Física 1: Linha Reta
         if (efeitoLinhaReta) {
-            ballX += (ballSpeedX > 0 ? 12 : -12); 
+            ballX += (ballSpeedX > 0 ? 4 : -12); 
             // ballY não muda, fazendo a bola ir reto
         } else {
             ballX += ballSpeedX;
@@ -559,3 +559,50 @@ if (ballX < 0) {
         window.location.href = "mailto:titojneto@gmail.com"; // Opcional: abre o email direto
     }
 }
+function ajustarEscala() {
+    const frame = document.querySelector('.viewport-frame');
+    const larguraJanela = window.innerWidth;
+    const alturaJanela = window.innerHeight;
+    
+    // Calcula a escala baseada na largura (1200px é o nosso padrão)
+    let escala = larguraJanela / 1200;
+
+    // Se a altura for o limitador (ex: celular deitado), ajusta pela altura
+    if (alturaJanela < 675) { // 675 é a altura proporcional de 1200 em 16:9
+        escala = alturaJanela / 675;
+    }
+
+    // Aplica o zoom apenas se a tela for menor que o nosso quadro ideal
+    if (escala < 1) {
+        frame.style.transform = `scale(${escala * 0.95})`; // 0.95 para dar uma margem
+    } else {
+        frame.style.transform = `scale(1)`;
+    }
+}
+// --- SUPORTE PARA CELULAR (TOUCH) ---
+
+function tratarTouch(e) {
+    // Impede o comportamento padrão (como scroll)
+    e.preventDefault();
+    
+    // Pega as coordenadas do primeiro toque
+    let touch = e.touches[0];
+    let rect = canvas.getBoundingClientRect();
+    
+    // Atualiza a posição da raquete do jogador
+    playerY = touch.clientY - rect.top - paddleHeight / 2;
+    
+    // Ativa o jogo se for o primeiro toque
+    if (!active) active = true;
+}
+
+// Adiciona os eventos de toque ao canvas
+canvas.addEventListener("touchstart", tratarTouch, { passive: false });
+canvas.addEventListener("touchmove", tratarTouch, { passive: false });
+canvas.addEventListener("touchend", () => {
+    // Opcional: manter o jogo ativo ou pausar quando soltar
+});
+
+// Escuta o redimensionamento da tela
+window.addEventListener('resize', ajustarEscala);
+window.addEventListener('load', ajustarEscala);

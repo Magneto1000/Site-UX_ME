@@ -1,0 +1,316 @@
+/* ==========================================
+   1. DNA DO DESIGN & VARIÁVEIS
+   ========================================== */
+   :root {
+    --bg-page: #ffffff;
+    --text-main: #1e293b;
+    --accent-pro: #0284c7;
+    --accent-casual: #16a34a;
+    --glass: rgba(255, 255, 255, 0.85);
+    --glass-border: #1e293b; 
+    --shadow: 6px 6px 0px rgba(0,0,0,0.1);
+}
+
+[data-theme="dark"] {
+    --glass-border: #f8fafc; 
+    --bg-page: #0f172a;
+    --text-main: #f8fafc;
+}
+
+/* ==========================================
+   2. ESTRUTURA GLOBAL E VIEWPORT
+   ========================================== */
+* { margin: 0; padding: 0; box-sizing: border-box; outline: none; }
+
+body {
+    background-color: var(--bg-page);
+    color: var(--text-main);
+    font-family: 'Inter', sans-serif;
+    height: 100vh;
+    overflow: hidden;
+    transition: background 0.5s ease;
+}
+
+.viewport-container {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: var(--bg-page);
+}
+
+.viewport-frame {
+    position: relative;
+    width: 100%;
+    max-width: 1100px; 
+    aspect-ratio: 16 / 9;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end; 
+    padding-bottom: 40px; /* Alinhamento do "chão" */
+}
+
+/* ==========================================
+   3. AVATAR (ESTILO E CAMINHADA)
+   ========================================== */
+#avatar-wrapper {
+    position: absolute !important;
+    bottom: 0 !important;
+    left: 50%;
+    width: 130px !important;
+    height: 160px !important;
+    transform: translateX(-50%);
+    transition: left 1.5s linear !important;
+    z-index: 10;
+}
+
+#avatar-container {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    transition: transform 0.2s ease;
+}
+
+.olhar-esquerda { transform: scaleX(-1) !important; }
+
+#avatar-static, #avatar-video {
+    width: 100%; 
+    height: 100%; 
+    object-fit: contain;
+    image-rendering: pixelated; 
+    position: absolute;
+    transition: opacity 0.3s ease;
+}
+
+#avatar-video { opacity: 0; mix-blend-mode: multiply; }
+
+[data-theme="dark"] #avatar-video, 
+[data-theme="dark"] #avatar-static { 
+    filter: invert(1) hue-rotate(180deg); 
+}
+[data-theme="dark"] #avatar-video { mix-blend-mode: screen; }
+
+/* ==========================================
+   4. BALÕES DE FALA (BUBBLES) - CORRIGIDO
+   ========================================== */
+.bubble {
+    background: var(--glass);
+    backdrop-filter: blur(15px);
+    border: 3px solid var(--glass-border);
+    padding: 25px;
+    border-radius: 20px;
+    position: absolute !important;
+    width: 380px;
+    height: auto !important; /* Permite que o balão cresça com o conteúdo */
+    box-shadow: var(--shadow);
+    opacity: 0;
+    pointer-events: none;
+    transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+    z-index: 100;
+    
+    /* Posição Base: Centralizada e acima do avatar */
+    bottom: 200px !important; 
+    left: 50% !important;
+    transform: translateX(-50%) translateY(30px);
+}
+
+.bubble::after {
+    content: '';
+    position: absolute;
+    bottom: -15px;
+    left: 50%;
+    transform: translateX(-50%);
+    border-left: 12px solid transparent;
+    border-right: 12px solid transparent;
+    border-top: 15px solid var(--glass-border);
+}
+
+.visible { opacity: 1 !important; pointer-events: all !important; transform: translateX(-50%) translateY(0) !important; }
+
+/* Ajustes Específicos de Alinhamento para os Painéis Laterais */
+#panel-pro {
+    left: 18% !important; /* Alinhado com a parada do avatar na esquerda */
+}
+
+#panel-casual {
+    left: 82% !important; /* Alinhado com a parada do avatar na direita */
+}
+
+/* ==========================================
+   5. CHAT, GAME E MODAIS
+   ========================================== */
+.chat-container {
+    display: flex;
+    flex-direction: column;
+    height: 400px;
+    background: rgba(0, 0, 0, 0.05);
+    border: 3px solid var(--glass-border);
+    border-radius: 12px;
+    overflow: hidden;
+    font-family: 'VT323', monospace;
+}
+
+.chat-messages {
+    flex: 1;
+    padding: 15px;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.message-ai {
+    align-self: flex-start;
+    color: var(--accent-pro);
+    background: var(--bg-page);
+    border: 1px solid var(--glass-border);
+    padding: 8px 12px;
+    border-radius: 8px;
+    font-size: 1.2rem;
+}
+
+.chat-input-area { display: flex; border-top: 3px solid var(--glass-border); }
+
+.chat-input {
+    flex: 1;
+    background: transparent;
+    border: none;
+    padding: 10px;
+    font-family: 'VT323';
+    font-size: 1.2rem;
+    color: var(--text-main);
+}
+
+.chat-send-btn {
+    background: var(--glass-border);
+    color: var(--bg-page);
+    border: none;
+    padding: 0 15px;
+    font-family: 'Press Start 2P';
+    font-size: 0.6rem;
+    cursor: pointer;
+}
+
+.game-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    width: 100%;
+}
+
+#pingPong {
+    border: 4px solid var(--glass-border);
+    background: #000;
+    image-rendering: pixelated;
+    box-shadow: var(--shadow);
+    max-width: 100%;
+    display: block;
+}
+#pingPong {
+    /* ... suas outras regras ... */
+    touch-action: none; /* Impede o navegador de rolar a página ao tocar no canvas */
+    cursor: pointer;    /* Melhora a percepção de clique */
+}
+#pingPong {
+    width: 100% !important; /* Faz o canvas ocupar a largura do modal */
+    height: auto !important; /* Mantém a proporção correta */
+    max-width: 500px;        /* Não deixa ele crescer além do original */
+}
+
+.score-board {
+    font-family: 'Press Start 2P', cursive;
+    font-size: 1rem;
+    color: var(--glass-border);
+    border: 2px solid var(--glass-border);
+    padding: 8px 15px;
+    background: var(--glass);
+}
+
+.overlay {
+    position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(0,0,0,0.6); backdrop-filter: blur(8px);
+    z-index: 2000; display: none; align-items: center; justify-content: center;
+}
+
+.modal {
+    background: var(--bg-page);
+    border-radius: 30px;
+    border: 3px solid var(--glass-border);
+    box-shadow: var(--shadow);
+    position: relative;
+    text-align: left;
+    max-width: 600px; 
+    width: 95%;       
+    padding: 30px;    
+}
+
+.modal h3 { font-family: 'VT323'; font-size: 3rem; margin-bottom: 10px; }
+.close-modal { position: absolute; top: 15px; right: 20px; cursor: pointer; font-size: 2rem; font-weight: bold; }
+
+/* ==========================================
+   6. DOCUMENTAÇÃO & BOTÕES
+   ========================================== */
+.curriculo-box {
+    margin-top: 20px;
+    padding: 15px;
+    background: rgba(0, 0, 0, 0.05);
+    border: 2px dashed var(--glass-border);
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.btn-curriculo {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 12px;
+    background: var(--bg-page);
+    border: 3px solid var(--glass-border);
+    box-shadow: 4px 4px 0px var(--glass-border);
+    font-family: 'Press Start 2P';
+    font-size: 0.55rem;
+    text-decoration: none;
+    color: var(--text-main);
+}
+
+.btn {
+    padding: 12px 18px; 
+    margin: 6px; 
+    cursor: pointer;
+    font-family: 'Press Start 2P'; 
+    font-size: 0.55rem;
+    background: var(--bg-page); 
+    color: var(--text-main); 
+    border: 2px solid var(--glass-border); 
+    border-radius: 8px;
+    transition: 0.2s;
+}
+
+.btn:hover { background: var(--text-main); color: var(--bg-page); transform: translate(-2px, -2px); }
+
+/* ==========================================
+   7. FOOTER FIXO
+   ========================================== */
+.footer-fixo {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    height: 30px;
+    background: var(--glass);
+    border-top: 2px solid var(--glass-border);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+    z-index: 500;
+}
+
+.footer-info p { font-family: 'VT323'; font-size: 1.1rem; }
+.link-retro { font-family: 'Press Start 2P'; font-size: 0.55rem; text-decoration: none; color: var(--text-main); }
