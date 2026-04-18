@@ -42,7 +42,17 @@ body {
     position: fixed;
     top: 0;
     left: 0;
+
+    transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    cursor: zoom-in; /* Indica que o palco pode ser ampliado */
 }
+
+/* Classe para quando o usuário clicar e quiser "aumentar" */
+.viewport-frame.zoom-active {
+    transform: scale(1) !important; /* Volta ao tamanho real */
+    cursor: zoom-out;
+}
+
 
 .viewport-frame {
     position: relative;

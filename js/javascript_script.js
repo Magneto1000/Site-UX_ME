@@ -616,26 +616,6 @@ canvas.addEventListener("touchend", () => {
 window.addEventListener('resize', ajustarEscala);
 window.addEventListener('load', ajustarEscala);
 
-function aplicarZoomResponsivo() {
-    const frame = document.querySelector('.viewport-frame');
-    const larguraJanela = window.innerWidth;
-    const alturaJanela = window.innerHeight;
-
-    // Calcula a proporção necessária para caber na tela do usuário
-    const escalaLargura = larguraJanela / 1150; // 1150 para dar uma margem de respiro
-    const escalaAltura = alturaJanela / 700;    // 700 para dar uma margem
-
-    // Usa a menor escala para garantir que nada seja cortado
-    const escalaFinal = Math.min(escalaLargura, escalaAltura);
-
-    // Aplica o zoom matemático no quadro inteiro
-    if (escalaFinal < 1) {
-        frame.style.transform = `scale(${escalaFinal})`;
-    } else {
-        frame.style.transform = `scale(1)`;
-    }
-}
-
 // Executa ao carregar e ao girar o celular
 window.addEventListener('resize', aplicarZoomResponsivo);
 window.addEventListener('load', aplicarZoomResponsivo);
@@ -670,3 +650,42 @@ window.addEventListener('load', aplicarZoomResponsivo);
 window.addEventListener('orientationchange', () => {
     setTimeout(aplicarZoomResponsivo, 200);
 });
+
+// Variável para controlar se o usuário quer o zoom real ou o reduzido
+let userZoomAtivo = false;
+
+function aplicarZoomResponsivo() {
+    const frame = document.querySelector('.viewport-frame');
+    if (!frame || userZoomAtivo) return; // Se o usuário deu zoom manual, não mexe
+
+    const larguraJanela = window.innerWidth;
+    const alturaJanela = window.innerHeight;
+
+    const larguraAlvo = 1200; 
+    const alturaAlvo = 800;  
+
+    const escalaLargura = larguraJanela / larguraAlvo;
+    const escalaAltura = alturaJanela / alturaAlvo;
+
+    // ESCOLHA DA ESCALA:
+    // Multiplicamos por 0.75 para que o palco comece com 75% do tamanho da tela (mais longe)
+    let escalaFinal = Math.min(escalaLargura, escalaAltura) * 0.75;
+
+    frame.style.transform = `scale(${escalaFinal})`;
+}
+
+// Função para o usuário clicar e alternar o zoom
+document.querySelector('.viewport-frame').addEventListener('click', function() {
+    userZoomAtivo = !userZoomAtivo;
+    
+    if (userZoomAtivo) {
+        this.classList.add('zoom-active');
+        this.style.transform = `scale(1)`; // Tamanho máximo
+    } else {
+        this.classList.remove('zoom-active');
+        aplicarZoomResponsivo(); // Volta ao tamanho reduzido
+    }
+});
+
+window.addEventListener('resize', aplicarZoomResponsivo);
+window.addEventListener('load', aplicarZoomResponsivo);
