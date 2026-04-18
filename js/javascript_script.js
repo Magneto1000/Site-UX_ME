@@ -639,3 +639,34 @@ function aplicarZoomResponsivo() {
 // Executa ao carregar e ao girar o celular
 window.addEventListener('resize', aplicarZoomResponsivo);
 window.addEventListener('load', aplicarZoomResponsivo);
+
+function aplicarZoomResponsivo() {
+    const frame = document.querySelector('.viewport-frame');
+    if (!frame) return;
+
+    const larguraJanela = window.innerWidth;
+    const alturaJanela = window.innerHeight;
+
+    // Definimos a largura e altura "alvo" que queremos que caiba na tela
+    const larguraAlvo = 1200; // 1100 do frame + 100 de margem
+    const alturaAlvo = 750;  // 618 do frame + margem para o footer
+
+    // Calcula as proporções
+    const escalaLargura = larguraJanela / larguraAlvo;
+    const escalaAltura = alturaJanela / alturaAlvo;
+
+    // Escolhemos a menor escala para garantir que TUDO apareça na tela
+    // Removi a trava "if (escalaFinal < 1)" para que ele ajuste em qualquer tela
+    const escalaFinal = Math.min(escalaLargura, escalaAltura);
+
+    // Aplica a escala. Agora o site vai "distanciar" sozinho no celular para caber.
+    frame.style.transform = `scale(${escalaFinal})`;
+}
+
+// Garante que o ajuste ocorra em qualquer mudança
+window.addEventListener('resize', aplicarZoomResponsivo);
+window.addEventListener('load', aplicarZoomResponsivo);
+// Adicionado para celulares quando mudam a orientação
+window.addEventListener('orientationchange', () => {
+    setTimeout(aplicarZoomResponsivo, 200);
+});

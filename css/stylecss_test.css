@@ -52,7 +52,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: flex-end; 
-    padding-bottom: 40px; /* Alinhamento do "chão" */
+    padding-bottom: 80px; /* Alinhamento do "chão" */
     /* Ponto de ancoragem para o zoom não "fugir" da tela */
     transform-origin: center center; 
     flex-shrink: 0;
@@ -70,6 +70,15 @@ body {
     transform: translateX(-50%);
     transition: left 1.5s linear !important;
     z-index: 10;
+}
+
+/* Garante que o footer fique SEMPRE na frente de qualquer sobra do palco */
+.footer-fixo {
+    position: fixed;
+    bottom: 0;
+    z-index: 2000; /* Z-index maior que o do palco */
+    background: var(--glass);
+    backdrop-filter: blur(10px);
 }
 
 #avatar-container {
