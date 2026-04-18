@@ -389,6 +389,7 @@ function iniciarPingPong() {
     let ballSpeedX = 5, ballSpeedY = 5;
     let playerScore = 0, aiScore = 0;
     let active = false;
+    let limiteVitoria = 20;
 
     // --- NOVAS VARIÁVEIS DE FÍSICA ---
     let efeitoLinhaReta = false;
@@ -402,7 +403,15 @@ function iniciarPingPong() {
         ballSpeedX = (ballSpeedX > 0 ? -velocidadeBase : velocidadeBase);
         ballSpeedY = velocidadeBase * (Math.random() > 0.5 ? 1 : -1);
     }
-
+    function checarFim() {
+        if (playerScore >= limiteVitoria || aiScore >= limiteVitoria) {
+            active = false;
+            let vitoria = playerScore >= limiteVitoria;
+            alert(vitoria ? "VITÓRIA EXCEPCIONAL! 🏆" : "GAME OVER! 🤖 O contrato é claro: Me contrate!");
+            if (!vitoria) window.location.href = "mailto:titojneto@gmail.com";
+            document.getElementById('overlay').style.display = 'none';
+        }
+    }
     function checarGatilhos() {
         let total = playerScore + aiScore;
         
@@ -553,7 +562,7 @@ if (ballX < 0) {
     aiScore++; 
     resetBall(); 
     
-    if (aiScore >= 100) {
+    if (aiScore >= 20) {
         active = false;
         alert("VOCÊ PERDEU! Conforme o contrato, agora você deve entrar em contato para me contratar! 😉");
         window.location.href = "mailto:titojneto@gmail.com"; // Opcional: abre o email direto
@@ -606,3 +615,27 @@ canvas.addEventListener("touchend", () => {
 // Escuta o redimensionamento da tela
 window.addEventListener('resize', ajustarEscala);
 window.addEventListener('load', ajustarEscala);
+
+function aplicarZoomResponsivo() {
+    const frame = document.querySelector('.viewport-frame');
+    const larguraJanela = window.innerWidth;
+    const alturaJanela = window.innerHeight;
+
+    // Calcula a proporção necessária para caber na tela do usuário
+    const escalaLargura = larguraJanela / 1150; // 1150 para dar uma margem de respiro
+    const escalaAltura = alturaJanela / 700;    // 700 para dar uma margem
+
+    // Usa a menor escala para garantir que nada seja cortado
+    const escalaFinal = Math.min(escalaLargura, escalaAltura);
+
+    // Aplica o zoom matemático no quadro inteiro
+    if (escalaFinal < 1) {
+        frame.style.transform = `scale(${escalaFinal})`;
+    } else {
+        frame.style.transform = `scale(1)`;
+    }
+}
+
+// Executa ao carregar e ao girar o celular
+window.addEventListener('resize', aplicarZoomResponsivo);
+window.addEventListener('load', aplicarZoomResponsivo);
