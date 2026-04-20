@@ -340,3 +340,33 @@ body {
 
 .footer-info p { font-family: 'VT323'; font-size: 1.1rem; }
 .link-retro { font-family: 'Press Start 2P'; font-size: 0.55rem; text-decoration: none; color: var(--text-main); }
+
+/* Estilo do Ícone de Microfone */
+.mic-icon {
+    display: inline-block !important;
+    /* Correção: Nome exato da fonte para ícones gratuitos sólidos */
+    font-family: "Font Awesome 6 Free" !important; 
+    font-weight: 900; /* Obrigatório para Font Awesome aparecer */
+    margin-left: 10px;
+    cursor: pointer;
+    color: var(--accent-pro) !important; 
+    vertical-align: middle;
+    z-index: 1001;
+}
+
+.mic-icon:hover {
+    color: var(--accent-casual); /* Muda para verde no hover */
+    transform: scale(1.2) rotate(-10deg);
+    filter: drop-shadow(0 0 5px var(--accent-casual));
+}
+
+/* Efeito quando a voz está saindo (opcional via JS) */
+.mic-active {
+    animation: pulse-mic 0.8s infinite;
+}
+
+@keyframes pulse-mic {
+    0% { opacity: 1; }
+    50% { opacity: 0.5; transform: scale(1.1); }
+    100% { opacity: 1; }
+}

@@ -84,8 +84,8 @@
                 d: `
                     <div style="display: grid; gap: 2px; margin-top: 20px;">
                         <div class="projeto-card">
-                            <strong>App de Finanças</strong>
-                            <p>Estudo de caso focado em acessibilidade.</p>
+                            <strong>Projeto de Extensão</strong>
+                            <p>Projeto de Extensão baseado no ensino prático de programação web para alunos da rede pública.</p>
                             <a href="index_project_management.html" class="btn" style="display:inline-block; margin-top:5px;">Ver Case</a>
                         <div class="projeto-card">
                             <strong>E-commerce Retro</strong>
@@ -154,7 +154,19 @@
                         <ol id="ranking-list" style="font-family:'VT323'; font-size:1.3rem; text-align:left; list-style-position:inside;"></ol>
                     </div>
                 </div>`
-    },       
+    },   
+            welcome: { 
+                t: 'Bem-vindo! <i class="fas fa-microphone mic-icon" onclick="tocarAudio(\'welcome\')"></i>', 
+                d: 'Olá, eu sou o Tito! Explore meu portfólio navegando pelos menus.' 
+            },
+            pro: { 
+                t: 'Profissional <i class="fas fa-microphone mic-icon" onclick="tocarAudio(\'pro\')"></i>', 
+                d: 'Engenharia de Software e UX Design. Clique nos botões para saber mais.' 
+            },
+            casual: { 
+                t: 'Casual <i class="fas fa-microphone mic-icon" onclick="tocarAudio(\'casual\')"></i>', 
+                d: 'Aqui você encontra meus projetos de jogos e interações criativas.' 
+    },   
 };
 
         function mover(destino) {
@@ -196,7 +208,24 @@
         }
 
         function fecharModal(e) {
-            if (e.target === overlay || e.target.className === 'close-modal') overlay.style.display = 'none';
+            // Verifica se o usuário clicou fora da caixa ou no botão de fechar (X)
+            if (e.target === overlay || e.target.className === 'close-modal') {
+                
+                // 1. Busca qualquer vídeo que esteja dentro do modal
+                const videoElement = overlay.querySelector('video');
+                
+                // 2. Se encontrar um vídeo, pausa a reprodução
+                if (videoElement) {
+                    videoElement.pause();
+                    videoElement.currentTime = 0; // Opcional: Reseta o vídeo para o início
+                }
+        
+                // 3. Limpa o conteúdo interno para garantir que processos (como o jogo) parem
+                document.getElementById('modal-text').innerHTML = "";
+                
+                // 4. Esconde o modal
+                overlay.style.display = 'none';
+            }
         }
 
         function toggleTheme() {
@@ -689,3 +718,18 @@ document.querySelector('.viewport-frame').addEventListener('click', function() {
 
 window.addEventListener('resize', aplicarZoomResponsivo);
 window.addEventListener('load', aplicarZoomResponsivo);
+// FUNÇÃO PARA O ÁUDIO
+function tocarAudio(tipo) {
+    // OPÇÃO A: Se quiser que a voz do Google/Sistema fale o texto:
+    const mensagens = {
+        welcome: "Bem-vindo ao meu portfólio! Eu sou o Tito Neto.",
+        pro: "Nesta seção você encontra minhas habilidades técnicas e formação em engenharia.",
+        casual: "Aqui estão meus projetos de games e experimentos de design."
+    };
+    
+    const fala = new SpeechSynthesisUtterance(mensagens[tipo]);
+    fala.lang = 'pt-BR';
+    fala.rate = 1.1; // Velocidade
+    window.speechSynthesis.speak(fala);
+
+}
