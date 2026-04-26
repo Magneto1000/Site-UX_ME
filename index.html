@@ -10,40 +10,6 @@
     <title>Meu site de Portfolio atualizado para UX</title>
 </head>
 <body data-theme="light">
-    
-    <div id="welcome-overlay" class="overlay" style="
-    display: flex; 
-    justify-content: center; 
-    align-items: flex-start; 
-    position: fixed; 
-    top: 0; 
-    left: 0; 
-    width: 100vw; 
-    height: 100vh; 
-    background: rgba(0, 0, 0, 0.7); 
-    z-index: 2147483647;">
-
-    <div class="bubble visible" style="
-        position: relative; 
-        width: 400px; 
-        text-align: center; 
-        margin-top: 40px; 
-        bottom: auto !important; 
-        left: auto !important; 
-        transform: none !important;
-        pointer-events: all;">
-
-        <span onclick="fecharBoasVindas()" style="position: absolute; top: 10px; right: 15px; cursor: pointer; font-family: 'Press Start 2P'; font-size: 12px; z-index: 10;">&times;</span>
-        
-        <h3 style="font-family: 'VT323'; font-size: 2.5rem; margin-bottom: 15px;">DICA DE VISUALIZAÇÃO</h3>
-        
-        <p style="font-family: 'VT323'; font-size: 1.3rem; line-height: 1.3; margin-bottom: 20px;">
-            Para uma experiência imersiva e completa, ajuste o <strong>ZOOM</strong> do seu navegador até que o palco se enquadre perfeitamente na sua tela.
-        </p>
-        
-        <button class="btn" onclick="fecharBoasVindas()" style="cursor: pointer; position: relative; z-index: 10;">ENTENDI!</button>
-    </div>
-</div>
  
     <div class="overlay" id="overlay" onclick="fecharModal(event)">
         <div class="modal" id="modal-content">
@@ -55,8 +21,8 @@
     <div class="viewport-frame">
         <div class="stage">
             <div id="main-menu" class="bubble visible">
-                <h1 style="font-family: 'VT323'; font-size: 2.8rem;">Bem-vindo!</h1>
-                <p style="margin-bottom: 20px; font-size: 0.9rem;">Meu nome é JN Tito Neto... Sobre o que devemos conversar?</p>
+                <h1 style="text-align: center; font-family: 'VT323'; font-size: 2.8rem;">Bem-vindo!</h1>
+                <p style="text-align: center; margin-bottom: 20px; font-size: 0.9rem;">Meu nome é Tito Neto, sou o curador deste Portfólio... O que quer discutir? Assuntos Profissionais ou pessoais?</p>
                 <button class="btn" onclick="mover('pro')">PROFISSIONAL</button>
                 <button class="btn" onclick="mover('casual')">CASUAL</button>
             </div>

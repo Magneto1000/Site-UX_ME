@@ -163,6 +163,39 @@ body {
     left: 82% !important; /* Alinhado com a parada do avatar na direita */
 }
 
+/* Container que organiza os botões em colunas (lado a lado) */
+.bubble-grid {
+    display: flex;
+    justify-content: space-between;
+    gap: 12px;
+    margin-top: 15px;
+    width: 100%;
+}
+
+/* Estilo padronizado para os botões de escolha */
+.btn-bubble {
+    flex: 1; /* Faz os dois botões terem o mesmo tamanho exato */
+    padding: 10px 5px;
+    font-family: 'Press Start 2P', cursive;
+    font-size: 8px; /* Tamanho pequeno para caber palavras longas */
+    text-transform: uppercase;
+    text-align: center;
+    cursor: pointer;
+    border: 2px solid #000;
+    box-shadow: 3px 3px 0px #000;
+    transition: transform 0.1s, box-shadow 0.1s;
+}
+
+/* Cores específicas para cada botão */
+.btn-prof { background-color: #22c55e; color: white; } /* Verde */
+.btn-casu { background-color: #f59e0b; color: white; } /* Laranja */
+
+/* Efeito de clique em ambos */
+.btn-bubble:active {
+    transform: translate(2px, 2px);
+    box-shadow: 1px 1px 0px #000;
+}
+
 /* ==========================================
    5. CHAT, GAME E MODAIS
    ========================================== */
@@ -341,33 +374,104 @@ body {
 .footer-info p { font-family: 'VT323'; font-size: 1.1rem; }
 .link-retro { font-family: 'Press Start 2P'; font-size: 0.55rem; text-decoration: none; color: var(--text-main); }
 
-/* Estilo do Ícone de Microfone */
-.mic-icon {
-    display: inline-block !important;
-    /* Correção: Nome exato da fonte para ícones gratuitos sólidos */
-    font-family: "Font Awesome 6 Free" !important; 
-    font-weight: 900; /* Obrigatório para Font Awesome aparecer */
-    margin-left: 10px;
-    cursor: pointer;
-    color: var(--accent-pro) !important; 
-    vertical-align: middle;
-    z-index: 1001;
+ 
+
+/* ==========================================
+   PALCO RESPONSIVO DEFINITIVO
+   ========================================== */
+   .viewport-container {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center; /* Centraliza o palco verticalmente */
+    background-color: var(--bg-page);
+    overflow: hidden;
+    position: fixed;
+    top: 0;
+    left: 0;
 }
 
-.mic-icon:hover {
-    color: var(--accent-casual); /* Muda para verde no hover */
-    transform: scale(1.2) rotate(-10deg);
-    filter: drop-shadow(0 0 5px var(--accent-casual));
+.viewport-frame {
+    position: relative;
+    width: 95vw; /* Usa quase toda a largura */
+    max-width: 1100px; 
+    /* A mágica acontece aqui: */
+    max-height: 80vh; /* O palco nunca terá mais que 80% da altura da tela */
+    aspect-ratio: 16 / 9;
+    
+    display: flex;
+    justify-content: center;
+    align-items: flex-end; 
+    padding-bottom: 20px; /* Margem interna para o avatar não tocar na borda do palco */
+    
+    transform-origin: center center;
+    transition: all 0.3s ease;
 }
 
-/* Efeito quando a voz está saindo (opcional via JS) */
-.mic-active {
-    animation: pulse-mic 0.8s infinite;
+/* Garante que o avatar não suba na barra inferior */
+#avatar-wrapper {
+    position: absolute !important;
+    bottom: 5% !important; /* Usa porcentagem para subir com o palco */
+    /* ... resto do seu código ... */
 }
 
-@keyframes pulse-mic {
-    0% { opacity: 1; }
-    50% { opacity: 0.5; transform: scale(1.1); }
-    100% { opacity: 1; }
+/* Ajuste do Footer para não cobrir nada */
+.footer-fixo {
+    height: 40px; /* Altura fixa controlada */
+    line-height: 40px;
+    z-index: 2000;
 }
 
+/* ==========================================
+   PALCO RESPONSIVO DEFINITIVO
+   ========================================== */
+   .viewport-container {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center; /* Centraliza o palco verticalmente */
+    background-color: var(--bg-page);
+    overflow: hidden;
+    position: fixed;
+    top: 0;
+    left: 0;
+}
+
+.viewport-frame {
+    position: relative;
+    width: 95vw; /* Usa quase toda a largura */
+    max-width: 1100px; 
+    /* A mágica acontece aqui: */
+    max-height: 80vh; /* O palco nunca terá mais que 80% da altura da tela */
+    aspect-ratio: 16 / 9;
+    
+    display: flex;
+    justify-content: center;
+    align-items: flex-end; 
+    padding-bottom: 20px; /* Margem interna para o avatar não tocar na borda do palco */
+    
+    transform-origin: center center;
+    transition: all 0.3s ease;
+}
+
+/* Garante que o avatar não suba na barra inferior */
+#avatar-wrapper {
+    position: absolute !important;
+    bottom: 5% !important; /* Usa porcentagem para subir com o palco */
+    /* ... resto do seu código ... */
+}
+
+/* Ajuste do Footer para não cobrir nada */
+.footer-fixo {
+    height: 40px; /* Altura fixa controlada */
+    line-height: 40px;
+    z-index: 2000;
+}
+
+@media (max-width: 480px) {
+    .bubble-grid {
+        flex-direction: column; /* No celular, vira uma pilha */
+    }
+}

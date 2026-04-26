@@ -155,18 +155,23 @@ const info = {
             </div>
         </div>`
 },   
-    welcome: { 
-        t: 'Bem-vindo! <i class="fas fa-microphone mic-icon" onclick="tocarAudio(\'welcome\')"></i>', 
-        d: 'Olá, eu sou o Tito! Explore meu portfólio navegando pelos menus.' 
-    },
-    pro: { 
-        t: 'Profissional <i class="fas fa-microphone mic-icon" onclick="tocarAudio(\'pro\')"></i>', 
-        d: 'Engenharia de Software e UX Design. Clique nos botões para saber mais.' 
-    },
-    casual: { 
-        t: 'Casual <i class="fas fa-microphone mic-icon" onclick="tocarAudio(\'casual\')"></i>', 
-        d: 'Aqui você encontra meus projetos de jogos e interações criativas.' 
-},   
+
+    escolha: { 
+        t: 'SELECIONE O MODO', 
+        d: `
+            <p style="font-family: 'VT323'; font-size: 1.4rem;">Escolha como deseja navegar:</p>
+            
+            <div class="bubble-grid">
+                <button class="btn-bubble btn-prof" onclick="abrirProfissional()">
+                    Profissional
+                </button>
+                
+                <button class="btn-bubble btn-casu" onclick="abrirCasual()">
+                    Casual
+                </button>
+            </div>
+        ` 
+    }
 };
 
 function mover(destino) {
@@ -512,7 +517,6 @@ alert("VOCÊ PERDEU! Conforme o contrato, agora você deve entrar em contato par
 window.location.href = "mailto:titojneto@gmail.com"; // Opcional: abre o email direto
 }
 }
-function ajustarEscala() {
 const frame = document.querySelector('.viewport-frame');
 const larguraJanela = window.innerWidth;
 const alturaJanela = window.innerHeight;
@@ -531,7 +535,7 @@ frame.style.transform = `scale(${escala * 0.95})`; // 0.95 para dar uma margem
 } else {
 frame.style.transform = `scale(1)`;
 }
-}
+
 // --- SUPORTE PARA CELULAR (TOUCH) ---
 
 function tratarTouch(e) {
@@ -633,35 +637,29 @@ aplicarZoomResponsivo(); // Volta ao tamanho reduzido
 
 window.addEventListener('resize', aplicarZoomResponsivo);
 window.addEventListener('load', aplicarZoomResponsivo);
-// FUNÇÃO PARA O ÁUDIO
-function tocarAudio(tipo) {
-// OPÇÃO A: Se quiser que a voz do Google/Sistema fale o texto:
-const mensagens = {
-welcome: "",
-pro: "Nesta seção você encontra minhas habilidades técnicas e formação em engenharia.",
-casual: "Aqui estão meus projetos de games e experimentos de design."
-};
 
-const fala = new SpeechSynthesisUtterance(mensagens[tipo]);
-fala.lang = 'pt-BR';
-fala.rate = 1.1; // Velocidade
-window.speechSynthesis.speak(fala);
+function ajustarResponsividade() {
+    const frame = document.querySelector('.viewport-frame');
+    const larguraJanela = window.innerWidth;
+    const alturaJanela = window.innerHeight;
 
-}
+    // Calculamos a escala baseada na largura e na altura (deixando espaço para o footer)
+    const escalaLargura = larguraJanela / 1200; // 1200 é a largura base do seu palco
+    const escalaAltura = (alturaJanela - 60) / 700; // 700 é a altura base aproximada
 
-/* Função para fechar o alerta de boas-vindas */
-function fecharBoasVindas() {
-    const welcome = document.getElementById('welcome-overlay');
-    if (welcome) {
-        welcome.style.display = 'none';
-        
-        // Opcional: Tocar o áudio de boas-vindas automaticamente após o clique
-        if(typeof tocarAudio === 'function') {
-            tocarAudio('welcome');
-        }
+    // Escolhemos a menor escala para garantir que o palco caiba na tela
+    let escalaFinal = Math.min(escalaLargura, escalaAltura);
+
+    // Nunca deixa o palco maior que o tamanho original (100%)
+    if (escalaFinal > 1) escalaFinal = 1;
+
+    if (frame) {
+        frame.style.transform = `scale(${escalaFinal})`;
     }
 }
 
-/* O "style="display: flex;" que colocamos no HTML garante que ele 
-   apareça assim que a página for carregada ou atualizada (Refresh).
-*/
+// Executa ao carregar e ao redimensionar/girar a tela
+window.addEventListener('resize', ajustarResponsividade);
+window.addEventListener('load', ajustarResponsividade);
+ajustarResponsividade();
+
