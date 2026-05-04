@@ -4,18 +4,18 @@
 
 // 1. BANCO DE DADOS DA IA (Amplie aqui facilmente)
 const bancoDeRespostas = {
-    "formação": "Estou cursando Engenharia de Software (5º período) e fiz cursos como Google Project Management, UX design e Python.",
-    "faculdade": "Estou cursando Engenharia de Software (5º período) e fiz cursos como Google Project Management, UX design e Python.",
-    "projetos": "Desenvolvi simuladores em Python, a plataforma Clean City e o jogo Magman. Atualmente foco no Over Power.",
+    "formação": "Estou cursando Engenharia de Software (5º período) e fiz cursos de destaque como Google Project Management, Gooogle UX design e Python pelo Progrmaa da Michingan University através dp COURSERA.",
+    "faculdade": "Estou cursando Engenharia de Software (5º período) e fiz cursos como Google Project Management, UX design e Python. Pretendo começar Ciência da Computação e assi mque terminar Engenharia de Software, iniciar uma Pós em Arquitetura de software",
+    "projetos": "Desenvolvi simuladores em Python, a plataforma Clean City e o jogo Magman. Atualmente foco no Over Power. Um game de microgerenciamento de tarefas via gamificação",
     "contato": "Você pode me contatar em titojneto@gmail.com ou pelo LinkedIn e GitHub.",
-    "nome": "Meu nome é Tito Neto, mas pode me chamar de John Tyto. Prazer!",
-    "idade": "Tenho 33 anos, nasci em Julho 1992.",
-    "skills": "Domino HTML, CSS, JavaScript, Python, UX Design e Gestão de Projetos.",
+    "nome": "Meu nome é Juraci Nunes Tito Neto, mas pode me chamar apenas de Tito, ou Neto, se preferir, todos me chamm assim. A propósito, muito Prazer!",
+    "idade": "Tenho 33 anos, nasci no dia 27 de Julho 1992.",
+    "skills": "Tenho conhecimentos em HTML, CSS, JavaScript, Python, C, R, UX Design e Gestão de Projetos.",
     "oi": "Oi! Tudo bem? Eu sou a IA do Tito. Pergunte-me sobre meus projetos ou formação!",
     "olá": "Oi! Tudo bem? Eu sou a IA do Tito. Pergunte-me sobre meus projetos ou formação!",
     "ajuda": "Você pode perguntar sobre 'projetos', 'formação', 'contato' ou 'hobbies'.",
-    "Habilidades sociais": "Tenho muitas, só tenho isso a dizer!",
-    
+    "Habilidades sociais": "Acho que seria dificial dizer quais habilidades sociais eu não ternho, pois penso que se somos seres sociais, devemos ser exímios em nos relacionar. Eu vivo esta filosofia.",
+    "hobbies": "Gosot de ler, escrever, jogos eletrônicos e futebol (jogar e assistir).",
     // ADICIONE NOVAS CHAVES AQUI ABAIXO:
     "xadrez": "Sou um grande entusiasta de xadrez! Adoro analisar aberturas e táticas.",
 };
