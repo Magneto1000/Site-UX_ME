@@ -21,9 +21,9 @@ const info = {
                     <a href="index_project_over_power.html" class="btn" style="display:inline-block; margin-top:5px;">Ver Case</a>
             <div style="display: grid; gap: 2px; margin-top: 10px;">
             <div class="projeto-card">
-                <strong>App de Finanças</strong>
+                <strong>UX Design para jovens</strong>
                 <p>Estudo de caso focado em acessibilidade.</p>
-                <a href="#" class="btn" style="display:inline-block; margin-top:5px;">Ver Case</a>
+                <a href="index_projetoux_social.html" class="btn" style="display:inline-block; margin-top:5px;">Ver Case</a>
             <div class="projeto-card">
                 <strong>E-commerce Retro</strong>
                 <p>Interface pixel-art para loja de games.</p>
