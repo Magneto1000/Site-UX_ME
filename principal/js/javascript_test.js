@@ -36,22 +36,22 @@ const info = {
         d: `
             <div style="display: grid; gap: 2px; margin-top: 20px;">
                 <div class="projeto-card">
-                    <strong>App de Finanças</strong>
-                    <p>Estudo de caso focado em acessibilidade.</p>
-                    <a href="#" class="btn" style="display:inline-block; margin-top:5px;">Ver Case</a>
+                    <strong>Python</strong>
+                    <p>Explorando o mundo de Python e dorrotando adversários algorítmicos.</p>
+                    <a href="estudo_python.html" class="btn" style="display:inline-block; margin-top:5px;">Ver Status</a>
                 <div class="projeto-card">
                     <strong>E-commerce Retro</strong>
                     <p>Interface pixel-art para loja de games.</p>
-                    <a href="#" class="btn" style="display:inline-block; margin-top:5px;">Ver Case</a>
+                    <a href="#" class="btn" style="display:inline-block; margin-top:5px;">Ver Status</a>
             <div style="display: grid; gap: 2px; margin-top: 10px;">
             <div class="projeto-card">
                 <strong>App de Finanças</strong>
                 <p>Estudo de caso focado em acessibilidade.</p>
-                <a href="#" class="btn" style="display:inline-block; margin-top:5px;">Ver Case</a>
+                <a href="#" class="btn" style="display:inline-block; margin-top:5px;">Ver Status</a>
             <div class="projeto-card">
                 <strong>E-commerce Retro</strong>
                 <p>Interface pixel-art para loja de games.</p>
-                <a href="#" class="btn" style="display:inline-block; margin-top:5px;">Ver Case</a>
+                <a href="#" class="btn" style="display:inline-block; margin-top:5px;">Ver Status</a>
         </div>
         ` 
     },
