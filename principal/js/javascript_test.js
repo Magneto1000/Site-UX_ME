@@ -8,7 +8,7 @@ const overlay = document.getElementById('overlay');
 // Dados dos Modais
 const info = {
     ux: { 
-        t: 'Meus Projetos UX', 
+        t: 'Habilidades UX DESIGNER', 
         d: `
             <div style="display: grid; gap: 2px; margin-top: 20px;">
                 <div class="projeto-card">
@@ -32,7 +32,7 @@ const info = {
         ` 
     },
     full: { 
-        t: 'Meus Projetos Full-stack', 
+        t: 'Habilidades Full-stack', 
         d: `
             <div style="display: grid; gap: 2px; margin-top: 20px;">
                 <div class="projeto-card">

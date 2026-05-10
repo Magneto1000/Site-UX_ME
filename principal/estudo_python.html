@@ -201,12 +201,6 @@
             <h3><strong>4. Preparação para o Mercado (Portfolio-Ready)</strong></h3>
             <p>Cada um desses 100 exercícios é um componente que demonstra sua capacidade técnica. Ter um repositório com essa quantidade de problemas resolvidos mostra para recrutadores (como os da Siemens ou outras empresas de tech) que você tem consistência, resiliência e domínio prático da linguagem mais requisitada do mercado atual.</p>
 
-
-
-
-
-
-
             <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px;">
                 <div class="image-box">
                     <img src="midias/project_codes/python/exerc_py1.png" alt="desafio 1">
@@ -247,48 +241,70 @@
             <h2>PROJETOS COMPLETO</h2>
             <P><strong>Loja de aluguel de carros</strong></P>
             <ul class="insight-list">
-                <li><strong>100% DE APROVAÇÃO:</strong> Usuários validaram a navegação via scroll vertical.</li>
-                <li><strong>ACESSIBILIDADE:</strong> Design refinado para visão subnormal e fadiga cognitiva.</li>
-                <li><strong>ARQUITETURA ÉTICA:</strong> Livre de dark patterns; informações sempre claras.</li>
-            </ul>
-            <div class="image-box">
-                <img src="midias/project_ux/ux/estudo de caso claquette/diagrama de notas.jpg" alt="Insights">
-                <div class="image-caption">Diagrama de Afinidade e síntese de dados.</div>
-            </div>
+                <li><strong>ARQUITETURA: MVC (N-Tier)</strong> carros.db, database.py, gui.py, main.py.</li>
+                <li><strong>Metodologia de desenvolvimento:</strong>Projeto desenvolvido com o uso pedagógico e responsável da IA do Google, Gemini.</li>
+            </ul><br>
+            <P><strong>A Arquitetura: Camadas (Layered Architecture)</strong></P><br>
+            <p>O seu sistema segue uma arquitetura em camadas, possivelmente inspirada no padrão MVC (Model-View-Controller) ou N-Tier, onde cada arquivo tem um papel estratégico:</p><br>
+            <p>* Camada de Dados (carros.db): É a persistência. O uso de um banco de dados relacional (SQLite, provavelmente) mostra que você sabe lidar com dados estruturados e integridade referencial.</p><br>
+            <p>* Camada de Acesso a Dados (database.py): Atua como o Model. Aqui ficam as funções de CRUD (Criar, Ler, Atualizar, Deletar). Ela isola a lógica do SQL do restante do programa.</p><br>
+            <p>* Camada de Interface (gui.py): É a View. Ela cuida da interação com o usuário (UX). O fato de estar separada permite que, no futuro, você troque a interface gráfica por uma web sem precisar mexer na lógica do banco de dados.</p><br>
+            <p>* Camada de Controle/Entrada (main.py): É o ponto de entrada (Bootstrap). Ele orquestra a inicialização do sistema, garantindo que o banco de dados esteja pronto antes de abrir a interface.</p><br>
+            
+                <div class="image-box">
+                    <p><span style="color: rgb(233, 133, 19);">Interface do sistema</span></p>
+                    <img src="midias/project_codes/python/interface_alugueldecarros.png" alt="tela principal">
+                </div>
+                <div class="image-box">
+                    <p><span style="color: rgb(233, 133, 19);">Padrão Arquitetural Model-View-Controller-MVC</span></p>
+                    <img src="midias/project_codes/python/visão arquitetural.png" alt="pastas e arquivos">
+                
+                </div>
+                <div class="image-box">
+                    <p><span style="color: rgb(233, 133, 19);">Main (bibliotecas)</span></p>
+                    <img src="midias/project_codes/python/main.png" alt="baixando bibliotecas">
+                </div>
+                <div class="image-box">
+                    <p><span style="color: rgb(233, 133, 19);">Banco de Dados SQLite</span></p>
+                    <img src="midias/project_codes/python/banco_de_dados.png" alt="banco de dados">
+                </div>
+                <div class="image-box">
+                    <p><span style="color: rgb(233, 133, 19);">Interface</span></p>
+                    <img src="midias/project_codes/python/gui1.png" alt="Intecade 1">
+                <div class="image-box">
+                    <img src="midias/project_codes/python/gui2.png" alt="Interface 2">
         </section>
 
         <section class="caixa-retro" style="text-align: center;">
-                <h2>Resultado Final</h2>
+                <h2>Python: Da Lógica ao Design de Sistemas</h2>
                 <article>
                   <header>
                     <h2></h2>
                     <p>
-                      O projeto <strong>CLAQUETTE</strong> se apresenta como uma solução que vai além da simples experiência de assistir a treillers, abordando diretamente a maior limitação dos treillers que é muitas vezes não atingir diretamente o público que almeja. Ao unir o dinamismo dos treillers e da crescente tendencia das pessoas de se conectar através de redes sociais de vídeos curtos <strong> com os treillers, criou-se o contexto perfeito para aproximar mais as pessoas dos seus gostos de filmes, séries e animes</strong> . E por fim, usando os principios do <strong> Design Thinking </strong> materializamoso projeto.
+                       <strong>Minha jornada com Python é marcada por uma evolução constante, indo do domínio da sintaxe básica à construção de arquiteturas modulares. O que começou com a base didática do Curso em Vídeo (Gustavo Guanabara) e se expandiu academicamente pela Universidade de Michigan (Python for Everybody), hoje se consolida em uma maratona prática de 100 exercícios intensivos e no desenvolvimento de sistemas estruturados, como plataformas de locação de veículos com persistência de dados.</strong>  
                     </p>
                   </header>
                 
                   <section>
-                    <h3>Principais Conquistas</h3>
+                    <h3>O que espero da aprendizagem</h3>
                     <ul>
+                    
+                        <p>Mais do que fluência em uma linguagem, busco no Python a agilidade intelectual. Minha meta é utilizar a linguagem como um laboratório de inovação para:</p>
+                     <li><strong>Prototipagem de Alta Velocidade: </strong>Validar arquiteturas complexas e Provas de Conceito (PoCs) antes da implementação em larga escala.
+                    </li>
                       <li>
-                        <strong>Validação de Usabilidade:</strong> Em testes com usuários reais, 100% dos participantes (5 de 5) navegaram com facilidade e aprovaram o modelo de descoberta via <em>scroll</em> de trailers.
+                        <strong>Domínio de Dados: </strong>Capacidade de analisar métricas de performance e comportamento de sistemas de forma nativa.
                       </li>
                       <li>
-                        <strong>Acessibilidade Nativa:</strong> O design foi refinado para atender às necessidades de personas como a Nina, garantindo que usuários com visão subnormal ou fadiga cognitiva tenham uma experiência fluida e inclusiva.
-                      </li>
-                      <li>
-                        <strong>Arquitetura Ética:</strong> Implementamos uma navegação livre de <em>dark patterns</em>, garantindo que informações sobre onde assistir, elenco e diretores estivessem sempre a um clique de distância, sem letras miúdas.
-                      </li>
-                      <li>
-                        <strong>Sinergia Técnica:</strong> Como <strong>UX Engineer</strong>, a estrutura do protótipo foi pensada para uma implementação técnica eficiente, utilizando componentes reutilizáveis e uma lógica de fluxo que reduz o tempo de carregamento e a latência de resposta.
+                        <strong>Automação Estratégica: </strong>Criar ferramentas que otimizem o ciclo de vida do software (DevOps) e a orquestração de microsserviços.
                       </li>
                     </ul>
                   </section>
                 
                   <section>
-                    <h3>O que este projeto demonstra</h3>
+                    <h3>Desafios e Limitações na Visão de um Arquiteto</h3>
                     <p>
-                      Este estudo de caso é o reflexo da observação ds um cenário cotidiano colocando o usuário em primeiro lugar. Os treillers sempre estiveram aí, mas agora eles podem os usuários ao cinema mais próximo ou ao serviço de straming onde o seu filme favorito está.<strong> O plicativo CLAQUETTE</strong> prova que é possível criar produtos incriveis quando se prioriza o usuário.
+                        Como programador e estudante de Arquitetura de Software, encaro o Python como uma ferramenta de alta potência que exige decisões arquiteturais conscientes. Minha filosofia baseia-se em utilizar a simplicidade da linguagem para resolver a complexidade da arquitetura moderna sem ignorar seus desafios técnicos. Trato como prioridade no design dos meus projetos o equilíbrio entre a agilidade de desenvolvimento e a robustez estrutural, compreendendo que para sistemas de tempo real o desafio é estratégico ao saber quando priorizar o Python e quando delegar processos críticos a linguagens de baixo nível ou arquiteturas distribuídas. Estudo e aplico estratégias avançadas de multiprocessamento e assincronismo para superar as limitações de concorrência, garantindo que as soluções não apenas funcionem, mas escalem com eficiência. Em projetos de larga escala, mantenho uma disciplina rigorosa na gestão de dependências através de containerização, assegurando ambientes resilientes e replicáveis. Python lapidou minha lógica e me deu a clareza necessária para projetar sistemas em qualquer stack, pois acredito que a verdadeira arquitetura nasce do domínio técnico aliado à consciência das limitações e possibilidades de cada ferramenta.
                     </p>
                   </section>
                 
