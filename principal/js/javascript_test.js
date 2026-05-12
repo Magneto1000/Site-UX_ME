@@ -14,20 +14,20 @@ const info = {
                 <div class="projeto-card">
                     <strong>Estudo de caso: App de Treilers de filmes, séries e animes</strong>
                     <p>Estudo de caso focado em sociabilidade, praticidade e lazer.</p>
-                    <a href="estudo_caso_appclaquette.html" class="btn" style="display:inline-block; margin-top:5px;">Ver Case</a>
+                    <a href="pages/estudo_caso_appclaquette.html" class="btn" style="display:inline-block; margin-top:5px;">Ver Case</a>
                 <div class="projeto-card">
                     <strong>Aplicativo de Desenvolvimento Pessoal</strong>
                     <p>Mockup de aplicativo de gerenciamento de tarefas com foco em micro-tarefas e gamificação.</p>
-                    <a href="index_project_over_power.html" class="btn" style="display:inline-block; margin-top:5px;">Ver Status</a>
+                    <a href="pages/index_project_over_power.html" class="btn" style="display:inline-block; margin-top:5px;">Ver Status</a>
             <div style="display: grid; gap: 2px; margin-top: 10px;">
             <div class="projeto-card">
                 <strong>Projeto UX Design para jovens</strong>
                 <p>Estudo de caso focado em acessibilidade.</p>
-                <a href="index_projetoux_social.html" class="btn" style="display:inline-block; margin-top:5px;">Ver Status</a>
+                <a href="pages/index_projetoux_social.html" class="btn" style="display:inline-block; margin-top:5px;">Ver Status</a>
             <div class="projeto-card">
                 <strong>Minhas criações (Sites, app e inspirações)</strong>
                 <p>Interface pixel-art para loja de games.</p>
-                <a href="sites_projects.html" class="btn" style="display:inline-block; margin-top:5px;">Ver Status</a>
+                <a href="pages/sites_projects.html" class="btn" style="display:inline-block; margin-top:5px;">Ver Status</a>
         </div>
         ` 
     },
@@ -38,7 +38,7 @@ const info = {
                 <div class="projeto-card">
                     <strong>Python</strong>
                     <p>Explorando o mundo de Python e dorrotando adversários algorítmicos.</p>
-                    <a href="estudo_python.html" class="btn" style="display:inline-block; margin-top:5px;">Ver Status</a>
+                    <a href="pages/estudo_python.html" class="btn" style="display:inline-block; margin-top:5px;">Ver Status</a>
                 <div class="projeto-card">
                     <strong>E-commerce Retro</strong>
                     <p>Interface pixel-art para loja de games.</p>
@@ -86,7 +86,7 @@ const info = {
                 <div class="projeto-card">
                     <strong>Projeto de Extensão</strong>
                     <p>Projeto de Extensão baseado no ensino prático de programação web para alunos da rede pública.</p>
-                    <a href="index_project_management.html" class="btn" style="display:inline-block; margin-top:5px;">Ver Case</a>
+                    <a href="pages/index_project_management.html" class="btn" style="display:inline-block; margin-top:5px;">Ver Case</a>
                 <div class="projeto-card">
                     <strong>E-commerce Retro</strong>
                     <p>Interface pixel-art para loja de games.</p>
