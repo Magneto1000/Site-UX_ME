@@ -30,40 +30,66 @@ body {
     overflow: hidden;
     transition: background 0.5s ease;
 }
-/*
-.viewport-container {
-    width: 100vw;
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background: var(--bg-page);
-    overflow: hidden;
-    position: fixed;
-    top: 0;
-    left: 0;
-/*
-    transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-    cursor: zoom-in; /* Indica que o palco pode ser ampliado }*/
-/* Classe para quando o usuário clicar e quiser "aumentar" */
 .viewport-frame.zoom-active {
     transform: scale(1) !important; /* Volta ao tamanho real */
     cursor: zoom-out;
 }
 
+/* ==========================================
+   PALCO RESPONSIVO DEFINITIVO
+   ========================================== */
+   .viewport-container {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--bg-page);
+    overflow: hidden;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
 
 .viewport-frame {
     position: relative;
-    width: 100%;
-    max-width: 100px; 
+    width: 75vmin;      /* ALTERE DE 95vw PARA 75vmin (Deixa o palco menor) */
+    max-width: 1100px; 
+    max-height: 75vh;   /* ALTERE DE 80vh PARA 75vh */
     aspect-ratio: 16 / 9;
+    
     display: flex;
     justify-content: center;
     align-items: flex-end; 
-    padding-bottom: 80px; /* Alinhamento do "chão" */
-    /* Ponto de ancoragem para o zoom não "fugir" da tela */
-    transform-origin: center center; 
-    flex-shrink: 0;
+    padding-bottom: 20px; /* Margem interna para o avatar não tocar na borda do palco */
+    
+    transform-origin: center center;
+    transition: all 0.3s ease;
+}
+
+/* Garante que o avatar não suba na barra inferior */
+#avatar-wrapper {
+    position: absolute !important;
+    bottom: 5% !important; /* Usa porcentagem para subir com o palco */
+    /* ... resto do seu código ... */
+}
+
+/* Ajuste do Footer para não cobrir nada */
+.footer-fixo {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    height: 40px;
+    background: var(--glass);
+    backdrop-filter: blur(10px);
+    border-top: 2px solid var(--glass-border);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+    z-index: 3000; /* Garante que fique acima de tudo */
 }
 
 /* ==========================================
@@ -71,22 +97,13 @@ body {
    ========================================== */
 #avatar-wrapper {
     position: absolute !important;
-    bottom: 0 !important;
+    bottom: -25% !important;
     left: 50%;
     width: 130px !important;
     height: 160px !important;
     transform: translateX(-50%);
     transition: left 1.5s linear !important;
     z-index: 10;
-}
-
-/* Garante que o footer fique SEMPRE na frente de qualquer sobra do palco */
-.footer-fixo {
-    position: fixed;
-    bottom: 0;
-    z-index: 2000; /* Z-index maior que o do palco */
-    background: var(--glass);
-    backdrop-filter: blur(10px);
 }
 
 #avatar-container {
@@ -115,6 +132,28 @@ body {
 }
 [data-theme="dark"] #avatar-video { mix-blend-mode: screen; }
 
+/* Ajuste para o vídeo de apresentação do projeto */
+video:not(#avatar-video) {
+    display: block;
+    width: 60%;         /* Faz o vídeo ocupar apenas 60% da largura do palco */
+    max-width: 500px;   /* Impede que ele fique gigante em monitores grandes */
+    height: auto;       /* Mantém a proporção correta */
+    margin: 20px auto;  /* Centraliza e dá distância dos outros elementos */
+    border: 3px solid var(--glass-border);
+    border-radius: 12px;
+    box-shadow: var(--shadow);
+}
+/* Se o vídeo estiver dentro de algum container de texto ou projeto */
+.bubble video, .content video {
+    width: 280px !important; /* Tamanho fixo menor para caber no balão ou área de texto */
+    height: auto;
+    border-radius: 8px;
+}
+video {
+    max-width: 100%;   /* O vídeo nunca será maior que o container dele */
+    height: auto;      /* Mantém a proporção */
+}
+
 /* ==========================================
    4. BALÕES DE FALA (BUBBLES) - CORRIGIDO
    ========================================== */
@@ -125,7 +164,8 @@ body {
     padding: 25px;
     border-radius: 20px;
     position: absolute !important;
-    width: 380px;
+    width: 90vw;
+    max-width: 380px;
     height: auto !important; /* Permite que o balão cresça com o conteúdo */
     box-shadow: var(--shadow);
     opacity: 0;
@@ -134,7 +174,7 @@ body {
     z-index: 100;
     
     /* Posição Base: Centralizada e acima do avatar */
-    bottom: 200px !important; 
+    bottom: 100px !important; 
     left: 50% !important;
     transform: translateX(-50%) translateY(30px);
 }
@@ -310,7 +350,7 @@ body {
 /* ==========================================
    6. DOCUMENTAÇÃO & BOTÕES
    ========================================== */
-.curriculo-box {
+ .curriculo-box {
     margin-top: 20px;
     padding: 15px;
     background: rgba(0, 0, 0, 0.05);
@@ -319,8 +359,14 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
+    
+    /* APLICAÇÃO DO EFEITO */
+    animation: pulsar-border 2s infinite ease-in-out;
+    
+    /* Garante que o pulso não sobreponha outros itens */
+    position: relative; 
+    z-index: 1;
 }
-
 .btn-curriculo {
     width: 100%;
     display: flex;
@@ -352,124 +398,31 @@ body {
 
 .btn:hover { background: var(--text-main); color: var(--bg-page); transform: translate(-2px, -2px); }
 
-/* ==========================================
-   7. FOOTER FIXO
-   ========================================== */
-.footer-fixo {
-    position: fixed;
-    bottom: 0;
-    width: 100%;
-    height: 30px;
-    background: var(--glass);
-    border-top: 2px solid var(--glass-border);
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0 20px;
-    z-index: 500;
+@keyframes pulsar-border {
+    0% {
+        transform: scale(1);
+        box-shadow: 0 0 0 0 rgba(2, 132, 199, 0.4); /* Cor baseada na sua --accent-pro */
+    }
+    70% {
+        transform: scale(1.02); /* Aumenta levemente */
+        box-shadow: 0 0 0 10px rgba(34, 40, 44, 0); /* Cria a "onda" de luz sumindo */
+    }
+    100% {
+        transform: scale(1);
+        box-shadow: 0 0 0 0 rgba(2, 132, 199, 0);
+    }
 }
-
-.footer-info p { font-family: 'VT323'; font-size: 1.1rem; }
-.link-retro { font-family: 'Press Start 2P'; font-size: 0.55rem; text-decoration: none; color: var(--text-main); }
-
- 
-
-/* ==========================================
-   PALCO RESPONSIVO DEFINITIVO
-   ========================================== */
-   .viewport-container {
-    width: 100vw;
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center; /* Centraliza o palco verticalmente */
-    background-color: var(--bg-page);
-    overflow: hidden;
-    position: fixed;
-    top: 0;
-    left: 0;
-}
-
-.viewport-frame {
-    position: relative;
-    width: 95vw; /* Usa quase toda a largura */
-    max-width: 1100px; 
-    /* A mágica acontece aqui: */
-    max-height: 80vh; /* O palco nunca terá mais que 80% da altura da tela */
-    aspect-ratio: 16 / 9;
+@media (max-width: 768px) {
+    .viewport-frame {
+        width: 92vmin;  /* Aumentamos o palco no celular para aproveitar o espaço */
+        height: auto;
+        aspect-ratio: 16 / 9;
+    }
     
-    display: flex;
-    justify-content: center;
-    align-items: flex-end; 
-    padding-bottom: 20px; /* Margem interna para o avatar não tocar na borda do palco */
-    
-    transform-origin: center center;
-    transition: all 0.3s ease;
-}
-
-/* Garante que o avatar não suba na barra inferior */
-#avatar-wrapper {
-    position: absolute !important;
-    bottom: 5% !important; /* Usa porcentagem para subir com o palco */
-    /* ... resto do seu código ... */
-}
-
-/* Ajuste do Footer para não cobrir nada */
-.footer-fixo {
-    height: 40px; /* Altura fixa controlada */
-    line-height: 40px;
-    z-index: 2000;
-}
-
-/* ==========================================
-   PALCO RESPONSIVO DEFINITIVO
-   ========================================== */
-   .viewport-container {
-    width: 100vw;
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center; /* Centraliza o palco verticalmente */
-    background-color: var(--bg-page);
-    overflow: hidden;
-    position: fixed;
-    top: 0;
-    left: 0;
-}
-
-.viewport-frame {
-    position: relative;
-    width: 95vw; /* Usa quase toda a largura */
-    max-width: 1100px; 
-    /* A mágica acontece aqui: */
-    max-height: 80vh; /* O palco nunca terá mais que 80% da altura da tela */
-    aspect-ratio: 16 / 9;
-    
-    display: flex;
-    justify-content: center;
-    align-items: flex-end; 
-    padding-bottom: 20px; /* Margem interna para o avatar não tocar na borda do palco */
-    
-    transform-origin: center center;
-    transition: all 0.3s ease;
-}
-
-/* Garante que o avatar não suba na barra inferior */
-#avatar-wrapper {
-    position: absolute !important;
-    bottom: 5% !important; /* Usa porcentagem para subir com o palco */
-    /* ... resto do seu código ... */
-}
-
-/* Ajuste do Footer para não cobrir nada */
-.footer-fixo {
-    height: 40px; /* Altura fixa controlada */
-    line-height: 40px;
-    z-index: 2000;
-}
-
-@media (max-width: 480px) {
-    .bubble-grid {
-        flex-direction: column; /* No celular, vira uma pilha */
+    /* Descer o avatar um pouco mais no mobile se necessário */
+    #avatar-wrapper {
+        width: 100px !important; 
+        height: 130px !important;
+        bottom: 2% !important; 
     }
 }
