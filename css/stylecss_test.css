@@ -174,7 +174,7 @@ video {
     z-index: 100;
     
     /* Posição Base: Centralizada e acima do avatar */
-    bottom: 100px !important; 
+    bottom: 115px !important; 
     left: 50% !important;
     transform: translateX(-50%) translateY(30px);
 }
