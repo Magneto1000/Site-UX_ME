@@ -138,8 +138,8 @@ body {
 
 /* VÍDEO MINIATURA (Thumb) */
 video:not(#avatar-video) {
-    width: 120px;           /* Reduzi para 60px para ser uma miniatura bem discreta */
-    height: 90px;
+    width: 430px;           /* Reduzi para 60px para ser uma miniatura bem discreta */
+    height: 380px;
     object-fit: cover;
     border-radius: 2%;    /* Deixei quadrado para parecer um botão de preview */
     border: 2px solid var(--glass-border);
@@ -154,18 +154,30 @@ video:not(#avatar-video):hover {
     box-shadow: var(--shadow);
 }
 /* VÍDEO EXPANDIDO (Foco Total) */
+/* MODO TELA CHEIA (FOCO TOTAL SEM CORTES) */
 video.expandido {
     position: fixed;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%);
-    width: 95vw !important; /* No mobile ocupa quase tudo */
-    max-width: 800px;
-    height: auto !important;
+    transform: translate(-50%, -50%) !important;
+    
+    /* Força o vídeo a mostrar o conteúdo INTEIRO sem zoom */
+    object-fit: contain !important; 
+    
+    /* Define que ele deve ocupar o máximo possível, mas respeitar as bordas */
+    width: 90vw !important;  /* 90% da largura da tela */
+    height: 80vh !important; /* 80% da altura da tela */
+    
+    /* Remove qualquer limite que force o vídeo a ser maior que a janela */
+    max-width: 1000px; 
+    max-height: 100%; 
+
+    /* Estética Profissional */
     z-index: 9999;
-    box-shadow: 0 0 0 100vh rgba(0,0,0,0.9);
-    border-radius: 0; /* No mobile, borda reta aproveita mais a tela */
-    border: 4px solid var(--glass-border);
+    background-color: rgba(0, 0, 0, 0.95); /* Fundo preto para as sobras do vídeo */
+    box-shadow: 0 0 0 100vmax rgba(0, 0, 0, 0.9); /* Escurece todo o site */
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    border-radius: 8px;
     cursor: zoom-out;
 }
 
