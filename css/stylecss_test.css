@@ -227,7 +227,7 @@ video.expandido {
     z-index: 100;
     
     /* Posição Base: Centralizada e acima do avatar */
-    bottom: 115px !important; 
+    bottom: 125px !important; 
     left: 50% !important;
     transform: translateX(-50%) translateY(30px);
 }
