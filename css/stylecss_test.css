@@ -47,6 +47,7 @@ body {
     background-color: var(--bg-page);
     overflow: hidden;
     position: fixed;
+    touch-action: pinch-zoom; /* Permite especificamente o gesto de pinça */
     top: 0;
     left: 0;
     z-index: 1;
@@ -67,6 +68,9 @@ body {
     
     transform-origin: center center;
     transition: all 0.3s ease;
+
+    touch-action: manipulation; /* Garante que cliques e zooms sejam rápidos e permitidos */
+    overflow: visible; /* Garante que ao ampliar, o conteúdo não seja cortado */
 }
 
 /* Garante que o avatar não suba na barra inferior */
@@ -132,26 +136,37 @@ body {
 }
 [data-theme="dark"] #avatar-video { mix-blend-mode: screen; }
 
-/* Ajuste para o vídeo de apresentação do projeto */
+/* VÍDEO MINIATURA (Thumb) */
 video:not(#avatar-video) {
+    width: 120px;           /* Reduzi para 60px para ser uma miniatura bem discreta */
+    height: 90px;
+    object-fit: cover;
+    border-radius: 2%;    /* Deixei quadrado para parecer um botão de preview */
+    border: 2px solid var(--glass-border);
+    cursor: pointer;
     display: block;
-    width: 60%;         /* Faz o vídeo ocupar apenas 60% da largura do palco */
-    max-width: 500px;   /* Impede que ele fique gigante em monitores grandes */
-    height: auto;       /* Mantém a proporção correta */
-    margin: 20px auto;  /* Centraliza e dá distância dos outros elementos */
-    border: 3px solid var(--glass-border);
-    border-radius: 12px;
+    margin: 10px auto;
+    z-index: 10;
+    transition: transform 0.2s ease;
+}
+video:not(#avatar-video):hover {
+    transform: scale(1.05);
     box-shadow: var(--shadow);
 }
-/* Se o vídeo estiver dentro de algum container de texto ou projeto */
-.bubble video, .content video {
-    width: 280px !important; /* Tamanho fixo menor para caber no balão ou área de texto */
-    height: auto;
-    border-radius: 8px;
-}
-video {
-    max-width: 100%;   /* O vídeo nunca será maior que o container dele */
-    height: auto;      /* Mantém a proporção */
+/* VÍDEO EXPANDIDO (Foco Total) */
+video.expandido {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 95vw !important; /* No mobile ocupa quase tudo */
+    max-width: 800px;
+    height: auto !important;
+    z-index: 9999;
+    box-shadow: 0 0 0 100vh rgba(0,0,0,0.9);
+    border-radius: 0; /* No mobile, borda reta aproveita mais a tela */
+    border: 4px solid var(--glass-border);
+    cursor: zoom-out;
 }
 
 /* ==========================================
