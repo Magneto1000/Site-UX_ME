@@ -136,11 +136,37 @@ body {
 }
 [data-theme="dark"] #avatar-video { mix-blend-mode: screen; }
 
+/*---------------------------------------------------------------*/
+/* Ajuste para o vídeo de apresentação do projeto */
+video:not(#avatar-video) {
+    display: block;
+    width: 60%;         /* Faz o vídeo ocupar apenas 60% da largura do palco */
+    max-width: 500px;   /* Impede que ele fique gigante em monitores grandes */
+    height: auto;       /* Mantém a proporção correta */
+    margin: 20px auto;  /* Centraliza e dá distância dos outros elementos */
+    border: 3px solid var(--glass-border);
+    border-radius: 12px;
+    box-shadow: var(--shadow);
+}
+/* Se o vídeo estiver dentro de algum container de texto ou projeto */
+.bubble video, .content video {
+    width: 280px !important; /* Tamanho fixo menor para caber no balão ou área de texto */
+    height: auto;
+    border-radius: 8px;
+}
+video {
+    max-width: 100%;   /* O vídeo nunca será maior que o container dele */
+    height: auto;      /* Mantém a proporção */
+}
+/*----------------------------------------------------------------*/
+
+
+
+
 /* VÍDEO MINIATURA (Thumb) */
 video:not(#avatar-video) {
     width: 430px;           /* Reduzi para 60px para ser uma miniatura bem discreta */
     height: 380px;
-    object-fit: cover;
     border-radius: 2%;    /* Deixei quadrado para parecer um botão de preview */
     border: 2px solid var(--glass-border);
     cursor: pointer;
@@ -169,7 +195,7 @@ video.expandido {
     height: 80vh !important; /* 80% da altura da tela */
     
     /* Remove qualquer limite que force o vídeo a ser maior que a janela */
-    max-width: 1000px; 
+    max-width: 400px; 
     max-height: 100%; 
 
     /* Estética Profissional */
