@@ -479,3 +479,54 @@ video.expandido {
         bottom: 2% !important; 
     }
 }
+
+/* ==========================================
+   JANELA DA IA NO MOBILE (TELA CHEIA)
+   ========================================== */
+   @media (max-width: 768px) {
+    /* Altere '.janela-ia' para a classe real do seu container de chat */
+    .janela-ia {
+        position: fixed !important;
+        top: 0 !important;
+        left: 0 !important;
+        width: 100vw !important;  /* Ocupa 100% da largura da tela */
+        height: 100vh !important; /* Ocupa 100% da altura da tela */
+        max-width: 100% !important;
+        max-height: 100% !important;
+        
+        /* Remove arredondamentos e sombras pesadas para parecer app nativo */
+        border-radius: 0 !important; 
+        border: none !important;
+        box-shadow: none !important;
+        
+        /* Garante que ela fique por cima de absolutamente tudo (palco, footer, etc) */
+        z-index: 10000 !important; 
+        
+        /* Layout interno em Flexbox para empurrar o input para o rodapé */
+        display: flex;
+        flex-direction: column;
+        background: var(--bg-page); /* Usa o fundo do seu tema */
+    }
+
+    /* Ajuste do topo da janela (onde fica o botão de fechar e o título) */
+    .janela-ia-header {
+        padding: 15px;
+        border-bottom: 2px solid var(--glass-border);
+    }
+
+    /* Área onde as mensagens aparecem (scrollável) */
+    .janela-ia-mensagens {
+        flex: 1;                 /* Ocupa todo o espaço restante */
+        overflow-y: auto;        /* Permite rolar o histórico */
+        padding: 20px 15px;
+        -webkit-overflow-scrolling: touch; /* Scroll suave no iOS */
+    }
+
+    /* O campo de texto e botão de enviar fixados no rodapé */
+    .janela-ia-input-area {
+        padding: 12px;
+        border-top: 2px solid var(--glass-border);
+        background: var(--glass);
+        margin-bottom: env(safe-area-inset-bottom); /* Proteção para barra do iPhone */
+    }
+}
