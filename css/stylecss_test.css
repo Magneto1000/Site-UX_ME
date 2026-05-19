@@ -478,6 +478,33 @@ video.expandido {
         height: 130px !important;
         bottom: 2% !important; 
     }
+
+
+    /* 1. DOMANDO O AVATAR (O contêiner do seu personagem) */
+    .avatar-container, #avatar-video {
+        /* Reduzimos o tamanho físico dele para não ocupar metade da tela */
+        width: 120px !important;  /* Ajuste para o tamanho real que você usa no PC, ex: era 200px -> vai para 120px */
+        height: 120px !important; 
+        margin: 0 auto;           /* Mantém centralizado */
+    }
+
+    /* 2. ENCOLHENDO OS BALÕES DE FALA (.bubble) */
+    .bubble {
+        width: 90% !important;     /* Faz o balão ocupar quase a largura toda do celular, evitando quebras feias */
+        max-width: 340px !important; /* Limita para não esticar demais em celulares grandes */
+        padding: 12px 15px !important; /* Diminui o respiro interno para economizar espaço */
+        margin: 10px auto !important;  /* Aproxima o balão do avatar */
+        
+        /* Ajuste do Texto dentro do balão */
+        font-size: 1.1rem !important;  /* Se for a fonte VT323, 1.1rem fica legível e compacto */
+        line-height: 1.2 !important;
+    }
+
+    /* 3. SE OS BALÕES TIVEREM BOTÕES DE OPÇÃO DENTRO */
+    .bubble button, .chat-options button {
+        padding: 8px 10px !important;  /* Botões menores para os dedos conseguirem clicar sem errar */
+        font-size: 0.8rem !important;  /* Diminui a fonte do botão (especial se usar Press Start 2P) */
+    }
 }
 
 /* ==========================================
