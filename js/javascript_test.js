@@ -443,3 +443,15 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 });
+
+// Trecho que força o histórico do chat a rolar para o final quando o usuário focar no input no mobile
+document.addEventListener("click", function(e) {
+    if (e.target && e.target.id === "user-input") {
+        setTimeout(() => {
+            const chatBox = document.getElementById('chat-box');
+            if (chatBox) {
+                chatBox.scrollTop = chatBox.scrollHeight;
+            }
+        }, 300); // Aguarda o tempo da animação do teclado subir
+    }
+});
