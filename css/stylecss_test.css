@@ -4,8 +4,8 @@
    :root {
     --bg-page: #ffffff;
     --text-main: #1e293b;
-    --accent-pro: #0284c7;
-    --accent-casual: #16a34a;
+    --accent-pro: #f60808;
+    --accent-casual: #4909f9;
     --glass: rgba(255, 255, 255, 0.85);
     --glass-border: #1e293b; 
     --shadow: 6px 6px 0px rgba(0,0,0,0.1);
@@ -15,11 +15,9 @@
     --glass-border: #f8fafc; 
     --bg-page: #0f172a;
     --text-main: #f8fafc;
+    --glass: rgba(15, 23, 42, 0.85);
 }
 
-/* ==========================================
-   2. ESTRUTURA GLOBAL E VIEWPORT
-   ========================================== */
 * { margin: 0; padding: 0; box-sizing: border-box; outline: none; }
 
 body {
@@ -30,535 +28,462 @@ body {
     overflow: hidden;
     transition: background 0.5s ease;
 }
-.viewport-frame.zoom-active {
-    transform: scale(1) !important; /* Volta ao tamanho real */
-    cursor: zoom-out;
-}
 
 /* ==========================================
-   PALCO RESPONSIVO DEFINITIVO
+   2. PALCO E CENA INTERATIVA
    ========================================== */
-   .viewport-container {
+.viewport-container {
     width: 100vw !important;
-    height: 100vh!important;
+    height: 100vh !important;
     display: flex;
     justify-content: center;
     align-items: center;
     background-color: var(--bg-page);
-    overflow: hidden;
     position: fixed;
-    touch-action: pinch-zoom; /* Permite especificamente o gesto de pinça */
-    top: 0;
-    left: 0;
-    z-index: 1;
-    transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-    padding: 2vh 2vw !important; /* Deixa um respiro sutil nas bordas em qualquer resolução */
-    /* Garante o comportamento de caixa elástica */
-    box-sizing: border-box !important;
-    /* Bloqueia qualquer tentativa do conteúdo de 'estourar' para fora */
+    touch-action: pinch-zoom;
+    top: 0; left: 0; z-index: 1;
+    padding: 2vh 2vw !important;
     overflow: hidden !important;
 }
 
-.viewport-frame {
+.viewport-3d-scene {
     position: relative;
-    width: 65vmin;      /* ALTERE DE 95vw PARA 75vmin (Deixa o palco menor) */
-    max-width: 1100px; 
-    max-height: 75vh;   /* ALTERE DE 80vh PARA 75vh */
-    aspect-ratio: 16 / 9;
-    
-    display: flex;
-    justify-content: center;
-    align-items: flex-end; 
-    padding-bottom: 20px; /* Margem interna para o avatar não tocar na borda do palco */
-    
-    transform-origin: center center;
-    transition: all 0.3s ease;
-
-    touch-action: manipulation; /* Garante que cliques e zooms sejam rápidos e permitidos */
-    overflow: visible; /* Garante que ao ampliar, o conteúdo não seja cortado */
-}
-
-/* Garante que o avatar não suba na barra inferior */
-#avatar-wrapper {
-    position: absolute !important;
-    bottom: 5% !important; /* Usa porcentagem para subir com o palco */
-    /* ... resto do seu código ... */
-}
-
-/* Ajuste do Footer para não cobrir nada */
-.footer-fixo {
-    position: fixed;
-    bottom: 0;
-    width: 100%;
-    height: 40px;
-    background: var(--glass);
-    backdrop-filter: blur(10px);
-    border-top: 2px solid var(--glass-border);
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0 20px;
-    z-index: 3000; /* Garante que fique acima de tudo */
+    width: 100%; height: 100%;
+    max-width: 1200px; max-height: 800px;
+    display: flex; justify-content: center; align-items: center;
+    perspective: 1000px;
 }
 
 /* ==========================================
-   3. AVATAR (ESTILO E CAMINHADA)
+   3. CONFIGURAÇÕES DOS QUADROS FLUTUANTES
    ========================================== */
-#avatar-wrapper {
-    position: absolute !important;
-    bottom: -25% !important;
-    left: 50%;
-    width: 130px !important;
-    height: 160px !important;
-    transform: translateX(-50%);
-    transition: left 1.5s linear !important;
-    z-index: 10;
-}
-
-#avatar-container {
-    width: 100%;
-    height: 100%;
-    position: relative;
-    transition: transform 0.2s ease;
-}
-
-.olhar-esquerda { transform: scaleX(-1) !important; }
-
-#avatar-static, #avatar-video {
-    width: 100%; 
-    height: 100%; 
-    object-fit: contain;
-    image-rendering: pixelated; 
+.quadro-flutuante {
     position: absolute;
-    transition: opacity 0.3s ease;
-}
-
-#avatar-video { opacity: 0; mix-blend-mode: multiply; }
-
-[data-theme="dark"] #avatar-video, 
-[data-theme="dark"] #avatar-static { 
-    filter: invert(1) hue-rotate(180deg); 
-}
-[data-theme="dark"] #avatar-video { mix-blend-mode: screen; }
-
-/*---------------------------------------------------------------*/
-/* Ajuste para o vídeo de apresentação do projeto */
-video:not(#avatar-video) {
-    display: block;
-    width: 60%;         /* Faz o vídeo ocupar apenas 60% da largura do palco */
-    max-width: 500px;   /* Impede que ele fique gigante em monitores grandes */
-    height: auto;       /* Mantém a proporção correta */
-    margin: 20px auto;  /* Centraliza e dá distância dos outros elementos */
+    background: var(--glass);
+    backdrop-filter: blur(15px);
     border: 3px solid var(--glass-border);
-    border-radius: 12px;
+    padding: 30px;
+    border-radius: 20px;
     box-shadow: var(--shadow);
-}
-/* Se o vídeo estiver dentro de algum container de texto ou projeto */
-.bubble video, .content video {
-    width: 280px !important; /* Tamanho fixo menor para caber no balão ou área de texto */
+    width: 440px;
     height: auto;
-    border-radius: 8px;
-}
-video {
-    max-width: 100%;   /* O vídeo nunca será maior que o container dele */
-    height: auto;      /* Mantém a proporção */
-}
-/*----------------------------------------------------------------*/
-
-
-
-
-/* VÍDEO MINIATURA (Thumb) */
-video:not(#avatar-video) {
-    width: 430px;           /* Reduzi para 60px para ser uma miniatura bem discreta */
-    height: 380px;
-    border-radius: 2%;    /* Deixei quadrado para parecer um botão de preview */
-    border: 2px solid var(--glass-border);
-    cursor: pointer;
-    display: block;
-    margin: 10px auto;
-    z-index: 10;
-    transition: transform 0.2s ease;
-}
-video:not(#avatar-video):hover {
-    transform: scale(1.05);
-    box-shadow: var(--shadow);
-}
-/* VÍDEO EXPANDIDO (Foco Total) */
-/* MODO TELA CHEIA (FOCO TOTAL SEM CORTES) */
-video.expandido {
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%) !important;
+    font-family: 'VT323', monospace;
+    transition: transform 0.6s cubic-bezier(0.165, 0.84, 0.44, 1), 
+                filter 0.6s ease, opacity 0.6s ease, left 0.6s ease, right 0.6s ease;
     
-    /* Força o vídeo a mostrar o conteúdo INTEIRO sem zoom */
-    object-fit: contain !important; 
-    
-    /* Define que ele deve ocupar o máximo possível, mas respeitar as bordas */
-    width: 90vw !important;  /* 90% da largura da tela */
-    height: 80vh !important; /* 80% da altura da tela */
-    
-    /* Remove qualquer limite que force o vídeo a ser maior que a janela */
-    max-width: 400px; 
-    max-height: 100%; 
-
-    /* Estética Profissional */
-    z-index: 9999;
-    background-color: rgba(0, 0, 0, 0.95); /* Fundo preto para as sobras do vídeo */
-    box-shadow: 0 0 0 100vmax rgba(0, 0, 0, 0.9); /* Escurece todo o site */
-    border: 2px solid rgba(255, 255, 255, 0.2);
-    border-radius: 8px;
-    cursor: zoom-out;
 }
+
+/* Posições estáticas de fundo nas laterais */
+#quadro-pro { left: 4%; top: 12%; }
+#quadro-casual { right: 4%; top: 12%; }
+
+.quadro-header { display: flex; flex-direction: column; margin-bottom: 15px; }
+.quadro-header h2 { font-size: 2.5rem; }
+.header-pro h2 { color: var(--accent-pro); }
+.header-casual h2 { color: var(--accent-casual); }
+.btn-voltar-link { align-self: flex-end; cursor: pointer; font-size: 1.2rem; opacity: 0.8; }
+.btn-voltar-link:hover { opacity: 1; }
+.quadro-conteudo { display: flex; flex-direction: column; gap: 8px; }
 
 /* ==========================================
-   4. BALÕES DE FALA (BUBBLES) - CORRIGIDO
+   4. CONFIGURAÇÃO DO AVATAR ESTÁTICO GRANDE
    ========================================== */
-.bubble {
+.quadro-avatar {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    bottom: 5%;
+    left: 50%;
+    transform: translateX(-50%);
+    transition: all 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+.bubble-dialogo {
     background: var(--glass);
     backdrop-filter: blur(15px);
     border: 3px solid var(--glass-border);
     padding: 25px;
     border-radius: 20px;
-    position: absolute !important;
-    width: 90vw;
-    max-width: 380px;
-    height: auto !important; /* Permite que o balão cresça com o conteúdo */
     box-shadow: var(--shadow);
-    opacity: 0;
-    pointer-events: none;
-    transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
-    z-index: 100;
-    
-    /* Posição Base: Centralizada e acima do avatar */
-    bottom: 125px !important; 
-    left: 50% !important;
-    transform: translateX(-50%) translateY(30px);
-}
-
-.bubble::after {
-    content: '';
-    position: absolute;
-    bottom: -15px;
-    left: 50%;
-    transform: translateX(-50%);
-    border-left: 12px solid transparent;
-    border-right: 12px solid transparent;
-    border-top: 15px solid var(--glass-border);
-}
-
-.visible { opacity: 1 !important; pointer-events: all !important; transform: translateX(-50%) translateY(0) !important; }
-
-/* Ajustes Específicos de Alinhamento para os Painéis Laterais */
-#panel-pro {
-    left: 18% !important; /* Alinhado com a parada do avatar na esquerda */
-}
-
-#panel-casual {
-    left: 82% !important; /* Alinhado com a parada do avatar na direita */
-}
-
-/* Container que organiza os botões em colunas (lado a lado) */
-.bubble-grid {
-    display: flex;
-    justify-content: space-between;
-    gap: 12px;
-    margin-top: 15px;
-    width: 100%;
-}
-
-/* Estilo padronizado para os botões de escolha */
-.btn-bubble {
-    flex: 1; /* Faz os dois botões terem o mesmo tamanho exato */
-    padding: 10px 5px;
-    font-family: 'Press Start 2P', cursive;
-    font-size: 8px; /* Tamanho pequeno para caber palavras longas */
-    text-transform: uppercase;
+    width: 420px;
     text-align: center;
-    cursor: pointer;
-    border: 2px solid #000;
-    box-shadow: 3px 3px 0px #000;
-    transition: transform 0.1s, box-shadow 0.1s;
+    font-family: 'VT323', monospace;
+    margin-bottom: 10px;
+    transition: opacity 0.4s ease;
 }
 
-/* Cores específicas para cada botão */
-.btn-prof { background-color: #22c55e; color: white; } /* Verde */
-.btn-casu { background-color: #f59e0b; color: white; } /* Laranja */
+.bubble-dialogo h1 { font-size: 2.8rem; margin-bottom: 10px; }
+.bubble-dialogo p { font-size: 1.2rem; line-height: 1.3; margin-bottom: 15px; }
 
-/* Efeito de clique em ambos */
-.btn-bubble:active {
-    transform: translate(2px, 2px);
-    box-shadow: 1px 1px 0px #000;
+/* AVATAR ESTÁTICO GRANDE EM PRIMEIRO PLANO */
+#avatar-wrapper {
+    position: relative;
+    width: 980px !important;  /* Tamanho aumentado substancialmente */
+    height: 310px !important; 
+    transition: transform 0.2s ease;
+}
+
+#avatar-static {
+    width: 100%; height: 100%; 
+    object-fit: contain;
+    image-rendering: pixelated; 
+    display: block;
+}
+
+[data-theme="dark"] #avatar-static { 
+    filter: invert(1) hue-rotate(180deg); 
 }
 
 /* ==========================================
-   5. CHAT, GAME E MODAIS
+   5. GERENCIAMENTO TRIDIMENSIONAL DE CAMADAS (FOCO)
    ========================================== */
-.chat-container {
-    display: flex;
-    flex-direction: column;
-    height: 400px;
-    background: rgba(0, 0, 0, 0.05);
-    border: 3px solid var(--glass-border);
-    border-radius: 12px;
-    overflow: hidden;
-    font-family: 'VT323', monospace;
+
+/* PRIMEIRO PLANO (Quadro em foco com levitação lenta ativa) */
+.plano-frente {
+    z-index: 600 !important;
+    filter: blur(0px) !important;
+    opacity: 1 !important;
+    pointer-events: all !important;
 }
 
-.chat-messages {
-    flex: 1;
-    padding: 15px;
-    overflow-y: auto;
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
+/* SEGUNDO PLANO (Elemento jogado para trás - Médio desfoque) */
+.plano-fundo {
+    z-index: 100 !important;
+    filter: blur(5px);
+    opacity: 0.45;
+    pointer-events: none;
 }
 
-.message-ai {
-    align-self: flex-start;
-    color: rgb(247, 249, 248);
-    background: black;
-    border: 1px solid var(--glass-border);
-    padding: 8px 12px;
-    border-radius: 8px;
-    font-size: 1.2rem;
+/* TERCEIRO PLANO (Elemento no fundo absoluto - Máximo desfoque) */
+.plano-afastado {
+    z-index: 10 !important;
+    filter: blur(9px);
+    opacity: 0.12;
+    pointer-events: none;
 }
 
-.chat-input-area { display: flex; border-top: 3px solid var(--glass-border); }
-
-.chat-input {
-    flex: 1;
-    background: transparent;
-    border: none;
-    padding: 10px;
-    font-family: 'VT323';
-    font-size: 1.2rem;
-    color: var(--text-main);
+@keyframes levitateQuadro {
+    0% { transform: scale(1) translateY(0px); }
+    50% { transform: scale(1) translateY(-14px); }
+    100% { transform: scale(1) translateY(0px); }
 }
 
-.chat-send-btn {
-    background: var(--glass-border);
-    color: var(--bg-page);
-    border: none;
-    padding: 0 15px;
-    font-family: 'Press Start 2P';
-    font-size: 0.6rem;
-    cursor: pointer;
+/* Centralização Absoluta Dinâmica controlada pelo JS */
+.quadro-centralizado-pro {
+    left: 50% !important;
+    top: 15% !important;
+    transform: translateX(-50%) !important;
 }
 
-.game-wrapper {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 15px;
-    width: 100%;
+.quadro-centralizado-casual {
+    right: 50% !important;
+    top: 15% !important;
+    transform: translateX(50%) !important;
 }
 
-#pingPong {
-    border: 4px solid var(--glass-border);
-    background: #000;
-    image-rendering: pixelated;
-    box-shadow: var(--shadow);
-    max-width: 100%;
-    display: block;
+/* ==========================================
+   6. COMPONENTES DE INTERACTION DESIGN
+   ========================================== */
+.bubble-grid { display: flex; justify-content: space-between; gap: 12px; width: 100%; }
+.btn-bubble {
+    flex: 1; padding: 12px 5px; font-family: 'Press Start 2P', cursive; font-size: 9px;
+    text-transform: uppercase; text-align: center; cursor: pointer;
+    border: 3px solid #000; box-shadow: 4px 4px 0px #000; transition: 0.1s;
 }
-#pingPong {
-    /* ... suas outras regras ... */
-    touch-action: none; /* Impede o navegador de rolar a página ao tocar no canvas */
-    cursor: pointer;    /* Melhora a percepção de clique */
+.btn-prof { background-color: #f10606; color: white; }
+.btn-casu { background-color: #2200fc; color: white; }
+.btn-bubble:active { transform: translate(2px, 2px); box-shadow: 1px 1px 0px #000; }
+
+.btn {
+    padding: 12px 18px; margin: 4px 0; cursor: pointer; font-family: 'Press Start 2P'; 
+    font-size: 0.6rem; background: var(--bg-page); color: var(--text-main); 
+    border: 2px solid var(--glass-border); border-radius: 8px; width: 100%; text-align: left;
 }
-#pingPong {
-    width: 100% !important; /* Faz o canvas ocupar a largura do modal */
-    height: auto !important; /* Mantém a proporção correta */
-    max-width: 500px;        /* Não deixa ele crescer além do original */
+.btn:hover { background: var(--text-main); color: var(--bg-page); transform: translateX(4px); }
+
+.curriculo-box {
+    margin-top: 15px; padding: 12px; background: rgba(0, 0, 0, 0.05);
+    border: 2px dashed var(--glass-border); border-radius: 12px; display: flex;
+    flex-direction: column; align-items: center; animation: pulsar-border 2s infinite ease-in-out;
+    animation: levitateQuadro 4s ease-in-out infinite !important;
+}
+.label-retro { font-family: 'Press Start 2P'; font-size: 0.5rem; margin-bottom: 8px; color: var(--text-main); }
+.btn-curriculo {
+    width: 100%; display: flex; align-items: center; justify-content: center; gap: 8px; padding: 10px;
+    background: var(--bg-page); border: 3px solid var(--glass-border); box-shadow: 4px 4px 0px var(--glass-border);
+    font-family: 'Press Start 2P'; font-size: 0.55rem; text-decoration: none; color: var(--text-main);
+}
+@keyframes pulsar-border {
+    0% { box-shadow: 0 0 0 0 rgba(2, 132, 199, 0.4); }
+    70% { box-shadow: 0 0 0 8px rgba(34, 40, 44, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(2, 132, 199, 0); }
 }
 
-.score-board {
-    font-family: 'Press Start 2P', cursive;
-    font-size: 1rem;
-    color: var(--glass-border);
-    border: 2px solid var(--glass-border);
-    padding: 8px 15px;
-    background: var(--glass);
-}
+.projeto-card { border: 2px solid var(--glass-border); padding: 15px; background: rgba(0, 0, 0, 0.02); border-radius: 8px; margin-bottom: 10px; }
 
+/* MODAIS, CHAT E PING PONG */
 .overlay {
     position: fixed; top: 0; left: 0; width: 100%; height: 100%;
     background: rgba(0,0,0,0.6); backdrop-filter: blur(8px);
-    z-index: 2000; display: none; align-items: center; justify-content: center;
+    z-index: 5000; display: none; align-items: center; justify-content: center;
 }
-
 .modal {
-    background: var(--bg-page);
-    border-radius: 30px;
-    border: 3px solid var(--glass-border);
-    box-shadow: var(--shadow);
-    position: relative;
-    text-align: left;
-    max-width: 600px; 
-    width: 95%;       
-    padding: 30px;    
+    background: var(--bg-page); border-radius: 30px; border: 3px solid var(--glass-border);
+    box-shadow: var(--shadow); position: relative; text-align: left;
+    max-width: 600px; width: 95%; padding: 30px; max-height: 85vh; overflow-y: auto;    
 }
+.modal h3 { font-family: 'VT323'; font-size: 3rem; margin-bottom: 15px; }
+.close-modal { position: absolute; top: 15px; right: 20px; cursor: pointer; font-size: 2rem; font-weight: bold; z-index: 10; }
 
-.modal h3 { font-family: 'VT323'; font-size: 3rem; margin-bottom: 10px; }
-.close-modal { position: absolute; top: 15px; right: 20px; cursor: pointer; font-size: 2rem; font-weight: bold; }
+.chat-container { display: flex; flex-direction: column; height: 380px; background: rgba(0, 0, 0, 0.03); border: 3px solid var(--glass-border); border-radius: 12px; overflow: hidden; font-family: 'VT323', monospace; }
+.chat-messages { flex: 1; padding: 15px; overflow-y: auto; display: flex; flex-direction: column; gap: 10px; }
+.message-ai { align-self: flex-start; color: rgb(247, 249, 248); background: #000; border: 1px solid var(--glass-border); padding: 8px 12px; border-radius: 8px; font-size: 1.3rem; }
+.chat-input-area { display: flex; border-top: 3px solid var(--glass-border); }
+.chat-input { flex: 1; background: transparent; border: none; padding: 12px; font-family: 'VT323'; font-size: 1.3rem; color: var(--text-main); }
+.chat-send-btn { background: var(--glass-border); color: var(--bg-page); border: none; padding: 0 20px; font-family: 'Press Start 2P'; font-size: 0.6rem; cursor: pointer; }
+
+/* CANVAS DO JOGO */
+.score-board { font-family: 'Press Start 2P', cursive; font-size: 1rem; color: var(--glass-border); border: 2px solid var(--glass-border); padding: 8px 15px; background: var(--glass); margin-bottom: 10px; }
+#pingPong { border: 4px solid var(--glass-border); background: #000; touch-action: none; width: 100%; max-width: 500px; height: auto; }
+
+.footer-fixo {
+    position: fixed; bottom: 0; width: 100%; height: 40px;
+    background: var(--glass); backdrop-filter: blur(10px);
+    border-top: 2px solid var(--glass-border); display: flex;
+    justify-content: space-between; align-items: center; padding: 0 20px; z-index: 3000;
+    font-family: 'VT323', monospace; font-size: 1.2rem;
+}
+.footer-links a { text-decoration: none; color: var(--text-main); }
 
 /* ==========================================
-   6. DOCUMENTAÇÃO & BOTÕES
+   AJUSTE DE MINIATURA DE VÍDEO (PC)
    ========================================== */
- .curriculo-box {
-    margin-top: 20px;
-    padding: 15px;
-    background: rgba(0, 0, 0, 0.05);
-    border: 2px dashed var(--glass-border);
-    border-radius: 12px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+   video:not(#avatar-video) {
+    width: 100% !important;   /* Ocupa a largura total disponível dentro do modal */
+    max-width: 520px !important; /* Limite máximo elegante para não quebrar o visual no monitor */
+    height: auto !important;  /* Calcula a altura proporcional automaticamente */
+    aspect-ratio: 16 / 9 !important; /* Força a proporção de cinema (widescreen) */
     
-    /* APLICAÇÃO DO EFEITO */
-    animation: pulsar-border 2s infinite ease-in-out;
-    
-    /* Garante que o pulso não sobreponha outros itens */
-    position: relative; 
-    z-index: 1;
-}
-.btn-curriculo {
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 8px;
-    padding: 12px;
-    background: var(--bg-page);
-    border: 3px solid var(--glass-border);
-    box-shadow: 4px 4px 0px var(--glass-border);
-    font-family: 'Press Start 2P';
-    font-size: 0.55rem;
-    text-decoration: none;
-    color: var(--text-main);
-}
-
-.btn {
-    padding: 12px 18px; 
-    margin: 6px; 
+    border-radius: 12px !important;
+    border: 3px solid var(--glass-border) !important;
     cursor: pointer;
-    font-family: 'Press Start 2P'; 
-    font-size: 0.55rem;
-    background: var(--bg-page); 
-    color: var(--text-main); 
-    border: 2px solid var(--glass-border); 
-    border-radius: 8px;
-    transition: 0.2s;
+    display: block;
+    margin: 15px auto !important; /* Centraliza no meio do modal e afasta dos textos */
+    z-index: 10;
+    box-shadow: var(--shadow) !important;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
-.btn:hover { background: var(--text-main); color: var(--bg-page); transform: translate(-2px, -2px); }
-
-@keyframes pulsar-border {
-    0% {
-        transform: scale(1);
-        box-shadow: 0 0 0 0 rgba(2, 132, 199, 0.4); /* Cor baseada na sua --accent-pro */
-    }
-    70% {
-        transform: scale(1.02); /* Aumenta levemente */
-        box-shadow: 0 0 0 10px rgba(34, 40, 44, 0); /* Cria a "onda" de luz sumindo */
-    }
-    100% {
-        transform: scale(1);
-        box-shadow: 0 0 0 0 rgba(2, 132, 199, 0);
-    }
+video:not(#avatar-video):hover {
+    transform: scale(1.02) !important; /* Efeito sutil de aproximação ao passar o mouse */
 }
-@media (max-width: 768px) {
-    .viewport-frame {
-        width: 92vmin;  /* Aumentamos o palco no celular para aproveitar o espaço */
-        height: auto;
-        aspect-ratio: 16 / 9;
-    }
-    
-    /* Descer o avatar um pouco mais no mobile se necessário */
-    #avatar-wrapper {
-        width: 100px !important; 
-        height: 130px !important;
-        bottom: 2% !important; 
-    }
 
 
-    /* 1. DOMANDO O AVATAR (O contêiner do seu personagem) */
-    .avatar-container, #avatar-video {
-        /* Reduzimos o tamanho físico dele para não ocupar metade da tela */
-        width: 120px !important;  /* Ajuste para o tamanho real que você usa no PC, ex: era 200px -> vai para 120px */
-        height: 120px !important; 
-        margin: 0 auto;           /* Mantém centralizado */
-    }
-
-    /* 2. ENCOLHENDO OS BALÕES DE FALA (.bubble) */
-    .bubble {
-        width: 90% !important;     /* Faz o balão ocupar quase a largura toda do celular, evitando quebras feias */
-        max-width: 340px !important; /* Limita para não esticar demais em celulares grandes */
-        padding: 12px 15px !important; /* Diminui o respiro interno para economizar espaço */
-        margin: 10px auto !important;  /* Aproxima o balão do avatar */
-        
-        /* Ajuste do Texto dentro do balão */
-        font-size: 1.1rem !important;  /* Se for a fonte VT323, 1.1rem fica legível e compacto */
-        line-height: 1.2 !important;
-    }
-
-    /* 3. SE OS BALÕES TIVEREM BOTÕES DE OPÇÃO DENTRO */
-    .bubble button, .chat-options button {
-        padding: 8px 10px !important;  /* Botões menores para os dedos conseguirem clicar sem errar */
-        font-size: 0.8rem !important;  /* Diminui a fonte do botão (especial se usar Press Start 2P) */
-    }
-}
 
 /* ==========================================
-   JANELA DA IA NO MOBILE (TELA CHEIA)
+   9. MEDIA QUERY ADAPTADA PARA O CENÁRIO 3D MOBILE
    ========================================== */
    @media (max-width: 768px) {
-    /* Altere '.janela-ia' para a classe real do seu container de chat */
-    .janela-ia {
-        position: fixed !important;
-        top: 0 !important;
-        left: 0 !important;
-        width: 100vw !important;  /* Ocupa 100% da largura da tela */
-        height: 100vh !important; /* Ocupa 100% da altura da tela */
-        max-width: 100% !important;
-        max-height: 100% !important;
-        
-        /* Remove arredondamentos e sombras pesadas para parecer app nativo */
+    /* 1. CONFIGURAÇÃO BASE DOS QUADROS NO MOBILE */
+    .quadro-flutuante { 
+        width: 92vw; 
+        padding: 20px; 
+    }
+
+    /* Esconde os quadros que estão em segundo/terceiro plano para não atropelar a tela */
+    .plano-fundo, .plano-afastado {
+        opacity: 0 !important;
+        pointer-events: none !important;
+        transform: scale(0.7) translateY(50px) !important;
+    }
+
+    /* Posição de repouso inicial caso o JS precise ler */
+    #quadro-pro, #quadro-casual { 
+        top: 3% !important; 
+    }
+    
+    /* 2. CALIBRAÇÃO DOS QUADROS QUANDO ESTIVEREM ATIVOS (PRIMEIRO PLANO) */
+    .quadro-centralized-pro,
+    .quadro-centralizado-pro { 
+        left: 50% !important; 
+        right: auto !important;
+        top: 2% !important; /* Fixa bem perto do topo do celular */
+        transform: translateX(-50%) !important;
+        animation: none !important; /* Remove oscilação no mobile para melhorar a UX do toque */
+    }
+    
+    .quadro-centralized-casual,
+    .quadro-centralizado-casual { 
+        right: 50% !important; 
+        left: auto !important;
+        top: 2% !important; /* Fixa bem perto do topo do celular */
+        transform: translateX(50%) !important;
+        animation: none !important; /* Remove oscilação no mobile para melhorar a UX do toque */
+    }
+
+    /* 3. COMPORTAMENTO DO AVATAR E DO BALÃO CENTRAL */
+    .quadro-avatar { 
+        bottom: 10%; 
+        transition: all 0.5s ease-in-out;
+    }
+
+    /* Recua o avatar para o rodapé e diminui o tamanho dele quando um quadro for aberto */
+    .quadro-avatar.plano-fundo {
+        bottom: 1% !important;
+        transform: translateX(-50%) scale(0.75) !important;
+        opacity: 0.8 !important; /* Deixa o avatar sutilmente translúcido em segundo plano */
+    }
+
+    .bubble-dialogo { 
+        width: 88vw; 
+        padding: 15px; 
+    }
+    
+    .bubble-dialogo h1 { 
+        font-size: 2rem; 
+    }
+    
+    #avatar-wrapper { 
+        width: 140px !important; 
+        height: 180px !important; 
+    }
+    /* Esconde o cabeçalho mobile por padrão no Desktop */
+    .chat-mobile-header {
+        display: none;
+    }
+
+    /* ==========================================================
+       4. CHAT DA IA EM TELA CHEIA (FULL-SCREEN MODAL) - MOBILE CORRIGIDO
+       ========================================================== */
+       .janela-ia-mobile-fs { 
+        position: fixed !important; 
+        top: 0 !important; 
+        left: 0 !important; 
+        width: 100vw !important; 
+        height: 100vh !important; 
+        max-width: 100vw !important; 
+        max-height: 100vh !important; 
         border-radius: 0 !important; 
-        border: none !important;
-        box-shadow: none !important;
-        
-        /* Garante que ela fique por cima de absolutamente tudo (palco, footer, etc) */
+        border: none !important; 
         z-index: 10000 !important; 
         
-        /* Layout interno em Flexbox para empurrar o input para o rodapé */
-        display: flex;
-        flex-direction: column;
-        background: var(--bg-page); /* Usa o fundo do seu tema */
+        /* Força o comportamento elétrico do Flexbox */
+        display: flex !important; 
+        flex-direction: column !important; 
+        background-color: var(--bg-page) !important; /* Garante que tampe o palco atrás */
+        padding: 15px !important;
+        box-sizing: border-box !important;
     }
 
-    /* Ajuste do topo da janela (onde fica o botão de fechar e o título) */
-    .janela-ia-header {
-        padding: 15px;
-        border-bottom: 2px solid var(--glass-border);
-    }
-
-    /* Área onde as mensagens aparecem (scrollável) */
-    .janela-ia-mensagens {
-        flex: 1;                 /* Ocupa todo o espaço restante */
-        overflow-y: auto;        /* Permite rolar o histórico */
-        padding: 20px 15px;
+    /* Garante que o histórico role e não empurre o input para fora da tela */
+    .janela-ia-mobile-fs .chat-messages {
+        flex: 1 !important;
+        overflow-y: auto !important;
+        display: flex !important;
+        flex-direction: column !important;
+        gap: 10px !important;
+        margin-bottom: 10px !important;
         -webkit-overflow-scrolling: touch; /* Scroll suave no iOS */
     }
 
-    /* O campo de texto e botão de enviar fixados no rodapé */
-    .janela-ia-input-area {
-        padding: 12px;
-        border-top: 2px solid var(--glass-border);
-        background: var(--glass);
-        margin-bottom: env(safe-area-inset-bottom); /* Proteção para barra do iPhone */
+    /* Fixa e isola a área de digitação na base do celular */
+    .janela-ia-mobile-fs .chat-input-area {
+        display: flex !important;
+        width: 100% !important;
+        height: 50px !important; /* Tamanho fixo perfeito para o toque */
+        background: var(--glass) !important;
+        border: 2px solid var(--glass-border) !important;
+        border-radius: 8px !important;
+        overflow: hidden !important;
+        margin-bottom: env(safe-area-inset-bottom) !important; /* Protege contra a barra de gestos do iPhone/Android */
+        flex-shrink: 0 !important; /* Impede a div de encolher */
     }
+
+    /* Ajuste fino do input para digitação livre */
+    .janela-ia-mobile-fs .chat-input {
+        flex: 1 !important;
+        height: 100% !important;
+        padding: 10px !important;
+        font-size: 1.2rem !important;
+        background: transparent !important;
+        color: var(--text-main) !important;
+        border: none !important;
+    }
+
+    /* Ajuste do botão enviar */
+    .janela-ia-mobile-fs .chat-send-btn {
+        height: 100% !important;
+        background: var(--glass-border) !important;
+        color: var(--bg-page) !important;
+        border: none !important;
+        padding: 0 15px !important;
+        cursor: pointer !important;
+    }
+    /* ==========================================================
+       4. CHAT DA IA EM TELA CHEIA - COMPLEMENTO DO BOTÃO FECHAR
+       ========================================================== */
+       .janela-ia-mobile-fs .chat-mobile-header {
+        display: flex !important;
+        justify-content: flex-end;
+        padding-bottom: 10px;
+        border-bottom: 2px dashed var(--glass-border);
+        margin-bottom: 10px;
+        flex-shrink: 0; /* Impede o cabeçalho de sumir */
+    }
+
+    .chat-mobile-close {
+        font-family: 'Press Start 2P', monospace;
+        font-size: 0.7rem;
+        color: var(--accent-casual); /* Destaca em verde casual ou use var(--text-main) */
+        cursor: pointer;
+        padding: 5px 10px;
+        border: 2px solid var(--glass-border);
+        background: var(--bg-page);
+        box-shadow: 3px 3px 0px var(--glass-border);
+    }
+    
+    .chat-mobile-close:active {
+        transform: translate(2px, 2px);
+        box-shadow: 1px 1px 0px var(--glass-border);
+    }
+
+    .footer-fixo {
+        height: auto !important; /* Permite que a barra cresça verticalmente se necessário */
+        flex-direction: column !important; /* Muda de linha para coluna */
+        justify-content: center !important;
+        align-items: center !important;
+        padding: 10px !important;
+        gap: 8px !important; /* Dá um respiro entre o seu nome e os links */
+    }
+
+    .footer-info p {
+        font-size: 0.9rem !important; /* Ajusta o tamanho do texto do seu nome */
+        text-align: center;
+    }
+
+    .footer-links {
+        display: flex;
+        flex-wrap: wrap; /* Se mesmo em linha faltar espaço, ele quebra para a linha de baixo ordenadamente */
+        justify-content: center;
+        gap: 10px !important; /* Substitui as barras '|' por um espaçamento limpo e moderno */
+    }
+
+    .footer-links a {
+        font-size: 1rem !important; /* Garante tamanho de toque excelente para os dedos (UX Touch Target) */
+        padding: 4px 8px;
+    }
+    video:not(#avatar-video) {
+        width: 100% !important;   /* Força o vídeo a ocupar apenas a largura útil do modal */
+        height: auto !important;  /* Calcula a altura proporcional automaticamente, sem esmagar */
+        max-width: 100% !important;
+        margin: 10px auto !important; /* Centraliza e dá uma margem leve */
+        border-radius: 8px !important; /* Deixa os cantos arredondados suavizados de acordo com os cards */
+    }
+
+    /* Se o vídeo estiver dentro do container expandido da classe que você criou */
+    .video-expande-plus {
+        width: 100% !important;
+        padding: 0 !important;
+    } 
 }

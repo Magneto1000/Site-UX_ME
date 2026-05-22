@@ -176,3 +176,80 @@ body.projeto-page {
         max-height: 85%;
     }
 }
+
+/* ==========================================
+   ARQUITETURA DE PÁGINAS DE PROJETOS (PC & MOBILE)
+   ========================================== */
+
+/* 1. CONTAINER CENTRALIZADOR DA PÁGINA */
+.project-page-container {
+    width: 100%;
+    max-width: 1000px; /* Impede que o texto estique demais em monitores gigantes, mantendo o conforto visual */
+    margin: 0 auto;
+    padding: 30px 20px;
+    font-family: 'Inter', sans-serif;
+    color: var(--text-main);
+    box-sizing: border-box;
+}
+
+/* 2. TÍTULOS RETRÔ DAS PÁGINAS */
+.project-title {
+    font-family: 'VT323', monospace;
+    font-size: 3.5rem;
+    color: var(--accent-pro);
+    margin-bottom: 20px;
+    text-transform: uppercase;
+}
+
+/* 3. CARTÕES E SEÇÕES DE CONTEÚDO (CONCEITO GLASS) */
+.project-section-card {
+    background: var(--glass);
+    border: 3px solid var(--glass-border);
+    box-shadow: var(--shadow);
+    padding: 30px;
+    border-radius: 16px;
+    margin-bottom: 25px;
+    width: 100%; /* Força a ocupar todo o espaço do container no PC */
+    box-sizing: border-box;
+}
+
+/* 4. BLINDAGEM DE IMAGENS FLUIDAS (O FIM DOS VAZAMENTOS) */
+.project-section-card img,
+.project-page-container img {
+    width: 100% !important;      /* Força a imagem a encolher e se moldar ao tamanho do card */
+    max-width: 100% !important;  /* Impede matematicamente que ela passe de 100% da largura da div pai */
+    height: auto !important;     /* Mantém a proporção de aspecto intacta, sem achatar */
+    display: block;
+    margin: 20px auto;
+    border: 2px solid var(--glass-border);
+    border-radius: 8px;
+    box-shadow: 4px 4px 0px var(--glass-border); /* Sombra sólida combinando com o DNA do site */
+    object-fit: contain;
+}
+
+/* 5. GRIDS DE SKILLS OU COMPONENTES INTERNOS */
+.project-tech-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Cria colunas dinâmicas automáticas */
+    gap: 15px;
+    margin-top: 15px;
+}
+
+/* ==========================================
+   MEDIA QUERY PARA SMARTPHONES
+   ========================================== */
+@media (max-width: 768px) {
+    .project-page-container {
+        padding: 15px 10px; /* Reduz o respiro nas bordas do celular para ganhar área útil */
+    }
+
+    .project-title {
+        font-size: 2.5rem; /* Diminui o título VT323 para não quebrar feio no visor */
+        text-align: center;
+    }
+
+    .project-section-card {
+        padding: 15px; /* Menos espaçamento interno economiza espaço vertical no celular */
+        border-radius: 12px;
+    }
+}
