@@ -1,4 +1,6 @@
-// MOTOR INTERATIVO DE ABAS DE NAVEGAÇÃO
+// ==========================================================
+// 1. MOTOR INTERATIVO DE ABAS DE NAVEGAÇÃO
+// ==========================================================
 function switchTab(event, tabId) {
     // Remove o estado ativo de todos os botões de abas
     const triggers = document.querySelectorAll('.tab-trigger');
@@ -13,7 +15,9 @@ function switchTab(event, tabId) {
     document.getElementById('tab-' + tabId).classList.add('active-content');
 }
 
-// CONTROLADOR DO MODAL DA IA
+// ==========================================================
+// 2. CONTROLADOR DOS MODAIS GERAIS DA INTERFACE
+// ==========================================================
 function openModal(id) {
     document.getElementById(id).style.display = 'flex';
 }
@@ -22,7 +26,9 @@ function closeModal(id) {
     document.getElementById(id).style.display = 'none';
 }
 
-// SCRIPT REATIVO DO CHATBOT DE CONTEXTO
+// ==========================================================
+// 3. SCRIPT REATIVO DO CHATBOT DE CONTEXTO
+// ==========================================================
 function sendMessage() {
     const input = document.getElementById('user-input');
     const msgText = input.value.trim();
@@ -54,16 +60,125 @@ function checkEnter(event) {
     }
 }
 
+ 
+
+function sendMessage() {
+    const input = document.getElementById('user-input');
+    const chatBox = document.getElementById('chat-box');
+    
+    if (!input || !chatBox) return;
+    const msgText = input.value.trim();
+    if (!msgText) return;
+ 
+    const userDiv = document.createElement('div');
+    userDiv.className = 'msg user-msg';
+    userDiv.innerText = msgText;
+    chatBox.appendChild(userDiv);
+
+    input.value = '';
+    chatBox.scrollTop = chatBox.scrollHeight;
+
+    
+    setTimeout(() => {
+        const aiDiv = document.createElement('div');
+        aiDiv.className = 'msg ai-msg';
+        aiDiv.innerText = processarIA(msgText); 
+        chatBox.appendChild(aiDiv);
+        chatBox.scrollTop = chatBox.scrollHeight;
+    }, 450);
+}
+
+function checkEnter(event) {
+    if (event.key === 'Enter') {
+        sendMessage();
+    }
+}
+
+ 
 function processarIA(query) {
-    const q = query.toLowerCase();
-    if (q.includes('uup') || q.includes('empresa')) {
-        return "A UUP Software Solutions foca em engenharia robusta multiplataforma e otimização de fluxos para mitigar a fricção e carga cognitiva do usuário final.";
+ 
+    if (typeof buscarRespostaIA === 'function') {
+        return buscarRespostaIA(query); 
+    } else {
+        console.error("Erro: A função buscarRespostaIA não foi encontrada. Verifique a ordem dos scripts no HTML.");
+        return "Desculpe, meu banco de respostas externo não foi carregado corretamente.";
     }
-    if (q.includes('over power') || q.includes('produtividade')) {
-        return "O Over Power é uma solução de gerenciamento comportamental gamificado estruturado através de micro-tarefas e desbloqueio progressivo de zonas.";
+}
+
+// ==========================================================
+// 4. ARQUITETURA DE DADOS (PILARES UUP & PROJETOS LABS)
+// ==========================================================
+const databaseProjetos = {
+    // --- PILARES EXCLUSIVOS: UUP SOFTWARE SOLUTIONS ---
+    'uup-cognitiva': {
+        icon: '🧠',
+        title: 'Carga Cognitiva Mínima',
+        tech: ['UI/UX Design', 'Cognitive Psychology', 'Conversion Rate Optimization (CRO)', 'Figma'],
+        description: 'Abordagem focada em engenharia de usabilidade para mitigar o esforço mental do usuário final. Através do mapeamento de fluxos simplificados, arquitetura de informação limpa e sistemas de checkouts preditivos, removemos barreiras de decisão, convertendo fluxos complexos em experiências intuitivas de alta conversão.',
+        link: 'https://github.com/seu-usuario/uup-ux-docs'
+    },
+    'uup-liquido': {
+        icon: '💧',
+        title: 'Design Líquido & Performance',
+        tech: ['Software Architecture', 'CSS Grid', 'Flexbox', 'Frontend Optimization'],
+        description: 'Desenvolvimento de interfaces adaptáveis construídas rigorosamente sobre estruturas fluidas de Grid e Flexbox. Os ecossistemas são projetados para garantir renderização de altíssima velocidade (carregamento instantâneo), eliminando gargalos de processamento gráfico e operando perfeitamente em qualquer dispositivo ou limitação de hardware.',
+        link: 'https://github.com/seu-usuario/uup-liquid-core'
+    },
+
+    // --- PROJETOS E JOGOS: LABS & GAMES ---
+    'magman': {
+        icon: '🧲',
+        title: 'Magman',
+        tech: ['JavaScript', 'HTML5 Canvas', 'Game Design'],
+        description: 'Um jogo de exploração lógica para navegadores focado em mecânicas magnéticas. O jogador controla campos de atração e repulsão para solucionar quebra-cabeças em cenários espaciais e coletar minerais raros.',
+        link: 'https://github.com/seu-usuario/magman'
+    },
+    'projeto-exemplo': {
+        icon: '🎮',
+        title: 'Over Power App',
+        tech: ['Vue.js', 'Node.js', 'Tailwind'],
+        description: 'Uma aplicação web focada em produtividade gamificada. Transforma rotinas de desenvolvimento e estudos em missões com desbloqueio de conquistas, níveis e rastreamento consistente de micro-tarefas.',
+        link: 'https://github.com/seu-usuario/overpower'
     }
-    if (q.includes('ux') || q.includes('design')) {
-        return "Minha metodologia de design unifica heurísticas de usabilidade com desenvolvimento front-end elástico baseado em layouts matemáticos fluidos.";
+};
+
+// ==========================================================
+// 5. MOTOR DO MODAL DINÂMICO DE DETALHES
+// ==========================================================
+function openProjectModal(idProjeto) {
+    const proyecto = databaseProjetos[idProjeto];
+    if (!proyecto) return; // Segurança caso o ID não exista
+
+    const containerConteudo = document.getElementById('project-modal-content');
+    
+    // Monta o HTML dinâmico herdando as classes e a estética premium da página
+    containerConteudo.innerHTML = `
+        <div class="project-modal-header">
+            <span style="font-size: 2.5rem;">${proyecto.icon}</span>
+            <h3 class="project-modal-title">${proyecto.title}</h3>
+        </div>
+        
+        <div style="margin-bottom: 20px; display: flex; gap: 8px; flex-wrap: wrap;">
+            ${proyecto.tech.map(t => `<span class="project-modal-tech-tag">${t}</span>`).join('')}
+        </div>
+        
+        <p class="profile-description" style="font-size: 1rem; margin-bottom: 30px;">
+            ${proyecto.description}
+        </p>
+        
+        <div class="cta-group">
+            <a href="${proyecto.link}" target="_blank" rel="noopener noreferrer" class="btn btn-primary" style="text-align: center; text-decoration: none;">
+                Ver Código no GitHub ➜
+            </a>
+        </div>
+    `;
+
+    // Exibe o modal na tela usando flexbox
+    document.getElementById('modal-project-details').style.display = 'flex';
+}
+
+function closeProjectModal(event) {
+    if (event.target.classList.contains('modal-overlay')) {
+        document.getElementById('modal-project-details').style.display = 'none';
     }
-    return "Como Engenheiro e UX Designer, estruturei este ecossistema dinâmico para aliar estética de alto nível e performance. O que gostaria de analisar na minha stack?";
 }

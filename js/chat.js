@@ -77,49 +77,19 @@ const bancoDeRespostas = {
    "default": "Que pergunta interessante! Meu banco de dados não tem uma resposta exata para isso, mas tente me perguntar sobre minha formação em Engenharia de Software, meus projetos (como o Over Power) ou minhas habilidades em UX Design!"
 };
 
-// 2. FUNÇÃO PRINCIPAL DE ENVIO
-function enviarMensagem() {
-    const input = document.getElementById('user-input');
-    const chatBox = document.getElementById('chat-box');
-    
-    if (!input || !chatBox || input.value.trim() === "") return;
+// ESSA FUNÇÃO SERÁ CHAMADA PELO SCRIPT PRINCIPAL
+function buscarRespostaIA(textoUsuario) {
+    const texto = textoUsuario.toLowerCase().trim();
 
-    const mensagemUsuario = input.value.toLowerCase();
-    
-    // Renderiza mensagem do usuário
-    const userDiv = document.createElement('div');
-    userDiv.style.alignSelf = 'flex-end';
-    userDiv.style.color = 'var(--text-main)';
-    userDiv.style.marginBottom = '10px';
-    userDiv.innerHTML = `> ${input.value}`;
-    chatBox.appendChild(userDiv);
-
-    input.value = ""; // Limpa campo
-
-    // Resposta da IA com delay
-    setTimeout(() => {
-        const aiDiv = document.createElement('div');
-        aiDiv.className = 'message-ai';
-        
-        // Busca a melhor resposta
-        let resposta = buscarResposta(mensagemUsuario);
-        
-        aiDiv.innerHTML = resposta;
-        chatBox.appendChild(aiDiv);
-        chatBox.scrollTop = chatBox.scrollHeight;
-        
-        // Opcional: Faz a IA falar a resposta
-        // tocarAudioTexto(resposta); 
-    }, 600);
-}
-
-// 3. LÓGICA DE BUSCA (Aprimorada)
-function buscarResposta(texto) {
-    // Procura se alguma palavra-chave do banco está contida na frase do usuário
     for (let chave in bancoDeRespostas) {
-        if (texto.includes(chave)) {
-            return bancoDeRespostas[chave];
+        // Quebra as strings com vírgulas em palavras-chave individuais
+        const palavrasChave = chave.split(',').map(p => p.trim().toLowerCase());
+
+        for (let i = 0; i < palavrasChave.length; i++) {
+            if (palavrasChave[i] !== "" && texto.includes(palavrasChave[i])) {
+                return bancoDeRespostas[chave];
+            }
         }
     }
-    return "Interessante! Não tenho uma resposta específica para isso, mas tente perguntar sobre minha 'formação' ou 'projetos'.";
+    return bancoDeRespostas["default"];
 }

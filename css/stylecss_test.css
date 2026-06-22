@@ -239,3 +239,77 @@ body {
     }
     #modal-ai-chat .chat-messages { flex-grow: 1; height: auto; max-height: calc(100dvh - 160px); }
 }
+/* ==========================================================
+   ESTILIZAÇÃO PREMIUM PARA MODAIS DE PROJETOS
+   ========================================================== */
+   .project-modal-window {
+    max-width: 650px !important; /* Um pouco mais largo para caber detalhes técnicos */
+    max-height: 85vh; /* Não estoura a altura da tela */
+    overflow-y: auto; /* Adiciona rolagem vertical interna se o texto for longo */
+    border: 1px solid var(--accent-neon) !important; /* Borda sutil com o seu verde neon */
+    box-shadow: 0 0 30px rgba(0, 255, 204, 0.1);
+    padding: 35px !important;
+}
+
+/* Customização sutil da barra de rolagem do Modal (Opcional) */
+.project-modal-window::-webkit-scrollbar {
+    width: 6px;
+}
+.project-modal-window::-webkit-scrollbar-thumb {
+    background: var(--border-static);
+    border-radius: 4px;
+}
+.project-modal-window::-webkit-scrollbar-thumb:hover {
+    background: var(--accent-neon);
+}
+
+/* Elementos internos do conteúdo do projeto */
+.project-modal-header {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+.project-modal-title {
+    font-family: var(--font-display);
+    font-size: 1.75rem;
+    color: var(--text-primary);
+}
+.project-modal-tech-tag {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid var(--border-static);
+    padding: 4px 10px;
+    border-radius: 4px;
+    font-size: 0.8rem;
+    color: var(--text-muted);
+}
+/* ==========================================================
+   RODAPÉ PREMIUM TECH (ATUALIZADO)
+   ========================================================== */
+   .app-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 35px 0;
+    border-top: 1px solid var(--border-static);
+    font-size: 0.85rem;
+    color: var(--text-muted);
+}
+
+.footer-socials {
+    display: flex;
+    gap: 20px; /* Espaço entre o Instagram e o TikTok */
+}
+
+.footer-link {
+    color: var(--text-muted);
+    text-decoration: none;
+    font-weight: 600;
+    transition: var(--transition-smooth);
+}
+
+/* Efeito Hover sutil acendendo os links com o seu verde neon */
+.footer-link:hover {
+    color: var(--accent-neon);
+    transform: translateY(-1px);
+}
