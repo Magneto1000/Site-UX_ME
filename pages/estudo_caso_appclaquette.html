@@ -4,187 +4,319 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Estudo de Caso | CLAQUETTE - Tito Neto</title>
-    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323&family=Inter:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;800&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
     <style>
+        /* ==========================================================
+           1. HERANÇA IDENTITÁRIA DO DESIGN SYSTEM PRINCIPAL
+           ========================================================== */
         :root {
-            --bg-page: #ffffff;
-            --text-main: #1e293b;
-            --accent-pro: #0284c7;
-            --glass: rgba(255, 255, 255, 0.85);
-            --glass-border: #1e293b; 
-            --shadow: 6px 6px 0px rgba(0,0,0,0.1);
+            --bg-dark: #06080c;
+            --card-surface: rgba(18, 22, 32, 0.45);
+            --border-glow: rgba(0, 255, 204, 0.15);
+            --border-static: rgba(255, 255, 255, 0.08);
+            --text-primary: #f3f4f6;
+            --text-muted: #a1a1aa;
+            --accent-neon: #00ffcc; /* Verde dinâmico oficial */
+            --accent-blue: #3b82f6;
+            --font-display: 'Space Grotesk', sans-serif;
+            --transition-smooth: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
         }
 
-        [data-theme="dark"] {
-            --bg-page: #0f172a;
-            --text-main: #f8fafc;
-            --glass-border: #f8fafc;
-            --glass: rgba(30, 41, 59, 0.85);
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; outline: none; }
 
         body {
-            font-family: 'Inter', sans-serif;
-            background-color: var(--bg-page);
-            color: var(--text-main);
+            background-color: var(--bg-dark);
+            color: var(--text-primary);
+            font-family: 'Plus Jakarta Sans', sans-serif;
             line-height: 1.6;
-            margin: 0;
-            padding: 0;
+            min-height: 100vh;
+            overflow-x: hidden;
         }
 
+        /* Container centralizado alinhado à escala do viewport principal */
         .container { 
-            max-width: 850px; /* Consistente com a escala reduzida que definimos */
+            max-width: 900px; 
             margin: 0 auto; 
-            padding: 40px 20px; 
+            padding: 60px 24px; 
         }
 
-        /* Estilo Retro dos Balões e Caixas */
-        .caixa-retro {
-            background: var(--glass);
+        /* ==========================================================
+           2. CARDS PREMIUM COM EFEITO JATEADO (GLASSMORPHISM)
+           ========================================================== */
+        .case-card {
+            background: var(--card-surface);
             backdrop-filter: blur(10px);
-            border: 3px solid var(--glass-border);
-            padding: 30px;
-            border-radius: 20px;
-            box-shadow: var(--shadow);
-            margin-bottom: 40px;
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid var(--border-static);
+            padding: 40px;
+            border-radius: 16px;
+            margin-bottom: 35px;
+            transition: var(--transition-smooth);
+        }
+        .case-card:hover {
+            border-color: var(--accent-neon);
+            box-shadow: 0 0 25px rgba(0, 255, 204, 0.03);
         }
 
-        /* Títulos */
-        h1, h2, h3 { font-family: 'VT323', monospace; text-transform: uppercase; }
-        h1 { font-size: 3.5rem; line-height: 1; margin-bottom: 20px; }
-        h2 { font-size: 2.5rem; color: var(--accent-pro); border-bottom: 2px dashed var(--glass-border); display: inline-block; margin-bottom: 20px; }
+        /* ==========================================================
+           3. TIPOGRAFIA LÍQUIDA E COMPONENTES VISUAIS
+           ========================================================== */
+        h1, h2, h3 { 
+            font-family: var(--font-display); 
+            font-weight: 700; 
+            letter-spacing: -0.02em;
+        }
         
-        .label-retro {
-            font-family: 'Press Start 2P', cursive;
-            font-size: 0.6rem;
-            color: var(--accent-pro);
-            display: block;
-            margin-bottom: 10px;
+        h1 { 
+            font-size: 2.5rem; 
+            line-height: 1.2; 
+            margin-bottom: 20px; 
+            color: var(--text-primary);
+        }
+        
+        h2 { 
+            font-size: 1.75rem; 
+            color: var(--text-primary); 
+            margin-bottom: 20px;
+            display: inline-block;
+            position: relative;
+        }
+        
+        h3 {
+            font-size: 1.35rem;
+            color: var(--text-primary);
+            margin-bottom: 15px;
         }
 
-        /* Botão Voltar Fixo */
+        .badge-tag {
+            font-size: 0.8rem; 
+            font-weight: 800; 
+            color: var(--accent-neon);
+            letter-spacing: 0.15em; 
+            margin-bottom: 15px; 
+            display: inline-block;
+            text-transform: uppercase;
+        }
+
+        p {
+            color: var(--text-muted);
+            font-size: 1.05rem;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+        
+        strong {
+            color: var(--text-primary);
+            font-weight: 600;
+        }
+
+        /* Botão Flutuante Elegante de Voltar */
         .btn-back {
             position: fixed;
-            top: 20px;
-            left: 20px;
-            z-index: 1000;
+            top: 25px;
+            left: 25px;
+            z-index: 5000;
             text-decoration: none;
-            font-family: 'Press Start 2P', cursive;
-            font-size: 0.6rem;
-            padding: 10px 15px;
-            background: var(--bg-page);
-            color: var(--text-main);
-            border: 3px solid var(--glass-border);
-            box-shadow: var(--shadow);
-            transition: 0.2s;
+            font-size: 0.85rem;
+            font-weight: 700;
+            padding: 10px 20px;
+            background: var(--card-surface);
+            color: var(--text-primary);
+            border: 1px solid var(--border-static);
+            border-radius: 30px;
+            backdrop-filter: blur(10px);
+            transition: var(--transition-smooth);
+            display: flex;
+            align-items: center;
+            gap: 8px;
         }
-        .btn-back:hover { transform: translate(-3px, -3px); box-shadow: 8px 8px 0px var(--glass-border); }
+        .btn-back:hover { 
+            border-color: var(--accent-neon);
+            color: var(--accent-neon);
+            transform: translateX(-3px);
+        }
 
-        /* Grid de Resumo */
+        /* Grid de Metadados do Projeto */
         .summary-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-            gap: 20px;
-            margin-top: 30px;
-            font-family: 'VT323';
-            font-size: 1.4rem;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 24px;
+            margin-top: 35px;
+            padding-top: 25px;
+            border-top: 1px solid var(--border-static);
+        }
+        .summary-item {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+        }
+        .summary-data {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--text-primary);
         }
 
-        /* Imagens Estilizadas */
-        .image-box {
-            border: 3px solid var(--glass-border);
-            background: #000;
-            padding: 10px;
-            border-radius: 12px;
-            box-shadow: var(--shadow);
-            margin: 30px 0;
-        }
-        .image-box img { width: 100%; display: block; border-radius: 4px; }
-        .image-caption { 
-            font-family: 'VT323'; 
-            text-align: center; 
-            margin-top: 10px; 
-            font-size: 1.2rem;
-            color: var(--accent-pro);
-        }
-
-        /* Insights e Listas */
-        .insight-list li {
-            background: rgba(0,0,0,0.05);
-            border-left: 4px solid var(--accent-pro);
-            margin-bottom: 10px;
-            padding: 15px;
-            list-style: none;
-            font-family: 'Inter', sans-serif;
-        }
-
-        /* Botão Principal */
-        .btn-primary {
-            display: inline-block;
-            background: var(--text-main);
-            color: var(--bg-page);
-            padding: 15px 25px;
-            font-family: 'Press Start 2P', cursive;
-            font-size: 0.7rem;
-            text-decoration: none;
-            border: 3px solid var(--glass-border);
-            box-shadow: var(--shadow);
-            transition: 0.2s;
+        /* Listas de Insights e Itens */
+        .insight-list {
             margin-top: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
         }
-        .btn-primary:hover { transform: translate(-4px, -4px); box-shadow: 10px 10px 0px var(--accent-pro); }
+        .insight-list li {
+            background: rgba(255, 255, 255, 0.02);
+            border-left: 3px solid var(--accent-neon);
+            border-radius: 0 8px 8px 0;
+            padding: 20px;
+            list-style: none;
+            color: var(--text-muted);
+            font-size: 1rem;
+        }
+        
+        .bullets-list {
+            margin-left: 20px;
+            margin-bottom: 25px;
+            color: var(--text-muted);
+        }
+        .bullets-list li {
+            margin-bottom: 10px;
+            padding-left: 5px;
+        }
 
-        footer { 
+        /* Box de Mídia Imersiva */
+        .image-box {
+            border: 1px solid var(--border-static);
+            background: rgba(0, 0, 0, 0.4);
+            padding: 12px;
+            border-radius: 14px;
+            margin: 35px 0;
+            transition: var(--transition-smooth);
+        }
+        .image-box img { 
+            width: 100%; 
+            max-width: 100% !important;
+            height: auto !important;
+            display: block; 
+            border-radius: 8px; 
+            opacity: 0.85;
+            transition: var(--transition-smooth);
+        }
+        .image-box:hover img {
+            opacity: 1;
+        }
+        .image-caption { 
+            font-size: 0.85rem;
             text-align: center; 
-            padding: 40px; 
-            font-family: 'VT323'; 
-            font-size: 1.2rem;
-            border-top: 2px dashed var(--glass-border);
+            margin-top: 12px; 
+            color: var(--text-muted);
+            letter-spacing: 0.03em;
         }
 
+        /* Rodapé do Estudo de Caso */
+        .case-footer { 
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+            text-align: center; 
+            padding: 40px 0; 
+            margin-top: 60px;
+            border-top: 1px solid var(--border-static);
+            font-size: 0.85rem;
+            color: var(--text-muted);
+        }
+
+        /* Container do Grid de Personas */
+        .personas-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+        }
+
+        /* ==========================================================
+           4. RESPONSIVIDADE E PROTEÇÃO MOBILE CONTRA ESTOUROS
+           ========================================================== */
         @media (max-width: 768px) {
-            h1 { font-size: 2.2rem; }
-            .container { padding: 60px 15px; }
+            h1 { font-size: 1.85rem; }
+            h2 { font-size: 1.45rem; }
+            .case-card { padding: 25px; }
+            .container { padding: 80px 16px 40px 16px; }
+            .btn-back { position: absolute; top: 20px; left: 16px; }
+            
+            /* Força o colapso e empilhamento correto das personas no mobile */
+            .personas-grid {
+                grid-template-columns: 1fr !important;
+                gap: 15px !important;
+            }
+            .image-box {
+                margin: 15px 0 !important;
+                width: 100% !important;
+            }
         }
     </style>
 </head>
 <body>
 
-    <a href="/index.html" class="btn-back">← VOLTAR</a>
+    <a href="index.html" class="btn-back">← Voltar ao Início</a>
 
     <div class="container">
-        <header class="caixa-retro">
-            <span class="label-retro">CASE STUDY // GOOGLE UX</span>
-            <span class="badge">Google UX Design Certificate</span>
-    <h1>CLAQUETTE: Decida quais filmes assistir, com quem assistir e onde assistir. Comente e descubra mais sobre os seus filmes e séries favoritos apenas vendo treillers...</h1>
-    <p>Um aplicativo focado em treillers, que te aproxima dos filmes que você gosta e de seus amigos...</p>
+        
+        <header class="case-card">
+            <span class="badge-tag">CASE STUDY // GOOGLE UX</span>
+            <h1>CLAQUETTE</h1>
+            <p class="profile-description">
+                Decida quais filmes assistir, com quem assistir e onde assistir. Comente e descubra mais sobre os seus filmes e séries favoritos apenas assistindo a trailers selecionados. Um produto digital projetado para aproximar o usuário das obras que ama e conectar círculos de amigos.
+            </p>
             
             <div class="summary-grid">
-                <div><span class="label-retro">PAPEL</span>UX Engineer</div>
-                <div><span class="label-retro">DURAÇÃO</span>6 Meses</div>
-                <div><span class="label-retro">TOOLS</span>Figma / React</div>
+                <div class="summary-item">
+                    <span class="badge-tag" style="margin-bottom:0;">PAPEL</span>
+                    <span class="summary-data">UX Engineer</span>
+                </div>
+                <div class="summary-item">
+                    <span class="badge-tag" style="margin-bottom:0;">DURAÇÃO</span>
+                    <span class="summary-data">6 Meses</span>
+                </div>
+                <div class="summary-item">
+                    <span class="badge-tag" style="margin-bottom:0;">TOOLS</span>
+                    <span class="summary-data">Figma / React</span>
+                </div>
             </div>
         </header>
 
-        <section class="caixa-retro">
+        <section class="case-card">
+            <span class="badge-tag">CONTEÚDO</span>
             <h2>O Desafio</h2>
-            <p>Tornar ainda mais importante o papel dos treillers para os usuários: ajudá-los a encontrar bons filmes e compartilhar suas preferencias com amigos e conhecidos. <strong>Ajudando, por fim, os usuários a descobrirem onde assistir os seus filmes favoritos, no cinema ou em plataformas de streaming.</strong> A meta era criar o "Claquette": um app de trailers onde o usuário poderia ver transformada a exepriência de assistir treillers.</p>
+            <p>
+                Tornar central e relevante o papel dos trailers na tomada de decisão dos usuários. A proposta foi arquitetar fluxos que os guiassem na escolha de bons títulos e no compartilhamento ágil de suas preferências, mitigando a fadiga de decisão. 
+            </p>
+            <p>
+                <strong>O diferencial prático:</strong> Ajudar os usuários a descobrirem exatamente onde assistir suas produções favoritas, mapeando de forma limpa e em tempo real a disponibilidade nos cinemas mais próximos ou em plataformas de streaming.
+            </p>
+            
             <div class="image-box">
                 <img src="/midias/project_ux/ux/estudo de caso claquette/mockups app-claquette.png" alt="Mockups Claquette">
-                <div class="image-caption">Protótipo de alta fidelidade: Interface imersiva.</div>
+                <div class="image-caption">Protótipo de alta fidelidade: Interface imersiva e de alto impacto visual.</div>
             </div>
         </section>
 
-        <section class="caixa-retro">
-            <h2> How might we e como entendemos o Usuário</h2>
-            <ul>
-            <li>Como podemos desenvolver um aplicativo somente de trailers que ajude as pessoas a escolherem bons filmes?</li>
-            <li>Como um aplicativo de trailers pode ser divertido e interessante?</li>
-            <li>Um formato de scroll para um aplicativo de trailers seria mais divertido?</li>
-            <li>Como não seria interessante pesquisar filmes através de trailers?</li>
-            <li>Como um aplicativo de trailers ajudaria as pessoas a irem mais aos cinemas e assinarem mais serviços de streaming?</li>
+        <section class="case-card">
+            <span class="badge-tag">IMERSÃO</span>
+            <h2>How Might We & Entendimento</h2>
+            <p>Para guiar os caminhos da arquitetura do produto, estruturamos perguntas baseadas nas heurísticas de design de comportamento:</p>
+            
+            <ul class="bullets-list">
+                <li>Como podemos desenvolver um aplicativo focado exclusivamente em trailers que auxilie pessoas a escolherem grandes obras?</li>
+                <li>De que maneira um ecossistema de trailers pode ser divertido, interativo e prender o engajamento saudável?</li>
+                <li>O formato de <em>scroll</em> vertical contínuo traria maior satisfação na usabilidade da descoberta de mídias?</li>
+                <li>Como otimizar a experiência para que a pesquisa de novos conteúdos nunca se torne maçante ou cansativa?</li>
+                <li>Como converter o consumo de trailers dentro do app em ações de conversão para salas de cinema e assinaturas de streaming?</li>
             </ul>
-            <h2>PERSONAS</h2>
-            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px;">
+            
+            <h3 style="margin-top: 30px;">User Personas</h3>
+            <p>Mapeamos perfis extremos para garantir acessibilidade rigorosa e calibração de fluxos cognitivos:</p>
+            
+            <div class="personas-grid">
                 <div class="image-box">
                     <img src="/midias/project_ux/ux/estudo de caso claquette/persona_nina.png" alt="Persona Nina">
                 </div>
@@ -193,73 +325,67 @@
                 </div>
             </div>
         </section>
-        <section>
+
+        <section class="case-card">
+            <span class="badge-tag">PRODUÇÃO</span>
             <h2>Do Papel ao Digital</h2>
-            <p>Iteramos designs lo-fi focando em componentes familiares e acessibilidade.</p>
+            <p>Iteramos designs de baixa fidelidade (lo-fi) focando na eliminação de fricções, consistência de componentes familiares e conformidade com leis de acessibilidade.</p>
+            
             <div class="image-box">
-              <img src="/midias/project_ux/ux/estudo de caso claquette/wireframe_de_papel.png" alt="Wireframes Papel">
-              <div class="image-caption">História de usuário e wireframes lo-fi.</div>
+                <img src="/midias/project_ux/ux/estudo de caso claquette/wireframe_de_papel.png" alt="Wireframes Papel">
+                <div class="image-caption">Mapeamento de histórias de usuário e wireframes analógicos lo-fi.</div>
             </div>
+            
             <div class="image-box">
-              <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px;">
-                <img src="/midias/project_ux/ux/estudo de caso claquette/wireframe_lofi.png" alt="Wireframe Digital">
-                <img src="/midias/project_ux/ux/estudo de caso claquette/wireframelofi.png" alt="Wireframe Digital">
-              </div>
-              <div class="image-caption">Evolução do design: Esboços e Wireframes digitais.</div>
-            </div>
-          </section>
-        <section class="caixa-retro">
-            <h2>VALIDAÇÃO</h2>
-            <ul class="insight-list">
-                <li><strong>100% DE APROVAÇÃO:</strong> Usuários validaram a navegação via scroll vertical.</li>
-                <li><strong>ACESSIBILIDADE:</strong> Design refinado para visão subnormal e fadiga cognitiva.</li>
-                <li><strong>ARQUITETURA ÉTICA:</strong> Livre de dark patterns; informações sempre claras.</li>
-            </ul>
-            <div class="image-box">
-                <img src="/midias/project_ux/ux/estudo de caso claquette/diagrama de notas.jpg" alt="Insights">
-                <div class="image-caption">Diagrama de Afinidade e síntese de dados.</div>
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px;">
+                    <img src="/midias/project_ux/ux/estudo de caso claquette/wireframe_lofi.png" alt="Wireframe Digital 1">
+                    <img src="/midias/project_ux/ux/estudo de caso claquette/wireframelofi.png" alt="Wireframe Digital 2">
+                </div>
+                <div class="image-caption">Evolução de wireframes digitais estruturados em grid.</div>
             </div>
         </section>
 
-        <section class="caixa-retro" style="text-align: center;">
-                <h2>Resultado Final</h2>
-                <article>
-                  <header>
-                    <h2></h2>
-                    <p>
-                      O projeto <strong>CLAQUETTE</strong> se apresenta como uma solução que vai além da simples experiência de assistir a treillers, abordando diretamente a maior limitação dos treillers que é muitas vezes não atingir diretamente o público que almeja. Ao unir o dinamismo dos treillers e da crescente tendencia das pessoas de se conectar através de redes sociais de vídeos curtos <strong> com os treillers, criou-se o contexto perfeito para aproximar mais as pessoas dos seus gostos de filmes, séries e animes</strong> . E por fim, usando os principios do <strong> Design Thinking </strong> materializamoso projeto.
-                    </p>
-                  </header>
-                
-                  <section>
-                    <h3>Principais Conquistas</h3>
-                    <ul>
-                      <li>
-                        <strong>Validação de Usabilidade:</strong> Em testes com usuários reais, 100% dos participantes (5 de 5) navegaram com facilidade e aprovaram o modelo de descoberta via <em>scroll</em> de trailers.
-                      </li>
-                      <li>
-                        <strong>Acessibilidade Nativa:</strong> O design foi refinado para atender às necessidades de personas como a Nina, garantindo que usuários com visão subnormal ou fadiga cognitiva tenham uma experiência fluida e inclusiva.
-                      </li>
-                      <li>
-                        <strong>Arquitetura Ética:</strong> Implementamos uma navegação livre de <em>dark patterns</em>, garantindo que informações sobre onde assistir, elenco e diretores estivessem sempre a um clique de distância, sem letras miúdas.
-                      </li>
-                      <li>
-                        <strong>Sinergia Técnica:</strong> Como <strong>UX Engineer</strong>, a estrutura do protótipo foi pensada para uma implementação técnica eficiente, utilizando componentes reutilizáveis e uma lógica de fluxo que reduz o tempo de carregamento e a latência de resposta.
-                      </li>
-                    </ul>
-                  </section>
-                
-                  <section>
-                    <h3>O que este projeto demonstra</h3>
-                    <p>
-                      Este estudo de caso é o reflexo da observação ds um cenário cotidiano colocando o usuário em primeiro lugar. Os treillers sempre estiveram aí, mas agora eles podem os usuários ao cinema mais próximo ou ao serviço de straming onde o seu filme favorito está.<strong> O plicativo CLAQUETTE</strong> prova que é possível criar produtos incriveis quando se prioriza o usuário.
-                    </p>
-                  </section>
-                
+        <section class="case-card">
+            <span class="badge-tag">MÉTRICAS</span>
+            <h2>Validação e Pesquisa Técnica</h2>
+            
+            <ul class="insight-list">
+                <li><strong>100% DE APROVAÇÃO EM USABILIDADE:</strong> Usuários em teste de laboratório validaram organicamente o modelo de descoberta baseado em navegação via scroll vertical por gestos.</li>
+                <li><strong>ACESSIBILIDADE INTELIGENTE:</strong> Contraste de cores e hierarquias textuais rigorosamente refinados para mitigar impactos de visão subnormal e prevenir fadiga cognitiva.</li>
+                <li><strong>ARQUITETURA ÉTICA:</strong> Interface construída sob premissas limpas, totalmente livre de <em>dark patterns</em>. Informações e links de destino são transparentes e diretos.</li>
+            </ul>
+            
+            <div class="image-box">
+                <img src="/midias/project_ux/ux/estudo de caso claquette/diagrama de notas.jpg" alt="Insights">
+                <div class="image-caption">Diagrama de afinidade: Agrupamento de dores e síntese de dados coletados.</div>
+            </div>
+        </section>
 
-        <footer>
+        <section class="case-card">
+            <span class="badge-tag">CONCLUSÃO</span>
+            <h2>Resultado de Produto</h2>
+            
+            <p>
+                O ecossistema <strong>CLAQUETTE</strong> opera além de um agregador comum de mídia. Ele soluciona um gap de mercado unindo a crescente tendência cultural de consumo de vídeos curtos verticais ao interesse imediato por entretenimento de alta categoria. Ao alinhar esse comportamento com as dores de busca de títulos, criamos o ambiente perfeito para aproximar o usuário do seu portfólio de interesses. Materializado sob metodologias ágeis de <strong>Design Thinking</strong>, o produto unifica código performático e valor de negócio.
+            </p>
+            
+            <h3 style="margin-top: 30px;">Principais Conquistas</h3>
+            <ul class="bullets-list">
+                <li><strong>Validação de Engenharia:</strong> 5 de 5 participantes navegaram de forma autônoma pelas esteiras estruturadas de carregamento de trailers.</li>
+                <li><strong>Inclusão por Design:</strong> Refinamento completo de telas mapeado para atender usuários com restrições visuais e sensoriais.</li>
+                <li><strong>Navegação Transparente:</strong> Localização de elenco, salas de cinema e redirecionamentos de streaming a um clique de distância, eliminando fricção técnica.</li>
+                <li><strong>Sinergia de Desenvolvimento:</strong> Como UX Engineer, o protótipo de alta fidelidade no Figma foi estruturado de forma simétrica para tradução direta em componentes React reaproveitáveis, otimizando o tempo de engenharia (*boilerplate*).</li>
+            </ul>
+
+            <h3 style="margin-top: 30px;">Visão do Engenheiro</h3>
+            <p>
+                Este estudo demonstra como a priorização do fator humano gera produtos digitais de alta performance técnica e comercial. Os trailers ganham nova utilidade operacional, agindo como catalisadores para conversão direta em plataformas parceiras de streaming ou salas físicas de exibição. O CLAQUETTE prova o valor estratégico de unificar engenharia e design.
+            </p>
+        </section>
+
+        <footer class="case-footer">
             <p>JN TITO NETO // 2026</p>
-            <p style="color: var(--accent-pro)">DESENVOLVIDO COM FOCO EM ÉTICA E PERFORMANCE</p>
+            <p style="color: var(--accent-neon); font-family: var(--font-display); font-weight: 700; font-size: 0.75rem;">DESENVOLVIDO COM FOCO EM ÉTICA, USABILIDADE E PERFORMANCE</p>
         </footer>
     </div>
 

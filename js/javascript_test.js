@@ -31,10 +31,11 @@ function closeModal(id) {
 // ==========================================================
 function sendMessage() {
     const input = document.getElementById('user-input');
+    const chatBox = document.getElementById('chat-box');
+    
+    if (!input || !chatBox) return;
     const msgText = input.value.trim();
     if (!msgText) return;
-
-    const chatBox = document.getElementById('chat-box');
 
     // Cria e insere balão do usuário
     const userDiv = document.createElement('div');
@@ -60,43 +61,7 @@ function checkEnter(event) {
     }
 }
 
- 
-
-function sendMessage() {
-    const input = document.getElementById('user-input');
-    const chatBox = document.getElementById('chat-box');
-    
-    if (!input || !chatBox) return;
-    const msgText = input.value.trim();
-    if (!msgText) return;
- 
-    const userDiv = document.createElement('div');
-    userDiv.className = 'msg user-msg';
-    userDiv.innerText = msgText;
-    chatBox.appendChild(userDiv);
-
-    input.value = '';
-    chatBox.scrollTop = chatBox.scrollHeight;
-
-    
-    setTimeout(() => {
-        const aiDiv = document.createElement('div');
-        aiDiv.className = 'msg ai-msg';
-        aiDiv.innerText = processarIA(msgText); 
-        chatBox.appendChild(aiDiv);
-        chatBox.scrollTop = chatBox.scrollHeight;
-    }, 450);
-}
-
-function checkEnter(event) {
-    if (event.key === 'Enter') {
-        sendMessage();
-    }
-}
-
- 
 function processarIA(query) {
- 
     if (typeof buscarRespostaIA === 'function') {
         return buscarRespostaIA(query); 
     } else {
@@ -115,14 +80,14 @@ const databaseProjetos = {
         title: 'Carga Cognitiva Mínima',
         tech: ['UI/UX Design', 'Cognitive Psychology', 'Conversion Rate Optimization (CRO)', 'Figma'],
         description: 'Abordagem focada em engenharia de usabilidade para mitigar o esforço mental do usuário final. Através do mapeamento de fluxos simplificados, arquitetura de informação limpa e sistemas de checkouts preditivos, removemos barreiras de decisão, convertendo fluxos complexos em experiências intuitivas de alta conversão.',
-        link: 'https://github.com/seu-usuario/uup-ux-docs'
+        link: 'https://github.com/Magneto1000'
     },
     'uup-liquido': {
         icon: '💧',
         title: 'Design Líquido & Performance',
         tech: ['Software Architecture', 'CSS Grid', 'Flexbox', 'Frontend Optimization'],
         description: 'Desenvolvimento de interfaces adaptáveis construídas rigorosamente sobre estruturas fluidas de Grid e Flexbox. Os ecossistemas são projetados para garantir renderização de altíssima velocidade (carregamento instantâneo), eliminando gargalos de processamento gráfico e operando perfeitamente em qualquer dispositivo ou limitação de hardware.',
-        link: 'https://github.com/seu-usuario/uup-liquid-core'
+        link: 'https://github.com/Magneto1000'
     },
 
     // --- PROJETOS E JOGOS: LABS & GAMES ---
@@ -131,14 +96,14 @@ const databaseProjetos = {
         title: 'Magman',
         tech: ['JavaScript', 'HTML5 Canvas', 'Game Design'],
         description: 'Um jogo de exploração lógica para navegadores focado em mecânicas magnéticas. O jogador controla campos de atração e repulsão para solucionar quebra-cabeças em cenários espaciais e coletar minerais raros.',
-        link: 'https://github.com/seu-usuario/magman'
+        link: 'https://github.com/Magneto1000/magman'
     },
     'projeto-exemplo': {
         icon: '🎮',
         title: 'Over Power App',
         tech: ['Vue.js', 'Node.js', 'Tailwind'],
         description: 'Uma aplicação web focada em produtividade gamificada. Transforma rotinas de desenvolvimento e estudos em missões com desbloqueio de conquistas, níveis e rastreamento consistente de micro-tarefas.',
-        link: 'https://github.com/seu-usuario/overpower'
+        link: 'https://github.com/Magneto1000/overpower'
     }
 };
 
@@ -146,28 +111,28 @@ const databaseProjetos = {
 // 5. MOTOR DO MODAL DINÂMICO DE DETALHES
 // ==========================================================
 function openProjectModal(idProjeto) {
-    const proyecto = databaseProjetos[idProjeto];
-    if (!proyecto) return; // Segurança caso o ID não exista
+    const projeto = databaseProjetos[idProjeto];
+    if (!projeto) return; // Segurança caso o ID não exista
 
     const containerConteudo = document.getElementById('project-modal-content');
     
     // Monta o HTML dinâmico herdando as classes e a estética premium da página
     containerConteudo.innerHTML = `
         <div class="project-modal-header">
-            <span style="font-size: 2.5rem;">${proyecto.icon}</span>
-            <h3 class="project-modal-title">${proyecto.title}</h3>
+            <span style="font-size: 2.5rem;">${projeto.icon}</span>
+            <h3 class="project-modal-title">${projeto.title}</h3>
         </div>
         
         <div style="margin-bottom: 20px; display: flex; gap: 8px; flex-wrap: wrap;">
-            ${proyecto.tech.map(t => `<span class="project-modal-tech-tag">${t}</span>`).join('')}
+            ${projeto.tech.map(t => `<span class="project-modal-tech-tag">${t}</span>`).join('')}
         </div>
         
         <p class="profile-description" style="font-size: 1rem; margin-bottom: 30px;">
-            ${proyecto.description}
+            ${projeto.description}
         </p>
         
         <div class="cta-group">
-            <a href="${proyecto.link}" target="_blank" rel="noopener noreferrer" class="btn btn-primary" style="text-align: center; text-decoration: none;">
+            <a href="${projeto.link}" target="_blank" rel="noopener noreferrer" class="btn btn-primary" style="text-align: center; text-decoration: none;">
                 Ver Código no GitHub ➜
             </a>
         </div>
@@ -182,3 +147,58 @@ function closeProjectModal(event) {
         document.getElementById('modal-project-details').style.display = 'none';
     }
 }
+
+// ==========================================================
+// 6. MOTOR REATIVO DO TEXTO DINÂMICO (TYPEWRITER LOOP)
+// ==========================================================
+const frasesTypewriter = [
+    "Sempre criando.",
+    "Sempre sonhando.",
+    "Sempre construindo."
+];
+
+let indiceFraseAtual = 0;
+let indiceLetraAtual = 0;
+let estaApagando = false;
+
+function rodarAnimacaoTypewriter() {
+    const elementoTexto = document.getElementById("typewriter-text");
+    if (!elementoTexto) return; // Segurança caso o elemento suma da tela
+
+    const fraseCompleta = frasesTypewriter[indiceFraseAtual];
+
+    if (!estaApagando) {
+        // Digitando: Adiciona uma letra por vez
+        elementoTexto.textContent = fraseCompleta.substring(0, indiceLetraAtual + 1);
+        indiceLetraAtual++;
+
+        // Verifica se terminou de digitar a frase
+        if (indiceLetraAtual === fraseCompleta.length) {
+            estaApagando = true;
+            // Tempo de espera com a frase estática na tela antes de começar a apagar (2 segundos)
+            setTimeout(rodarAnimacaoTypewriter, 2000);
+            return;
+        }
+        // Velocidade da digitação (100ms por letra)
+        setTimeout(rodarAnimacaoTypewriter, 100);
+    } else {
+        // Apagando: Remove uma letra por vez
+        elementoTexto.textContent = fraseCompleta.substring(0, indiceLetraAtual - 1);
+        indiceLetraAtual--;
+
+        // Verifica se terminou de apagar toda a frase
+        if (indiceLetraAtual === 0) {
+            estaApagando = false;
+            // Avança para a próxima frase da lista (e volta pro zero se chegar no final)
+            indiceFraseAtual = (indiceFraseAtual + 1) % frasesTypewriter.length;
+            // Pequena pausa antes de começar a digitar a nova frase (500ms)
+            setTimeout(rodarAnimacaoTypewriter, 500);
+            return;
+        }
+        // Velocidade ao apagar (50ms por letra - mais rápido para dinâmica de UX)
+        setTimeout(rodarAnimacaoTypewriter, 50);
+    }
+}
+
+// Inicializa a animação assim que a janela do navegador carregar os elementos
+window.addEventListener("DOMContentLoaded", rodarAnimacaoTypewriter);

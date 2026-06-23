@@ -32,8 +32,10 @@
             
             <section id="tab-perfil" class="tab-content active-content">
                 <div class="profile-presentation">
+                    <h1 class="typewriter-container">
+                        <span id="typewriter-text"></span><span class="typewriter-cursor">|</span>
+                    </h1>
                     <p class="badge-tag">Product Owner | Technical Product Manager | UX/UI Specialist | Engenharia de Software</p>
-                    <h1 class="glitch-title">Sempre criando. <br><span>Sempre sonhando. <br></span>Sempre construindo.</h1>
                     <p class="profile-description">
                         Apaixonado por Gestão de Produtos e Arquitetura de Soluções. Unifico a inteligência técnica e estrutural da Engenharia de Software com o foco comportamental do UX Design para liderar a criação de produtos digitais escaláveis, intuitivos e altamente rentáveis.
                     </p>
@@ -60,7 +62,6 @@
                     </div>
                 </div>
             </section>
-
             <section id="tab-uup" class="tab-content">
                 <div class="case-study-hero">
                     <span class="badge-tag">FOUNDER & CEO</span>
@@ -69,45 +70,43 @@
                         Transformando dores de negócios corporativos em plataformas de alta performance. Desenvolvido sob a premissa de eliminação de fricção cognitiva e arquitetura escalável.
                     </p>
                     
-                    <div class="pillars-grid pillars-scroll-zone">
-                        
-                        <div class="pillar-card" onclick="openProjectModal('uup-cognitiva')" style="cursor: pointer;">
-                            <h4>Carga Cognitiva Mínima</h4>
-                            <p>Simplificação de fluxos e checkouts preditivos para maximizar taxas de conversão de leads.</p>
+                    <div class="scrollable-content-zone">
+                        <div class="pillars-grid">
+                            <div class="pillar-card" onclick="openProjectModal('uup-cognitiva')" style="cursor: pointer;">
+                                <h4>Carga Cognitiva Mínima</h4>
+                                <p>Simplificação de fluxos e checkouts preditivos para maximizar taxas de conversão de leads.</p>
+                            </div>
+                            <div class="pillar-card" onclick="openProjectModal('uup-liquido')" style="cursor: pointer;">
+                                <h4>Design Líquido</h4>
+                                <p>Interfaces fluidas construídas sob Grid/Flexbox, otimizadas para carregamento instantâneo em qualquer hardware.</p>
+                            </div>
                         </div>
-                        
-                        <div class="pillar-card" onclick="openProjectModal('uup-liquido')" style="cursor: pointer;">
-                            <h4>Design Líquido</h4>
-                            <p>Interfaces fluidas construídas sob Grid/Flexbox, otimizadas para carregamento instantâneo em qualquer hardware.</p>
-                        </div>
-                        
                     </div>
                 </div>
             </section>
 
             <section id="tab-labs" class="tab-content">
-                <div class="labs-grid">
-                    <div class="lab-item-card" onclick="openProjectModal('magman')" style="cursor: pointer;">
-                        <div class="lab-icon">🧲</div>
-                        <h3>Magman</h3>
-                        <p>Jogo de exploração lógica baseado em física magnética para navegadores.</p>
-                    </div>
-                
-                    <div class="lab-item-card" onclick="openProjectModal('projeto-exemplo')" style="cursor: pointer;">
-                        <div class="lab-icon">🎮</div>
-                        <h3>Over Power App</h3>
-                        <p>Gamificação de tarefas e gerenciamento de produtividade em tempo real.</p>
-                    </div>
-                </div> <div id="modal-project-details" class="modal-overlay" onclick="closeProjectModal(event)">
-                    <div class="modal-window project-modal-window">
-                        <button class="close-btn" onclick="document.getElementById('modal-project-details').style.display='none'">✕ Fechar</button>
-                        <div id="project-modal-content"></div>
+                <div class="case-study-hero">
+                    <span class="badge-tag">PROTOTIPAGEM & EXPERIMENTOS</span>
+                    <h2>Labs & Games</h2>
+                    <p class="case-lead">Ambiente de engenharia focado em simulações interativas, renderização em tempo real e mecânicas de jogos.</p>
+                    
+                    <div class="scrollable-content-zone">
+                        <div class="labs-grid">
+                            <div class="lab-item-card" onclick="openProjectModal('magman')" style="cursor: pointer;">
+                                <div class="lab-icon">🧲</div>
+                                <h3>Magman</h3>
+                                <p>Jogo de exploração lógica baseado em física magnética para navegadores.</p>
+                            </div>
+                            <div class="lab-item-card" onclick="openProjectModal('projeto-exemplo')" style="cursor: pointer;">
+                                <div class="lab-icon">🎮</div>
+                                <h3>Over Power App</h3>
+                                <p>Gamificação de tarefas e gerenciamento de produtividade em tempo real.</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
-            </section> 
-            
-            
-
+            </section>
         </main>
 
         <footer class="app-footer">
@@ -125,7 +124,12 @@
             </div>
         </footer>
     </div>
-
+    <div id="modal-project-details" class="modal-overlay" onclick="closeProjectModal(event)">
+        <div class="modal-window project-modal-window">
+            <button class="close-btn" onclick="document.getElementById('modal-project-details').style.display='none'">✕ Fechar</button>
+            <div id="project-modal-content"></div>
+        </div>
+    </div>
     <div class="modal-overlay" id="modal-ai-chat">
         <div class="modal-window">
             <button class="close-btn" onclick="closeModal('modal-ai-chat')">&times; Fechar</button>
