@@ -152,9 +152,9 @@ function closeProjectModal(event) {
 // 6. MOTOR REATIVO DO TEXTO DINÂMICO (TYPEWRITER LOOP)
 // ==========================================================
 const frasesTypewriter = [
-    "Sempre criando.",
-    "Sempre sonhando.",
-    "Sempre construindo."
+    "Ousadia para sonhar.",
+    "Seriedade para projetar.",
+    "Criatividade para construir."
 ];
 
 let indiceFraseAtual = 0;
