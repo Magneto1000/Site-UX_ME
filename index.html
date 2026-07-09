@@ -20,13 +20,21 @@
         
         <header class="main-navbar">
             <div class="brand-signature">JN TITO NETO.</div>
+            
+            <button class="menu-toggle" onclick="toggleMobileMenu()" aria-label="Abrir menu">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </button>
+        
             <nav class="tabs-navigation">
                 <button class="tab-trigger active" onclick="switchTab(event, 'perfil')">⚡ Início</button>
                 <button class="tab-trigger" onclick="switchTab(event, 'apresentacao')">📽️ Apresentação</button>
                 <button class="tab-trigger" onclick="switchTab(event, 'uup')">🏢 UUP Solutions</button>
                 <button class="tab-trigger" onclick="switchTab(event, 'labs')">🛠️ Labs & Games</button>
                 <button class="tab-trigger" onclick="openModal('modal-ai-chat')">💬 Assistente IA</button>
-            </nav></header>
+            </nav>
+        </header>
 
         <main class="dynamic-view-viewport">
             
@@ -93,6 +101,16 @@
                     
                     <div class="scrollable-content-zone">
                         <div class="labs-grid">
+                            <div class="lab-item-card" onclick="openProjectModal('magman')" style="cursor: pointer;">
+                                <div class="lab-icon">🧲</div>
+                                <h3>Magman</h3>
+                                <p>Jogo de exploração lógica baseado em física magnética para navegadores.</p>
+                            </div>
+                            <div class="lab-item-card" onclick="openProjectModal('projeto-exemplo')" style="cursor: pointer;">
+                                <div class="lab-icon">🎮</div>
+                                <h3>Over Power App</h3>
+                                <p>Gamificação de tarefas e gerenciamento de produtividade em tempo real.</p>
+                            </div>
                             <div class="lab-item-card" onclick="openProjectModal('magman')" style="cursor: pointer;">
                                 <div class="lab-icon">🧲</div>
                                 <h3>Magman</h3>

@@ -357,18 +357,100 @@ body {
 /* ==========================================================
    8. RESPONSIVIDADE BLINDADA PARA SMARTPHONES
    ========================================================== */
+/* ONDE: Substitua todo o bloco @media (max-width: 768px) { ... } por este completo */
 @media (max-width: 768px) {
-    .main-navbar { flex-direction: column; gap: 20px; padding: 25px 0; }
+    .main-navbar { 
+        padding: 25px 0; 
+        position: relative;
+    }
+    
     .glitch-title { font-size: 2rem; }
     .typewriter-container { font-size: 2.2rem; min-height: 80px; }
     .pillars-grid, .labs-grid { grid-template-columns: 1fr; gap: 15px; }
     .app-footer { flex-direction: column; gap: 15px; text-align: center; padding: 25px 0 !important; }
     .footer-socials { justify-content: center !important; gap: 25px !important; }
-    
-    /* Full-screen fluido de Chat Mobile protegendo contra o teclado virtual */
+
+    /* Exibe o botão hambúrguer no mobile */
+    .menu-toggle {
+        display: flex;
+    }
+
+    /* Transforma a barra de abas em uma cortina flutuante suspensa no mobile */
+    .tabs-navigation {
+        display: flex;
+        flex-direction: column;
+        position: fixed;
+        top: 90px;
+        left: 24px;
+        right: 24px;
+        background: rgba(10, 12, 18, 0.95);
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+        padding: 20px;
+        border-radius: 16px;
+        gap: 12px;
+        border: 1px solid var(--border-static);
+        z-index: 5500;
+        
+        /* Estado inicial oculto com transição suave */
+        opacity: 0;
+        transform: translateY(-20px);
+        pointer-events: none;
+        transition: var(--transition-smooth);
+    }
+
+    /* Classe ativa que o JavaScript vai disparar para abrir o menu */
+    .tabs-navigation.mobile-open {
+        opacity: 1;
+        transform: translateY(0);
+        pointer-events: auto;
+    }
+
+    .tab-trigger {
+        width: 100%;
+        text-align: center;
+        padding: 12px 0;
+        font-size: 0.95rem;
+    }
+
+    /* Animação do ícone Hambúrguer virando um "X" quando ativo */
+    .menu-toggle.open .bar:nth-child(1) {
+        transform: translateY(8px) rotate(45deg);
+        background-color: var(--accent-neon);
+    }
+    .menu-toggle.open .bar:nth-child(2) {
+        opacity: 0;
+    }
+    .menu-toggle.open .bar:nth-child(3) {
+        transform: translateY(-8px) rotate(-45deg);
+        background-color: var(--accent-neon);
+    }
+
+    /* Full-screen fluido de Chat Mobile */
     #modal-ai-chat .modal-window {
         max-width: 100vw; width: 100vw; height: 100dvh !important; max-height: 100dvh !important;
         border-radius: 0; border: none; top: 0; left: 0; padding: 20px; display: flex; flex-direction: column; justify-content: space-between;
     }
     #modal-ai-chat .chat-messages { flex-grow: 1; height: auto; max-height: calc(100dvh - 160px); }
+
+    /* Estilo base do botão hambúrguer (Escondido no Desktop) */
+    .menu-toggle {
+        display: none;
+        flex-direction: column;
+        justify-content: space-between;
+        width: 26px;
+        height: 18px;
+        background: transparent;
+        border: none;
+        cursor: pointer;
+        z-index: 6000;
+    }
+
+    .menu-toggle .bar {
+        width: 100%;
+        height: 2px;
+        background-color: var(--text-primary);
+        border-radius: 2px;
+        transition: var(--transition-smooth);
+    }
 }

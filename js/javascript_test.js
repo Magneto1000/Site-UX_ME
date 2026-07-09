@@ -1,6 +1,8 @@
 // ==========================================================
 // 1. MOTOR INTERATIVO DE ABAS DE NAVEGAÇÃO
 // ==========================================================
+// ONDE: Substitua a função switchTab antiga (geralmente no topo do arquivo) por esta
+
 function switchTab(event, tabId) {
     // Remove o estado ativo de todos os botões de abas
     const triggers = document.querySelectorAll('.tab-trigger');
@@ -13,8 +15,26 @@ function switchTab(event, tabId) {
     // Ativa a aba e o conteúdo selecionado
     event.currentTarget.classList.add('active');
     document.getElementById('tab-' + tabId).classList.add('active-content');
-}
 
+    // UX MOBILE: Fecha o menu hambúrguer automaticamente após o clique do usuário
+    const nav = document.querySelector('.tabs-navigation');
+    const toggle = document.querySelector('.menu-toggle');
+    if (nav && toggle) {
+        nav.classList.remove('mobile-open');
+        toggle.classList.remove('open');
+    }
+}
+// ONDE: Cole logo abaixo da função switchTab para controlar o clique do hambúrguer
+
+function toggleMobileMenu() {
+    const nav = document.querySelector('.tabs-navigation');
+    const toggle = document.querySelector('.menu-toggle');
+    
+    if (nav && toggle) {
+        nav.classList.toggle('mobile-open');
+        toggle.classList.toggle('open');
+    }
+}
 // ==========================================================
 // 2. CONTROLADOR DOS MODAIS GERAIS DA INTERFACE
 // ==========================================================
@@ -96,7 +116,7 @@ const databaseProjetos = {
         title: 'Magman',
         tech: ['JavaScript', 'HTML5 Canvas', 'Game Design'],
         description: 'Um jogo de exploração lógica para navegadores focado em mecânicas magnéticas. O jogador controla campos de atração e repulsão para solucionar quebra-cabeças em cenários espaciais e coletar minerais raros.',
-        link: 'https://github.com/Magneto1000/magman'
+        link: 'pages/estudo_caso_appclaquette.html'
     },
     'projeto-exemplo': {
         icon: '🎮',
