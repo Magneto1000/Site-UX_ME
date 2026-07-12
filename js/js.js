@@ -20,6 +20,7 @@ document.addEventListener('DOMContentLoaded', () => {
             image: 'https://images.unsplash.com/photo-1627757757997-369fb38812e1?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80', 
             text: '💡 "O design invisível é o mais eficiente. Projeto interfaces focadas em eliminar a fricção cognitiva e garantir acessibilidade digital."\n\nArquitetura de experiências imersivas focada estritamente na eliminação de fricções e na mitigação de carga cognitiva[cite: 11, 16]. Especialista na condução de processos completos de Product Discovery, mapeamento de jornadas de usuário, auditorias de concorrência e protótipos interativos com micro-animações, garantindo interfaces acessíveis (WCAG) e livres de dark patterns[cite: 10, 16, 18].',
             link: 'pages/estudo_caso_appclaquette.html'
+            
         },
 
         // 3. ARQUITETURA DE SOFTWARE
@@ -30,6 +31,7 @@ document.addEventListener('DOMContentLoaded', () => {
             image: 'https://images.unsplash.com/photo-1607799279861-4dd421887fb3?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80', 
             text: '💡 "Código performático é aquele que resolve regras de negócio complexas mantendo uma esteira de deploy limpa e escalabilidade sã."\n\nDesenho, modelagem UML e codificação de sistemas ponta a ponta (Full-Stack)[cite: 10, 17]. Atuação com controle de versão rigoroso via Git/GitHub por linha de comando, estruturando arquiteturas de software escaláveis e esteiras de deploy limpas que casam perfeitamente as regras de negócio com uma renderização fluida na interface[cite: 17, 30, 31].',
             link: 'https://github.com/Magneto1000'
+            
         },
 
         // 4. ANÁLISE DE DADOS
@@ -235,3 +237,8 @@ window.moveSlider = (trackId, direction) => {
     // 3. Empurra fisicamente a trilha HTML para o lado (Deslizamento suave)
     track.style.transform = `translateX(-${state.current * 100}%)`;
 };
+
+
+
+
+
