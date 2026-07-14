@@ -9,7 +9,7 @@ document.addEventListener('DOMContentLoaded', () => {
             tech: ['Scrum Framework', 'Product Backlog Refinement', 'User Stories', 'Jira / Confluence'],
             image: 'https://images.unsplash.com/photo-1542626991-cbc4e32524cc?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80', 
             text: '💡 "Gerenciar produtos é transformar caos em valor tangível através de backlogs limpos, rituais ágeis e governança baseada em ROI."\n\nLiderança estratégica focada em traduzir requisitos complexos de negócios e dores reais de usuários em backlogs altamente estruturados e priorizados (RICE/MOSCOW)[cite: 9, 13]. Experiência sólida na facilitação de rituais Scrum, escrita de User Stories acionáveis com critérios de aceite rigorosos e governança ágil voltada para a entrega contínua de valor[cite: 10, 13, 25].',
-            link: 'https://github.com/Magneto1000'
+            link: 'https://drive.google.com/drive/folders/1-eXmQNyc6nnpLboz3JEBETfjL5tW-S10?usp=sharing'
         },
 
         // 2. DESIGN DE INTERFACE & DESCOBERTA
@@ -149,7 +149,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 if (data.link.startsWith('http')) {
                     serviceCta.setAttribute('target', '_blank');
                     serviceCta.setAttribute('rel', 'noopener noreferrer');
-                    serviceCta.textContent = 'Ver no GitHub ➜';
+                    serviceCta.textContent = 'Ver mais ➜';
                 } else {
                     serviceCta.removeAttribute('target');
                     serviceCta.removeAttribute('rel');
