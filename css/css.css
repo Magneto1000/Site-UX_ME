@@ -1,4 +1,25 @@
-* {
+/* css/css.css */
+
+/* Aumenta a escala global apenas em dispositivos móveis */
+@media (max-width: 768px) {
+    html {
+        font-size: 115%; /* Aumenta tudo em 15%. Se quiser maior, tente 125% ou 130% */
+    }
+}
+/* css/css.css */
+html {
+    -webkit-text-size-adjust: 100%; /* Impede o iOS/Android de encolher/aumentar textos */
+    -webkit-tap-highlight-color: transparent;
+}
+
+body {
+    width: 100%;
+    min-height: 100vh;
+    /* Evita rolagens horizontais fantasma que encolhem a tela */
+    overflow-x: hidden; 
+}
+
+{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
