@@ -71,6 +71,10 @@
     html {
         /* O padrão do navegador é 100%. 
            Aumentando para 125%, tudo que usa Tailwind vai crescer 25% de uma vez só! */
-        font-size: 2100% !important; 
+        font-size: 210% !important; 
+    }
+    body {
+        zoom: 1.25; /* Aumenta toda a interface em 25% */
+        -webkit-text-size-adjust: 100%;
     }
 }
