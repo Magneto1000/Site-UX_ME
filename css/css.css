@@ -1,4 +1,14 @@
+html {
+    /* Impede o iOS e Android de reduzirem/alterarem o tamanho do texto */
+    -webkit-text-size-adjust: 100%;
+    text-size-adjust: 100%;
+}
 
+body {
+    width: 100%;
+    min-height: 100vh;
+    overflow-x: hidden; /* Evita que elementos vazados façam a tela encolher */
+}
 
 {
     margin: 0;
