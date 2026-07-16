@@ -1,7 +1,7 @@
 /* css/css.css */
 
 /* Aumenta a escala global apenas em dispositivos móveis */
-@media (max-width: 768px) {
+@media (max-width: 868px) {
     html {
         font-size: 115%; /* Aumenta tudo em 15%. Se quiser maior, tente 125% ou 130% */
     }
