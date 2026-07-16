@@ -66,3 +66,14 @@
 .overflow-x-auto::-webkit-scrollbar {
     display: none;
 }
+
+/* ==========================================================================
+   📱 ESCALA GLOBAL PARA CELULARES (M.A. ENGENHARIA STYLE)
+   ========================================================================== */
+   @media (max-width: 1024px) {
+    html {
+        /* O padrão do navegador é 100%. 
+           Aumentando para 125%, tudo que usa Tailwind vai crescer 25% de uma vez só! */
+        font-size: 125% !important; 
+    }
+}
