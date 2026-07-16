@@ -1,15 +1,5 @@
 
 
-/* Aplica zoom apenas em telas de celular (até 768px) */
-@media (max-width: 768px) {
-    body {
-        /* Aumenta toda a interface em 20% ou 25% */
-        zoom: 1.2; /* Tente 1.2 (120%), 1.25 (125%) ou 1.3 (130%) */
-        -moz-transform: scale(1.2); /* Suporte para Firefox */
-        -moz-transform-origin: 0 0;
-    }
-}
-
 {
     margin: 0;
     padding: 0;
