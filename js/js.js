@@ -239,6 +239,12 @@ window.moveSlider = (trackId, direction) => {
 };
 
 
-
+// Atualiza a barra de progresso do vídeo do card dinamicamente
+setInterval(() => {
+    const video = document.getElementById('card-presentation-video');
+    const bar = document.getElementById('card-video-progress-bar');
+    if (!video || !bar || video.paused) return;
+    bar.style.width = `${(video.currentTime / video.duration) * 100}%`;
+}, 200);
 
 
