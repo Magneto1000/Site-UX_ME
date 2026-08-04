@@ -37,11 +37,11 @@ document.addEventListener('DOMContentLoaded', () => {
         // 4. ANÁLISE DE DADOS
         'data-analytics': {
             icon: '📊',
-            title: 'Data Analytics & Otimização',
-            tech: ['Google Data Analytics', 'Linguagem R', 'Extração SQL', 'Métricas de Engajamento'],
-            image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80', 
-            text: '💡 "Opiniões criam hipóteses, mas apenas os dados validam o produto. Uso métricas reais para identificar gargalos e otimizar conversões."\n\nTomada de decisão cirúrgica baseada estritamente em dados reais de comportamento[cite: 46]. Extração de insights estruturados in loco em bancos de dados SQL e ferramentas de análise para identificação de gargalos funcionais, análise de métricas de retenção e otimização de conversão em plataformas digitais[cite: 18, 46].',
-            link: 'https://github.com/Magneto1000'
+            title: 'Technical Support & Customer Experience (CX)',
+            tech: ['💡 "A eficiência do suporte não está apenas em resolver chamados, mas em transformar a dor do usuário em evolução contínua para o produto."'],
+            image: 'https://images.unsplash.com/photo-1581094794329-c8112a89af12?q=80&w=987&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D', 
+            text: 'Atuação estratégica na gestão do ciclo completo de chamados e suporte ao cliente, combinando triagem assertiva, priorização por SLAs e comunicação humanizada via canais digitais. Diagnóstico técnico de incidentes e identificação de gargalos operacionais diretamente na ponta, traduzindo o feedback do usuário final em melhorias contínuas, otimização de fluxos e redução de chamados recorrentes.',
+            link: ''
         },
 
         // 5. LABORATÓRIO E WORKSHOPS
