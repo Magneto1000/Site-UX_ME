@@ -79,6 +79,6 @@
 /* Ponto de ouro: 118% no mobile cria a densidade e o peso de fontes de apps nativos */
 @media (max-width: 1024px) {
     html {
-        font-size: 118% !important;
+        font-size: 190% !important;
     }
 }
