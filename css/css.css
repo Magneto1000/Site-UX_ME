@@ -1,19 +1,20 @@
 /* ==========================================================================
-   PALETA MONOCROMÁTICA & AJUSTES RESPONSIVOS (JURACI TITO NETO)
+   PALETA MONOCROMÁTICA & ERGONOMIA MOBILE NATIVA
    ========================================================================== */
 
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    -webkit-tap-highlight-color: transparent;
 }
 
-/* Transições suaves para gavetas e menus */
+/* Transições fluidas estilo iOS/Android */
 .cubic-transition {
-    transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+    transition: all 0.4s cubic-bezier(0.2, 0.9, 0.3, 1);
 }
 
-/* Barra de rolagem minimalista em tons de grafite */
+/* Scrollbar suave */
 .custom-scrollbar::-webkit-scrollbar {
     width: 4px;
     height: 4px;
@@ -32,15 +33,15 @@
     background: #52525b;
 }
 
-/* Animação suave para botão de contato */
-@keyframes whatsapp-float {
+/* Animação de pulso suave para botões de contato */
+@keyframes subtle-pulse {
     0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.25); }
-    70% { transform: scale(1.05); box-shadow: 0 0 0 12px rgba(255, 255, 255, 0); }
+    70% { transform: scale(1.04); box-shadow: 0 0 0 10px rgba(255, 255, 255, 0); }
     100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(255, 255, 255, 0); }
 }
 
 .animate-whatsapp {
-    animation: whatsapp-float 2s infinite ease-in-out;
+    animation: subtle-pulse 2.2s infinite ease-in-out;
 }
 
 /* Estados ativos da barra lateral desktop */
@@ -54,16 +55,15 @@
     color: #ffffff !important; 
 }
 
-/* Estados ativos do Drawer mobile */
+/* Estados ativos do Drawer Mobile (Toque Nativo) */
 .mobile-nav-btn.active-nav {
-    background-color: rgba(255, 255, 255, 0.12) !important;
-    border-color: rgba(255, 255, 255, 0.35) !important;
+    background-color: rgba(255, 255, 255, 0.15) !important;
+    border-color: rgba(255, 255, 255, 0.4) !important;
 }
 .mobile-nav-btn.active-nav span:last-child {
     color: #ffffff !important; 
 }
 
-/* Utilitário para ocultar scrollbars horizontais */
 .overflow-x-auto {
     -ms-overflow-style: none;
     scrollbar-width: none;
@@ -72,14 +72,13 @@
     display: none;
 }
 
-/* Cursor para ampliação de imagens */
 .cursor-zoom-in {
     cursor: zoom-in;
 }
 
-/* Responsividade de escala natural no celular (evita que ícones e fontes dobrem de tamanho) */
+/* Ponto de ouro: 118% no mobile cria a densidade e o peso de fontes de apps nativos */
 @media (max-width: 1024px) {
     html {
-        font-size: 100% !important;
+        font-size: 118% !important;
     }
 }
