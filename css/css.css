@@ -1,64 +1,69 @@
+/* ==========================================================================
+   PALETA MONOCROMÁTICA & AJUSTES RESPONSIVOS (JURACI TITO NETO)
+   ========================================================================== */
 
-
-{
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-/* Oculta scrollbars nativas mas permite deslizar os cards */
-.custom-scrollbar::-webkit-scrollbar {
-    height: 4px;
-    width: 4px;
-}
-.custom-scrollbar::-webkit-scrollbar-track {
-    background: transparent;
-}
-.custom-scrollbar::-webkit-scrollbar-thumb {
-    background: #334155;
-    border-radius: 10px;
-}
-
+/* Transições suaves para gavetas e menus */
 .cubic-transition {
     transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-/* ==========================================================================
-   🟢 ANIMAÇÃO WHATSAPP PULSE
-   ========================================================================== */
+/* Barra de rolagem minimalista em tons de grafite */
+.custom-scrollbar::-webkit-scrollbar {
+    width: 4px;
+    height: 4px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+    background: #3f3f46;
+    border-radius: 10px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+    background: #52525b;
+}
+
+/* Animação suave para botão de contato */
 @keyframes whatsapp-float {
-    0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7); }
-    70% { transform: scale(1.05); box-shadow: 0 0 0 15px rgba(16, 185, 129, 0); }
-    100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(16, 185, 129, 0); }
+    0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.25); }
+    70% { transform: scale(1.05); box-shadow: 0 0 0 12px rgba(255, 255, 255, 0); }
+    100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(255, 255, 255, 0); }
 }
 
 .animate-whatsapp {
     animation: whatsapp-float 2s infinite ease-in-out;
 }
 
-/* ==========================================================================
-   🟦 ESTADOS DOS CARDS (DESKTOP E MOBILE)
-   ========================================================================== */
-/* Desktop */
+/* Estados ativos da barra lateral desktop */
 .desktop-nav-btn.active-nav {
-    background-color: rgba(225, 229, 233, 0.2) !important;
-    border-color: rgba(6, 182, 212, 0.6) !important;
-    transform: translateY(-4px);
-    box-shadow: 0 10px 20px -5px rgba(6, 182, 212, 0.3);
+    background-color: rgba(255, 255, 255, 0.12) !important;
+    border-color: rgba(255, 255, 255, 0.35) !important;
+    transform: translateX(4px);
+    box-shadow: 0 10px 20px -5px rgba(255, 255, 255, 0.08);
 }
 .desktop-nav-btn.active-nav span:last-child {
-    color: #22d3ee !important; 
+    color: #ffffff !important; 
 }
 
-/* Mobile Drawer */
+/* Estados ativos do Drawer mobile */
 .mobile-nav-btn.active-nav {
-    background-color: rgba(6, 182, 212, 0.15) !important;
-    border-color: rgba(6, 182, 212, 0.5) !important;
+    background-color: rgba(255, 255, 255, 0.12) !important;
+    border-color: rgba(255, 255, 255, 0.35) !important;
 }
 .mobile-nav-btn.active-nav span:last-child {
-    color: #22d3ee !important; 
+    color: #ffffff !important; 
 }
 
+/* Utilitário para ocultar scrollbars horizontais */
 .overflow-x-auto {
     -ms-overflow-style: none;
     scrollbar-width: none;
@@ -67,10 +72,14 @@
     display: none;
 }
 
-   @media (max-width: 1024px) {
+/* Cursor para ampliação de imagens */
+.cursor-zoom-in {
+    cursor: zoom-in;
+}
+
+/* Responsividade de escala natural no celular (evita que ícones e fontes dobrem de tamanho) */
+@media (max-width: 1024px) {
     html {
-        /* O padrão do navegador é 100%. 
-           Aumentando para 125%, tudo que usa Tailwind vai crescer 25% de uma vez só! */
-        font-size: 190% !important; 
+        font-size: 100% !important;
     }
 }
