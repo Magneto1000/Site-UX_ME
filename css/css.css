@@ -70,6 +70,6 @@
 /* Escala padrão nativa: garante que o mobile não quebre nem distorça ícones */
 @media (max-width: 1024px) {
     html {
-        font-size: 100% !important;
+        font-size: 110% !important;
     }
 }
