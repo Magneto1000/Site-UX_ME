@@ -2,7 +2,7 @@
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Juraci Tito Neto | Software Architect & UX Designer</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -10,7 +10,7 @@
 </head>
 <body class="bg-neutral-950 text-white overflow-hidden h-screen w-screen flex font-sans antialiased select-none">
 
-    <!-- PLANO DE FUNDO CINEMATOGRÁFICO MONOCROMÁTICO -->
+ 
     <div class="absolute inset-0 z-0 bg-neutral-950 overflow-hidden">
         <div id="slider-container" class="absolute inset-0 transition-opacity duration-1000 bg-neutral-950">
             <div id="slide-1" class="absolute inset-0 bg-cover bg-center transition-all duration-[2000ms] opacity-100 scale-100 grayscale contrast-125" style="background-image: url('https://images.unsplash.com/photo-1592609931041-40265b692757?auto=format&fit=crop&w=1920&q=80');"></div>
@@ -24,7 +24,7 @@
         <div class="absolute inset-0 bg-gradient-to-t from-neutral-950 via-transparent to-transparent opacity-90 md:opacity-80"></div>
     </div>
 
-    <!-- CABEÇALHO -->
+ 
     <header class="absolute top-0 left-0 w-full p-4 sm:p-6 md:p-10 flex justify-between items-start z-40 pointer-events-none">
         <button onclick="window.toggleMobileMenu(true)" 
                 class="lg:hidden w-11 h-11 bg-neutral-900/90 hover:bg-neutral-800 active:scale-95 backdrop-blur-md border border-white/20 text-white rounded-2xl flex items-center justify-center shadow-lg transition-all pointer-events-auto">
@@ -56,7 +56,7 @@
         </div>
     </header>
 
-    <!-- MENU MOBILE DRAWER -->
+   
     <div id="mobile-overlay" onclick="window.toggleMobileMenu(false)" class="fixed inset-0 bg-neutral-950/80 backdrop-blur-sm z-40 hidden opacity-0 cubic-transition lg:hidden"></div>
     
     <div id="mobile-drawer" class="fixed inset-y-0 left-0 w-[82%] max-w-xs bg-neutral-900/98 backdrop-blur-2xl z-50 transform -translate-x-full cubic-transition border-r border-white/10 flex flex-col p-5 sm:p-6 lg:hidden shadow-2xl">
@@ -101,15 +101,15 @@
         </div>
     </div>
     
-    <!-- CONTEÚDO PRINCIPAL -->
+   
     <main class="absolute inset-y-0 left-0 w-full lg:w-[65%] xl:w-[60%] flex flex-col justify-center px-6 sm:px-10 md:px-16 lg:pl-64 xl:pl-72 z-20 pointer-events-none pb-20 lg:pb-0">
         
-        <!-- HERO -->
+     
         <div id="hero-content" class="h-full w-full relative flex flex-col justify-center transition-all duration-700 opacity-100 translate-y-0 pointer-events-auto">
             <div>
                 <div class="flex items-center gap-2 mb-2 sm:mb-3">
                     <span class="text-zinc-400 font-bold uppercase tracking-wider text-[9px] sm:text-xs leading-relaxed max-w-md">
-                        <ul class="text-zinc-400 font-bold uppercase tracking-wider md:tracking-[0.2em] text-[9px] sm:text-[10px] leading-tight list-disc list-inside space-y-0.5 max-w-md">
+                        <ul class="text-zinc-400 font-bold uppercase tracking-wider md:tracking-[0.2em] text-[11px] sm:text-[12px] leading-tight list-disc list-inside space-y-0.5 max-w-md">
                             <li>Technical Support Specialist</li>
                             <li>Customer Experience (Experiência do Cliente)</li>
                             <li>Product Owner</li>
@@ -164,7 +164,7 @@
             </div>
         </div>
 
-        <!-- DETALHE TÉCNICO / SERVIÇOS -->
+       
         <div id="service-content" class="absolute inset-y-0 left-0 flex flex-col justify-center px-6 sm:px-10 md:px-16 lg:pl-64 xl:pl-72 w-full transition-all duration-700 opacity-0 translate-y-8 pointer-events-none pb-20 lg:pb-0">
             
             <button onclick="window.resetToHero(); document.getElementById('dropdown-popout-container').classList.add('hidden'); if(document.getElementById('dropdown-video-container')) document.getElementById('dropdown-video-container').classList.add('hidden');" class="mb-4 w-10 h-10 rounded-xl bg-white/10 hover:bg-white/20 active:scale-90 border border-white/20 flex items-center justify-center text-white backdrop-blur-md transition-all shadow-md pointer-events-auto">
@@ -228,7 +228,7 @@
         </div>
     </main>
 
-    <!-- BARRA LATERAL DESKTOP (EXCLUSIVA LG+) -->
+ 
     <nav class="hidden lg:flex fixed left-0 top-0 h-full w-auto z-30 py-8 px-6 bg-gradient-to-r from-neutral-950 via-neutral-950/90 to-transparent flex-col justify-center items-start gap-4 pointer-events-none">
         <div class="flex flex-col gap-2.5 pointer-events-auto">
             <button onclick="window.selectService('data-analytics'); document.getElementById('dropdown-popout-container').classList.add('hidden'); if(document.getElementById('dropdown-video-container')) document.getElementById('dropdown-video-container').classList.remove('hidden');" class="desktop-nav-btn group flex flex-col items-start gap-1 bg-white/5 hover:bg-white/10 border border-white/10 backdrop-blur-md p-3.5 rounded-2xl w-44 xl:w-48 transition-all text-left">
@@ -270,7 +270,7 @@
         </div>
     </nav>
 
-    <!-- HUB OVERLAY (TODOS OS TEXTOS E LINKS RESTAURADOS) -->
+ 
     <div id="hub-overlay" class="absolute inset-0 bg-neutral-950/98 backdrop-blur-3xl z-50 transform translate-y-full transition-transform duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] overflow-y-auto custom-scrollbar flex flex-col p-5 sm:p-8 md:p-12 lg:p-16">
         
         <div class="flex justify-between items-center mb-6 sm:mb-8">
@@ -297,7 +297,7 @@
                 </a>
             </div>
 
-            <!-- CARD 1: PYTHON MICHIGAN -->
+ 
             <div class="group">
                 <div class="relative w-full aspect-video rounded-2xl overflow-hidden shadow-lg mb-3 border border-white/10 group/slider">
                     <div id="track-obra-1" class="flex w-full h-full transition-transform duration-500 ease-[cubic-bezier(0.25,1,0.5,1)]">
@@ -323,7 +323,7 @@
                 </div>
             </div>
 
-            <!-- CARD VIDEO COM CONTROLES -->
+     
             <div class="group">
                 <div class="relative w-full aspect-video rounded-2xl overflow-hidden shadow-lg mb-3 border border-white/10 group/video bg-black flex items-center justify-center">
                     <video id="card-presentation-video" 
@@ -365,7 +365,7 @@
                 <p class="text-xs md:text-sm text-zinc-400 font-light mt-1.5 md:mt-2 leading-relaxed"></p>
             </div>
 
-            <!-- CARD 2: PYTHON GOOGLE -->
+ 
             <div class="group">
                 <div class="relative w-full aspect-video rounded-2xl overflow-hidden shadow-lg mb-3 border border-white/10 group/slider">
                     <div id="track-obra-2" class="flex w-full h-full transition-transform duration-500 ease-[cubic-bezier(0.25,1,0.5,1)]">
@@ -392,7 +392,7 @@
                 </div>
             </div>
             
-            <!-- CARD 3: GERENCIAMENTO DE PROJETOS -->
+          
             <div class="group">
                 <div class="relative w-full aspect-video rounded-2xl overflow-hidden shadow-lg mb-3 border border-white/10 group/slider">
                     <div id="track-obra-3" class="flex w-full h-full transition-transform duration-500 ease-[cubic-bezier(0.25,1,0.5,1)]">
@@ -421,7 +421,7 @@
                 </div>
             </div>
             
-            <!-- CARD 4: BLOG PESSOAL -->
+ 
             <div class="group">
                 <div class="relative w-full aspect-video rounded-2xl overflow-hidden shadow-lg mb-3 border border-white/10 group/slider">
                     <div id="track-obra-4" class="flex w-full h-full transition-transform duration-500 ease-[cubic-bezier(0.25,1,0.5,1)]">
@@ -454,8 +454,7 @@
                     Faça uma visitinha: <a href="https://meu-blog-jade.vercel.app" target="_blank" rel="noopener noreferrer" class="text-zinc-200 hover:text-white underline font-semibold transition-colors pointer-events-auto cursor-pointer inline-flex items-center gap-1">JN Tito Neto Blog <i class="fa-solid fa-arrow-up-right-from-square text-[9px]"></i></a>
                 </p>
             </div>
-
-            <!-- CARD 5: IBM DATA ANALYTICS -->
+ 
             <div class="group">
                 <div class="relative w-full aspect-video rounded-2xl overflow-hidden shadow-lg mb-3 border border-white/10 group/slider">
                     <div id="track-obra-5" class="flex w-full h-full transition-transform duration-500 ease-[cubic-bezier(0.25,1,0.5,1)]">
@@ -482,7 +481,7 @@
                 </div>
             </div>
             
-            <!-- CARD 6: SITES DE CLIENTES -->
+    
             <div class="group">
                 <div onclick="window.open('https://images.unsplash.com/photo-1573166364266-356ef04ae798?q=80&w=1920', '_blank')" 
                      class="w-full aspect-video bg-cover bg-center rounded-2xl overflow-hidden shadow-lg mb-3 border border-white/10 cursor-zoom-in hover:opacity-90 transition-opacity grayscale contrast-125" 
@@ -509,7 +508,7 @@
                 </ul>
             </div>
         
-            <!-- CARD 7: UX GOOGLE COM TODAS AS 6 IMAGENS -->
+         
             <div class="group">
                 <div class="relative w-full aspect-video rounded-2xl overflow-hidden shadow-lg mb-3 border border-white/10 group/slider">
                     <div id="track-obra-6" class="flex w-full h-full transition-transform duration-500 ease-[cubic-bezier(0.25,1,0.5,1)]">
