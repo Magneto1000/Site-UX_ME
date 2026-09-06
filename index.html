@@ -10,6 +10,7 @@
 </head>
 <body class="bg-neutral-950 text-white overflow-hidden h-screen w-screen flex font-sans antialiased select-none">
 
+    <!-- PLANO DE FUNDO CINEMATOGRÁFICO MONOCROMÁTICO -->
     <div class="absolute inset-0 z-0 bg-neutral-950 overflow-hidden">
         <div id="slider-container" class="absolute inset-0 transition-opacity duration-1000 bg-neutral-950">
             <div id="slide-1" class="absolute inset-0 bg-cover bg-center transition-all duration-[2000ms] opacity-100 scale-100 grayscale contrast-125" style="background-image: url('https://images.unsplash.com/photo-1592609931041-40265b692757?auto=format&fit=crop&w=1920&q=80');"></div>
@@ -23,86 +24,91 @@
         <div class="absolute inset-0 bg-gradient-to-t from-neutral-950 via-transparent to-transparent opacity-90 md:opacity-80"></div>
     </div>
 
-<header class="absolute top-0 left-0 w-full p-6 md:p-10 flex justify-between items-start z-40 pointer-events-none">
-    <button onclick="window.toggleMobileMenu(true)" class="lg:hidden w-12 h-12 bg-white/10 backdrop-blur-md border border-white/20 text-white rounded-full flex items-center justify-center shadow-lg active:scale-95 transition-transform pointer-events-auto">
-        <i class="fa-solid fa-bars-staggered text-lg"></i>
-    </button>
+    <!-- CABEÇALHO -->
+    <header class="absolute top-0 left-0 w-full p-4 sm:p-6 md:p-10 flex justify-between items-start z-40 pointer-events-none">
+        <button onclick="window.toggleMobileMenu(true)" 
+                class="lg:hidden w-11 h-11 bg-neutral-900/90 hover:bg-neutral-800 active:scale-95 backdrop-blur-md border border-white/20 text-white rounded-2xl flex items-center justify-center shadow-lg transition-all pointer-events-auto">
+            <i class="fa-solid fa-bars-staggered text-base"></i>
+        </button>
 
-    <div class="hidden lg:block w-12"></div>
+        <div class="hidden lg:block w-12"></div>
 
-    <div class="flex flex-col gap-3 md:gap-4 pointer-events-auto">
-        <a href="https://web.whatsapp.com/send?phone=5522992296380&text=Ol%C3%A1!" target="_blank" rel="noopener noreferrer"
-           class="w-[12vw] h-[12vw] sm:w-12 sm:h-12 lg:w-14 lg:h-14 bg-zinc-800 rounded-full flex items-center justify-center animate-whatsapp text-white shadow-[0_0_20px_rgba(255,255,255,0.15)] hover:bg-zinc-700 transition-colors border border-white/10">
-            <i class="fa-brands fa-whatsapp text-[5vw] sm:text-xl lg:text-2xl"></i>
-        </a>
-         
-        <a href="https://www.linkedin.com/in/jn-tito-neto-742385126" target="_blank" rel="noopener noreferrer"
-           class="w-[12vw] h-[12vw] sm:w-12 sm:h-12 lg:w-14 lg:h-14 bg-zinc-900 rounded-full flex items-center justify-center text-white shadow-[0_0_20px_rgba(255,255,255,0.08)] hover:scale-110 transition-transform duration-300 border border-white/10 hover:bg-zinc-800">
-            <i class="fa-brands fa-linkedin-in text-[5vw] sm:text-xl lg:text-2xl"></i>
-        </a>
-         
-        <a href="https://github.com/Magneto1000" target="_blank" rel="noopener noreferrer"
-           class="w-[12vw] h-[12vw] sm:w-12 sm:h-12 lg:w-14 lg:h-14 bg-black rounded-full flex items-center justify-center text-white shadow-[0_0_20px_rgba(255,255,255,0.08)] hover:scale-110 transition-transform duration-300 border border-white/10 hover:bg-zinc-900">
-            <i class="fa-brands fa-github text-[5vw] sm:text-xl lg:text-2xl"></i>
-        </a>
-         
-        <a href="https://www.tiktok.com/@printdevjtitoneto?_r=1&_t=ZS-9878EUloyrX" target="_blank" rel="noopener noreferrer"
-           class="w-[12vw] h-[12vw] sm:w-12 sm:h-12 lg:w-14 lg:h-14 bg-zinc-950 rounded-full flex items-center justify-center text-white shadow-[0_0_20px_rgba(255,255,255,0.08)] hover:scale-110 transition-transform duration-300 border border-white/10 hover:bg-zinc-900">
-            <i class="fa-brands fa-tiktok text-[5vw] sm:text-xl lg:text-2xl"></i>
-        </a>
-    </div>
-</header>
+        <div class="flex flex-col gap-2.5 pointer-events-auto">
+            <a href="https://web.whatsapp.com/send?phone=5522992296380&text=Ol%C3%A1!" target="_blank" rel="noopener noreferrer"
+               class="w-10 h-10 sm:w-11 sm:h-11 bg-zinc-800 hover:bg-zinc-700 active:scale-95 border border-white/10 rounded-2xl flex items-center justify-center animate-whatsapp text-white shadow-md transition-all">
+                <i class="fa-brands fa-whatsapp text-lg"></i>
+            </a>
+             
+            <a href="https://www.linkedin.com/in/jn-tito-neto-742385126" target="_blank" rel="noopener noreferrer"
+               class="w-10 h-10 sm:w-11 sm:h-11 bg-zinc-900 hover:bg-zinc-800 active:scale-95 border border-white/10 rounded-2xl flex items-center justify-center text-white shadow-md transition-all">
+                <i class="fa-brands fa-linkedin-in text-base"></i>
+            </a>
+             
+            <a href="https://github.com/Magneto1000" target="_blank" rel="noopener noreferrer"
+               class="w-10 h-10 sm:w-11 sm:h-11 bg-black hover:bg-zinc-900 active:scale-95 border border-white/10 rounded-2xl flex items-center justify-center text-white shadow-md transition-all">
+                <i class="fa-brands fa-github text-base"></i>
+            </a>
+             
+            <a href="https://www.tiktok.com/@printdevjtitoneto?_r=1&_t=ZS-9878EUloyrX" target="_blank" rel="noopener noreferrer"
+               class="w-10 h-10 sm:w-11 sm:h-11 bg-zinc-950 hover:bg-zinc-900 active:scale-95 border border-white/10 rounded-2xl flex items-center justify-center text-white shadow-md transition-all">
+                <i class="fa-brands fa-tiktok text-base"></i>
+            </a>
+        </div>
+    </header>
 
-    <div id="mobile-overlay" onclick="window.toggleMobileMenu(false)" class="fixed inset-0 bg-neutral-950/80 backdrop-blur-md z-40 hidden opacity-0 cubic-transition lg:hidden"></div>
+    <!-- MENU MOBILE DRAWER -->
+    <div id="mobile-overlay" onclick="window.toggleMobileMenu(false)" class="fixed inset-0 bg-neutral-950/80 backdrop-blur-sm z-40 hidden opacity-0 cubic-transition lg:hidden"></div>
     
-    <div id="mobile-drawer" class="fixed inset-y-0 left-0 w-[84%] sm:w-80 bg-neutral-900/98 backdrop-blur-2xl z-50 transform -translate-x-full cubic-transition border-r border-white/15 flex flex-col p-6 lg:hidden shadow-2xl">
-        <div class="flex justify-between items-center mb-6 pb-4 border-b border-white/10">
-            <span class="text-zinc-400 font-black uppercase tracking-[0.2em] text-xs">Menu de Serviços</span>
-            <button onclick="window.toggleMobileMenu(false)" class="w-10 h-10 rounded-xl bg-white/10 text-white flex items-center justify-center hover:bg-white/20 active:scale-90 transition-all">
+    <div id="mobile-drawer" class="fixed inset-y-0 left-0 w-[82%] max-w-xs bg-neutral-900/98 backdrop-blur-2xl z-50 transform -translate-x-full cubic-transition border-r border-white/10 flex flex-col p-5 sm:p-6 lg:hidden shadow-2xl">
+        <div class="flex justify-between items-center mb-5 pb-3 border-b border-white/10">
+            <span class="text-zinc-400 font-bold uppercase tracking-[0.2em] text-[11px]">Menu de Serviços</span>
+            <button onclick="window.toggleMobileMenu(false)" class="w-9 h-9 rounded-xl bg-white/10 text-white flex items-center justify-center hover:bg-white/20 active:scale-90 transition-all">
                 <i class="fa-solid fa-xmark text-base"></i>
             </button>
         </div>
 
-        <nav class="flex-grow flex flex-col gap-2.5 overflow-y-auto custom-scrollbar pr-1">
-            <button onclick="window.selectService('product-management'); document.getElementById('dropdown-popout-container').classList.add('hidden'); window.toggleMobileMenu(false);" class="mobile-nav-btn flex flex-col items-start gap-1 p-4 rounded-2xl bg-white/5 hover:bg-white/10 active:scale-[0.98] border border-white/5 transition-all text-left">
-                <span class="text-zinc-400 font-mono text-[11px] font-bold">01</span>
-                <span class="text-white font-bold text-sm uppercase tracking-wider">Product Management (PO)</span>
+        <nav class="flex-grow flex flex-col gap-2 overflow-y-auto custom-scrollbar pr-1">
+            <button onclick="window.selectService('product-management'); document.getElementById('dropdown-popout-container').classList.add('hidden'); if(document.getElementById('dropdown-video-container')) document.getElementById('dropdown-video-container').classList.add('hidden'); window.toggleMobileMenu(false);" class="mobile-nav-btn flex flex-col items-start gap-0.5 p-3.5 rounded-xl bg-white/5 hover:bg-white/10 border border-white/5 transition-all text-left">
+                <span class="text-zinc-400 font-mono text-[10px]">01</span>
+                <span class="text-white font-bold text-xs uppercase tracking-wider">Product Management (PO)</span>
             </button>
-            <button onclick="window.selectService('ux-ui-design'); document.getElementById('dropdown-popout-container').classList.remove('hidden'); window.toggleMobileMenu(false);" class="mobile-nav-btn flex flex-col items-start gap-1 p-4 rounded-2xl bg-white/5 hover:bg-white/10 active:scale-[0.98] border border-white/5 transition-all text-left">
-                <span class="text-zinc-400 font-mono text-[11px] font-bold">02</span>
-                <span class="text-white font-bold text-sm uppercase tracking-wider">UX / UI Design (Discovery)</span>
+            <button onclick="window.selectService('ux-ui-design'); document.getElementById('dropdown-popout-container').classList.remove('hidden'); if(document.getElementById('dropdown-video-container')) document.getElementById('dropdown-video-container').classList.add('hidden'); window.toggleMobileMenu(false);" class="mobile-nav-btn flex flex-col items-start gap-0.5 p-3.5 rounded-xl bg-white/5 hover:bg-white/10 border border-white/5 transition-all text-left">
+                <span class="text-zinc-400 font-mono text-[10px]">02</span>
+                <span class="text-white font-bold text-xs uppercase tracking-wider">UX / UI Design (Discovery)</span>
             </button>
-            <button onclick="window.selectService('software-architecture'); document.getElementById('dropdown-popout-container').classList.add('hidden'); window.toggleMobileMenu(false);" class="mobile-nav-btn flex flex-col items-start gap-1 p-4 rounded-2xl bg-white/5 hover:bg-white/10 active:scale-[0.98] border border-white/5 transition-all text-left">
-                <span class="text-zinc-400 font-mono text-[11px] font-bold">03</span>
-                <span class="text-white font-bold text-sm uppercase tracking-wider">Software Architecture (Dev)</span>
+            <button onclick="window.selectService('software-architecture'); document.getElementById('dropdown-popout-container').classList.add('hidden'); if(document.getElementById('dropdown-video-container')) document.getElementById('dropdown-video-container').classList.add('hidden'); window.toggleMobileMenu(false);" class="mobile-nav-btn flex flex-col items-start gap-0.5 p-3.5 rounded-xl bg-white/5 hover:bg-white/10 border border-white/5 transition-all text-left">
+                <span class="text-zinc-400 font-mono text-[10px]">03</span>
+                <span class="text-white font-bold text-xs uppercase tracking-wider">Software Architecture (Dev)</span>
             </button>
-            <button onclick="window.selectService('data-analytics'); document.getElementById('dropdown-popout-container').classList.add('hidden'); window.toggleMobileMenu(false);" class="mobile-nav-btn flex flex-col items-start gap-1 p-4 rounded-2xl bg-white/5 hover:bg-white/10 active:scale-[0.98] border border-white/5 transition-all text-left">
-                <span class="text-zinc-400 font-mono text-[11px] font-bold">04</span>
-                <span class="text-white font-bold text-sm uppercase tracking-wider">User Support & Success</span>
+            <button onclick="window.selectService('data-analytics'); document.getElementById('dropdown-popout-container').classList.add('hidden'); if(document.getElementById('dropdown-video-container')) document.getElementById('dropdown-video-container').classList.remove('hidden'); window.toggleMobileMenu(false);" class="mobile-nav-btn flex flex-col items-start gap-0.5 p-3.5 rounded-xl bg-white/5 hover:bg-white/10 border border-white/5 transition-all text-left">
+                <span class="text-zinc-400 font-mono text-[10px]">04</span>
+                <span class="text-white font-bold text-xs uppercase tracking-wider">User Support & Success</span>
             </button>
-            <button onclick="window.selectService('labs-workshops'); document.getElementById('dropdown-popout-container').classList.add('hidden'); window.toggleMobileMenu(false);" class="mobile-nav-btn flex flex-col items-start gap-1 p-4 rounded-2xl bg-white/5 hover:bg-white/10 active:scale-[0.98] border border-white/5 transition-all text-left">
-                <span class="text-zinc-400 font-mono text-[11px] font-bold">05</span>
-                <span class="text-white font-bold text-sm uppercase tracking-wider">Labs, Games & Workshops</span>
+            <button onclick="window.selectService('labs-workshops'); document.getElementById('dropdown-popout-container').classList.add('hidden'); if(document.getElementById('dropdown-video-container')) document.getElementById('dropdown-video-container').classList.add('hidden'); window.toggleMobileMenu(false);" class="mobile-nav-btn flex flex-col items-start gap-0.5 p-3.5 rounded-xl bg-white/5 hover:bg-white/10 border border-white/5 transition-all text-left">
+                <span class="text-zinc-400 font-mono text-[10px]">05</span>
+                <span class="text-white font-bold text-xs uppercase tracking-wider">Labs, Games & Workshops</span>
             </button>
         </nav>
 
-        <div class="mt-4 pt-4 border-t border-white/10 flex flex-col gap-3">
-            <button onclick="window.toggleHub(true)" class="w-full bg-zinc-800/80 hover:bg-zinc-700 active:scale-95 border border-white/15 p-4 rounded-2xl transition-all text-center flex items-center justify-center gap-3 shadow-lg">
-                <i class="fa-solid fa-map-location-dot text-zinc-300 text-base"></i>
-                <span class="text-white font-black text-sm uppercase tracking-wider">Skills e Certificados</span>
+        <div class="mt-4 pt-3 border-t border-white/10 flex flex-col gap-2.5">
+            <button onclick="window.toggleHub(true)" class="w-full bg-zinc-800/70 hover:bg-zinc-700 active:scale-95 border border-white/15 p-3.5 rounded-xl transition-all text-center flex items-center justify-center gap-2.5 shadow-md">
+                <i class="fa-solid fa-map-location-dot text-zinc-300 text-sm"></i>
+                <span class="text-white font-bold text-xs uppercase tracking-wider">Skills e Certificados</span>
             </button>
-            <div class="text-[11px] text-zinc-500 font-bold uppercase tracking-widest text-center">
+            <div class="text-[10px] text-zinc-500 font-bold uppercase tracking-widest text-center">
                 Architected by <a href="https://uup-site.vercel.app/" target="_blank" class="text-zinc-300 hover:text-white transition-colors">UUP SOFTWARE</a>
             </div>
         </div>
     </div>
     
+    <!-- CONTEÚDO PRINCIPAL -->
     <main class="absolute inset-y-0 left-0 w-full lg:w-[65%] xl:w-[60%] flex flex-col justify-center px-6 sm:px-10 md:px-16 lg:pl-64 xl:pl-72 z-20 pointer-events-none pb-20 lg:pb-0">
         
+        <!-- HERO -->
         <div id="hero-content" class="h-full w-full relative flex flex-col justify-center transition-all duration-700 opacity-100 translate-y-0 pointer-events-auto">
             <div>
-                <div class="flex items-center gap-2 mb-3 sm:mb-4">
-                    <span class="text-zinc-400 font-bold uppercase tracking-wider text-xs sm:text-sm leading-relaxed max-w-lg">
+                <div class="flex items-center gap-2 mb-2 sm:mb-3">
+                    <span class="text-zinc-400 font-bold uppercase tracking-wider text-[11px] sm:text-xs leading-relaxed max-w-md">
                         Technical Support Specialist | CX | Product Owner | Technical Product Manager | UX/UI Management | Estudante de Engenharia de Software
                     </span>
                 </div>
@@ -111,38 +117,38 @@
                     JN<br><span class="text-transparent bg-clip-text bg-gradient-to-r from-zinc-100 via-neutral-300 to-zinc-500">TITO NETO</span>
                 </h1>
                 
-                <div class="relative inline-block mt-5 sm:mt-6 group pointer-events-auto cursor-help">
+                <div class="relative inline-block mt-4 sm:mt-5 group pointer-events-auto cursor-help">
                     <p onclick="const pop = document.getElementById('hooker-popover'); pop.classList.toggle('opacity-0'); pop.classList.toggle('pointer-events-none'); pop.classList.toggle('translate-y-2');" 
-                       class="text-zinc-300 text-sm sm:text-base max-w-sm md:max-w-lg leading-relaxed font-light hover:text-white transition-colors">
+                       class="text-zinc-300 text-xs sm:text-sm md:text-base max-w-sm md:max-w-lg leading-relaxed font-light hover:text-white transition-colors">
                         "Fiel aos 7 princípios de David Hooker"
                     </p>
                 
                     <div id="hooker-popover" 
                          style="box-shadow: 0 25px 50px -12px rgba(0,0,0,0.95), 0 0 30px 0 rgba(255,255,255,0.05);"
-                         class="absolute left-0 md:left-1/2 bottom-full mb-3 w-[88vw] sm:w-88 md:-translate-x-1/2 bg-neutral-900/98 backdrop-blur-2xl border border-white/15 rounded-3xl p-5 transition-all duration-300 opacity-0 pointer-events-none translate-y-2 group-hover:opacity-100 group-hover:pointer-events-auto group-hover:translate-y-0 z-50 whitespace-normal text-left">
+                         class="absolute left-0 md:left-1/2 bottom-full mb-3 w-[84vw] sm:w-80 md:-translate-x-1/2 bg-neutral-900/98 backdrop-blur-2xl border border-white/15 rounded-2xl p-4 transition-all duration-300 opacity-0 pointer-events-none translate-y-2 group-hover:opacity-100 group-hover:pointer-events-auto group-hover:translate-y-0 z-50 whitespace-normal text-left">
                         
-                        <div class="flex items-center gap-2 mb-3 pb-2 border-b border-white/10">
-                            <i class="fa-solid fa-gavel text-zinc-300 text-sm"></i>
-                            <span class="text-[11px] text-zinc-300 font-black uppercase tracking-widest">Os 7 Princípios de David Hooker</span>
+                        <div class="flex items-center gap-2 mb-2 pb-1.5 border-b border-white/10">
+                            <i class="fa-solid fa-gavel text-zinc-300 text-xs"></i>
+                            <span class="text-[10px] text-zinc-300 font-black uppercase tracking-widest">Os 7 Princípios de David Hooker</span>
                         </div>
                 
-                        <ol class="space-y-2.5 text-left whitespace-normal">
-                            <li class="text-xs text-zinc-300 leading-normal"><b class="text-white font-mono">1.</b> A razão de existir.</li>
-                            <li class="text-xs text-zinc-300 leading-normal"><b class="text-white font-mono">2.</b> Kiss (Keep It Simple Stupid).</li>
-                            <li class="text-xs text-zinc-300 leading-normal"><b class="text-white font-mono">3.</b> Mantenha a visão clara do produto do início ao fim.</li>
-                            <li class="text-xs text-zinc-300 leading-normal"><b class="text-white font-mono">4.</b> O que um produz outros consomem.</li>
-                            <li class="text-xs text-zinc-300 leading-normal"><b class="text-white font-mono">5.</b> Esteja aberto ao futuro.</li>
-                            <li class="text-xs text-zinc-300 leading-normal"><b class="text-white font-mono">6.</b> Planeje com antecedência, visando a reutilização.</li>
-                            <li class="text-xs text-zinc-300 leading-normal"><b class="text-white font-mono">7.</b> Pense!</li>
+                        <ol class="space-y-1.5 text-left whitespace-normal">
+                            <li class="text-[11px] text-zinc-300 leading-normal"><b class="text-white font-mono">1.</b> A razão de existir.</li>
+                            <li class="text-[11px] text-zinc-300 leading-normal"><b class="text-white font-mono">2.</b> Kiss (Keep It Simple Stupid).</li>
+                            <li class="text-[11px] text-zinc-300 leading-normal"><b class="text-white font-mono">3.</b> Mantenha a visão clara do produto do início ao fim.</li>
+                            <li class="text-[11px] text-zinc-300 leading-normal"><b class="text-white font-mono">4.</b> O que um produz outros consomem.</li>
+                            <li class="text-[11px] text-zinc-300 leading-normal"><b class="text-white font-mono">5.</b> Esteja aberto ao futuro.</li>
+                            <li class="text-[11px] text-zinc-300 leading-normal"><b class="text-white font-mono">6.</b> Planeje com antecedência, visando a reutilização.</li>
+                            <li class="text-[11px] text-zinc-300 leading-normal"><b class="text-white font-mono">7.</b> Pense!</li>
                         </ol>
                 
-                        <div class="hidden md:block absolute top-full left-1/2 -translate-x-1/2 w-3.5 h-3.5 bg-neutral-900 border-r border-b border-white/15 transform rotate-45 -mt-[7px]"></div>
+                        <div class="hidden md:block absolute top-full left-1/2 -translate-x-1/2 w-3 h-3 bg-neutral-900 border-r border-b border-white/15 transform rotate-45 -mt-[6px]"></div>
                     </div>
                 </div>
             </div>
 
             <div class="absolute bottom-4 left-0 lg:hidden pointer-events-auto">
-                <div class="text-[10px] text-zinc-500 font-bold uppercase tracking-widest">
+                <div class="text-[9px] text-zinc-500 font-bold uppercase tracking-widest">
                     Architected by<br>
                     <a href="https://uup-site.vercel.app/" target="_blank" rel="noopener noreferrer" class="text-zinc-300 hover:text-white transition-colors text-xs font-black">
                         UUP SOFTWARE SOLUTIONS
@@ -151,81 +157,99 @@
             </div>
         </div>
 
+        <!-- DETALHE TÉCNICO / SERVIÇOS -->
         <div id="service-content" class="absolute inset-y-0 left-0 flex flex-col justify-center px-6 sm:px-10 md:px-16 lg:pl-64 xl:pl-72 w-full transition-all duration-700 opacity-0 translate-y-8 pointer-events-none pb-20 lg:pb-0">
             
-            <button onclick="window.resetToHero(); document.getElementById('dropdown-popout-container').classList.add('hidden');" class="mb-5 w-11 h-11 rounded-2xl bg-white/10 hover:bg-white/20 active:scale-90 border border-white/20 flex items-center justify-center text-white backdrop-blur-xl transition-all shadow-md pointer-events-auto">
-                <i class="fa-solid fa-arrow-left text-sm"></i>
+            <button onclick="window.resetToHero(); document.getElementById('dropdown-popout-container').classList.add('hidden'); if(document.getElementById('dropdown-video-container')) document.getElementById('dropdown-video-container').classList.add('hidden');" class="mb-4 w-10 h-10 rounded-xl bg-white/10 hover:bg-white/20 active:scale-90 border border-white/20 flex items-center justify-center text-white backdrop-blur-md transition-all shadow-md pointer-events-auto">
+                <i class="fa-solid fa-arrow-left text-xs"></i>
             </button>
             
-            <span class="text-zinc-400 font-black uppercase tracking-[0.25em] text-xs block mb-2">Detalhe Técnico</span>
+            <span class="text-zinc-400 font-black uppercase tracking-[0.2em] text-[10px] block mb-1.5">Detalhe Técnico</span>
             
-            <h2 id="service-title" class="text-3xl sm:text-4xl md:text-5xl font-black text-white uppercase tracking-tight leading-[1.1] drop-shadow-md mb-3 md:mb-4"></h2>
+            <h2 id="service-title" class="text-2xl sm:text-4xl md:text-5xl font-black text-white uppercase tracking-tight leading-[1.1] drop-shadow-md mb-2 sm:mb-3"></h2>
             
-            <p id="service-desc" class="text-zinc-300 text-sm sm:text-base max-w-sm md:max-w-lg leading-relaxed font-light mb-6 md:mb-8"></p>
+            <p id="service-desc" class="text-zinc-300 text-xs sm:text-sm md:text-base max-w-sm md:max-w-lg leading-relaxed font-light mb-5 sm:mb-6"></p>
             
-            <div class="flex flex-col sm:flex-row gap-4 w-max max-w-full items-stretch sm:items-center">
-                <a id="service-cta" href="#" target="_blank" class="pointer-events-auto inline-flex items-center justify-center gap-3 px-7 py-4 bg-zinc-800 hover:bg-zinc-700 active:scale-95 border border-white/20 text-white text-xs font-black uppercase tracking-widest rounded-2xl transition-all shadow-xl w-max">
-                    Ver mais! <i class="fa-solid fa-chevron-right text-xs"></i>
+            <div class="flex flex-wrap gap-3 w-max max-w-full items-center">
+                <a id="service-cta" href="#" target="_blank" class="pointer-events-auto inline-flex items-center justify-center gap-2.5 px-5 py-3 bg-zinc-800 hover:bg-zinc-700 active:scale-95 border border-white/20 text-white text-[11px] font-black uppercase tracking-widest rounded-xl transition-all shadow-md w-max">
+                    Ver mais! <i class="fa-solid fa-chevron-right text-[10px]"></i>
                 </a>
                 
                 <div id="dropdown-popout-container" class="hidden relative inline-block text-left pointer-events-auto">
                     <button onclick="const menu = document.getElementById('dropdown-menu-box'); menu.classList.toggle('scale-100'); menu.classList.toggle('opacity-100'); menu.classList.toggle('pointer-events-auto');" 
-                            class="inline-flex items-center justify-center gap-3 px-7 py-4 bg-gradient-to-r from-zinc-900 to-neutral-900 hover:from-zinc-800 hover:to-neutral-800 active:scale-95 border border-white/15 text-white text-xs font-black uppercase tracking-widest rounded-2xl transition-all shadow-xl w-max">
-                        📁 Links Adicionais <i class="fa-solid fa-chevron-down text-xs"></i>
+                            class="inline-flex items-center justify-center gap-2 px-5 py-3 bg-gradient-to-r from-zinc-900 to-neutral-900 hover:from-zinc-800 hover:to-neutral-800 active:scale-95 border border-white/15 text-white text-[11px] font-black uppercase tracking-widest rounded-xl transition-all shadow-md cursor-pointer w-max">
+                        📁 Links <i class="fa-solid fa-chevron-down text-[9px]"></i>
                     </button>
 
                     <div id="dropdown-menu-box" 
                          style="box-shadow: 0 30px 70px -15px rgba(0,0,0,0.95), 0 0 50px 0 rgba(255,255,255,0.05);"
-                         class="absolute left-0 bottom-full mb-3 w-64 rounded-3xl bg-neutral-900/98 backdrop-blur-2xl border border-white/15 p-3 transition-all duration-300 transform scale-95 opacity-0 pointer-events-none origin-bottom-left flex flex-col gap-2 z-50">
+                         class="absolute left-0 bottom-full mb-2 w-60 rounded-2xl bg-neutral-900/98 backdrop-blur-2xl border border-white/15 p-2 transition-all duration-300 transform scale-95 opacity-0 pointer-events-none origin-bottom-left flex flex-col gap-1 z-50">
                         
-                        <span class="text-[10px] text-zinc-400 font-black uppercase tracking-widest px-3 block mb-0.5">Segmento UX/UI Design</span>
+                        <span class="text-[9px] text-zinc-400 font-black uppercase tracking-widest px-2 block mb-0.5">Segmento UX/UI Design</span>
 
                         <a href="pages/estudo_caso_appclaquette.html" 
-                           onclick="const m = document.getElementById('dropdown-menu-box'); m.classList.remove('scale-100', 'opacity-100', 'pointer-events-auto');"
-                           class="flex items-center gap-3 px-4 py-3 rounded-2xl bg-white/5 hover:bg-white/10 active:scale-95 border border-white/5 text-xs font-bold uppercase tracking-wider transition-all text-zinc-200 hover:text-white">
-                            <i class="fa-solid fa-folder-open text-zinc-400 text-sm"></i> Case Claquette
+                           onclick="document.getElementById('dropdown-menu-box').classList.remove('scale-100', 'opacity-100', 'pointer-events-auto');"
+                           class="flex items-center gap-2.5 px-3 py-2 rounded-xl bg-white/5 hover:bg-white/10 border border-white/5 text-[11px] font-bold uppercase tracking-wider transition-all text-zinc-200 hover:text-white">
+                            <i class="fa-solid fa-folder-open text-zinc-400 text-xs"></i> Case Claquette
                         </a>
 
                         <a href="https://github.com/Magneto1000" target="_blank" rel="noopener noreferrer" 
-                           onclick="const m = document.getElementById('dropdown-menu-box'); m.classList.remove('scale-100', 'opacity-100', 'pointer-events-auto');"
-                           class="flex items-center gap-3 px-4 py-3 rounded-2xl bg-white/5 hover:bg-white/10 active:scale-95 border border-white/5 text-xs font-bold uppercase tracking-wider transition-all text-zinc-200 hover:text-white">
-                            <i class="fa-brands fa-figma text-zinc-400 text-sm"></i> GitHub
+                           onclick="document.getElementById('dropdown-menu-box').classList.remove('scale-100', 'opacity-100', 'pointer-events-auto');"
+                           class="flex items-center gap-2.5 px-3 py-2 rounded-xl bg-white/5 hover:bg-white/10 border border-white/5 text-[11px] font-bold uppercase tracking-wider transition-all text-zinc-200 hover:text-white">
+                            <i class="fa-brands fa-figma text-zinc-400 text-xs"></i> GitHub
                         </a>
+                    </div>
+                </div>
+
+                <div id="dropdown-video-container" class="hidden relative inline-block text-left pointer-events-auto">
+                    <button onclick="const menu = document.getElementById('dropdown-menu-video'); menu.classList.toggle('scale-100'); menu.classList.toggle('opacity-100'); menu.classList.toggle('pointer-events-auto');" 
+                            class="inline-flex items-center justify-center gap-2 px-5 py-3 bg-gradient-to-r from-zinc-900 to-neutral-900 hover:from-zinc-800 hover:to-neutral-800 active:scale-95 border border-white/15 text-white text-[11px] font-black uppercase tracking-widest rounded-xl transition-all shadow-md cursor-pointer w-max">
+                        <i class="fa-solid fa-play text-zinc-400 text-[10px]"></i> Vídeo <i class="fa-solid fa-chevron-down text-[9px]"></i>
+                    </button>
+
+                    <div id="dropdown-menu-video" 
+                         style="box-shadow: 0 30px 70px -15px rgba(0,0,0,0.95), 0 0 50px 0 rgba(255,255,255,0.05);"
+                         class="absolute left-0 bottom-full mb-2 w-64 sm:w-80 rounded-2xl bg-neutral-900/98 backdrop-blur-2xl border border-white/15 p-2.5 transition-all duration-300 transform scale-95 opacity-0 pointer-events-none origin-bottom-left flex flex-col gap-2 z-50">
+                        <span class="text-[9px] text-zinc-400 font-black uppercase tracking-widest px-1 block">Apresentação Técnica</span>
+                        
+                        <div class="relative w-full aspect-video max-h-[190px] rounded-xl overflow-hidden bg-black border border-white/10 flex items-center justify-center">
+                            <video id="ui-presentation-video" class="w-full h-full object-contain cursor-pointer" loop autoplay muted playsinline src="midias/apresentacao.mp4"></video>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </main>
 
+    <!-- BARRA LATERAL DESKTOP (EXCLUSIVA LG+) -->
     <nav class="hidden lg:flex fixed left-0 top-0 h-full w-auto z-30 py-8 px-6 bg-gradient-to-r from-neutral-950 via-neutral-950/90 to-transparent flex-col justify-center items-start gap-4 pointer-events-none">
         <div class="flex flex-col gap-2.5 pointer-events-auto">
-            
-            <button onclick="window.selectService('data-analytics'); document.getElementById('dropdown-popout-container').classList.add('hidden');" class="desktop-nav-btn group flex flex-col items-start gap-1 bg-white/5 hover:bg-white/10 border border-white/10 backdrop-blur-md p-3.5 rounded-2xl w-44 xl:w-48 transition-all text-left">
+            <button onclick="window.selectService('data-analytics'); document.getElementById('dropdown-popout-container').classList.add('hidden'); if(document.getElementById('dropdown-video-container')) document.getElementById('dropdown-video-container').classList.remove('hidden');" class="desktop-nav-btn group flex flex-col items-start gap-1 bg-white/5 hover:bg-white/10 border border-white/10 backdrop-blur-md p-3.5 rounded-2xl w-44 xl:w-48 transition-all text-left">
                 <span class="text-zinc-400 font-mono text-[10px] tracking-wider">04</span>
                 <span class="text-white font-bold text-xs uppercase tracking-wider">User Support & Success</span>
             </button>
 
-            <button onclick="window.selectService('product-management'); document.getElementById('dropdown-popout-container').classList.add('hidden');" class="desktop-nav-btn group flex flex-col items-start gap-1 bg-white/5 hover:bg-white/10 border border-white/10 backdrop-blur-md p-3.5 rounded-2xl w-44 xl:w-48 transition-all text-left">
+            <button onclick="window.selectService('product-management'); document.getElementById('dropdown-popout-container').classList.add('hidden'); if(document.getElementById('dropdown-video-container')) document.getElementById('dropdown-video-container').classList.add('hidden');" class="desktop-nav-btn group flex flex-col items-start gap-1 bg-white/5 hover:bg-white/10 border border-white/10 backdrop-blur-md p-3.5 rounded-2xl w-44 xl:w-48 transition-all text-left">
                 <span class="text-zinc-400 font-mono text-[10px] tracking-wider">01</span>
                 <span class="text-white font-bold text-xs uppercase tracking-wider">Product Management (PO)</span>
             </button>
             
-            <button onclick="window.selectService('ux-ui-design'); document.getElementById('dropdown-popout-container').classList.remove('hidden');" class="desktop-nav-btn group flex flex-col items-start gap-1 bg-white/5 hover:bg-white/10 border border-white/10 backdrop-blur-md p-3.5 rounded-2xl w-44 xl:w-48 transition-all text-left">
+            <button onclick="window.selectService('ux-ui-design'); document.getElementById('dropdown-popout-container').classList.remove('hidden'); if(document.getElementById('dropdown-video-container')) document.getElementById('dropdown-video-container').classList.add('hidden');" class="desktop-nav-btn group flex flex-col items-start gap-1 bg-white/5 hover:bg-white/10 border border-white/10 backdrop-blur-md p-3.5 rounded-2xl w-44 xl:w-48 transition-all text-left">
                 <span class="text-zinc-400 font-mono text-[10px] tracking-wider">02</span>
                 <span class="text-white font-bold text-xs uppercase tracking-wider">UX / UI Design (Discovery)</span>
             </button>
             
-            <button onclick="window.selectService('software-architecture'); document.getElementById('dropdown-popout-container').classList.add('hidden');" class="desktop-nav-btn group flex flex-col items-start gap-1 bg-white/5 hover:bg-white/10 border border-white/10 backdrop-blur-md p-3.5 rounded-2xl w-44 xl:w-48 transition-all text-left">
+            <button onclick="window.selectService('software-architecture'); document.getElementById('dropdown-popout-container').classList.add('hidden'); if(document.getElementById('dropdown-video-container')) document.getElementById('dropdown-video-container').classList.add('hidden');" class="desktop-nav-btn group flex flex-col items-start gap-1 bg-white/5 hover:bg-white/10 border border-white/10 backdrop-blur-md p-3.5 rounded-2xl w-44 xl:w-48 transition-all text-left">
                 <span class="text-zinc-400 font-mono text-[10px] tracking-wider">03</span>
                 <span class="text-white font-bold text-xs uppercase tracking-wider">Software Architecture (Dev)</span>
             </button>
             
-            <button onclick="window.selectService('labs-workshops'); document.getElementById('dropdown-popout-container').classList.add('hidden');" class="desktop-nav-btn group flex flex-col items-start gap-1 bg-white/5 hover:bg-white/10 border border-white/10 backdrop-blur-md p-3.5 rounded-2xl w-44 xl:w-48 transition-all text-left">
+            <button onclick="window.selectService('labs-workshops'); document.getElementById('dropdown-popout-container').classList.add('hidden'); if(document.getElementById('dropdown-video-container')) document.getElementById('dropdown-video-container').classList.remove('hidden');" class="desktop-nav-btn group flex flex-col items-start gap-1 bg-white/5 hover:bg-white/10 border border-white/10 backdrop-blur-md p-3.5 rounded-2xl w-44 xl:w-48 transition-all text-left">
                 <span class="text-zinc-400 font-mono text-[10px] tracking-wider">05</span>
                 <span class="text-white font-bold text-xs uppercase tracking-wider">Labs & Workshop</span>
             </button>
             
-            <button onclick="window.toggleHub(true)" class="group flex flex-col items-start gap-1 bg-zinc-800/40 hover:bg-zinc-700/50 border border-white/15 backdrop-blur-md p-3.5 rounded-2xl w-44 xl:w-48 transition-all text-left shadow-[0_0_15px_rgba(255,255,255,0.06)] mt-1">
+            <button onclick="window.toggleHub(true)" class="group flex flex-col items-start gap-1 bg-zinc-800/40 hover:bg-zinc-700/50 border border-white/15 backdrop-blur-md p-3.5 rounded-2xl w-44 xl:w-48 transition-all text-left shadow-sm mt-1">
                 <i class="fa-solid fa-map-location-dot text-zinc-300 text-sm"></i>
                 <span class="text-white font-bold text-xs uppercase tracking-wider">Skills e Certificações</span>
             </button>
@@ -239,58 +263,51 @@
         </div>
     </nav>
 
-    <div id="hub-overlay" class="absolute inset-0 bg-neutral-950/98 backdrop-blur-3xl z-50 transform translate-y-full transition-transform duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] overflow-y-auto custom-scrollbar flex flex-col p-6 md:p-12 lg:p-16">
+    <!-- HUB OVERLAY (TODOS OS TEXTOS E LINKS RESTAURADOS) -->
+    <div id="hub-overlay" class="absolute inset-0 bg-neutral-950/98 backdrop-blur-3xl z-50 transform translate-y-full transition-transform duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] overflow-y-auto custom-scrollbar flex flex-col p-5 sm:p-8 md:p-12 lg:p-16">
         
-        <div class="flex justify-between items-center mb-8 md:mb-10">
+        <div class="flex justify-between items-center mb-6 sm:mb-8">
             <div>
                 <span class="text-[10px] text-zinc-400 font-bold uppercase tracking-widest block mb-1">Qualificações Técnicas</span>
-                <h2 class="text-2xl sm:text-4xl md:text-5xl font-black text-white uppercase tracking-tighter leading-none">Skills e Certificados</h2>
+                <h2 class="text-2xl sm:text-3xl md:text-5xl font-black text-white uppercase tracking-tighter leading-none">SKILLS E CERTIFICADOS</h2>
             </div>
-            <button onclick="window.toggleHub(false)" class="w-12 h-12 bg-white/10 hover:bg-white/20 active:scale-90 border border-white/20 text-white rounded-2xl flex items-center justify-center transition-all shadow-md shrink-0">
-                <i class="fa-solid fa-xmark text-lg"></i>
+            <button onclick="window.toggleHub(false)" class="w-10 h-10 sm:w-12 sm:h-12 bg-white/10 hover:bg-white/20 active:scale-90 border border-white/20 text-white rounded-xl flex items-center justify-center transition-all shadow-md shrink-0">
+                <i class="fa-solid fa-xmark text-base"></i>
             </button>
         </div>
 
-        <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 md:gap-12 max-w-7xl mx-auto w-full pb-12">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 md:gap-10 max-w-7xl mx-auto w-full pb-10">
             
-            <div class="col-span-1 lg:col-span-2 bg-white/5 border border-white/10 p-6 md:p-8 rounded-3xl relative overflow-hidden shadow-xl">
+            <div class="col-span-1 lg:col-span-2 bg-white/5 border border-white/10 p-5 sm:p-6 md:p-8 rounded-2xl relative overflow-hidden shadow-lg">
                 <div class="absolute top-0 left-0 w-1.5 h-full bg-zinc-400"></div>
-                <h4 class="text-xs uppercase tracking-widest text-zinc-300 font-black mb-3">Linguagens de Programação e Ferramentas</h4>
-                <p class="text-sm text-zinc-300 font-light leading-relaxed max-w-3xl mb-5">
-                    <span class="text-zinc-200 font-medium">Python, Java, JavaScript, React, Next.js, Node.js, SQL, NoSQL, MySQL, Anaconda, Spyder, R, MongoDB, C, Dart, Flutter, Figma, Análise de Dados, Linux, Android Studio, Git/GitHub, VSCode, Uso Inteligente de IA, LLMs.</span>
+                <h4 class="text-xs uppercase tracking-widest text-zinc-300 font-black mb-2">Linguagens de Programação e Ferramentas</h4>
+                <p class="text-xs sm:text-sm text-zinc-300 font-light leading-relaxed max-w-3xl mb-4">
+                    <span class="text-zinc-200 font-bold">Python, Java, JavaScrpt, ,React, Next.js, Node.js, SQL, NoSQL, MySQL, Anaconda, Spyder, R, MongoDB, C, Dart, Flutter, <br>Figma, Análise de Dados, Manipulação de Dados, NodeJs, Linux, Android Studio, Git/GitHub, VSCode, Uso Inteligente de IA, LLMs, Deep Learning.</span>
                 </p>
-                <a href="https://drive.google.com/file/d/1fTkdu8cLjEVCY1jtjf2cRLqbeE9V5dPa/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-3 bg-neutral-900 hover:bg-neutral-800 active:scale-95 px-5 py-3 rounded-2xl border border-white/10 w-max max-w-full transition-all shadow-md text-xs font-bold uppercase tracking-wider text-white">
-                    <i class="fa-solid fa-file-arrow-down text-zinc-300 text-sm"></i>
-                    Acessar Currículo Completo
+                <a href="https://drive.google.com/file/d/1fTkdu8cLjEVCY1jtjf2cRLqbeE9V5dPa/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2.5 bg-neutral-900 hover:bg-neutral-800 active:scale-95 px-4 py-2.5 rounded-xl border border-white/10 w-max max-w-full transition-all text-xs font-bold uppercase tracking-wider text-white">
+                    <i class="fa-solid fa-envelope text-zinc-300 text-xs"></i>
+                    CURRÍCULO COMPLETO
                 </a>
             </div>
 
+            <!-- CARD 1: PYTHON MICHIGAN -->
             <div class="group">
-                <div class="relative w-full aspect-video rounded-3xl overflow-hidden shadow-xl mb-4 border border-white/10 group/slider">
+                <div class="relative w-full aspect-video rounded-2xl overflow-hidden shadow-lg mb-3 border border-white/10 group/slider">
                     <div id="track-obra-1" class="flex w-full h-full transition-transform duration-500 ease-[cubic-bezier(0.25,1,0.5,1)]">
-                        <div onclick="window.open('midias/project_codes/python/certificado1.png', '_blank')" 
-                             class="w-full h-full flex-shrink-0 bg-cover bg-center cursor-zoom-in hover:opacity-90 transition-opacity" 
-                             style="background-image: url('midias/project_codes/python/certificado1.png');">
-                        </div>
-                        <div onclick="window.open('midias/project_codes/python/certificado2.png', '_blank')" 
-                             class="w-full h-full flex-shrink-0 bg-cover bg-center cursor-zoom-in hover:opacity-90 transition-opacity" 
-                             style="background-image: url('midias/project_codes/python/certificado2.png');">
-                        </div>
+                        <div onclick="window.open('midias/project_codes/python/certificado1.png', '_blank')" class="w-full h-full flex-shrink-0 bg-cover bg-center cursor-zoom-in" style="background-image: url('midias/project_codes/python/certificado1.png');"></div>
+                        <div onclick="window.open('midias/project_codes/python/certificado2.png', '_blank')" class="w-full h-full flex-shrink-0 bg-cover bg-center cursor-zoom-in" style="background-image: url('midias/project_codes/python/certificado2.png');"></div>
                     </div>
-                    
-                    <button onclick="window.moveSlider('track-obra-1', -1)" class="absolute left-3 top-1/2 -translate-y-1/2 w-10 h-10 bg-neutral-950/70 hover:bg-neutral-900 active:scale-90 backdrop-blur-md text-white rounded-full flex items-center justify-center border border-white/15 shadow-lg z-10">
+                    <button onclick="window.moveSlider('track-obra-1', -1)" class="absolute left-2 top-1/2 -translate-y-1/2 w-8 h-8 bg-neutral-950/70 hover:bg-neutral-900 text-white rounded-full flex items-center justify-center border border-white/15 z-10">
                         <i class="fa-solid fa-chevron-left text-xs"></i>
                     </button>
-                    <button onclick="window.moveSlider('track-obra-1', 1)" class="absolute right-3 top-1/2 -translate-y-1/2 w-10 h-10 bg-neutral-950/70 hover:bg-neutral-900 active:scale-90 backdrop-blur-md text-white rounded-full flex items-center justify-center border border-white/15 shadow-lg z-10">
+                    <button onclick="window.moveSlider('track-obra-1', 1)" class="absolute right-2 top-1/2 -translate-y-1/2 w-8 h-8 bg-neutral-950/70 hover:bg-neutral-900 text-white rounded-full flex items-center justify-center border border-white/15 z-10">
                         <i class="fa-solid fa-chevron-right text-xs"></i>
                     </button>
                 </div>
-            
-                <span class="text-[10px] text-zinc-400 font-black uppercase tracking-widest block mb-1">Curso de Python</span>
-                <h4 class="text-base sm:text-lg font-black text-white uppercase tracking-tight leading-tight">Programa da Universidade de Michigan: Python for Everybody</h4>
-                
-                <div class="mt-2">
-                    <ul class="list-disc list-inside space-y-1.5 text-xs sm:text-sm text-zinc-300 marker:text-zinc-400 font-light leading-relaxed">
+                <span class="text-[9px] md:text-[10px] text-zinc-400 font-black uppercase tracking-widest block mb-1 md:mb-1.5">Curso de Python</span>
+                <h4 class="text-lg md:text-xl font-black text-white uppercase tracking-tight leading-tight">Programa da Universidade de Michigan: Python for Everybody</h4>
+                <div class="mt-1.5 md:mt-2">
+                    <ul class="list-disc list-inside space-y-2 text-xs sm:text-sm text-zinc-300 marker:text-zinc-400 font-light leading-relaxed">
                         <li>Lógica de Programação com Python</li>
                         <li>Criação de algoritmos matemáticos</li>
                         <li>Manipulação de Listas</li>
@@ -298,204 +315,240 @@
                     </ul>
                 </div>
             </div>
-    
- <!-- CARD VÍDEO APRESENTAÇÃO CORRIGIDO -->
-            <div class="group">
-                <!-- Container com proporção controlada e altura máxima travada -->
-                <div class="relative w-full aspect-video max-h-[250px] sm:max-h-[300px] md:max-h-[340px] rounded-2xl overflow-hidden shadow-xl mb-4 border border-white/10 group/video bg-black flex items-center justify-center">
-                    <video id="card-presentation-video" 
-                        onclick="event.stopPropagation(); this.currentTime = 0; this.muted = false; this.play(); if(this.requestFullscreen) { this.requestFullscreen(); } else if(this.webkitRequestFullscreen) { this.webkitRequestFullscreen(); }"
-                        class="w-full h-full object-contain cursor-pointer pointer-events-auto" 
-                        loop autoplay muted playsinline 
-                        src="/midias/apresentação_video.mp4">
-                    </video>
 
-                    <!-- Controles sobrepostos mais discretos -->
-                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent flex flex-col justify-between p-3 pointer-events-none opacity-0 group-hover/video:opacity-100 transition-opacity duration-300">
+            <!-- CARD VIDEO COM CONTROLES -->
+            <div class="group">
+                <div class="relative w-full aspect-video rounded-2xl overflow-hidden shadow-lg mb-3 border border-white/10 group/video bg-black flex items-center justify-center">
+                    <video id="card-presentation-video" 
+                           onclick="event.stopPropagation(); this.currentTime = 0; this.muted = false; this.play(); if(this.requestFullscreen) { this.requestFullscreen(); } else if(this.webkitRequestFullscreen) { this.webkitRequestFullscreen(); }"
+                           class="w-full h-full object-contain cursor-pointer pointer-events-auto" 
+                           loop autoplay muted playsinline 
+                           src="/midias/apresentação_video.mp4">
+                    </video>
+            
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent flex flex-col justify-between p-3.5 pointer-events-none opacity-0 group-hover/video:opacity-100 transition-opacity duration-300">
                         <div class="flex justify-between w-full pointer-events-auto">
                             <button onclick="event.stopPropagation(); const v = document.getElementById('card-presentation-video'); if(v.requestFullscreen) { v.requestFullscreen(); } else if(v.webkitRequestFullscreen) { v.webkitRequestFullscreen(); }" 
-                                    class="w-8 h-8 rounded-full bg-neutral-950/80 hover:bg-neutral-900 active:scale-90 border border-white/15 text-white flex items-center justify-center transition-all shadow-md">
-                                <i class="fa-solid fa-expand text-[10px] text-zinc-300"></i>
+                                    class="w-8 h-8 rounded-full bg-neutral-950/80 hover:bg-neutral-900 border border-white/10 text-white flex items-center justify-center transition-all active:scale-90 shadow-md">
+                                <i class="fa-solid fa-expand text-xs text-zinc-400"></i>
                             </button>
-
-                            <button onclick="event.stopPropagation(); const v = document.getElementById('card-presentation-video'); const i = document.getElementById('card-mute-icon'); v.muted = !v.muted; i.className = v.muted ? 'fa-solid fa-volume-xmark text-[10px] text-zinc-400' : 'fa-solid fa-volume-high text-[10px] text-zinc-200 animate-pulse';" 
-                                    class="w-8 h-8 rounded-full bg-neutral-950/80 hover:bg-neutral-900 active:scale-90 border border-white/15 text-white flex items-center justify-center transition-all shadow-md">
-                                <i id="card-mute-icon" class="fa-solid fa-volume-xmark text-[10px] text-zinc-400"></i>
+            
+                            <button onclick="event.stopPropagation(); const v = document.getElementById('card-presentation-video'); const i = document.getElementById('card-mute-icon'); v.muted = !v.muted; i.className = v.muted ? 'fa-solid fa-volume-xmark text-xs text-zinc-400' : 'fa-solid fa-volume-high text-xs text-zinc-200 animate-pulse';" 
+                                    class="w-8 h-8 rounded-full bg-neutral-950/80 hover:bg-neutral-900 border border-white/10 text-white flex items-center justify-center transition-all active:scale-90 shadow-md">
+                                <i id="card-mute-icon" class="fa-solid fa-volume-xmark text-xs text-zinc-400"></i>
                             </button>
                         </div>
-
-                        <div class="flex items-center gap-2.5 w-full pointer-events-auto bg-neutral-950/70 backdrop-blur-md p-2 rounded-xl border border-white/10">
-                            <button onclick="event.stopPropagation(); const v = document.getElementById('card-presentation-video'); const i = document.getElementById('card-mute-icon'); v.currentTime = 0; v.muted = false; v.play(); i.className = 'fa-solid fa-volume-high text-[10px] text-zinc-200';" 
-                                    class="text-white hover:text-zinc-300 transition-colors text-[11px] px-1.5 flex items-center gap-1.5 font-bold uppercase tracking-wider">
-                                <i class="fa-solid fa-rotate-left text-[10px] text-zinc-300"></i> Reiniciar
+            
+                        <div class="flex items-center gap-3 w-full pointer-events-auto bg-neutral-950/60 backdrop-blur-md p-2 rounded-xl border border-white/5">
+                            <button onclick="event.stopPropagation(); const v = document.getElementById('card-presentation-video'); const i = document.getElementById('card-mute-icon'); v.currentTime = 0; v.muted = false; v.play(); i.className = 'fa-solid fa-volume-high text-xs text-zinc-200';" 
+                                    class="text-white hover:text-zinc-300 transition-colors text-xs px-1 flex items-center gap-1.5 font-bold uppercase tracking-wider text-[9px]">
+                                <i class="fa-solid fa-rotate-left text-zinc-400"></i> Reiniciar com Som
                             </button>
                             
                             <div class="flex-grow h-1 bg-white/20 rounded-full overflow-hidden cursor-pointer relative" 
-                                onclick="event.stopPropagation(); const v = document.getElementById('card-presentation-video'); const rect = event.currentTarget.getBoundingClientRect(); const offsetX = event.clientX - rect.left; v.currentTime = (offsetX / rect.width) * v.duration;">
-                                <div id="card-video-progress-bar" class="absolute top-0 left-0 h-full bg-zinc-300 w-0 transition-all duration-100"></div>
+                                 onclick="event.stopPropagation(); const v = document.getElementById('card-presentation-video'); const rect = event.currentTarget.getBoundingClientRect(); const offsetX = event.clientX - rect.left; v.currentTime = (offsetX / rect.width) * v.duration;">
+                                <div id="card-video-progress-bar" class="absolute top-0 left-0 h-full bg-zinc-400 w-0 transition-all duration-100"></div>
                             </div>
                         </div>
                     </div>
                 </div>
-
-                <span class="text-[10px] text-zinc-400 font-black uppercase tracking-widest block mb-1">Apresentação de Engenharia</span>
-                <h4 class="text-base sm:text-lg font-black text-white uppercase tracking-tight leading-tight">Como penso sobre gerar valor e resolver problemas</h4>
+            
+                <span class="text-[9px] md:text-[10px] text-zinc-400 font-black uppercase tracking-widest block mb-1 md:mb-1.5">Apresentação de Engenharia</span>
+                <h4 class="text-lg md:text-xl font-black text-white uppercase tracking-tight leading-tight">UM POUCO SOBRE COMO PENSO SOBRE GERAR VALOR...</h4>
+                <p class="text-xs md:text-sm text-zinc-400 font-light mt-1.5 md:mt-2 leading-relaxed"></p>
             </div>
 
+            <!-- CARD 2: PYTHON GOOGLE -->
             <div class="group">
-                <div class="relative w-full aspect-video rounded-3xl overflow-hidden shadow-xl mb-4 border border-white/10 group/slider">
+                <div class="relative w-full aspect-video rounded-2xl overflow-hidden shadow-lg mb-3 border border-white/10 group/slider">
                     <div id="track-obra-2" class="flex w-full h-full transition-transform duration-500 ease-[cubic-bezier(0.25,1,0.5,1)]">
                         <div onclick="window.open('/midias/project_codes/python/python_google_certificated_page-0001.jpg', '_blank')" class="w-full h-full flex-shrink-0 bg-cover bg-center cursor-zoom-in hover:opacity-90 transition-opacity" style="background-image: url('/midias/project_codes/python/python_google_certificated_page-0001.jpg');"></div>
                     </div>
                     
-                    <button onclick="window.moveSlider('track-obra-2', -1)" class="absolute left-3 top-1/2 -translate-y-1/2 w-10 h-10 bg-neutral-950/70 hover:bg-neutral-900 active:scale-90 backdrop-blur-md text-white rounded-full flex items-center justify-center border border-white/15 shadow-lg z-10">
-                        <i class="fa-solid fa-chevron-left text-xs"></i>
+                    <button onclick="window.moveSlider('track-obra-2', -1)" class="absolute left-2 top-1/2 -translate-y-1/2 w-8 h-8 md:w-10 md:h-10 bg-neutral-950/60 hover:bg-neutral-900/90 backdrop-blur-md text-white rounded-full flex items-center justify-center opacity-0 group-hover/slider:opacity-100 transition-all duration-300 active:scale-90 border border-white/10 shadow-lg z-10">
+                        <i class="fa-solid fa-chevron-left text-xs md:text-sm"></i>
                     </button>
-                    <button onclick="window.moveSlider('track-obra-2', 1)" class="absolute right-3 top-1/2 -translate-y-1/2 w-10 h-10 bg-neutral-950/70 hover:bg-neutral-900 active:scale-90 backdrop-blur-md text-white rounded-full flex items-center justify-center border border-white/15 shadow-lg z-10">
-                        <i class="fa-solid fa-chevron-right text-xs"></i>
+                    <button onclick="window.moveSlider('track-obra-2', 1)" class="absolute right-2 top-1/2 -translate-y-1/2 w-8 h-8 md:w-10 md:h-10 bg-neutral-950/60 hover:bg-neutral-900/90 backdrop-blur-md text-white rounded-full flex items-center justify-center opacity-0 group-hover/slider:opacity-100 transition-all duration-300 active:scale-90 border border-white/10 shadow-lg z-10">
+                        <i class="fa-solid fa-chevron-right text-xs md:text-sm"></i>
                     </button>
                 </div>
             
-                <span class="text-[10px] text-zinc-400 font-black uppercase tracking-widest block mb-1">Curso de Python</span>
-                <h4 class="text-base sm:text-lg font-black text-white uppercase tracking-tight leading-tight">Programa do Google para Aprendizagem de Python</h4>
-                <div class="mt-2">
-                    <ul class="list-disc list-inside space-y-1.5 text-xs sm:text-sm text-zinc-300 marker:text-zinc-400">
+                <span class="text-[9px] md:text-[10px] text-zinc-400 font-black uppercase tracking-widest block mb-1 md:mb-1.5">Curso de Python</span>
+                <h4 class="text-lg md:text-xl font-black text-white uppercase tracking-tight leading-tight">PROGRAMA DO GOOGLE PARA O ENSINO E APRENDIZAGEM DE PYTHON</h4>
+                <div class="mt-1.5 md:mt-2">
+                    <ul class="list-disc list-inside space-y-2 text-sm text-zinc-300 marker:text-zinc-400 font-light leading-relaxed">
                         <li>Lógica de Programação com Python</li>
-                        <li>Manipulação de Strings e Coleções</li>
+                        <li>Manipulação de Strings</li>
+                        <li>Manipulação de variáveis</li>
                         <li>Programação Orientada a Objetos</li>
                     </ul>
                 </div>
             </div>
             
+            <!-- CARD 3: GERENCIAMENTO DE PROJETOS -->
             <div class="group">
-                <div class="relative w-full aspect-video rounded-3xl overflow-hidden shadow-xl mb-4 border border-white/10 group/slider">
+                <div class="relative w-full aspect-video rounded-2xl overflow-hidden shadow-lg mb-3 border border-white/10 group/slider">
                     <div id="track-obra-3" class="flex w-full h-full transition-transform duration-500 ease-[cubic-bezier(0.25,1,0.5,1)]">
                         <div onclick="window.open('/midias/project_management/Certificado Gerenciamento de Projetos.jpg', '_blank')" class="w-full h-full flex-shrink-0 bg-cover bg-center cursor-zoom-in hover:opacity-90 transition-opacity" style="background-image: url('/midias/project_management/Certificado\ Gerenciamento\ de\ Projetos.jpg');"></div>
                     </div>
                     
-                    <button onclick="window.moveSlider('track-obra-3', -1)" class="absolute left-3 top-1/2 -translate-y-1/2 w-10 h-10 bg-neutral-950/70 hover:bg-neutral-900 active:scale-90 backdrop-blur-md text-white rounded-full flex items-center justify-center border border-white/15 shadow-lg z-10">
-                        <i class="fa-solid fa-chevron-left text-xs"></i>
+                    <button onclick="window.moveSlider('track-obra-3', -1)" class="absolute left-2 top-1/2 -translate-y-1/2 w-8 h-8 md:w-10 md:h-10 bg-neutral-950/60 hover:bg-neutral-900/90 backdrop-blur-md text-white rounded-full flex items-center justify-center opacity-0 group-hover/slider:opacity-100 transition-all duration-300 active:scale-90 border border-white/10 shadow-lg z-10">
+                        <i class="fa-solid fa-chevron-left text-xs md:text-sm"></i>
                     </button>
-                    <button onclick="window.moveSlider('track-obra-3', 1)" class="absolute right-3 top-1/2 -translate-y-1/2 w-10 h-10 bg-neutral-950/70 hover:bg-neutral-900 active:scale-90 backdrop-blur-md text-white rounded-full flex items-center justify-center border border-white/15 shadow-lg z-10">
-                        <i class="fa-solid fa-chevron-right text-xs"></i>
+                    <button onclick="window.moveSlider('track-obra-3', 1)" class="absolute right-2 top-1/2 -translate-y-1/2 w-8 h-8 md:w-10 md:h-10 bg-neutral-950/60 hover:bg-neutral-900/90 backdrop-blur-md text-white rounded-full flex items-center justify-center opacity-0 group-hover/slider:opacity-100 transition-all duration-300 active:scale-90 border border-white/10 shadow-lg z-10">
+                        <i class="fa-solid fa-chevron-right text-xs md:text-sm"></i>
                     </button>
                 </div>
             
-                <span class="text-[10px] text-zinc-400 font-black uppercase tracking-widest block mb-1">Formação de Project Management / PO</span>
-                <h4 class="text-base sm:text-lg font-black text-white uppercase tracking-tight leading-tight">Programa de Formação Google Project Management / Owner</h4>
-                <div class="mt-2">
-                    <ul class="list-disc list-inside space-y-1.5 text-xs sm:text-sm text-zinc-300 marker:text-zinc-400">
-                        <li>Fundamentos de Gestão de Projetos e Metodologias Ágeis</li>
-                        <li>Execução e Planejamento de Sprints</li>
-                        <li>Resolução prática de problemas do mundo real</li>
+                <span class="text-[9px] md:text-[10px] text-zinc-400 font-black uppercase tracking-widest block mb-1 md:mb-1.5">Formação de Project Management/Product Owner</span>
+                <h4 class="text-lg md:text-xl font-black text-white uppercase tracking-tight leading-tight">PROGRAMA DE FORMAÇÃO DO GOOGLE DE PROJECT MANAGEMENT/PROJECT OWNER</h4>
+                <div class="mt-1.5 md:mt-2">
+                    <ul class="list-disc list-inside space-y-2 text-sm text-zinc-300 marker:text-zinc-400 font-light leading-relaxed">
+                        <li>Fundamentos do Gerenciamento de projetos</li>
+                        <li>Início do projeto: Como Começar um Projeto bem-sucedido</li>
+                        <li>Planejamento de Projetos: Como reunir tudo</li>
+                        <li>Execução do projeto: Como executar o projeto</li>
+                        <li>Gerenciamento de Projetos Agile</li>
+                        <li>Projeto final: Aplicação do gerenciamento de projetos no mundo real</li>
                     </ul>
                 </div>
             </div>
             
+            <!-- CARD 4: BLOG PESSOAL -->
             <div class="group">
-                <div class="relative w-full aspect-video rounded-3xl overflow-hidden shadow-xl mb-4 border border-white/10 group/slider">
+                <div class="relative w-full aspect-video rounded-2xl overflow-hidden shadow-lg mb-3 border border-white/10 group/slider">
                     <div id="track-obra-4" class="flex w-full h-full transition-transform duration-500 ease-[cubic-bezier(0.25,1,0.5,1)]">
                         <div onclick="window.open('/midias/blog_my/area_principal.jpeg', '_blank')" class="w-full h-full flex-shrink-0 bg-cover bg-center cursor-zoom-in hover:opacity-90 transition-opacity" style="background-image: url('/midias/blog_my/area_principal.jpeg');"></div>
                         <div onclick="window.open('/midias/blog_my/tela_user.jpeg', '_blank')" class="w-full h-full flex-shrink-0 bg-cover bg-center cursor-zoom-in hover:opacity-90 transition-opacity" style="background-image: url('/midias/blog_my/tela_user.jpeg');"></div>
-                        <div onclick="window.open('/midias/blog_my/tela_2.jpeg', '_blank')" class="w-full h-full flex-shrink-0 bg-cover bg-center cursor-zoom-in hover:opacity-90 transition-opacity" style="background-image: url('midias/blog_my/tela_2.jpeg');"></div>
+                        <div onclick="window.open('/midias/blog_my/tela_2.jpeg', '_blank')" class="w-full h-full flex-shrink-0 bg-cover bg-center cursor-zoom-in hover:opacity-90 transition-opacity" style="background-image: url('/midias/blog_my/tela_2.jpeg');"></div>
                         <div onclick="window.open('/midias/blog_my/edit_created.jpeg', '_blank')" class="w-full h-full flex-shrink-0 bg-cover bg-center cursor-zoom-in hover:opacity-90 transition-opacity" style="background-image: url('/midias/blog_my/edit_created.jpeg');"></div>
                         <div onclick="window.open('/midias/blog_my/tela_login.jpeg', '_blank')" class="w-full h-full flex-shrink-0 bg-cover bg-center cursor-zoom-in hover:opacity-90 transition-opacity" style="background-image: url('/midias/blog_my/tela_login.jpeg');"></div>
                     </div>
                     
-                    <button onclick="window.moveSlider('track-obra-4', -1)" class="absolute left-3 top-1/2 -translate-y-1/2 w-10 h-10 bg-neutral-950/70 hover:bg-neutral-900 active:scale-90 backdrop-blur-md text-white rounded-full flex items-center justify-center border border-white/15 shadow-lg z-10">
-                        <i class="fa-solid fa-chevron-left text-xs"></i>
+                    <button onclick="window.moveSlider('track-obra-4', -1)" class="absolute left-2 top-1/2 -translate-y-1/2 w-8 h-8 md:w-10 md:h-10 bg-neutral-950/60 hover:bg-neutral-900/90 backdrop-blur-md text-white rounded-full flex items-center justify-center opacity-0 group-hover/slider:opacity-100 transition-all duration-300 active:scale-90 border border-white/10 shadow-lg z-10">
+                        <i class="fa-solid fa-chevron-left text-xs md:text-sm"></i>
                     </button>
-                    <button onclick="window.moveSlider('track-obra-4', 1)" class="absolute right-3 top-1/2 -translate-y-1/2 w-10 h-10 bg-neutral-950/70 hover:bg-neutral-900 active:scale-90 backdrop-blur-md text-white rounded-full flex items-center justify-center border border-white/15 shadow-lg z-10">
-                        <i class="fa-solid fa-chevron-right text-xs"></i>
+                    <button onclick="window.moveSlider('track-obra-4', 1)" class="absolute right-2 top-1/2 -translate-y-1/2 w-8 h-8 md:w-10 md:h-10 bg-neutral-950/60 hover:bg-neutral-900/90 backdrop-blur-md text-white rounded-full flex items-center justify-center opacity-0 group-hover/slider:opacity-100 transition-all duration-300 active:scale-90 border border-white/10 shadow-lg z-10">
+                        <i class="fa-solid fa-chevron-right text-xs md:text-sm"></i>
                     </button>
                 </div>
             
-                <span class="text-[10px] text-zinc-400 font-black uppercase tracking-widest block mb-1">Repositório com Autenticação</span>
-                <h4 class="text-base sm:text-lg font-black text-white uppercase tracking-tight leading-tight">Minha Própria Página de Artigos e Propostas</h4>
-                <div class="mt-2">
-                    <ul class="list-disc list-inside space-y-1.5 text-xs sm:text-sm text-zinc-300 marker:text-zinc-400">
-                        <li>Banco de Dados Relacional (Supabase)</li>
-                        <li>Desenvolvido com Next.js e TypeScript</li>
+                <span class="text-[9px] md:text-[10px] text-zinc-400 font-black uppercase tracking-widest block mb-1 md:mb-1.5">REPOSITÓRIO PRÓPRIO COM AUTENTICAÇÃO</span>
+                <h4 class="text-lg md:text-xl font-black text-white uppercase tracking-tight leading-tight">MINHA PRÓPRIA PÁGINA DE ARTIGOS E PROPOSTAS</h4>
+                <div class="mt-1.5 md:mt-2">
+                    <ul class="list-disc list-inside space-y-2 text-sm text-zinc-300 marker:text-zinc-400 font-light leading-relaxed">
+                        <li>Banco de Dados (SQL no Supabase)</li>
+                        <li>Next.js</li>
+                        <li>TypeScript</li>
+                        <li>Sistema de Autenticação</li>
                     </ul>
                 </div>
-                <p class="mt-3 text-xs sm:text-sm text-zinc-400">
-                    Visite o projeto: <a href="https://meu-blog-jade.vercel.app" target="_blank" rel="noopener noreferrer" class="text-white underline font-semibold transition-colors inline-flex items-center gap-1">JN Tito Neto Blog <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i></a>
+                <p class="mt-2 text-xs sm:text-sm text-zinc-300">
+                    Faça uma visitinha: <a href="https://meu-blog-jade.vercel.app" target="_blank" rel="noopener noreferrer" class="text-zinc-200 hover:text-white underline font-semibold transition-colors pointer-events-auto cursor-pointer inline-flex items-center gap-1">JN Tito Neto Blog <i class="fa-solid fa-arrow-up-right-from-square text-[9px]"></i></a>
                 </p>
             </div>
 
+            <!-- CARD 5: IBM DATA ANALYTICS -->
             <div class="group">
-                <div class="relative w-full aspect-video rounded-3xl overflow-hidden shadow-xl mb-4 border border-white/10 group/slider">
+                <div class="relative w-full aspect-video rounded-2xl overflow-hidden shadow-lg mb-3 border border-white/10 group/slider">
                     <div id="track-obra-5" class="flex w-full h-full transition-transform duration-500 ease-[cubic-bezier(0.25,1,0.5,1)]">
                         <div onclick="window.open('/midias/Data Analytcs/ibm_data_certificated1_page-0001.jpg', '_blank')" class="w-full h-full flex-shrink-0 bg-cover bg-center cursor-zoom-in hover:opacity-90 transition-opacity" style="background-image: url('/midias/Data Analytcs/ibm_data_certificated1_page-0001.jpg');"></div>
                         <div onclick="window.open('/midias/Data Analytcs/ibm_data_analytcs2_page-0001.jpg', '_blank')" class="w-full h-full flex-shrink-0 bg-cover bg-center cursor-zoom-in hover:opacity-90 transition-opacity" style="background-image: url('/midias/Data Analytcs/ibm_data_analytcs2_page-0001.jpg');"></div>
                     </div>
                     
-                    <button onclick="window.moveSlider('track-obra-5', -1)" class="absolute left-3 top-1/2 -translate-y-1/2 w-10 h-10 bg-neutral-950/70 hover:bg-neutral-900 active:scale-90 backdrop-blur-md text-white rounded-full flex items-center justify-center border border-white/15 shadow-lg z-10">
-                        <i class="fa-solid fa-chevron-left text-xs"></i>
+                    <button onclick="window.moveSlider('track-obra-5', -1)" class="absolute left-2 top-1/2 -translate-y-1/2 w-8 h-8 md:w-10 md:h-10 bg-neutral-950/60 hover:bg-neutral-900/90 backdrop-blur-md text-white rounded-full flex items-center justify-center opacity-0 group-hover/slider:opacity-100 transition-all duration-300 active:scale-90 border border-white/10 shadow-lg z-10">
+                        <i class="fa-solid fa-chevron-left text-xs md:text-sm"></i>
                     </button>
-                    <button onclick="window.moveSlider('track-obra-5', 1)" class="absolute right-3 top-1/2 -translate-y-1/2 w-10 h-10 bg-neutral-950/70 hover:bg-neutral-900 active:scale-90 backdrop-blur-md text-white rounded-full flex items-center justify-center border border-white/15 shadow-lg z-10">
-                        <i class="fa-solid fa-chevron-right text-xs"></i>
+                    <button onclick="window.moveSlider('track-obra-5', 1)" class="absolute right-2 top-1/2 -translate-y-1/2 w-8 h-8 md:w-10 md:h-10 bg-neutral-950/60 hover:bg-neutral-900/90 backdrop-blur-md text-white rounded-full flex items-center justify-center opacity-0 group-hover/slider:opacity-100 transition-all duration-300 active:scale-90 border border-white/10 shadow-lg z-10">
+                        <i class="fa-solid fa-chevron-right text-xs md:text-sm"></i>
                     </button>
                 </div>
             
-                <span class="text-[10px] text-zinc-400 font-black uppercase tracking-widest block mb-1">Análise de Dados</span>
-                <h4 class="text-base sm:text-lg font-black text-white uppercase tracking-tight leading-tight">Formação de Análise de Dados IBM</h4>
-                <div class="mt-2">
-                    <ul class="list-disc list-inside space-y-1.5 text-xs sm:text-sm text-zinc-300 marker:text-zinc-400">
-                        <li>Tratamento e higienização de dados complexos</li>
-                        <li>Manipulação de dados com Python e R</li>
+                <span class="text-[9px] md:text-[10px] text-zinc-400 font-black uppercase tracking-widest block mb-1 md:mb-1.5">Curso na Área de Análise de Dados</span>
+                <h4 class="text-lg md:text-xl font-black text-white uppercase tracking-tight leading-tight">FORMAÇÃO DE ANÁLISE DE DADOS DA IBM</h4>
+                <div class="mt-1.5 md:mt-2">
+                    <ul class="list-disc list-inside space-y-2 text-sm text-zinc-300 marker:text-zinc-400 font-light leading-relaxed">
+                        <li>Análise de Dados (Tratamento de Dados)</li>
+                        <li>Manipulação de Dados com Python e R</li>
+                        <li>Uso de Bibliotecas Python para tratar dados</li>
                     </ul>
                 </div>
             </div>
             
+            <!-- CARD 6: SITES DE CLIENTES -->
             <div class="group">
                 <div onclick="window.open('https://images.unsplash.com/photo-1573166364266-356ef04ae798?q=80&w=1920', '_blank')" 
-                     class="w-full aspect-video bg-cover bg-center rounded-3xl overflow-hidden shadow-xl mb-4 border border-white/10 cursor-zoom-in hover:opacity-90 transition-opacity grayscale contrast-125" 
+                     class="w-full aspect-video bg-cover bg-center rounded-2xl overflow-hidden shadow-lg mb-3 border border-white/10 cursor-zoom-in hover:opacity-90 transition-opacity grayscale contrast-125" 
                      style="background-image: url('https://images.unsplash.com/photo-1573166364266-356ef04ae798?q=80&w=869&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');">
                 </div>
                 
-                <span class="text-[10px] text-zinc-400 font-black uppercase tracking-widest block mb-1">Portfolio Comercial</span>
-                <h4 class="text-base sm:text-lg font-black text-white uppercase tracking-tight leading-tight">Aplicações e Landing Pages para Clientes</h4>
+                <span class="text-[9px] md:text-[10px] text-zinc-400 font-black uppercase tracking-widest block mb-1 md:mb-1.5">Alguns sites criados para clientes</span>
+                <h4 class="text-lg md:text-xl font-black text-white uppercase tracking-tight leading-tight">PÁGINAS CRIADAS COM HTML, CSS E JAVASCRIPT A PARTIR DO PROCESSOS DE DESIGN THINKING ACELERADOS POR IA</h4>
+                <p class="text-xs md:text-sm text-zinc-400 font-light mt-1.5 md:mt-2 leading-relaxed"></p>
                 
-                <ul class="space-y-3 text-zinc-300 text-xs sm:text-sm font-light text-left mt-3">
+                <ul class="space-y-3 text-zinc-300 text-xs sm:text-sm md:text-base font-light text-left">
                     <li class="leading-relaxed">
-                        Landing Page para Loja e Salão: <a href="https://sites-clientes-six.vercel.app/" target="_blank" rel="noopener noreferrer" class="text-white underline font-medium inline-flex items-center gap-1">Livia Modas <i class="fa-solid fa-arrow-up-right-from-square text-[9px]"></i></a>
+                        Página criada estilo Landing Page para uma loja de roupas e salão de beleza. Visite o site: <a href="https://sites-clientes-six.vercel.app/" target="_blank" rel="noopener noreferrer" class="text-zinc-200 hover:text-white underline font-semibold transition-colors pointer-events-auto cursor-pointer inline-flex items-center gap-1">Livia Modas <i class="fa-solid fa-arrow-up-right-from-square text-[9px]"></i></a> Loja e Salão de Beleza integrados para atender todas as demandas.
                     </li>
                     <li class="leading-relaxed">
-                        Plataforma Institucional: <a href="https://tito-impermeabilizacao.vercel.app/" target="_blank" rel="noopener noreferrer" class="text-white underline font-medium">Impermeabilização <i class="fa-solid fa-arrow-up-right-from-square text-[9px]"></i></a>
+                        Site no estilo Landing Page interativo e institucional para uma empresa de impermeabilização. Visite o site: <a href="https://tito-impermeabilizacao.vercel.app/" target="_blank" rel="noopener noreferrer" class="text-zinc-200 hover:text-white underline font-semibold transition-colors pointer-events-auto cursor-pointer">Impermeabilização <i class="fa-solid fa-arrow-up-right-from-square text-[9px]"></i></a>.
                     </li>
                     <li class="leading-relaxed">
-                        Engenharia Civil: <a href="https://ma-construcoes.vercel.app/" target="_blank" class="text-white underline font-medium">M.A Construções <i class="fa-solid fa-arrow-up-right-from-square text-[9px]"></i></a>
+                        Site Institucional para captação de clientes de uma empresa de Engenharia Civil. Visite o site: <a href="https://ma-construcoes.vercel.app/" target="_blank" class="text-zinc-200 hover:text-white underline font-semibold transition-colors pointer-events-auto cursor-pointer">M.A Construções <i class="fa-solid fa-arrow-up-right-from-square text-[9px]"></i></a>.
                     </li>
                     <li class="leading-relaxed">
-                        Startup: <a href="https://uup-site.vercel.app/" target="_blank" class="text-white underline font-medium">UUP Software Solutions <i class="fa-solid fa-arrow-up-right-from-square text-[9px]"></i></a>
+                        Site estilo Landing Page para a minha startup de Projetos de Inserção Virtual de Pequenas e Médias empresas. Visite o site: <a href="https://uup-site.vercel.app/" target="_blank" class="text-zinc-200 hover:text-white underline font-semibold transition-colors pointer-events-auto cursor-pointer">UUP Software Solutions <i class="fa-solid fa-arrow-up-right-from-square text-[9px]"></i></a>.
                     </li>
                 </ul>
             </div>
         
+            <!-- CARD 7: UX GOOGLE COM TODAS AS 6 IMAGENS -->
             <div class="group">
-                <div class="relative w-full aspect-video rounded-3xl overflow-hidden shadow-xl mb-4 border border-white/10 group/slider">
+                <div class="relative w-full aspect-video rounded-2xl overflow-hidden shadow-lg mb-3 border border-white/10 group/slider">
                     <div id="track-obra-6" class="flex w-full h-full transition-transform duration-500 ease-[cubic-bezier(0.25,1,0.5,1)]">
-                        <img src="/midias/project_ux/ux/Certificados/certificado_1_page-0001.jpg" alt="Certificado UX 1" onclick="window.open(this.src, '_blank')" class="w-full h-full flex-shrink-0 object-cover cursor-zoom-in hover:opacity-90 transition-opacity" />
-                        <img src="/midias/project_ux/ux/Certificados/certificado_2_page-0001.jpg" alt="Certificado UX 2" onclick="window.open(this.src, '_blank')" class="w-full h-full flex-shrink-0 object-cover cursor-zoom-in hover:opacity-90 transition-opacity" />
-                        <img src="/midias/project_ux/ux/Certificados/certificado_3_page-0001.jpg" alt="Certificado UX 3" onclick="window.open(this.src, '_blank')" class="w-full h-full flex-shrink-0 object-cover cursor-zoom-in hover:opacity-90 transition-opacity" />
-                        <img src="/midias/project_ux/ux/Certificados/certificado_4_page-0001.jpg" alt="Certificado UX 4" onclick="window.open(this.src, '_blank')" class="w-full h-full flex-shrink-0 object-cover cursor-zoom-in hover:opacity-90 transition-opacity" />
-                        <img src="/midias/project_ux/ux/Certificados/certificado_5_page-0001.jpg" alt="Certificado UX 5" onclick="window.open(this.src, '_blank')" class="w-full h-full flex-shrink-0 object-cover cursor-zoom-in hover:opacity-90 transition-opacity" />
-                        <img src="/midias/project_ux/ux/Certificados/certificado_6_page-0001.jpg" alt="Certificado UX 6" onclick="window.open(this.src, '_blank')" class="w-full h-full flex-shrink-0 object-cover cursor-zoom-in hover:opacity-90 transition-opacity" />
+                        <img src="/midias/project_ux/ux/Certificados/certificado_1_page-0001.jpg" 
+                             alt="Certificado UX 1" 
+                             onclick="window.open(this.src, '_blank')"
+                             class="w-full h-full flex-shrink-0 object-cover cursor-zoom-in hover:opacity-90 transition-opacity" />
+            
+                        <img src="/midias/project_ux/ux/Certificados/certificado_2_page-0001.jpg" 
+                             alt="Certificado UX 2" 
+                             onclick="window.open(this.src, '_blank')"
+                             class="w-full h-full flex-shrink-0 object-cover cursor-zoom-in hover:opacity-90 transition-opacity" />
+            
+                        <img src="/midias/project_ux/ux/Certificados/certificado_3_page-0001.jpg" 
+                             alt="Certificado UX 3" 
+                             onclick="window.open(this.src, '_blank')"
+                             class="w-full h-full flex-shrink-0 object-cover cursor-zoom-in hover:opacity-90 transition-opacity" />
+            
+                        <img src="/midias/project_ux/ux/Certificados/certificado_4_page-0001.jpg" 
+                             alt="Certificado UX 4" 
+                             onclick="window.open(this.src, '_blank')"
+                             class="w-full h-full flex-shrink-0 object-cover cursor-zoom-in hover:opacity-90 transition-opacity" />
+            
+                        <img src="/midias/project_ux/ux/Certificados/certificado_5_page-0001.jpg" 
+                             alt="Certificado UX 5" 
+                             onclick="window.open(this.src, '_blank')"
+                             class="w-full h-full flex-shrink-0 object-cover cursor-zoom-in hover:opacity-90 transition-opacity" />
+
+                        <img src="/midias/project_ux/ux/Certificados/certificado_6_page-0001.jpg" 
+                             alt="Certificado UX 6" 
+                             onclick="window.open(this.src, '_blank')"
+                             class="w-full h-full flex-shrink-0 object-cover cursor-zoom-in hover:opacity-90 transition-opacity" />
                     </div>
             
-                    <button onclick="window.moveSlider('track-obra-6', -1)" class="absolute left-3 top-1/2 -translate-y-1/2 w-10 h-10 bg-neutral-950/70 hover:bg-neutral-900 active:scale-90 backdrop-blur-md text-white rounded-full flex items-center justify-center border border-white/15 shadow-lg z-10">
-                        <i class="fa-solid fa-chevron-left text-xs"></i>
+                    <button onclick="window.moveSlider('track-obra-6', -1)" class="absolute left-2 top-1/2 -translate-y-1/2 w-8 h-8 md:w-10 md:h-10 bg-neutral-950/60 hover:bg-neutral-900/90 backdrop-blur-md text-white rounded-full flex items-center justify-center opacity-0 group-hover/slider:opacity-100 transition-all duration-300 active:scale-90 border border-white/10 shadow-lg z-10">
+                        <i class="fa-solid fa-chevron-left text-xs md:text-sm"></i>
                     </button>
-                    <button onclick="window.moveSlider('track-obra-6', 1)" class="absolute right-3 top-1/2 -translate-y-1/2 w-10 h-10 bg-neutral-950/70 hover:bg-neutral-900 active:scale-90 backdrop-blur-md text-white rounded-full flex items-center justify-center border border-white/15 shadow-lg z-10">
-                        <i class="fa-solid fa-chevron-right text-xs"></i>
+                    <button onclick="window.moveSlider('track-obra-6', 1)" class="absolute right-2 top-1/2 -translate-y-1/2 w-8 h-8 md:w-10 md:h-10 bg-neutral-950/60 hover:bg-neutral-900/90 backdrop-blur-md text-white rounded-full flex items-center justify-center opacity-0 group-hover/slider:opacity-100 transition-all duration-300 active:scale-90 border border-white/10 shadow-lg z-10">
+                        <i class="fa-solid fa-chevron-right text-xs md:text-sm"></i>
                     </button>
                 </div>
             
-                <span class="text-[10px] text-zinc-400 font-black uppercase tracking-widest block mb-1">UX/UI Design</span>
-                <h4 class="text-base sm:text-lg font-black text-white uppercase tracking-tight leading-tight">Formação Completa UX Design pelo Google</h4>
-                <p class="text-xs sm:text-sm text-zinc-300 font-light mt-2 leading-relaxed">
-                    Design Thinking, Sprints de Design, Pesquisas de Usuários, Arquitetura de Informação e Prototipagem de Alta Fidelidade.
+                <span class="text-[9px] md:text-[10px] text-zinc-400 font-black uppercase tracking-widest block mb-1 md:mb-1.5">UX/UI DESIGN</span>
+                <h4 class="text-lg md:text-xl font-black text-white uppercase tracking-tight leading-tight">FORMAÇÃO COMPLETA DE UX DESIGN PELO GOOGLE</h4>
+                <p class="text-xs md:text-sm text-zinc-400 font-light mt-1.5 md:mt-2 leading-relaxed">
+                    Criação de produtos centrados no usuário: Design Thinking e outros frameworks, Sprints de Design, Pesquisas, Design de Interação, Auditoria Competitiva, Storyboards e Testes de Usabilidade.
                 </p>
             </div>
         </div>
