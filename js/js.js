@@ -2,8 +2,16 @@ document.addEventListener('DOMContentLoaded', () => {
     
     // Base de Dados de Serviços
     const database = {
+        'user-support': {
+            icon: '📊',
+            title: 'Technical Support & Customer Experience (CX)',
+            tech: ['💡 "A eficiência do suporte não está apenas em resolver chamados, mas em transformar a dor do usuário em evolução contínua para o produto."'],
+            image: 'https://images.unsplash.com/photo-1581094794329-c8112a89af12?q=80&w=987&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D', 
+            text: 'Atuação estratégica na gestão do ciclo completo de chamados e suporte ao cliente, combinando triagem assertiva, priorização por SLAs e comunicação humanizada via canais digitais. Diagnóstico técnico de incidentes e identificação de gargalos operacionais diretamente na ponta, traduzindo o feedback do usuário final em melhorias contínuas, otimização de fluxos e redução de chamados recorrentes.',
+            link: 'pages/suporte_cx.html' // Corrigido de ctaLink para link padrão
+        },
+
         'product-management': {
-        // 1. GESTÃO DE PRODUTOS
             icon: '💼',
             title: 'Product Management & Agilidade',
             tech: ['Scrum Framework', 'Product Backlog Refinement', 'User Stories', 'Jira / Confluence'],
@@ -12,7 +20,6 @@ document.addEventListener('DOMContentLoaded', () => {
             link: 'https://drive.google.com/drive/folders/1-eXmQNyc6nnpLboz3JEBETfjL5tW-S10?usp=sharing'
         },
 
-        // 2. DESIGN DE INTERFACE & DESCOBERTA
         'ux-ui-design': {
             icon: '🎨',
             title: 'UX / UI Design & Product Discovery',
@@ -20,10 +27,8 @@ document.addEventListener('DOMContentLoaded', () => {
             image: 'https://images.unsplash.com/photo-1627757757997-369fb38812e1?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80', 
             text: '💡 "O design invisível é o mais eficiente. Projeto interfaces focadas em eliminar a fricção cognitiva e garantir acessibilidade digital."\n\nArquitetura de experiências imersivas focada estritamente na eliminação de fricções e na mitigação de carga cognitiva. Especialista na condução de processos completos de Product Discovery, mapeamento de jornadas de usuário, auditorias de concorrência e protótipos interativos com micro-animações, garantindo interfaces acessíveis (WCAG) e livres de dark patterns.',
             link: 'pages/estudo_caso_appclaquette.html'
-            
         },
 
-        // 3. ARQUITETURA DE SOFTWARE
         'software-architecture': {
             icon: '⚡',
             title: 'Software Engineering & Dev',
@@ -31,20 +36,8 @@ document.addEventListener('DOMContentLoaded', () => {
             image: 'https://images.unsplash.com/photo-1607799279861-4dd421887fb3?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80', 
             text: '💡 "Código performático é aquele que resolve regras de negócio complexas mantendo uma esteira de deploy limpa e escalabilidade sã."\n\nDesenho, modelagem UML e codificação de sistemas ponta a ponta (Full-Stack). Atuação com controle de versão rigoroso via Git/GitHub por linha de comando, estruturando arquiteturas de software escaláveis e esteiras de deploy limpas que casam perfeitamente as regras de negócio com uma renderização fluida na interface.',
             link: 'https://github.com/Magneto1000'
-            
         },
 
-        // 4. ANÁLISE DE DADOS
-        'data-analytics': {
-            icon: '📊',
-            title: 'Technical Support & Customer Experience (CX)',
-            tech: ['💡 "A eficiência do suporte não está apenas em resolver chamados, mas em transformar a dor do usuário em evolução contínua para o produto."'],
-            image: 'https://images.unsplash.com/photo-1581094794329-c8112a89af12?q=80&w=987&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D', 
-            text: 'Atuação estratégica na gestão do ciclo completo de chamados e suporte ao cliente, combinando triagem assertiva, priorização por SLAs e comunicação humanizada via canais digitais. Diagnóstico técnico de incidentes e identificação de gargalos operacionais diretamente na ponta, traduzindo o feedback do usuário final em melhorias contínuas, otimização de fluxos e redução de chamados recorrentes.',
-            link: ''
-        },
-
-        // 5. LABORATÓRIO E WORKSHOPS
         'labs-workshops': {
             icon: '🛠️',
             title: 'Labs, Games & Workshops',
@@ -55,7 +48,9 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     };
 
- 
+    // Suporte retrocompatível caso o HTML chame 'data-analytics'
+    database['data-analytics'] = database['user-support'];
+
     const slides = [document.getElementById('slide-1'), document.getElementById('slide-2'), document.getElementById('slide-3')];
     const sliderContainer = document.getElementById('slider-container');
     const serviceBg = document.getElementById('service-bg');
@@ -70,11 +65,11 @@ document.addEventListener('DOMContentLoaded', () => {
     const mobileDrawer = document.getElementById('mobile-drawer');
     const mobileOverlay = document.getElementById('mobile-overlay');
 
- 
     let currentSlide = 0;
     let rotationInterval;
 
     function startRotation() {
+        clearInterval(rotationInterval);
         rotationInterval = setInterval(() => {
             if (slides[currentSlide]) {
                 slides[currentSlide].classList.remove('opacity-100', 'scale-100');
@@ -90,37 +85,40 @@ document.addEventListener('DOMContentLoaded', () => {
         }, 5000);
     }
     startRotation();
- 
+
     window.toggleMobileMenu = (open) => {
         if (!mobileDrawer) return;
         if (open) {
             mobileDrawer.classList.remove('-translate-x-full');
-            mobileOverlay.classList.remove('hidden');
-            setTimeout(() => mobileOverlay.classList.remove('opacity-0'), 10);
+            if (mobileOverlay) {
+                mobileOverlay.classList.remove('hidden');
+                setTimeout(() => mobileOverlay.classList.remove('opacity-0'), 10);
+            }
         } else {
             mobileDrawer.classList.add('-translate-x-full');
-            mobileOverlay.classList.add('opacity-0');
-            setTimeout(() => mobileOverlay.classList.add('hidden'), 500);
+            if (mobileOverlay) {
+                mobileOverlay.classList.add('opacity-0');
+                setTimeout(() => mobileOverlay.classList.add('hidden'), 500);
+            }
         }
     };
 
-   
     window.selectService = (key) => {
-        const data = database[key];
+        // Redireciona para user-support se vier data-analytics
+        const effectiveKey = (key === 'data-analytics') ? 'user-support' : key;
+        const data = database[effectiveKey];
         if (!data) return;
         
-        // Fecha o menu hambúrguer automaticamente se estiver no mobile
+        // Fecha o menu móvel
         window.toggleMobileMenu(false);
 
-        // Atualiza UI dos botões (Desktop e Mobile)
+        // Atualiza botões ativos
         document.querySelectorAll('.desktop-nav-btn, .mobile-nav-btn').forEach(btn => btn.classList.remove('active-nav'));
-        
- 
         if (window.event && window.event.currentTarget) {
             window.event.currentTarget.classList.add('active-nav');
         }
 
- 
+        // Para rotação e ativa imagem de fundo
         clearInterval(rotationInterval);
         if (sliderContainer) sliderContainer.classList.add('opacity-0');
         
@@ -130,7 +128,7 @@ document.addEventListener('DOMContentLoaded', () => {
             serviceBg.classList.add('opacity-100', 'scale-100');
         }
 
- 
+        // Esconde o Hero
         if (heroContent) {
             heroContent.classList.remove('opacity-100', 'translate-y-0', 'pointer-events-auto');
             heroContent.classList.add('opacity-0', '-translate-y-8', 'pointer-events-none');
@@ -140,30 +138,35 @@ document.addEventListener('DOMContentLoaded', () => {
             if (serviceTitle) serviceTitle.textContent = data.title;
             if (serviceDesc) serviceDesc.textContent = data.text;
             
-     
+            const targetUrl = data.link || data.ctaLink || '#';
+
             if (serviceCta) {
-                serviceCta.href = data.link;
+                serviceCta.href = targetUrl;
                 
-         
-                if (data.link.startsWith('http')) {
+                // Configuração individual do botão CTA conforme o serviço
+                if (effectiveKey === 'user-support') {
+                    serviceCta.removeAttribute('target');
+                    serviceCta.removeAttribute('rel');
+                    serviceCta.innerHTML = 'Ver Case de Suporte & Vídeo <i class="fa-solid fa-arrow-right text-[10px] ml-1.5"></i>';
+                } else if (targetUrl.startsWith('http')) {
                     serviceCta.setAttribute('target', '_blank');
                     serviceCta.setAttribute('rel', 'noopener noreferrer');
-                    serviceCta.textContent = 'Ver mais ➜';
+                    serviceCta.innerHTML = 'Ver mais <i class="fa-solid fa-chevron-right text-[10px] ml-1.5"></i>';
                 } else {
                     serviceCta.removeAttribute('target');
                     serviceCta.removeAttribute('rel');
-                    serviceCta.textContent = 'Acessar Estudo de Caso ➜';
+                    serviceCta.innerHTML = 'Acessar Estudo de Caso <i class="fa-solid fa-arrow-right text-[10px] ml-1.5"></i>';
                 }
             }
             
+            // Exibe a seção de conteúdo do serviço garantindo visibilidade imediata
             if (serviceContent) {
                 serviceContent.classList.remove('opacity-0', 'translate-y-8', 'pointer-events-none');
                 serviceContent.classList.add('opacity-100', 'translate-y-0', 'pointer-events-auto');
             }
-        }, 400);
+        }, 300);
     };
 
- 
     window.resetToHero = () => {
         document.querySelectorAll('.desktop-nav-btn, .mobile-nav-btn').forEach(btn => btn.classList.remove('active-nav'));
 
@@ -184,12 +187,11 @@ document.addEventListener('DOMContentLoaded', () => {
             }
             if (sliderContainer) sliderContainer.classList.remove('opacity-0');
             startRotation();
-        }, 400);
+        }, 300);
     };
 
- 
     window.toggleHub = (open) => {
-        window.toggleMobileMenu(false); // Fecha o menu mobile se estiver aberto
+        window.toggleMobileMenu(false);
         
         if (open) {
             if (hubOverlay) {
@@ -205,14 +207,13 @@ document.addEventListener('DOMContentLoaded', () => {
     };
 });
 
- 
+// Controle de Sliders dos Certificados
 const sliderStates = {};
 
 window.moveSlider = (trackId, direction) => {
     const track = document.getElementById(trackId);
     if (!track) return;
     
- 
     if (!sliderStates[trackId]) {
         sliderStates[trackId] = {
             current: 0,
@@ -221,8 +222,6 @@ window.moveSlider = (trackId, direction) => {
     }
     
     let state = sliderStates[trackId];
-    
- 
     state.current += direction;
     
     if (state.current < 0) {
@@ -231,17 +230,13 @@ window.moveSlider = (trackId, direction) => {
         state.current = 0;  
     }
     
-    
     track.style.transform = `translateX(-${state.current * 100}%)`;
 };
 
-
- 
+// Progresso do vídeo do Card no Hub
 setInterval(() => {
     const video = document.getElementById('card-presentation-video');
     const bar = document.getElementById('card-video-progress-bar');
     if (!video || !bar || video.paused) return;
     bar.style.width = `${(video.currentTime / video.duration) * 100}%`;
 }, 200);
-
-
