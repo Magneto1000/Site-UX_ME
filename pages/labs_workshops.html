@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Labs, Games & Workshops | Juraci Tito Neto</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../css/css.css">
+</head>
+<body class="bg-neutral-950 text-white min-h-screen font-sans antialiased selection:bg-zinc-800 selection:text-white">
+
+    <!-- PLANO DE FUNDO CINEMATOGRÁFICO MONOCROMÁTICO -->
+    <div class="fixed inset-0 z-0 pointer-events-none overflow-hidden">
+        <div class="absolute inset-0 bg-neutral-950"></div>
+        <div class="absolute inset-0 bg-[radial-gradient(circle_at_top,_var(--tw-gradient-stops))] from-zinc-900/40 via-neutral-950/80 to-neutral-950"></div>
+        <div class="absolute inset-0 bg-gradient-to-b from-transparent via-neutral-950/70 to-neutral-950"></div>
+    </div>
+
+    <!-- CABEÇALHO FIXO COM NAVEGAÇÃO -->
+    <header class="sticky top-0 z-50 backdrop-blur-xl bg-neutral-950/80 border-b border-white/10 px-6 sm:px-10 py-4 transition-all">
+        <div class="max-w-6xl mx-auto flex items-center justify-between">
+            <a href="../index.html" class="inline-flex items-center gap-2.5 px-4 py-2 rounded-xl bg-white/5 hover:bg-white/10 border border-white/10 text-xs uppercase tracking-widest text-zinc-300 hover:text-white transition-all active:scale-95 shadow-md">
+                <i class="fa-solid fa-arrow-left text-xs"></i>
+                <span>Voltar ao Portfólio</span>
+            </a>
+
+            <div class="flex items-center gap-3">
+                <span class="text-[10px] sm:text-xs font-mono tracking-widest uppercase text-zinc-500 hidden sm:inline">Inovação • Gamificação • Extensão</span>
+                <a href="https://web.whatsapp.com/send?phone=5522992296380&text=Ol%C3%A1!" target="_blank" rel="noopener noreferrer" 
+                   class="w-9 h-9 sm:w-10 sm:h-10 bg-zinc-800 hover:bg-zinc-700 border border-white/15 rounded-xl flex items-center justify-center text-white shadow-md transition-all active:scale-95" title="Contato WhatsApp">
+                    <i class="fa-brands fa-whatsapp text-sm sm:text-base"></i>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- CONTEÚDO PRINCIPAL -->
+    <main class="relative z-10 max-w-5xl mx-auto px-6 sm:px-10 pt-8 pb-24">
+        
+        <!-- HERO / INTRODUÇÃO DA PÁGINA -->
+        <header class="mb-12 text-left">
+            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/5 border border-white/10 mb-3">
+                <span class="w-2 h-2 rounded-full bg-zinc-300 animate-pulse"></span>
+                <span class="text-[10px] text-zinc-400 font-bold uppercase tracking-widest">Laboratório Experimental & Comunidade</span>
+            </div>
+            <h1 class="text-3xl sm:text-5xl md:text-6xl font-black uppercase tracking-tighter text-white drop-shadow-md leading-[0.95] mb-4">
+                Labs, Games & <br>
+                <span class="text-transparent bg-clip-text bg-gradient-to-r from-zinc-200 via-neutral-300 to-zinc-500">Workshops de Extensão</span>
+            </h1>
+            <p class="text-sm sm:text-base text-zinc-400 font-light leading-relaxed max-w-2xl">
+                Espaço dedicado a projetos práticos, arquitetura de jogos lógicos no navegador, prototipagem ágil e oficinas formativas que conectam computação, design centrado no usuário e impacto social.
+            </p>
+        </header>
+
+        <!-- LISTA DE PROJETOS DE EXTENSÃO E EXPERIMENTOS -->
+        <div class="space-y-12">
+
+            <!-- ==========================================================================
+                 PROJETO 1: WORKSHOP DE EXTENSÃO UNIVERSITÁRIA
+                 ========================================================================== -->
+            <article class="p-6 sm:p-8 rounded-3xl bg-white/[0.03] border border-white/10 backdrop-blur-sm relative overflow-hidden transition-all hover:border-white/20 shadow-xl">
+                <div class="absolute top-0 left-0 w-1 h-full bg-zinc-300"></div>
+                
+                <div class="flex flex-wrap items-center justify-between gap-2 mb-3">
+                    <div class="flex items-center gap-3">
+                        <div class="w-8 h-8 rounded-xl bg-white/10 flex items-center justify-center text-zinc-200">
+                            <i class="fa-solid fa-chalkboard-user text-sm"></i>
+                        </div>
+                        <span class="text-[10px] font-mono text-zinc-400 font-bold uppercase tracking-widest">Extensão Universitária • Educação Tecnológica</span>
+                    </div>
+                    <span class="px-2.5 py-1 rounded-md text-[9px] font-mono bg-zinc-800 text-zinc-300 uppercase tracking-wider font-bold border border-white/5">CIEP 271 José Bonifácio Tassara</span>
+                </div>
+
+                <!-- TÍTULO DO PROJETO -->
+                <h2 class="text-xl sm:text-2xl font-black uppercase tracking-tight text-white mb-3">
+                    Oficina Prática de Wireframing, UX Design e Frontend para Jovens
+                </h2>
+
+                <!-- TEXTO DESCRITIVO -->
+                <p class="text-xs sm:text-sm text-zinc-300 font-light leading-relaxed mb-4">
+                    Workshop de extensão conduzido para estudantes do Ensino Médio no Colégio CIEP 271 José Bonifácio Tassara. A oficina teve como propósito democratizar conceitos fundamentais de engenharia de software, raciocínio lógico e design thinking, guiando os alunos na criação de wireframes práticos e nas bases de estruturação web com HTML, CSS e noções de usabilidade.
+                </p>
+
+                <!-- DESTAQUES DO IMPACTO -->
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-3.5 text-left mb-6">
+                    <div class="p-3.5 rounded-2xl bg-neutral-900/60 border border-white/5">
+                        <span class="text-[10px] font-mono text-zinc-400 font-bold block mb-1">Metodologia Hands-on</span>
+                        <p class="text-xs text-zinc-300 leading-normal">Ensino prático com protótipos de baixa e média fidelidade desenhados colaborativamente em equipe.</p>
+                    </div>
+                    <div class="p-3.5 rounded-2xl bg-neutral-900/60 border border-white/5">
+                        <span class="text-[10px] font-mono text-zinc-400 font-bold block mb-1">Inclusão Digital</span>
+                        <p class="text-xs text-zinc-300 leading-normal">Apresentação do mercado de desenvolvimento de software e oportunidades de carreira em tecnologia.</p>
+                    </div>
+                    <div class="p-3.5 rounded-2xl bg-neutral-900/60 border border-white/5">
+                        <span class="text-[10px] font-mono text-zinc-400 font-bold block mb-1">Feedback dos Estudantes</span>
+                        <p class="text-xs text-zinc-300 leading-normal">Mapeamento de engajamento ativo através da entrega de páginas funcionais no encerramento da oficina.</p>
+                    </div>
+                </div>
+
+                <!-- GALERIA DE IMAGENS DO PROJETO -->
+                <div>
+                    <span class="text-[10px] text-zinc-400 font-black uppercase tracking-widest block mb-3">Registros Fotográficos e Evidências</span>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3">
+                        
+                        <!-- Imagem 1 -->
+                        <div class="group/img relative aspect-video rounded-2xl overflow-hidden bg-neutral-900 border border-white/10 cursor-pointer" onclick="window.open(this.querySelector('img').src, '_blank')">
+                            <img src="https://images.unsplash.com/photo-1531403009284-440f080d1e12?auto=format&fit=crop&w=1000&q=80" alt="Oficina de Wireframing" class="w-full h-full object-cover grayscale contrast-125 transition-all duration-500 group-hover/img:scale-105 group-hover/img:grayscale-0">
+                            <div class="absolute inset-0 bg-black/40 opacity-0 group-hover/img:opacity-100 transition-opacity flex items-center justify-center">
+                                <i class="fa-solid fa-expand text-white text-sm"></i>
+                            </div>
+                        </div>
+
+                        <!-- Imagem 2 -->
+                        <div class="group/img relative aspect-video rounded-2xl overflow-hidden bg-neutral-900 border border-white/10 cursor-pointer" onclick="window.open(this.querySelector('img').src, '_blank')">
+                            <img src="https://images.unsplash.com/photo-1524178232363-1fb2b075b655?auto=format&fit=crop&w=1000&q=80" alt="Alunos desenvolvendo interfaces" class="w-full h-full object-cover grayscale contrast-125 transition-all duration-500 group-hover/img:scale-105 group-hover/img:grayscale-0">
+                            <div class="absolute inset-0 bg-black/40 opacity-0 group-hover/img:opacity-100 transition-opacity flex items-center justify-center">
+                                <i class="fa-solid fa-expand text-white text-sm"></i>
+                            </div>
+                        </div>
+
+                        <!-- Imagem 3 -->
+                        <div class="group/img relative aspect-video rounded-2xl overflow-hidden bg-neutral-900 border border-white/10 cursor-pointer" onclick="window.open(this.querySelector('img').src, '_blank')">
+                            <img src="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&w=1000&q=80" alt="Apresentação final dos projetos" class="w-full h-full object-cover grayscale contrast-125 transition-all duration-500 group-hover/img:scale-105 group-hover/img:grayscale-0">
+                            <div class="absolute inset-0 bg-black/40 opacity-0 group-hover/img:opacity-100 transition-opacity flex items-center justify-center">
+                                <i class="fa-solid fa-expand text-white text-sm"></i>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </article>
+
+
+            <!-- ==========================================================================
+                 PROJETO 2: GAME LAB - MAGMAN
+                 ========================================================================== -->
+            <article class="p-6 sm:p-8 rounded-3xl bg-white/[0.03] border border-white/10 backdrop-blur-sm relative overflow-hidden transition-all hover:border-white/20 shadow-xl">
+                <div class="absolute top-0 left-0 w-1 h-full bg-zinc-400"></div>
+                
+                <div class="flex flex-wrap items-center justify-between gap-2 mb-3">
+                    <div class="flex items-center gap-3">
+                        <div class="w-8 h-8 rounded-xl bg-white/10 flex items-center justify-center text-zinc-200">
+                            <i class="fa-solid fa-gamepad text-sm"></i>
+                        </div>
+                        <span class="text-[10px] font-mono text-zinc-400 font-bold uppercase tracking-widest">Game Development • Lógica & Algoritmos</span>
+                    </div>
+                    <span class="px-2.5 py-1 rounded-md text-[9px] font-mono bg-zinc-800 text-zinc-300 uppercase tracking-wider font-bold border border-white/5">JavaScript • HTML5 Canvas</span>
+                </div>
+
+                <!-- TÍTULO DO PROJETO -->
+                <h2 class="text-xl sm:text-2xl font-black uppercase tracking-tight text-white mb-3">
+                    Magman: Jogo de Lógica e Exploração Espacial
+                </h2>
+
+                <!-- TEXTO DESCRITIVO -->
+                <p class="text-xs sm:text-sm text-zinc-300 font-light leading-relaxed mb-4">
+                    Laboratório de arquitetura e lógica interativa construído inteiramente em JavaScript puro. O jogo desafia o jogador a navegar por campos gravitacionais e terrenos planetários, integrando detecção de colisão matemática, sistema de pontuação dinâmico, loop de renderização a 60 FPS e regras claras de tomada de decisão em tempo real.
+                </p>
+
+                <!-- DESTAQUES TÉCNICOS -->
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-3.5 text-left mb-6">
+                    <div class="p-3.5 rounded-2xl bg-neutral-900/60 border border-white/5">
+                        <span class="text-[10px] font-mono text-zinc-400 font-bold block mb-1">Renderização no Canvas</span>
+                        <p class="text-xs text-zinc-300 leading-normal">Controle de estados, vetores de deslocamento e atualização quadro a quadro via <code class="text-zinc-200">requestAnimationFrame</code>.</p>
+                    </div>
+                    <div class="p-3.5 rounded-2xl bg-neutral-900/60 border border-white/5">
+                        <span class="text-[10px] font-mono text-zinc-400 font-bold block mb-1">Mecânica Gravitacional</span>
+                        <p class="text-xs text-zinc-300 leading-normal">Física vetorial aplicada para atração planetária e cálculo de colisões caixa-caixa (AABB).</p>
+                    </div>
+                    <div class="p-3.5 rounded-2xl bg-neutral-900/60 border border-white/5">
+                        <span class="text-[10px] font-mono text-zinc-400 font-bold block mb-1">Responsividade de Controles</span>
+                        <p class="text-xs text-zinc-300 leading-normal">Suporte híbrido para teclado em desktop e botões virtuais otimizados para telas de toque.</p>
+                    </div>
+                </div>
+
+                <!-- GALERIA DE IMAGENS DO JOGO -->
+                <div>
+                    <span class="text-[10px] text-zinc-400 font-black uppercase tracking-widest block mb-3">Capturas de Tela e Interface</span>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3">
+                        
+                        <div class="group/img relative aspect-video rounded-2xl overflow-hidden bg-neutral-900 border border-white/10 cursor-pointer" onclick="window.open(this.querySelector('img').src, '_blank')">
+                            <img src="https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&fit=crop&w=1000&q=80" alt="Interface Magman" class="w-full h-full object-cover grayscale contrast-125 transition-all duration-500 group-hover/img:scale-105 group-hover/img:grayscale-0">
+                            <div class="absolute inset-0 bg-black/40 opacity-0 group-hover/img:opacity-100 transition-opacity flex items-center justify-center">
+                                <i class="fa-solid fa-expand text-white text-sm"></i>
+                            </div>
+                        </div>
+
+                        <div class="group/img relative aspect-video rounded-2xl overflow-hidden bg-neutral-900 border border-white/10 cursor-pointer" onclick="window.open(this.querySelector('img').src, '_blank')">
+                            <img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=1000&q=80" alt="Física espacial do jogo" class="w-full h-full object-cover grayscale contrast-125 transition-all duration-500 group-hover/img:scale-105 group-hover/img:grayscale-0">
+                            <div class="absolute inset-0 bg-black/40 opacity-0 group-hover/img:opacity-100 transition-opacity flex items-center justify-center">
+                                <i class="fa-solid fa-expand text-white text-sm"></i>
+                            </div>
+                        </div>
+
+                        <div class="group/img relative aspect-video rounded-2xl overflow-hidden bg-neutral-900 border border-white/10 cursor-pointer" onclick="window.open(this.querySelector('img').src, '_blank')">
+                            <img src="https://images.unsplash.com/photo-1511512578047-dfb367046420?auto=format&fit=crop&w=1000&q=80" alt="Gameplay e sistema de pontuação" class="w-full h-full object-cover grayscale contrast-125 transition-all duration-500 group-hover/img:scale-105 group-hover/img:grayscale-0">
+                            <div class="absolute inset-0 bg-black/40 opacity-0 group-hover/img:opacity-100 transition-opacity flex items-center justify-center">
+                                <i class="fa-solid fa-expand text-white text-sm"></i>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </article>
+
+
+            <!-- ==========================================================================
+                 PROJETO 3: LAB GAMIFICAÇÃO & PRODUTIVIDADE - OVER POWER
+                 ========================================================================== -->
+            <article class="p-6 sm:p-8 rounded-3xl bg-white/[0.03] border border-white/10 backdrop-blur-sm relative overflow-hidden transition-all hover:border-white/20 shadow-xl">
+                <div class="absolute top-0 left-0 w-1 h-full bg-zinc-500"></div>
+                
+                <div class="flex flex-wrap items-center justify-between gap-2 mb-3">
+                    <div class="flex items-center gap-3">
+                        <div class="w-8 h-8 rounded-xl bg-white/10 flex items-center justify-center text-zinc-200">
+                            <i class="fa-solid fa-trophy text-sm"></i>
+                        </div>
+                        <span class="text-[10px] font-mono text-zinc-400 font-bold uppercase tracking-widest">Gamificação • Arquitetura de Software</span>
+                    </div>
+                    <span class="px-2.5 py-1 rounded-md text-[9px] font-mono bg-zinc-800 text-zinc-300 uppercase tracking-wider font-bold border border-white/5">Over Power Ecosystem</span>
+                </div>
+
+                <!-- TÍTULO DO PROJETO -->
+                <h2 class="text-xl sm:text-2xl font-black uppercase tracking-tight text-white mb-3">
+                    Over Power: Sistema Gamificado de Gestão de Hábitos e Metas
+                </h2>
+
+                <!-- TEXTO DESCRITIVO -->
+                <p class="text-xs sm:text-sm text-zinc-300 font-light leading-relaxed mb-4">
+                    Ecossistema web gamificado concebido para transformar tarefas diárias e rotinas de estudo em jornadas interativas com progressão por XP, níveis, recompensas de conquistas e penalidades calculadas por consistência. Desenvolvido para mitigar a procrastinação aplicando psicologia comportamental e design centrado na motivação humana.
+                </p>
+
+                <!-- DESTAQUES E PILARES -->
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-3.5 text-left mb-6">
+                    <div class="p-3.5 rounded-2xl bg-neutral-900/60 border border-white/5">
+                        <span class="text-[10px] font-mono text-zinc-400 font-bold block mb-1">Mecânicas de RPG</span>
+                        <p class="text-xs text-zinc-300 leading-normal">Árvore de habilidades, barras de vida e bônus de combo por cumprimento consecutivo de metas.</p>
+                    </div>
+                    <div class="p-3.5 rounded-2xl bg-neutral-900/60 border border-white/5">
+                        <span class="text-[10px] font-mono text-zinc-400 font-bold block mb-1">Persistência de Dados</span>
+                        <p class="text-xs text-zinc-300 leading-normal">Armazenamento estruturado de históricos com métricas de evolução temporal e relatórios de foco.</p>
+                    </div>
+                    <div class="p-3.5 rounded-2xl bg-neutral-900/60 border border-white/5">
+                        <span class="text-[10px] font-mono text-zinc-400 font-bold block mb-1">Interface Imersiva</span>
+                        <p class="text-xs text-zinc-300 leading-normal">Feedback visual imediato com animações leves e feedback tátil simulado para reforço positivo.</p>
+                    </div>
+                </div>
+
+                <!-- GALERIA DE IMAGENS -->
+                <div>
+                    <span class="text-[10px] text-zinc-400 font-black uppercase tracking-widest block mb-3">Telas do Ecossistema</span>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3">
+                        
+                        <div class="group/img relative aspect-video rounded-2xl overflow-hidden bg-neutral-900 border border-white/10 cursor-pointer" onclick="window.open(this.querySelector('img').src, '_blank')">
+                            <img src="https://images.unsplash.com/photo-1555774698-0b77e0d5fac6?auto=format&fit=crop&w=1000&q=80" alt="Painel Over Power" class="w-full h-full object-cover grayscale contrast-125 transition-all duration-500 group-hover/img:scale-105 group-hover/img:grayscale-0">
+                            <div class="absolute inset-0 bg-black/40 opacity-0 group-hover/img:opacity-100 transition-opacity flex items-center justify-center">
+                                <i class="fa-solid fa-expand text-white text-sm"></i>
+                            </div>
+                        </div>
+
+                        <div class="group/img relative aspect-video rounded-2xl overflow-hidden bg-neutral-900 border border-white/10 cursor-pointer" onclick="window.open(this.querySelector('img').src, '_blank')">
+                            <img src="https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&w=1000&q=80" alt="Lógica de pontuação e progresso" class="w-full h-full object-cover grayscale contrast-125 transition-all duration-500 group-hover/img:scale-105 group-hover/img:grayscale-0">
+                            <div class="absolute inset-0 bg-black/40 opacity-0 group-hover/img:opacity-100 transition-opacity flex items-center justify-center">
+                                <i class="fa-solid fa-expand text-white text-sm"></i>
+                            </div>
+                        </div>
+
+                        <div class="group/img relative aspect-video rounded-2xl overflow-hidden bg-neutral-900 border border-white/10 cursor-pointer" onclick="window.open(this.querySelector('img').src, '_blank')">
+                            <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1000&q=80" alt="Estatísticas e análise de consistência" class="w-full h-full object-cover grayscale contrast-125 transition-all duration-500 group-hover/img:scale-105 group-hover/img:grayscale-0">
+                            <div class="absolute inset-0 bg-black/40 opacity-0 group-hover/img:opacity-100 transition-opacity flex items-center justify-center">
+                                <i class="fa-solid fa-expand text-white text-sm"></i>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </article>
+
+        </div>
+
+        <!-- RODAPÉ DA PÁGINA -->
+        <footer class="mt-16 pt-8 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-4 text-center sm:text-left">
+            <div class="text-xs text-zinc-500 font-bold uppercase tracking-widest">
+                Juraci Tito Neto • <span class="text-zinc-300">Labs, Games & Workshops</span>
+            </div>
+            <a href="../index.html" class="text-xs text-zinc-400 hover:text-white uppercase tracking-wider font-bold transition-colors inline-flex items-center gap-1.5">
+                Voltar à Página Inicial <i class="fa-solid fa-arrow-right text-[10px]"></i>
+            </a>
+        </footer>
+
+    </main>
+
+</body>
+</html>

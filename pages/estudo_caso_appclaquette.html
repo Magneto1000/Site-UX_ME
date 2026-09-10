@@ -1,393 +1,564 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Estudo de Caso | CLAQUETTE - Tito Neto</title>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;800&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
-    <style>
-        /* ==========================================================
-           1. HERANÇA IDENTITÁRIA DO DESIGN SYSTEM PRINCIPAL
-           ========================================================== */
-        :root {
-            --bg-dark: #06080c;
-            --card-surface: rgba(18, 22, 32, 0.45);
-            --border-glow: rgba(0, 255, 204, 0.15);
-            --border-static: rgba(255, 255, 255, 0.08);
-            --text-primary: #f3f4f6;
-            --text-muted: #a1a1aa;
-            --accent-neon: #00ffcc; /* Verde dinâmico oficial */
-            --accent-blue: #3b82f6;
-            --font-display: 'Space Grotesk', sans-serif;
-            --transition-smooth: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
-        }
-
-        * { margin: 0; padding: 0; box-sizing: border-box; outline: none; }
-
-        body {
-            background-color: var(--bg-dark);
-            color: var(--text-primary);
-            font-family: 'Plus Jakarta Sans', sans-serif;
-            line-height: 1.6;
-            min-height: 100vh;
-            overflow-x: hidden;
-        }
-
-        /* Container centralizado alinhado à escala do viewport principal */
-        .container { 
-            max-width: 900px; 
-            margin: 0 auto; 
-            padding: 60px 24px; 
-        }
-
-        /* ==========================================================
-           2. CARDS PREMIUM COM EFEITO JATEADO (GLASSMORPHISM)
-           ========================================================== */
-        .case-card {
-            background: var(--card-surface);
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
-            border: 1px solid var(--border-static);
-            padding: 40px;
-            border-radius: 16px;
-            margin-bottom: 35px;
-            transition: var(--transition-smooth);
-        }
-        .case-card:hover {
-            border-color: var(--accent-neon);
-            box-shadow: 0 0 25px rgba(0, 255, 204, 0.03);
-        }
-
-        /* ==========================================================
-           3. TIPOGRAFIA LÍQUIDA E COMPONENTES VISUAIS
-           ========================================================== */
-        h1, h2, h3 { 
-            font-family: var(--font-display); 
-            font-weight: 700; 
-            letter-spacing: -0.02em;
-        }
-        
-        h1 { 
-            font-size: 2.5rem; 
-            line-height: 1.2; 
-            margin-bottom: 20px; 
-            color: var(--text-primary);
-        }
-        
-        h2 { 
-            font-size: 1.75rem; 
-            color: var(--text-primary); 
-            margin-bottom: 20px;
-            display: inline-block;
-            position: relative;
-        }
-        
-        h3 {
-            font-size: 1.35rem;
-            color: var(--text-primary);
-            margin-bottom: 15px;
-        }
-
-        .badge-tag {
-            font-size: 0.8rem; 
-            font-weight: 800; 
-            color: var(--accent-neon);
-            letter-spacing: 0.15em; 
-            margin-bottom: 15px; 
-            display: inline-block;
-            text-transform: uppercase;
-        }
-
-        p {
-            color: var(--text-muted);
-            font-size: 1.05rem;
-            line-height: 1.6;
-            margin-bottom: 20px;
-        }
-        
-        strong {
-            color: var(--text-primary);
-            font-weight: 600;
-        }
-
-        /* Botão Flutuante Elegante de Voltar */
-        .btn-back {
-            position: fixed;
-            top: 25px;
-            left: 25px;
-            z-index: 5000;
-            text-decoration: none;
-            font-size: 0.85rem;
-            font-weight: 700;
-            padding: 10px 20px;
-            background: var(--card-surface);
-            color: var(--text-primary);
-            border: 1px solid var(--border-static);
-            border-radius: 30px;
-            backdrop-filter: blur(10px);
-            transition: var(--transition-smooth);
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-        .btn-back:hover { 
-            border-color: var(--accent-neon);
-            color: var(--accent-neon);
-            transform: translateX(-3px);
-        }
-
-        /* Grid de Metadados do Projeto */
-        .summary-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 24px;
-            margin-top: 35px;
-            padding-top: 25px;
-            border-top: 1px solid var(--border-static);
-        }
-        .summary-item {
-            display: flex;
-            flex-direction: column;
-            gap: 5px;
-        }
-        .summary-data {
-            font-size: 1.1rem;
-            font-weight: 600;
-            color: var(--text-primary);
-        }
-
-        /* Listas de Insights e Itens */
-        .insight-list {
-            margin-top: 20px;
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-        }
-        .insight-list li {
-            background: rgba(255, 255, 255, 0.02);
-            border-left: 3px solid var(--accent-neon);
-            border-radius: 0 8px 8px 0;
-            padding: 20px;
-            list-style: none;
-            color: var(--text-muted);
-            font-size: 1rem;
-        }
-        
-        .bullets-list {
-            margin-left: 20px;
-            margin-bottom: 25px;
-            color: var(--text-muted);
-        }
-        .bullets-list li {
-            margin-bottom: 10px;
-            padding-left: 5px;
-        }
-
-        /* Box de Mídia Imersiva */
-        .image-box {
-            border: 1px solid var(--border-static);
-            background: rgba(0, 0, 0, 0.4);
-            padding: 12px;
-            border-radius: 14px;
-            margin: 35px 0;
-            transition: var(--transition-smooth);
-        }
-        .image-box img { 
-            width: 100%; 
-            max-width: 100% !important;
-            height: auto !important;
-            display: block; 
-            border-radius: 8px; 
-            opacity: 0.85;
-            transition: var(--transition-smooth);
-        }
-        .image-box:hover img {
-            opacity: 1;
-        }
-        .image-caption { 
-            font-size: 0.85rem;
-            text-align: center; 
-            margin-top: 12px; 
-            color: var(--text-muted);
-            letter-spacing: 0.03em;
-        }
-
-        /* Rodapé do Estudo de Caso */
-        .case-footer { 
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 10px;
-            text-align: center; 
-            padding: 40px 0; 
-            margin-top: 60px;
-            border-top: 1px solid var(--border-static);
-            font-size: 0.85rem;
-            color: var(--text-muted);
-        }
-
-        /* Container do Grid de Personas */
-        .personas-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 20px;
-        }
-
-        /* ==========================================================
-           4. RESPONSIVIDADE E PROTEÇÃO MOBILE CONTRA ESTOUROS
-           ========================================================== */
-        @media (max-width: 768px) {
-            h1 { font-size: 1.85rem; }
-            h2 { font-size: 1.45rem; }
-            .case-card { padding: 25px; }
-            .container { padding: 80px 16px 40px 16px; }
-            .btn-back { position: absolute; top: 20px; left: 16px; }
-            
-            /* Força o colapso e empilhamento correto das personas no mobile */
-            .personas-grid {
-                grid-template-columns: 1fr !important;
-                gap: 15px !important;
-            }
-            .image-box {
-                margin: 15px 0 !important;
-                width: 100% !important;
-            }
-        }
-    </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UX / UI Design & Product Discovery | Juraci Tito Neto</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../css/css.css">
 </head>
-<body>
+<body class="bg-neutral-950 text-white min-h-screen font-sans antialiased selection:bg-zinc-800 selection:text-white">
 
-    <a href="/index.html" class="btn-back">← Voltar ao Início</a>
+    <!-- PLANO DE FUNDO CINEMATOGRÁFICO MONOCROMÁTICO -->
+    <div class="fixed inset-0 z-0 pointer-events-none overflow-hidden">
+        <div class="absolute inset-0 bg-neutral-950"></div>
+        <div class="absolute inset-0 bg-[radial-gradient(circle_at_top,_var(--tw-gradient-stops))] from-zinc-900/40 via-neutral-950/80 to-neutral-950"></div>
+        <div class="absolute inset-0 bg-gradient-to-b from-transparent via-neutral-950/70 to-neutral-950"></div>
+    </div>
 
-    <div class="container">
-        
-        <header class="case-card">
-            <span class="badge-tag">CASE STUDY // GOOGLE UX</span>
-            <h1>CLAQUETTE</h1>
-            <p class="profile-description">
-                Decida quais filmes assistir, com quem assistir e onde assistir. Comente e descubra mais sobre os seus filmes e séries favoritos apenas assistindo a trailers selecionados. Um produto digital projetado para aproximar o usuário das obras que ama e conectar círculos de amigos.
-            </p>
-            
-            <div class="summary-grid">
-                <div class="summary-item">
-                    <span class="badge-tag" style="margin-bottom:0;">PAPEL</span>
-                    <span class="summary-data">UX Engineer</span>
-                </div>
-                <div class="summary-item">
-                    <span class="badge-tag" style="margin-bottom:0;">DURAÇÃO</span>
-                    <span class="summary-data">6 Meses</span>
-                </div>
-                <div class="summary-item">
-                    <span class="badge-tag" style="margin-bottom:0;">TOOLS</span>
-                    <span class="summary-data">Figma / React</span>
-                </div>
+    <!-- CABEÇALHO FIXO COM NAVEGAÇÃO -->
+    <header class="sticky top-0 z-50 backdrop-blur-xl bg-neutral-950/80 border-b border-white/10 px-6 sm:px-10 py-4 transition-all">
+        <div class="max-w-6xl mx-auto flex items-center justify-between">
+            <a href="../index.html" class="inline-flex items-center gap-2.5 px-4 py-2 rounded-xl bg-white/5 hover:bg-white/10 border border-white/10 text-xs uppercase tracking-widest text-zinc-300 hover:text-white transition-all active:scale-95 shadow-md">
+                <i class="fa-solid fa-arrow-left text-xs"></i>
+                <span>Voltar ao Portfólio</span>
+            </a>
+
+            <div class="flex items-center gap-3">
+                <span class="text-[10px] sm:text-xs font-mono tracking-widest uppercase text-zinc-500 hidden sm:inline">Discovery • Prototipagem • Arquitetura da Informação</span>
+                <a href="https://web.whatsapp.com/send?phone=5522992296380&text=Ol%C3%A1!" target="_blank" rel="noopener noreferrer" 
+                   class="w-9 h-9 sm:w-10 sm:h-10 bg-zinc-800 hover:bg-zinc-700 border border-white/15 rounded-xl flex items-center justify-center text-white shadow-md transition-all active:scale-95" title="Contato WhatsApp">
+                    <i class="fa-brands fa-whatsapp text-sm sm:text-base"></i>
+                </a>
             </div>
+        </div>
+    </header>
+
+    <!-- CONTEÚDO PRINCIPAL -->
+    <main class="relative z-10 max-w-5xl mx-auto px-6 sm:px-10 pt-8 pb-24">
+        
+        <!-- HERO / INTRODUÇÃO DA PÁGINA -->
+        <header class="mb-12 text-left">
+            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/5 border border-white/10 mb-3">
+                <span class="w-2 h-2 rounded-full bg-zinc-300 animate-pulse"></span>
+                <span class="text-[10px] text-zinc-400 font-bold uppercase tracking-widest">User Experience & Interface Architecture</span>
+            </div>
+            <h1 class="text-3xl sm:text-5xl md:text-6xl font-black uppercase tracking-tighter text-white drop-shadow-md leading-[0.95] mb-4">
+                UX / UI Design & <br>
+                <span class="text-transparent bg-clip-text bg-gradient-to-r from-zinc-200 via-neutral-300 to-zinc-500">Product Discovery</span>
+            </h1>
+            <p class="text-sm sm:text-base text-zinc-400 font-light leading-relaxed max-w-3xl">
+                O design invisível é o mais eficiente. Conduzo processos completos de descoberta contínua, mapeamento cognitivo de jornadas, prototipagem de baixa a alta fidelidade e testes de usabilidade que eliminam fricções, respeitam diretrizes internacionais de acessibilidade (WCAG) e alinham valor de negócio à viabilidade técnica de engenharia.
+            </p>
         </header>
 
-        <section class="case-card"><br>
-            <span class="badge-tag"><br>CONTEÚDO</span>
-            <h2>O Desafio</h2>
-            <p>
-                Tornar central e relevante o papel dos trailers na tomada de decisão dos usuários. A proposta foi arquitetar fluxos que os guiassem na escolha de bons títulos e no compartilhamento ágil de suas preferências, mitigando a fadiga de decisão. 
-            </p>
-            <p>
-                <strong>O diferencial prático:</strong> Ajudar os usuários a descobrirem exatamente onde assistir suas produções favoritas, mapeando de forma limpa e em tempo real a disponibilidade nos cinemas mais próximos ou em plataformas de streaming.
-            </p>
-            
-            <div class="image-box">
-                <img src="/midias/project_ux/ux/estudo de caso claquette/mockups app-claquette.png" alt="Mockups Claquette">
-                <div class="image-caption">Protótipo de alta fidelidade: Interface imersiva e de alto impacto visual.</div>
-            </div>
-        </section>
-
-        <section class="case-card">
-            <span class="badge-tag">IMERSÃO</span>
-            <h2>How Might We & Entendimento</h2>
-            <p>Para guiar os caminhos da arquitetura do produto, estruturamos perguntas baseadas nas heurísticas de design de comportamento:</p>
-            
-            <ul class="bullets-list">
-                <li>Como podemos desenvolver um aplicativo focado exclusivamente em trailers que auxilie pessoas a escolherem grandes obras?</li>
-                <li>De que maneira um ecossistema de trailers pode ser divertido, interativo e prender o engajamento saudável?</li>
-                <li>O formato de <em>scroll</em> vertical contínuo traria maior satisfação na usabilidade da descoberta de mídias?</li>
-                <li>Como otimizar a experiência para que a pesquisa de novos conteúdos nunca se torne maçante ou cansativa?</li>
-                <li>Como converter o consumo de trailers dentro do app em ações de conversão para salas de cinema e assinaturas de streaming?</li>
-            </ul>
-            
-            <h3 style="margin-top: 30px;">User Personas</h3>
-            <p>Mapeamos perfis extremos para garantir acessibilidade rigorosa e calibração de fluxos cognitivos:</p>
-            
-            <div class="personas-grid">
-                <div class="image-box">
-                    <img src="/midias/project_ux/ux/estudo de caso claquette/persona_nina.png" alt="Persona Nina">
+        <!-- ==========================================================================
+             SEÇÃO 1: ESTUDO DE CASO COMPLETO — CLAQUETTE (GOOGLE UX)
+             ========================================================================== -->
+        <section class="mb-16">
+            <div class="flex items-center justify-between border-b border-white/10 pb-4 mb-8">
+                <div>
+                    <span class="text-[10px] font-mono text-zinc-400 uppercase tracking-widest font-bold block mb-1">Case Study Oficial</span>
+                    <h2 class="text-2xl sm:text-3xl font-black uppercase tracking-tight text-white">Aplicativo CLAQUETTE: Descoberta de Filmes por Trailers Verticais</h2>
                 </div>
-                <div class="image-box">
-                    <img src="/midias/project_ux/ux/estudo de caso claquette/persona_augusto.png" alt="Persona Augusto">
+                <span class="hidden sm:inline-block px-3 py-1 rounded-full bg-zinc-800 border border-white/10 text-[10px] font-mono text-zinc-300 uppercase font-bold">Google UX Certificate</span>
+            </div>
+
+            <!-- CARD HERO DO CASE -->
+            <div class="p-6 sm:p-8 rounded-3xl bg-white/[0.03] border border-white/10 backdrop-blur-sm relative overflow-hidden shadow-xl mb-8">
+                <div class="absolute top-0 left-0 w-1 h-full bg-zinc-300"></div>
+                
+                <h3 class="text-lg sm:text-xl font-black uppercase tracking-tight text-white mb-2">Visão Geral & Proposta de Valor</h3>
+                <p class="text-xs sm:text-sm text-zinc-300 font-light leading-relaxed mb-6">
+                    Decida quais filmes assistir, com quem assistir e onde assistir. O <strong>CLAQUETTE</strong> foi projetado para resolver a fadiga de decisão no consumo de audiovisual, permitindo que os usuários descubram produções apenas assistindo a trailers selecionados em feed vertical dinâmico, mapeando em tempo real a disponibilidade de sessões nos cinemas próximos ou nas plataformas de streaming.
+                </p>
+
+                <!-- GRID DE METADADOS DO PROJETO -->
+                <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 pt-4 border-t border-white/10">
+                    <div>
+                        <span class="text-[9px] font-mono uppercase text-zinc-500 font-bold block mb-0.5">Meu Papel</span>
+                        <span class="text-xs font-bold text-white uppercase">UX Engineer / Designer</span>
+                    </div>
+                    <div>
+                        <span class="text-[9px] font-mono uppercase text-zinc-500 font-bold block mb-0.5">Duração</span>
+                        <span class="text-xs font-bold text-white uppercase">6 Meses de Iterações</span>
+                    </div>
+                    <div>
+                        <span class="text-[9px] font-mono uppercase text-zinc-500 font-bold block mb-0.5">Ferramentas</span>
+                        <span class="text-xs font-bold text-white uppercase">Figma • React • FigJam</span>
+                    </div>
+                    <div>
+                        <span class="text-[9px] font-mono uppercase text-zinc-500 font-bold block mb-0.5">Framework</span>
+                        <span class="text-xs font-bold text-white uppercase">Double Diamond / Agile</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- O DESAFIO & HOW MIGHT WE -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+                <div class="p-6 rounded-3xl bg-white/[0.02] border border-white/10">
+                    <span class="text-[10px] font-mono text-zinc-400 font-bold uppercase tracking-widest block mb-2">01. O Desafio Central</span>
+                    <h3 class="text-base font-bold text-white uppercase mb-2">Combater a Fadiga de Escolha em Catálogos Infinitos</h3>
+                    <p class="text-xs text-zinc-400 leading-relaxed font-light mb-3">
+                        Usuários gastam em média de 18 a 25 minutos navegando em telas estáticas de serviços de streaming sem conseguir escolher um título. A proposta foi inverter a lógica: colocar o trailer em tela cheia como centro da experiência para permitir decisões instantâneas baseadas em estímulo audiovisual puro.
+                    </p>
+                    <p class="text-xs text-zinc-400 leading-relaxed font-light">
+                        <strong>Diferencial de Negócio:</strong> Integração com APIs de geolocalização e catálogo para direcionar o espectador imediatamente à compra do ingresso ou à abertura do streaming que detém os direitos da obra.
+                    </p>
+                </div>
+
+                <div class="p-6 rounded-3xl bg-white/[0.02] border border-white/10">
+                    <span class="text-[10px] font-mono text-zinc-400 font-bold uppercase tracking-widest block mb-2">02. Perguntas How Might We (HMW)</span>
+                    <h3 class="text-base font-bold text-white uppercase mb-2">Heurísticas Comportamentais de Descoberta</h3>
+                    <ul class="space-y-2 text-xs text-zinc-300 font-light list-disc list-inside">
+                        <li>Como desenvolver um app centrado exclusivamente em trailers verticais para guiar escolhas rápidas?</li>
+                        <li>De que forma a rolagem contínua (estilo Reels/TikTok) pode manter o engajamento saudável sem gerar sobrecarga?</li>
+                        <li>Como eliminar cliques intermediários para saber se um filme está no cinema ou na Netflix/Prime?</li>
+                        <li>Como tornar o compartilhamento de listas entre grupos de amigos algo interativo e síncrono?</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- PROTÓTIPO DE ALTA FIDELIDADE DO CLAQUETTE -->
+            <div class="mb-8 p-3 rounded-2xl bg-neutral-900 border border-white/10">
+                <div class="relative w-full aspect-[16/9] sm:aspect-[21/9] rounded-xl overflow-hidden cursor-pointer" onclick="window.open(this.querySelector('img').src, '_blank')">
+                    <img src="/midias/project_ux/ux/estudo de caso claquette/mockups app-claquette.png" alt="Mockups Claquette Alta Fidelidade" class="w-full h-full object-cover grayscale contrast-125 hover:scale-105 hover:grayscale-0 transition-all duration-700">
+                    <div class="absolute inset-0 bg-black/40 opacity-0 hover:opacity-100 transition-opacity flex items-center justify-center">
+                        <span class="text-xs bg-black/80 text-white px-3 py-1.5 rounded-lg border border-white/20"><i class="fa-solid fa-expand mr-1.5"></i> Expandir Protótipo de Alta Fidelidade</span>
+                    </div>
+                </div>
+                <span class="text-[10px] text-zinc-500 font-mono text-center block mt-2">Design de Alta Fidelidade no Figma: Telas de feed vertical, detalhes técnicos e lista de reprodução compartilhada.</span>
+            </div>
+
+            <!-- PERSONAS MAPEADAS -->
+            <div class="p-6 sm:p-8 rounded-3xl bg-white/[0.02] border border-white/10 mb-8">
+                <div class="flex items-center gap-2 mb-2">
+                    <span class="text-[10px] font-mono text-zinc-400 font-bold uppercase tracking-widest">Pesquisa com Usuários</span>
+                </div>
+                <h3 class="text-lg font-black uppercase text-white mb-2">User Personas: Mapeando Extremos de Comportamento</h3>
+                <p class="text-xs text-zinc-400 font-light leading-relaxed mb-6">
+                    A pesquisa qualitativa mapeou arquétipos com necessidades antagônicas para garantir que o sistema respondesse tanto a cinéfilos criteriosos quanto a espectadores casuais que priorizam agilidade:
+                </p>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <!-- Persona 1: Nina -->
+                    <div class="p-4 rounded-2xl bg-neutral-900/80 border border-white/5 flex flex-col justify-between">
+                        <div>
+                            <span class="px-2 py-0.5 rounded text-[9px] font-mono bg-zinc-800 text-zinc-300 uppercase font-bold">Persona Casual</span>
+                            <h4 class="text-sm font-bold text-white uppercase mt-1 mb-1">Nina, 24 anos • Estudante & Designer</h4>
+                            <p class="text-xs text-zinc-400 font-light leading-relaxed mb-3">
+                                <em>"Quero apenas algo leve e envolvente para assistir no final da noite sem ter que ler sinopses longas ou me perder em catálogos infinitos."</em>
+                            </p>
+                        </div>
+                        <div class="rounded-xl overflow-hidden border border-white/10 cursor-pointer" onclick="window.open('/midias/project_ux/ux/estudo de caso claquette/persona_nina.png', '_blank')">
+                            <img src="/midias/project_ux/ux/estudo de caso claquette/persona_nina.png" alt="Persona Nina" class="w-full h-auto object-cover grayscale hover:grayscale-0 transition-all duration-300">
+                        </div>
+                    </div>
+
+                    <!-- Persona 2: Augusto -->
+                    <div class="p-4 rounded-2xl bg-neutral-900/80 border border-white/5 flex flex-col justify-between">
+                        <div>
+                            <span class="px-2 py-0.5 rounded text-[9px] font-mono bg-zinc-800 text-zinc-300 uppercase font-bold">Persona Crítica</span>
+                            <h4 class="text-sm font-bold text-white uppercase mt-1 mb-1">Augusto, 31 anos • Analista de Sistemas</h4>
+                            <p class="text-xs text-zinc-400 font-light leading-relaxed mb-3">
+                                <em>"Gosto de saber quem é o diretor, qual estúdio produziu e onde está em cartaz em salas IMAX para organizar viagens com amigos."</em>
+                            </p>
+                        </div>
+                        <div class="rounded-xl overflow-hidden border border-white/10 cursor-pointer" onclick="window.open('/midias/project_ux/ux/estudo de caso claquette/persona_augusto.png', '_blank')">
+                            <img src="/midias/project_ux/ux/estudo de caso claquette/persona_augusto.png" alt="Persona Augusto" class="w-full h-auto object-cover grayscale hover:grayscale-0 transition-all duration-300">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- RESULTADOS E VALIDAÇÕES DO CLAQUETTE -->
+            <div class="p-6 sm:p-8 rounded-3xl bg-white/[0.02] border border-white/10">
+                <h3 class="text-lg font-black uppercase text-white mb-4">Resultados, Métricas de Usabilidade & Engenharia</h3>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-4 text-left mb-6">
+                    <div class="p-4 rounded-2xl bg-neutral-900/80 border border-white/5">
+                        <span class="text-xl font-black text-white font-mono block mb-1">100%</span>
+                        <span class="text-xs font-bold text-zinc-200 uppercase block mb-1">Aprovação em Navegação</span>
+                        <p class="text-[11px] text-zinc-400 leading-normal">5 de 5 participantes no teste com usuários completaram o fluxo de visualização e salvaram o trailer em menos de 45 segundos.</p>
+                    </div>
+                    <div class="p-4 rounded-2xl bg-neutral-900/80 border border-white/5">
+                        <span class="text-xl font-black text-white font-mono block mb-1">Zero</span>
+                        <span class="text-xs font-bold text-zinc-200 uppercase block mb-1">Dark Patterns</span>
+                        <p class="text-[11px] text-zinc-400 leading-normal">Arquitetura ética: sem renovações forçadas, telas de confirmação enganosas ou botões falsos de fechamento.</p>
+                    </div>
+                    <div class="p-4 rounded-2xl bg-neutral-900/80 border border-white/5">
+                        <span class="text-xl font-black text-white font-mono block mb-1">Design System</span>
+                        <span class="text-xs font-bold text-zinc-200 uppercase block mb-1">Pronto para React</span>
+                        <p class="text-[11px] text-zinc-400 leading-normal">Componentes de botões, modais e cards do Figma projetados com tokens de design compatíveis com Tailwind CSS.</p>
+                    </div>
+                </div>
+
+                <div class="p-3 rounded-2xl bg-neutral-900 border border-white/10 cursor-pointer" onclick="window.open('/midias/project_ux/ux/estudo de caso claquette/diagrama de notas.jpg', '_blank')">
+                    <img src="/midias/project_ux/ux/estudo de caso claquette/diagrama de notas.jpg" alt="Diagrama de Afinidade" class="w-full h-auto rounded-xl object-cover grayscale contrast-125 hover:grayscale-0 transition-all duration-500">
+                    <span class="text-[10px] text-zinc-500 font-mono text-center block mt-2">Diagrama de afinidade: Clustering e agrupamento temático de dores coletadas nas entrevistas.</span>
                 </div>
             </div>
         </section>
 
-        <section class="case-card">
-            <span class="badge-tag">PRODUÇÃO</span>
-            <h2>Do Papel ao Digital</h2>
-            <p>Iteramos designs de baixa fidelidade (lo-fi) focando na eliminação de fricções, consistência de componentes familiares e conformidade com leis de acessibilidade.</p>
-            
-            <div class="image-box">
-                <img src="/midias/project_ux/ux/estudo de caso claquette/wireframe_de_papel.png" alt="Wireframes Papel">
-                <div class="image-caption">Mapeamento de histórias de usuário e wireframes analógicos lo-fi.</div>
+
+        <!-- ==========================================================================
+             SEÇÃO 2: ESPAÇO DEDICADO A PROJETOS & CONJUNTOS DE WIREFRAMES
+             ========================================================================== -->
+        <section class="mb-16">
+            <div class="border-b border-white/10 pb-4 mb-8">
+                <span class="text-[10px] font-mono text-zinc-400 uppercase tracking-widest font-bold block mb-1">Do Conceito ao Protótipo</span>
+                <h2 class="text-2xl sm:text-3xl font-black uppercase tracking-tight text-white">Projetos de Interface & Conjuntos de Wireframes</h2>
+                <p class="text-xs sm:text-sm text-zinc-400 font-light mt-1">Iterações de baixa fidelidade (papel/digital lo-fi) até a arquitetura de grids de média e alta resolução.</p>
             </div>
-            
-            <div class="image-box">
-                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px;">
-                    <img src="/midias/project_ux/ux/estudo de caso claquette/wireframe_lofi.png" alt="Wireframe Digital 1">
-                    <img src="/midias/project_ux/ux/estudo de caso claquette/wireframelofi.png" alt="Wireframe Digital 2">
+
+            <!-- PROJETO WIREFRAME 1: CLAQUETTE LO-FI TO HI-FI -->
+            <div class="p-6 sm:p-8 rounded-3xl bg-white/[0.03] border border-white/10 backdrop-blur-sm relative overflow-hidden mb-8">
+                <div class="flex items-center justify-between mb-3">
+                    <div>
+                        <span class="text-[9px] font-mono uppercase bg-zinc-800 text-zinc-300 px-2 py-0.5 rounded font-bold">Projeto 01</span>
+                        <h3 class="text-lg font-black uppercase text-white mt-1">CLAQUETTE: Estrutura Analógica e Wireframes Digitais</h3>
+                    </div>
+                    <span class="text-xs text-zinc-500 font-mono">Mobile App</span>
                 </div>
-                <div class="image-caption">Evolução de wireframes digitais estruturados em grid.</div>
+                <p class="text-xs text-zinc-300 font-light leading-relaxed mb-4">
+                    Exploração inicial no papel (Crazy Eights) para determinar a proporção dos controles sobrepostos e teste de usabilidade em papel antes de transpor para wireframes digitais no Figma com grelha de 8 pontos.
+                </p>
+
+                <!-- Grid de Imagens do Projeto 1 -->
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-3">
+                    <div class="p-2 rounded-2xl bg-neutral-900 border border-white/10 cursor-pointer group" onclick="window.open('/midias/project_ux/ux/estudo de caso claquette/wireframe_de_papel.png', '_blank')">
+                        <div class="aspect-[4/3] rounded-xl overflow-hidden bg-black">
+                            <img src="/midias/project_ux/ux/estudo de caso claquette/wireframe_de_papel.png" alt="Wireframe no Papel" class="w-full h-full object-cover grayscale contrast-125 group-hover:scale-105 group-hover:grayscale-0 transition-all duration-300">
+                        </div>
+                        <span class="text-[10px] text-zinc-400 font-mono block text-center mt-2">1. Wireframes no Papel (Lo-fi)</span>
+                    </div>
+
+                    <div class="p-2 rounded-2xl bg-neutral-900 border border-white/10 cursor-pointer group" onclick="window.open('/midias/project_ux/ux/estudo de caso claquette/wireframe_lofi.png', '_blank')">
+                        <div class="aspect-[4/3] rounded-xl overflow-hidden bg-black">
+                            <img src="/midias/project_ux/ux/estudo de caso claquette/wireframe_lofi.png" alt="Wireframe Digital 01" class="w-full h-full object-cover grayscale contrast-125 group-hover:scale-105 group-hover:grayscale-0 transition-all duration-300">
+                        </div>
+                        <span class="text-[10px] text-zinc-400 font-mono block text-center mt-2">2. Estrutura Digital em Grid (Figma)</span>
+                    </div>
+
+                    <div class="p-2 rounded-2xl bg-neutral-900 border border-white/10 cursor-pointer group" onclick="window.open('/midias/project_ux/ux/estudo de caso claquette/wireframelofi.png', '_blank')">
+                        <div class="aspect-[4/3] rounded-xl overflow-hidden bg-black">
+                            <img src="/midias/project_ux/ux/estudo de caso claquette/wireframelofi.png" alt="Wireframe Digital 02" class="w-full h-full object-cover grayscale contrast-125 group-hover:scale-105 group-hover:grayscale-0 transition-all duration-300">
+                        </div>
+                        <span class="text-[10px] text-zinc-400 font-mono block text-center mt-2">3. Arquitetura de Navegação em Bloco</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- PROJETO WIREFRAME 2: ESPAÇO PARA PROJETO DE PLATAFORMA / SAAS -->
+            <div class="p-6 sm:p-8 rounded-3xl bg-white/[0.03] border border-white/10 backdrop-blur-sm relative overflow-hidden mb-8">
+                <div class="flex items-center justify-between mb-3">
+                    <div>
+                        <span class="text-[9px] font-mono uppercase bg-zinc-800 text-zinc-300 px-2 py-0.5 rounded font-bold">Projeto 02</span>
+                        <h3 class="text-lg font-black uppercase text-white mt-1">Arquitetura de Telas: StartUUP & Plataformas Web</h3>
+                    </div>
+                    <span class="text-xs text-zinc-500 font-mono">Web / Desktop</span>
+                </div>
+                <p class="text-xs text-zinc-300 font-light leading-relaxed mb-4">
+                    Mapeamento de dashboards corporativos com foco em redução da densidade de dados e visualização limpa de métricas. Os fluxos priorizam hierarquia de cards e tabelas dinâmicas.
+                </p>
+
+                <!-- Grid de Imagens do Projeto 2 -->
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-3">
+                    <div class="p-2 rounded-2xl bg-neutral-900 border border-white/10 cursor-pointer group" onclick="window.open('https://images.unsplash.com/photo-1581291518857-4e27b48ff24e?auto=format&fit=crop&w=1000&q=80', '_blank')">
+                        <div class="aspect-[4/3] rounded-xl overflow-hidden bg-black">
+                            <img src="https://images.unsplash.com/photo-1581291518857-4e27b48ff24e?auto=format&fit=crop&w=1000&q=80" alt="Wireframe Dashboard 1" class="w-full h-full object-cover grayscale contrast-125 group-hover:scale-105 group-hover:grayscale-0 transition-all duration-300">
+                        </div>
+                        <span class="text-[10px] text-zinc-400 font-mono block text-center mt-2">1. Layout de Painel e Sidebar</span>
+                    </div>
+
+                    <div class="p-2 rounded-2xl bg-neutral-900 border border-white/10 cursor-pointer group" onclick="window.open('https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?auto=format&fit=crop&w=1000&q=80', '_blank')">
+                        <div class="aspect-[4/3] rounded-xl overflow-hidden bg-black">
+                            <img src="https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?auto=format&fit=crop&w=1000&q=80" alt="Wireframe Dashboard 2" class="w-full h-full object-cover grayscale contrast-125 group-hover:scale-105 group-hover:grayscale-0 transition-all duration-300">
+                        </div>
+                        <span class="text-[10px] text-zinc-400 font-mono block text-center mt-2">2. Fluxo de Autenticação e Onboarding</span>
+                    </div>
+
+                    <div class="p-2 rounded-2xl bg-neutral-900 border border-white/10 cursor-pointer group" onclick="window.open('https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1000&q=80', '_blank')">
+                        <div class="aspect-[4/3] rounded-xl overflow-hidden bg-black">
+                            <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1000&q=80" alt="Wireframe Dashboard 3" class="w-full h-full object-cover grayscale contrast-125 group-hover:scale-105 group-hover:grayscale-0 transition-all duration-300">
+                        </div>
+                        <span class="text-[10px] text-zinc-400 font-mono block text-center mt-2">3. Visualização de Gráficos e Tabelas</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- PROJETO WIREFRAME 3: ESPAÇO PARA PROJETO DE LANDING PAGES & E-COMMERCE -->
+            <div class="p-6 sm:p-8 rounded-3xl bg-white/[0.03] border border-white/10 backdrop-blur-sm relative overflow-hidden">
+                <div class="flex items-center justify-between mb-3">
+                    <div>
+                        <span class="text-[9px] font-mono uppercase bg-zinc-800 text-zinc-300 px-2 py-0.5 rounded font-bold">Projeto 03</span>
+                        <h3 class="text-lg font-black uppercase text-white mt-1">Wireframes Responsivos para Landing Pages e Varejo</h3>
+                    </div>
+                    <span class="text-xs text-zinc-500 font-mono">Mobile-First Web</span>
+                </div>
+                <p class="text-xs text-zinc-300 font-light leading-relaxed mb-4">
+                    Desenvolvimento de estruturas adaptáveis para e-commerces e páginas comerciais locais (como Livia Modas e M.A Construções), garantindo hierarquia clara entre botão de ação principal (CTA) e catálogo de produtos.
+                </p>
+
+                <!-- Grid de Imagens do Projeto 3 -->
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-3">
+                    <div class="p-2 rounded-2xl bg-neutral-900 border border-white/10 cursor-pointer group" onclick="window.open('https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1000&q=80', '_blank')">
+                        <div class="aspect-[4/3] rounded-xl overflow-hidden bg-black">
+                            <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1000&q=80" alt="Wireframe Landing Page 1" class="w-full h-full object-cover grayscale contrast-125 group-hover:scale-105 group-hover:grayscale-0 transition-all duration-300">
+                        </div>
+                        <span class="text-[10px] text-zinc-400 font-mono block text-center mt-2">1. Hero Section & Call to Action</span>
+                    </div>
+
+                    <div class="p-2 rounded-2xl bg-neutral-900 border border-white/10 cursor-pointer group" onclick="window.open('https://images.unsplash.com/photo-1542744094-3a31f272c490?auto=format&fit=crop&w=1000&q=80', '_blank')">
+                        <div class="aspect-[4/3] rounded-xl overflow-hidden bg-black">
+                            <img src="https://images.unsplash.com/photo-1542744094-3a31f272c490?auto=format&fit=crop&w=1000&q=80" alt="Wireframe Landing Page 2" class="w-full h-full object-cover grayscale contrast-125 group-hover:scale-105 group-hover:grayscale-0 transition-all duration-300">
+                        </div>
+                        <span class="text-[10px] text-zinc-400 font-mono block text-center mt-2">2. Galeria de Produtos & Filtros</span>
+                    </div>
+
+                    <div class="p-2 rounded-2xl bg-neutral-900 border border-white/10 cursor-pointer group" onclick="window.open('https://images.unsplash.com/photo-1531403009284-440f080d1e12?auto=format&fit=crop&w=1000&q=80', '_blank')">
+                        <div class="aspect-[4/3] rounded-xl overflow-hidden bg-black">
+                            <img src="https://images.unsplash.com/photo-1531403009284-440f080d1e12?auto=format&fit=crop&w=1000&q=80" alt="Wireframe Landing Page 3" class="w-full h-full object-cover grayscale contrast-125 group-hover:scale-105 group-hover:grayscale-0 transition-all duration-300">
+                        </div>
+                        <span class="text-[10px] text-zinc-400 font-mono block text-center mt-2">3. Rodapé & Conversão para WhatsApp</span>
+                    </div>
+                </div>
             </div>
         </section>
 
-        <section class="case-card">
-            <span class="badge-tag">MÉTRICAS</span>
-            <h2>Validação e Pesquisa Técnica</h2>
-            
-            <ul class="insight-list">
-                <li><strong>100% DE APROVAÇÃO EM USABILIDADE:</strong> Usuários em teste de laboratório validaram organicamente o modelo de descoberta baseado em navegação via scroll vertical por gestos.</li>
-                <li><strong>ACESSIBILIDADE INTELIGENTE:</strong> Contraste de cores e hierarquias textuais rigorosamente refinados para mitigar impactos de visão subnormal e prevenir fadiga cognitiva.</li>
-                <li><strong>ARQUITETURA ÉTICA:</strong> Interface construída sob premissas limpas, totalmente livre de <em>dark patterns</em>. Informações e links de destino são transparentes e diretos.</li>
-            </ul>
-            
-            <div class="image-box">
-                <img src="/midias/project_ux/ux/estudo de caso claquette/diagrama de notas.jpg" alt="Insights">
-                <div class="image-caption">Diagrama de afinidade: Agrupamento de dores e síntese de dados coletados.</div>
+
+        <!-- ==========================================================================
+             SEÇÃO 3: O GUIA DEFINITIVO DE UX DISCOVERY & FUNDAMENTOS DE DESIGN
+             ========================================================================== -->
+        <section class="space-y-10 mb-16">
+            <div class="border-b border-white/10 pb-4 mb-6">
+                <span class="text-[10px] font-mono text-zinc-400 uppercase tracking-widest font-bold block mb-1">Fundamentos & Métodos</span>
+                <h2 class="text-2xl sm:text-3xl font-black uppercase tracking-tight text-white">Engenharia Cognitiva & Processos de UX</h2>
+                <p class="text-xs sm:text-sm text-zinc-400 font-light mt-1">Como estruturo investigações, sintetizo descobertas e aplico ciência comportamental na construção de interfaces.</p>
             </div>
+
+            <!-- ARTIGO 1: O PROCESSO DE DISCOVERY E O DOUBLE DIAMOND -->
+            <article class="p-6 sm:p-8 rounded-3xl bg-white/[0.03] border border-white/10 backdrop-blur-sm relative overflow-hidden">
+                <div class="absolute top-0 left-0 w-1 h-full bg-zinc-300"></div>
+                <div class="flex items-center gap-3 mb-3">
+                    <div class="w-8 h-8 rounded-xl bg-white/10 flex items-center justify-center text-zinc-200">
+                        <i class="fa-solid fa-magnifying-glass-chart text-sm"></i>
+                    </div>
+                    <h3 class="text-lg sm:text-xl font-black uppercase tracking-tight text-white">01. O Processo de Product Discovery (O Duplo Diamante)</h3>
+                </div>
+                <p class="text-xs sm:text-sm text-zinc-300 font-light leading-relaxed mb-4">
+                    O <strong>Product Discovery</strong> é a fase investigativa contínua onde a equipe descobre <em>o que deve ser construído</em> antes de gastar recursos de engenharia escrevendo código. Baseado no framework do <strong>Double Diamond (British Design Council)</strong>, o processo alterna entre momentos de pensamento divergente (abrir possibilidades) e convergente (tomar decisões):
+                </p>
+                
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 text-left">
+                    <div class="p-3.5 rounded-2xl bg-neutral-900/60 border border-white/5">
+                        <span class="text-[10px] font-mono text-zinc-400 font-bold block mb-1">1. Descobrir (Divergir)</span>
+                        <p class="text-xs text-zinc-300 leading-normal">Pesquisas etnográficas, entrevistas com usuários, benchmark competitivo e análise de métricas de uso.</p>
+                    </div>
+                    <div class="p-3.5 rounded-2xl bg-neutral-900/60 border border-white/5">
+                        <span class="text-[10px] font-mono text-zinc-400 font-bold block mb-1">2. Definir (Convergir)</span>
+                        <p class="text-xs text-zinc-300 leading-normal">Agrupamento em diagramas de afinidade, síntese de User Personas e identificação da Causa Raiz da dor.</p>
+                    </div>
+                    <div class="p-3.5 rounded-2xl bg-neutral-900/60 border border-white/5">
+                        <span class="text-[10px] font-mono text-zinc-400 font-bold block mb-1">3. Desenvolver (Divergir)</span>
+                        <p class="text-xs text-zinc-300 leading-normal">Brainstorming, sessões de Crazy Eights, fluxogramas de usuário e protótipos de baixa resolução.</p>
+                    </div>
+                    <div class="p-3.5 rounded-2xl bg-neutral-900/60 border border-white/5">
+                        <span class="text-[10px] font-mono text-zinc-400 font-bold block mb-1">4. Entregar (Convergir)</span>
+                        <p class="text-xs text-zinc-300 leading-normal">Testes de usabilidade em laboratório, refinamento de design system e entrega de especificações aos desenvolvedores.</p>
+                    </div>
+                </div>
+            </article>
+
+            <!-- ARTIGO 2: OS 4 CS DO DESIGN E DO DISCOVERY -->
+            <article class="p-6 sm:p-8 rounded-3xl bg-white/[0.03] border border-white/10 backdrop-blur-sm relative overflow-hidden">
+                <div class="absolute top-0 left-0 w-1 h-full bg-zinc-400"></div>
+                <div class="flex items-center gap-3 mb-3">
+                    <div class="w-8 h-8 rounded-xl bg-white/10 flex items-center justify-center text-zinc-200">
+                        <i class="fa-solid fa-shapes text-sm"></i>
+                    </div>
+                    <h3 class="text-lg sm:text-xl font-black uppercase tracking-tight text-white">02. Os 4 Cs do Design de Produto</h3>
+                </div>
+                <p class="text-xs sm:text-sm text-zinc-300 font-light leading-relaxed mb-4">
+                    Para calibrar a viabilidade e garantir que o produto seja sustentável tanto para a empresa quanto para o usuário final, a avaliação preliminar é balizada pelo framework dos <strong>4 Cs</strong>:
+                </p>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-left">
+                    <div class="p-4 rounded-2xl bg-neutral-900/60 border border-white/5">
+                        <div class="flex items-center gap-2 mb-2">
+                            <span class="px-2 py-0.5 rounded text-[9px] font-mono bg-zinc-800 text-zinc-200 uppercase font-bold">Consumidor (Consumer)</span>
+                        </div>
+                        <p class="text-xs text-zinc-400 leading-relaxed">
+                            Mapeamento aprofundado de quem é o usuário, quais são seus modelos mentais pré-existentes, suas limitações físicas ou cognitivas e qual valor real o software entregará à sua rotina diária.
+                        </p>
+                    </div>
+
+                    <div class="p-4 rounded-2xl bg-neutral-900/60 border border-white/5">
+                        <div class="flex items-center gap-2 mb-2">
+                            <span class="px-2 py-0.5 rounded text-[9px] font-mono bg-zinc-800 text-zinc-200 uppercase font-bold">Contexto (Context)</span>
+                        </div>
+                        <p class="text-xs text-zinc-400 leading-relaxed">
+                            O ambiente físico e situacional no qual o aplicativo é utilizado. O usuário está em movimento na rua sob luz solar direta, com conexões 3G instáveis, ou sentado calmamente diante de um monitor ultralargo no escritório?
+                        </p>
+                    </div>
+
+                    <div class="p-4 rounded-2xl bg-neutral-900/60 border border-white/5">
+                        <div class="flex items-center gap-2 mb-2">
+                            <span class="px-2 py-0.5 rounded text-[9px] font-mono bg-zinc-800 text-zinc-200 uppercase font-bold">Concorrência (Competitors)</span>
+                        </div>
+                        <p class="text-xs text-zinc-400 leading-relaxed">
+                            Auditoria competitiva e de mercado. Compreensão dos padrões industriais consolidados para não forçar o usuário a reaprender convenções óbvias (como posição do carrinho de compras ou barra de pesquisa).
+                        </p>
+                    </div>
+
+                    <div class="p-4 rounded-2xl bg-neutral-900/60 border border-white/5">
+                        <div class="flex items-center gap-2 mb-2">
+                            <span class="px-2 py-0.5 rounded text-[9px] font-mono bg-zinc-800 text-zinc-200 uppercase font-bold">Companhia (Company / Business)</span>
+                        </div>
+                        <p class="text-xs text-zinc-400 leading-relaxed">
+                            Alinhamento com a sustentabilidade financeira do negócio. Como a solução proposta se converte em retenção de clientes, redução de churn, conformidade com a LGPD e viabilidade dentro do roadmap técnico de TI.
+                        </p>
+                    </div>
+                </div>
+            </article>
+
+            <!-- ARTIGO 3: DESIGN SPRINT (GOOGLE VENTURES) PASSO A PASSO -->
+            <article class="p-6 sm:p-8 rounded-3xl bg-white/[0.03] border border-white/10 backdrop-blur-sm relative overflow-hidden">
+                <div class="absolute top-0 left-0 w-1 h-full bg-zinc-500"></div>
+                <div class="flex items-center gap-3 mb-3">
+                    <div class="w-8 h-8 rounded-xl bg-white/10 flex items-center justify-center text-zinc-200">
+                        <i class="fa-solid fa-stopwatch-20 text-sm"></i>
+                    </div>
+                    <h3 class="text-lg sm:text-xl font-black uppercase tracking-tight text-white">03. Metodologia Design Sprint (Google Ventures)</h3>
+                </div>
+                <p class="text-xs sm:text-sm text-zinc-300 font-light leading-relaxed mb-5">
+                    O <strong>Design Sprint</strong> é um processo de cinco dias estruturado para responder a questões críticas de negócios através de design, prototipagem rápida e validação de ideias com clientes reais antes de despender meses construindo um produto:
+                </p>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-3 text-left">
+                    <div class="p-3.5 rounded-2xl bg-neutral-900/80 border border-white/10">
+                        <span class="text-xs font-mono text-zinc-400 font-bold block mb-1">Segunda: Entender</span>
+                        <p class="text-[11px] text-zinc-300 leading-normal">Mapeamento do problema, alinhamento com especialistas e escolha do foco crítico da sprint.</p>
+                    </div>
+                    <div class="p-3.5 rounded-2xl bg-neutral-900/80 border border-white/10">
+                        <span class="text-xs font-mono text-zinc-400 font-bold block mb-1">Terça: Esboçar</span>
+                        <p class="text-[11px] text-zinc-300 leading-normal">Geração de ideias concorrentes no papel (Crazy Eights) e desenho das soluções individuais detalhadas.</p>
+                    </div>
+                    <div class="p-3.5 rounded-2xl bg-neutral-900/80 border border-white/10">
+                        <span class="text-xs font-mono text-zinc-400 font-bold block mb-1">Quarta: Decidir</span>
+                        <p class="text-[11px] text-zinc-300 leading-normal">Votação estruturada (Heatmap), seleção da melhor ideia e criação do storyboard passo a passo.</p>
+                    </div>
+                    <div class="p-3.5 rounded-2xl bg-neutral-900/80 border border-white/10">
+                        <span class="text-xs font-mono text-zinc-400 font-bold block mb-1">Quinta: Prototipar</span>
+                        <p class="text-[11px] text-zinc-300 leading-normal">Construção de uma fachada hiper-realista no Figma apenas com os fluxos necessários para o teste.</p>
+                    </div>
+                    <div class="p-3.5 rounded-2xl bg-neutral-900/80 border border-white/10">
+                        <span class="text-xs font-mono text-zinc-400 font-bold block mb-1">Sexta: Testar</span>
+                        <p class="text-[11px] text-zinc-300 leading-normal">Entrevistas 1-a-1 com 5 usuários representativos, observando reações e validando hipóteses.</p>
+                    </div>
+                </div>
+            </article>
+
+            <!-- ARTIGO 4: HIERARQUIA VISUAL, LEIS DA GESTALT E CARGA COGNITIVA -->
+            <article class="p-6 sm:p-8 rounded-3xl bg-white/[0.03] border border-white/10 backdrop-blur-sm relative overflow-hidden">
+                <div class="absolute top-0 left-0 w-1 h-full bg-zinc-600"></div>
+                <div class="flex items-center gap-3 mb-3">
+                    <div class="w-8 h-8 rounded-xl bg-white/10 flex items-center justify-center text-zinc-200">
+                        <i class="fa-solid fa-eye text-sm"></i>
+                    </div>
+                    <h3 class="text-lg sm:text-xl font-black uppercase tracking-tight text-white">04. Tipos de Hierarquia Visual, Leis da Gestalt & Leis de UX</h3>
+                </div>
+                <p class="text-xs sm:text-sm text-zinc-300 font-light leading-relaxed mb-5">
+                    A hierarquia visual dita a ordem em que o olho humano processa as informações em uma tela. Para evitar a paralisia por sobrecarga (Lei de Hick) e orientar a atenção até o objetivo final, emprego princípios rigorosos de psicologia visual:
+                </p>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-3.5 text-left mb-6">
+                    <div class="p-4 rounded-2xl bg-neutral-900/60 border border-white/5">
+                        <span class="text-[10px] font-mono text-zinc-400 font-bold uppercase block mb-1">Hierarquia por Escala e Peso</span>
+                        <h4 class="text-xs font-bold text-white uppercase mb-1">Contraste Tipográfico</h4>
+                        <p class="text-[11px] text-zinc-400 leading-relaxed">Títulos com peso Bold e escala pronunciada (H1 a H4) separam visualmente blocos lógicos sem depender de linhas divisórias pesadas.</p>
+                    </div>
+
+                    <div class="p-4 rounded-2xl bg-neutral-900/60 border border-white/5">
+                        <span class="text-[10px] font-mono text-zinc-400 font-bold uppercase block mb-1">Hierarquia por Proximidade</span>
+                        <h4 class="text-xs font-bold text-white uppercase mb-1">Lei da Proximidade (Gestalt)</h4>
+                        <p class="text-[11px] text-zinc-400 leading-relaxed">Elementos que estão próximos uns dos outros são percebidos pelo cérebro como pertencentes ao mesmo grupo funcional.</p>
+                    </div>
+
+                    <div class="p-4 rounded-2xl bg-neutral-900/60 border border-white/5">
+                        <span class="text-[10px] font-mono text-zinc-400 font-bold uppercase block mb-1">Hierarquia por Padrão de Leitura</span>
+                        <h4 class="text-xs font-bold text-white uppercase mb-1">Padrões F e Z</h4>
+                        <p class="text-[11px] text-zinc-400 leading-relaxed">Páginas ricas em texto são escaneadas em formato F; interfaces de landing pages e dashboards seguem a varredura visual em Z.</p>
+                    </div>
+                </div>
+
+                <!-- CARDS DE LEIS DE UX APLICADAS -->
+                <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 text-left">
+                    <div class="p-3 rounded-2xl bg-neutral-900/80 border border-white/5">
+                        <span class="text-zinc-500 font-mono text-[9px] uppercase font-bold">Lei de Jakob</span>
+                        <h5 class="text-xs font-bold text-zinc-200 uppercase mt-1">Familiaridade</h5>
+                        <p class="text-[11px] text-zinc-400 leading-normal">Usuários preferem que seu site funcione de forma idêntica a todos os outros sites que já dominam.</p>
+                    </div>
+                    <div class="p-3 rounded-2xl bg-neutral-900/80 border border-white/5">
+                        <span class="text-zinc-500 font-mono text-[9px] uppercase font-bold">Lei de Fitts</span>
+                        <h5 class="text-xs font-bold text-zinc-200 uppercase mt-1">Área de Toque</h5>
+                        <p class="text-[11px] text-zinc-400 leading-normal">O tempo para atingir um alvo é função da distância e do tamanho do botão (mínimo de 48x48px no mobile).</p>
+                    </div>
+                    <div class="p-3 rounded-2xl bg-neutral-900/80 border border-white/5">
+                        <span class="text-zinc-500 font-mono text-[9px] uppercase font-bold">Lei de Miller</span>
+                        <h5 class="text-xs font-bold text-zinc-200 uppercase mt-1">Memória de Trabalho</h5>
+                        <p class="text-[11px] text-zinc-400 leading-normal">A pessoa média retém apenas 7 (± 2) blocos de informação na memória imediata. Chunking é essencial.</p>
+                    </div>
+                    <div class="p-3 rounded-2xl bg-neutral-900/80 border border-white/5">
+                        <span class="text-zinc-500 font-mono text-[9px] uppercase font-bold">Efeito Von Restorff</span>
+                        <h5 class="text-xs font-bold text-zinc-200 uppercase mt-1">Isolamento</h5>
+                        <p class="text-[11px] text-zinc-400 leading-normal">O elemento que se difere visualmente dos demais (como o botão de ação primária) é lembrado primeiro.</p>
+                    </div>
+                </div>
+            </article>
+
+            <!-- ARTIGO 5: DIRETRIZES DE ACESSIBILIDADE WCAG & DESIGN ÉTICO -->
+            <article class="p-6 sm:p-8 rounded-3xl bg-white/[0.03] border border-white/10 backdrop-blur-sm relative overflow-hidden">
+                <div class="absolute top-0 left-0 w-1 h-full bg-zinc-700"></div>
+                <div class="flex items-center gap-3 mb-3">
+                    <div class="w-8 h-8 rounded-xl bg-white/10 flex items-center justify-center text-zinc-200">
+                        <i class="fa-solid fa-universal-access text-sm"></i>
+                    </div>
+                    <h3 class="text-lg sm:text-xl font-black uppercase tracking-tight text-white">05. Acessibilidade Digital (WCAG 2.1) & Design Ético</h3>
+                </div>
+                <p class="text-xs sm:text-sm text-zinc-300 font-light leading-relaxed mb-4">
+                    Acessibilidade não é uma funcionalidade opcional; é um requisito fundamental de arquitetura. O design inclusivo garante que pessoas com limitações visuais, motoras, auditivas ou cognitivas utilizem o sistema com total autonomia sob os quatro princípios <strong>POUR (Perceptível, Operável, Compreensível e Robusto)</strong>:
+                </p>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 text-left">
+                    <div class="p-4 rounded-2xl bg-neutral-900/60 border border-white/5">
+                        <span class="text-xs font-bold text-white uppercase block mb-1">Contraste de Cor Rigoroso (Nível AA)</span>
+                        <p class="text-xs text-zinc-400 leading-relaxed">
+                            Proporção mínima de contraste de 4.5:1 para texto normal e 3:1 para textos grandes ou elementos de interface. Cores nunca são utilizadas como único meio de transmitir status de erro ou sucesso.
+                        </p>
+                    </div>
+
+                    <div class="p-4 rounded-2xl bg-neutral-900/60 border border-white/5">
+                        <span class="text-xs font-bold text-white uppercase block mb-1">Navegação Completa por Teclado e Leitor de Tela</span>
+                        <p class="text-xs text-zinc-400 leading-relaxed">
+                            Indicadores visuais de foco (focus outline) preservados, estrutura semântica correta de cabeçalhos HTML (&lt;h1&gt; até &lt;h6&gt;) e atributos ARIA adequados em botões interativos e modais.
+                        </p>
+                    </div>
+                </div>
+            </article>
         </section>
 
-        <section class="case-card">
-            <span class="badge-tag">CONCLUSÃO</span>
-            <h2>Resultado de Produto</h2>
-            
-            <p>
-                O ecossistema <strong>CLAQUETTE</strong> opera além de um agregador comum de mídia. Ele soluciona um gap de mercado unindo a crescente tendência cultural de consumo de vídeos curtos verticais ao interesse imediato por entretenimento de alta categoria. Ao alinhar esse comportamento com as dores de busca de títulos, criamos o ambiente perfeito para aproximar o usuário do seu portfólio de interesses. Materializado sob metodologias ágeis de <strong>Design Thinking</strong>, o produto unifica código performático e valor de negócio.
-            </p>
-            
-            <h3 style="margin-top: 30px;">Principais Conquistas</h3>
-            <ul class="bullets-list">
-                <li><strong>Validação de Engenharia:</strong> 5 de 5 participantes navegaram de forma autônoma pelas esteiras estruturadas de carregamento de trailers.</li>
-                <li><strong>Inclusão por Design:</strong> Refinamento completo de telas mapeado para atender usuários com restrições visuais e sensoriais.</li>
-                <li><strong>Navegação Transparente:</strong> Localização de elenco, salas de cinema e redirecionamentos de streaming a um clique de distância, eliminando fricção técnica.</li>
-                <li><strong>Sinergia de Desenvolvimento:</strong> Como UX Engineer, o protótipo de alta fidelidade no Figma foi estruturado de forma simétrica para tradução direta em componentes React reaproveitáveis, otimizando o tempo de engenharia (*boilerplate*).</li>
-            </ul>
-
-            <h3 style="margin-top: 30px;">Visão do Engenheiro</h3>
-            <p>
-                Este estudo demonstra como a priorização do fator humano gera produtos digitais de alta performance técnica e comercial. Os trailers ganham nova utilidade operacional, agindo como catalisadores para conversão direta em plataformas parceiras de streaming ou salas físicas de exibição. O CLAQUETTE prova o valor estratégico de unificar engenharia e design.
-            </p>
-        </section>
-
-        <footer class="case-footer">
-            <p>JN TITO NETO // 2026</p>
-            <p style="color: var(--accent-neon); font-family: var(--font-display); font-weight: 700; font-size: 0.75rem;">DESENVOLVIDO COM FOCO EM ÉTICA, USABILIDADE E PERFORMANCE</p>
+        <!-- RODAPÉ DA PÁGINA -->
+        <footer class="mt-16 pt-8 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-4 text-center sm:text-left">
+            <div class="text-xs text-zinc-500 font-bold uppercase tracking-widest">
+                Juraci Tito Neto • <span class="text-zinc-300">UX / UI Design & Product Discovery</span>
+            </div>
+            <a href="../index.html" class="text-xs text-zinc-400 hover:text-white uppercase tracking-wider font-bold transition-colors inline-flex items-center gap-1.5">
+                Voltar à Página Inicial <i class="fa-solid fa-arrow-right text-[10px]"></i>
+            </a>
         </footer>
-    </div>
+
+    </main>
 
 </body>
 </html>

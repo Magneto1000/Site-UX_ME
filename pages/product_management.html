@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Management & Agilidade | Juraci Tito Neto</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../css/css.css">
+</head>
+<body class="bg-neutral-950 text-white min-h-screen font-sans antialiased selection:bg-zinc-800 selection:text-white">
+
+    <!-- PLANO DE FUNDO CINEMATOGRÁFICO MONOCROMÁTICO -->
+    <div class="fixed inset-0 z-0 pointer-events-none overflow-hidden">
+        <div class="absolute inset-0 bg-neutral-950"></div>
+        <div class="absolute inset-0 bg-[radial-gradient(circle_at_top,_var(--tw-gradient-stops))] from-zinc-900/40 via-neutral-950/80 to-neutral-950"></div>
+        <div class="absolute inset-0 bg-gradient-to-b from-transparent via-neutral-950/70 to-neutral-950"></div>
+    </div>
+
+    <!-- CABEÇALHO FIXO COM NAVEGAÇÃO -->
+    <header class="sticky top-0 z-50 backdrop-blur-xl bg-neutral-950/80 border-b border-white/10 px-6 sm:px-10 py-4 transition-all">
+        <div class="max-w-6xl mx-auto flex items-center justify-between">
+            <a href="../index.html" class="inline-flex items-center gap-2.5 px-4 py-2 rounded-xl bg-white/5 hover:bg-white/10 border border-white/10 text-xs uppercase tracking-widest text-zinc-300 hover:text-white transition-all active:scale-95 shadow-md">
+                <i class="fa-solid fa-arrow-left text-xs"></i>
+                <span>Voltar ao Portfólio</span>
+            </a>
+
+            <div class="flex items-center gap-3">
+                <span class="text-[10px] sm:text-xs font-mono tracking-widest uppercase text-zinc-500 hidden sm:inline">Estratégia • Escopo • Entrega de Valor</span>
+                <a href="https://web.whatsapp.com/send?phone=5522992296380&text=Ol%C3%A1!" target="_blank" rel="noopener noreferrer" 
+                   class="w-9 h-9 sm:w-10 sm:h-10 bg-zinc-800 hover:bg-zinc-700 border border-white/15 rounded-xl flex items-center justify-center text-white shadow-md transition-all active:scale-95" title="Contato WhatsApp">
+                    <i class="fa-brands fa-whatsapp text-sm sm:text-base"></i>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- CONTEÚDO PRINCIPAL -->
+    <main class="relative z-10 max-w-5xl mx-auto px-6 sm:px-10 pt-8 pb-24">
+        
+        <!-- HERO / INTRODUÇÃO DA PÁGINA -->
+        <header class="mb-10 text-left">
+            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/5 border border-white/10 mb-3">
+                <span class="w-2 h-2 rounded-full bg-zinc-300 animate-pulse"></span>
+                <span class="text-[10px] text-zinc-400 font-bold uppercase tracking-widest">Governança de Produtos & Frameworks Ágeis</span>
+            </div>
+            <h1 class="text-3xl sm:text-5xl md:text-6xl font-black uppercase tracking-tighter text-white drop-shadow-md leading-[0.95] mb-4">
+                Product Management & <br>
+                <span class="text-transparent bg-clip-text bg-gradient-to-r from-zinc-200 via-neutral-300 to-zinc-500">Agilidade Operacional</span>
+            </h1>
+            <p class="text-sm sm:text-base text-zinc-400 font-light leading-relaxed max-w-2xl">
+                Como conecto objetivos de negócios, descoberta contínua e engenharia através de priorização orientada a dados, rituais Scrum, definição de metas via OKRs/KPIs e gestão estratégica de backlog.
+            </p>
+        </header>
+
+        <!-- SEÇÃO DO PLAYER DE VÍDEO EXPLICATIVO -->
+        <section class="mb-14">
+            <div class="relative w-full aspect-video max-h-[520px] rounded-3xl overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.8)] border border-white/15 bg-neutral-900 flex items-center justify-center group/video">
+                <video id="pm-main-video" 
+                       class="w-full h-full object-contain cursor-pointer"
+                       controls 
+                       playsinline
+                       poster="https://images.unsplash.com/photo-1542626991-cbc4e32524cc?auto=format&fit=crop&w=1920&q=80">
+                    <source src="../midias/apresentacao_pm.mp4" type="video/mp4">
+                    Seu navegador não suporta a tag de vídeo.
+                </video>
+            </div>
+            <div class="flex items-center justify-between text-[11px] text-zinc-500 mt-3 px-2">
+                <span><i class="fa-solid fa-circle-play mr-1 text-zinc-400"></i> Apresentação de metodologia: visão de produto, rituais e geração de valor</span>
+                <span class="font-mono text-[10px]">1080p • MP4</span>
+            </div>
+        </section>
+
+        <!-- GRID DE CASES PRÁTICOS & PROJETOS REAIS -->
+        <div class="space-y-12">
+
+            <!-- ==========================================================================
+                 CASE 1: LANCHONETE BRACHILE
+                 ========================================================================== -->
+            <article class="p-6 sm:p-8 rounded-3xl bg-white/[0.03] border border-white/10 backdrop-blur-sm relative overflow-hidden transition-all hover:border-white/20 shadow-xl">
+                <div class="absolute top-0 left-0 w-1 h-full bg-zinc-300"></div>
+                
+                <div class="flex flex-wrap items-center justify-between gap-2 mb-3">
+                    <div class="flex items-center gap-3">
+                        <div class="w-8 h-8 rounded-xl bg-white/10 flex items-center justify-center text-zinc-200">
+                            <i class="fa-solid fa-utensils text-sm"></i>
+                        </div>
+                        <span class="text-[10px] font-mono text-zinc-400 font-bold uppercase tracking-widest">Case de Produto • Operação Comercial</span>
+                    </div>
+                    <span class="px-2.5 py-1 rounded-md text-[9px] font-mono bg-zinc-800 text-zinc-300 uppercase tracking-wider font-bold border border-white/5">Food Service • Gestão Operacional</span>
+                </div>
+
+                <h2 class="text-xl sm:text-2xl font-black uppercase tracking-tight text-white mb-3">
+                    Projeto Lanchonete Brachile: Otimização de Fluxo e Pedidos
+                </h2>
+
+                <p class="text-xs sm:text-sm text-zinc-300 font-light leading-relaxed mb-4">
+                    Estruturação de um modelo de atendimento e triagem de pedidos focado em eliminar gargalos entre balcão e cozinha. Através de mapeamento da jornada do cliente, definição de cardápio enxuto e adoção de métricas de tempo de espera, o projeto validou hipóteses de redução de fricção e aumento do ticket médio através de fluxos claros de trabalho.
+                </p>
+
+                <!-- DESTAQUES DO CASE -->
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-3.5 text-left mb-6">
+                    <div class="p-3.5 rounded-2xl bg-neutral-900/60 border border-white/5">
+                        <span class="text-[10px] font-mono text-zinc-400 font-bold block mb-1">Redução de Lead Time</span>
+                        <p class="text-xs text-zinc-300 leading-normal">Mapeamento de etapas desde a escolha do prato até a entrega, reduzindo o tempo de espera do cliente.</p>
+                    </div>
+                    <div class="p-3.5 rounded-2xl bg-neutral-900/60 border border-white/5">
+                        <span class="text-[10px] font-mono text-zinc-400 font-bold block mb-1">Feedback Loop Rápido</span>
+                        <p class="text-xs text-zinc-300 leading-normal">Ajustes diários na operação orientados diretamente por sugestões e dores relatadas pelos clientes.</p>
+                    </div>
+                    <div class="p-3.5 rounded-2xl bg-neutral-900/60 border border-white/5">
+                        <span class="text-[10px] font-mono text-zinc-400 font-bold block mb-1">Visão de Produto</span>
+                        <p class="text-xs text-zinc-300 leading-normal">Padronização dos insumos e comunicação clara nos pontos de decisão para viabilizar escala.</p>
+                    </div>
+                </div>
+
+                <!-- GALERIA DE IMAGENS DO CASE BRACHILE -->
+                <div>
+                    <span class="text-[10px] text-zinc-400 font-black uppercase tracking-widest block mb-3">Documentação e Imagens do Projeto</span>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3">
+                        <div class="group/img relative aspect-video rounded-2xl overflow-hidden bg-neutral-900 border border-white/10 cursor-pointer" onclick="window.open(this.querySelector('img').src, '_blank')">
+                            <img src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?auto=format&fit=crop&w=1000&q=80" alt="Lanchonete Brachile Operação" class="w-full h-full object-cover grayscale contrast-125 transition-all duration-500 group-hover/img:scale-105 group-hover/img:grayscale-0">
+                            <div class="absolute inset-0 bg-black/40 opacity-0 group-hover/img:opacity-100 transition-opacity flex items-center justify-center">
+                                <i class="fa-solid fa-expand text-white text-sm"></i>
+                            </div>
+                        </div>
+
+                        <div class="group/img relative aspect-video rounded-2xl overflow-hidden bg-neutral-900 border border-white/10 cursor-pointer" onclick="window.open(this.querySelector('img').src, '_blank')">
+                            <img src="https://images.unsplash.com/photo-1556740738-b6a63e27c4df?auto=format&fit=crop&w=1000&q=80" alt="Fluxo de Atendimento Balcão" class="w-full h-full object-cover grayscale contrast-125 transition-all duration-500 group-hover/img:scale-105 group-hover/img:grayscale-0">
+                            <div class="absolute inset-0 bg-black/40 opacity-0 group-hover/img:opacity-100 transition-opacity flex items-center justify-center">
+                                <i class="fa-solid fa-expand text-white text-sm"></i>
+                            </div>
+                        </div>
+
+                        <div class="group/img relative aspect-video rounded-2xl overflow-hidden bg-neutral-900 border border-white/10 cursor-pointer" onclick="window.open(this.querySelector('img').src, '_blank')">
+                            <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=1000&q=80" alt="Planejamento de Processos" class="w-full h-full object-cover grayscale contrast-125 transition-all duration-500 group-hover/img:scale-105 group-hover/img:grayscale-0">
+                            <div class="absolute inset-0 bg-black/40 opacity-0 group-hover/img:opacity-100 transition-opacity flex items-center justify-center">
+                                <i class="fa-solid fa-expand text-white text-sm"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </article>
+
+            <!-- ==========================================================================
+                 CASE 2: SAUCE & SPOONS (GOOGLE PROJECT MANAGEMENT)
+                 ========================================================================== -->
+            <article class="p-6 sm:p-8 rounded-3xl bg-white/[0.03] border border-white/10 backdrop-blur-sm relative overflow-hidden transition-all hover:border-white/20 shadow-xl">
+                <div class="absolute top-0 left-0 w-1 h-full bg-zinc-400"></div>
+                
+                <div class="flex flex-wrap items-center justify-between gap-2 mb-3">
+                    <div class="flex items-center gap-3">
+                        <div class="w-8 h-8 rounded-xl bg-white/10 flex items-center justify-center text-zinc-200">
+                            <i class="fa-brands fa-google text-sm"></i>
+                        </div>
+                        <span class="text-[10px] font-mono text-zinc-400 font-bold uppercase tracking-widest">Projeto Capstone Google • Certificação Internacional</span>
+                    </div>
+                    <span class="px-2.5 py-1 rounded-md text-[9px] font-mono bg-zinc-800 text-zinc-300 uppercase tracking-wider font-bold border border-white/5">Google Project Management</span>
+                </div>
+
+                <h2 class="text-xl sm:text-2xl font-black uppercase tracking-tight text-white mb-3">
+                    Sauce & Spoons: Transformação Digital em Cadeia de Restaurantes
+                </h2>
+
+                <p class="text-xs sm:text-sm text-zinc-300 font-light leading-relaxed mb-4">
+                    Case prático da formação oficial do Google onde assumi a liderança de projeto para implementação de terminais de autoatendimento digitais (tablets de mesa) em uma rede de restaurantes fictícia. O projeto abrangeu o ciclo completo: Project Charter, matriz RACI, mapa de stakeholders, gerenciamento de riscos, orçamento e transição de operação tradicional para digital.
+                </p>
+
+                <!-- PILARES DO PROJETO SAUCE & SPOONS -->
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-3.5 text-left mb-6">
+                    <div class="p-3.5 rounded-2xl bg-neutral-900/60 border border-white/5">
+                        <span class="text-[10px] font-mono text-zinc-400 font-bold block mb-1">Project Charter & Escopo</span>
+                        <p class="text-xs text-zinc-300 leading-normal">Definição clara de escopo, restrições orçamentárias, premissas de entrega e critérios de aceite.</p>
+                    </div>
+                    <div class="p-3.5 rounded-2xl bg-neutral-900/60 border border-white/5">
+                        <span class="text-[10px] font-mono text-zinc-400 font-bold block mb-1">Matriz RACI & Riscos</span>
+                        <p class="text-xs text-zinc-300 leading-normal">Estruturação de papéis claros de responsabilidade e mitigação proativa de riscos técnicos e de equipe.</p>
+                    </div>
+                    <div class="p-3.5 rounded-2xl bg-neutral-900/60 border border-white/5">
+                        <span class="text-[10px] font-mono text-zinc-400 font-bold block mb-1">Gestão de Mudança</span>
+                        <p class="text-xs text-zinc-300 leading-normal">Plano de comunicação estruturado para treinar garçons e gerentes na nova tecnologia de autoatendimento.</p>
+                    </div>
+                </div>
+
+                <!-- GALERIA DE ARTEFATOS DO PROJETO SAUCE & SPOONS -->
+                <div>
+                    <span class="text-[10px] text-zinc-400 font-black uppercase tracking-widest block mb-3">Artefatos e Documentos de Gestão</span>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3">
+                        <div class="group/img relative aspect-video rounded-2xl overflow-hidden bg-neutral-900 border border-white/10 cursor-pointer" onclick="window.open(this.querySelector('img').src, '_blank')">
+                            <img src="https://images.unsplash.com/photo-1531482615713-2afd69097998?auto=format&fit=crop&w=1000&q=80" alt="Gestão de Stakeholders Sauce and Spoons" class="w-full h-full object-cover grayscale contrast-125 transition-all duration-500 group-hover/img:scale-105 group-hover/img:grayscale-0">
+                            <div class="absolute inset-0 bg-black/40 opacity-0 group-hover/img:opacity-100 transition-opacity flex items-center justify-center">
+                                <i class="fa-solid fa-expand text-white text-sm"></i>
+                            </div>
+                        </div>
+
+                        <div class="group/img relative aspect-video rounded-2xl overflow-hidden bg-neutral-900 border border-white/10 cursor-pointer" onclick="window.open(this.querySelector('img').src, '_blank')">
+                            <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=1000&q=80" alt="Rituais e Sprints Ágeis" class="w-full h-full object-cover grayscale contrast-125 transition-all duration-500 group-hover/img:scale-105 group-hover/img:grayscale-0">
+                            <div class="absolute inset-0 bg-black/40 opacity-0 group-hover/img:opacity-100 transition-opacity flex items-center justify-center">
+                                <i class="fa-solid fa-expand text-white text-sm"></i>
+                            </div>
+                        </div>
+
+                        <div class="group/img relative aspect-video rounded-2xl overflow-hidden bg-neutral-900 border border-white/10 cursor-pointer" onclick="window.open(this.querySelector('img').src, '_blank')">
+                            <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1000&q=80" alt="Métricas e Acompanhamento de KPIs" class="w-full h-full object-cover grayscale contrast-125 transition-all duration-500 group-hover/img:scale-105 group-hover/img:grayscale-0">
+                            <div class="absolute inset-0 bg-black/40 opacity-0 group-hover/img:opacity-100 transition-opacity flex items-center justify-center">
+                                <i class="fa-solid fa-expand text-white text-sm"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </article>
+
+            <!-- ==========================================================================
+                 ARTIGO 1: O PAPEL DO PM & PO NO ECOSSISTEMA MODERNO
+                 ========================================================================== -->
+            <article class="p-6 sm:p-8 rounded-3xl bg-white/[0.03] border border-white/10 backdrop-blur-sm relative overflow-hidden transition-all hover:border-white/20">
+                <div class="absolute top-0 left-0 w-1 h-full bg-zinc-300"></div>
+                <div class="flex items-center gap-3 mb-3">
+                    <div class="w-8 h-8 rounded-xl bg-white/10 flex items-center justify-center text-zinc-200">
+                        <i class="fa-solid fa-compass text-sm"></i>
+                    </div>
+                    <h2 class="text-lg sm:text-xl font-black uppercase tracking-tight text-white">01. O Papel do Gerente de Projetos e Product Owner</h2>
+                </div>
+                <p class="text-xs sm:text-sm text-zinc-300 font-light leading-relaxed mb-4">
+                    O gerente de produto atua na intersecção entre <strong>negócios, experiência do usuário (UX) e tecnologia</strong>. Enquanto a equipe de engenharia foca em <em>como construir</em> da forma mais sustentável possível, o papel do PM/PO é garantir que estamos construindo <em>a coisa certa</em>, resolvendo dores genuínas com o menor desperdício de esforço e recursos.
+                </p>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-3.5 text-left">
+                    <div class="p-3.5 rounded-2xl bg-neutral-900/60 border border-white/5">
+                        <span class="text-[10px] font-mono text-zinc-400 font-bold block mb-1">Ponte com Stakeholders</span>
+                        <p class="text-xs text-zinc-300 leading-normal">Alinhamento de expectativas entre executivos, clientes e o time técnico, traduzindo objetivos em entregas práticas.</p>
+                    </div>
+                    <div class="p-3.5 rounded-2xl bg-neutral-900/60 border border-white/5">
+                        <span class="text-[10px] font-mono text-zinc-400 font-bold block mb-1">Proteção do Time</span>
+                        <p class="text-xs text-zinc-300 leading-normal">Blindagem dos desenvolvedores contra ruídos externos e alterações desordenadas de escopo durante a Sprint ativa.</p>
+                    </div>
+                    <div class="p-3.5 rounded-2xl bg-neutral-900/60 border border-white/5">
+                        <span class="text-[10px] font-mono text-zinc-400 font-bold block mb-1">Visão de Produto</span>
+                        <p class="text-xs text-zinc-300 leading-normal">Construção de roadmaps claros e estratégicos que demonstrem onde o produto estará em cada trimestre.</p>
+                    </div>
+                </div>
+            </article>
+
+            <!-- ==========================================================================
+                 ARTIGO 2: OKRs VS KPIS & MÉTRICAS ESSENCIAIS
+                 ========================================================================== -->
+            <article class="p-6 sm:p-8 rounded-3xl bg-white/[0.03] border border-white/10 backdrop-blur-sm relative overflow-hidden transition-all hover:border-white/20">
+                <div class="absolute top-0 left-0 w-1 h-full bg-zinc-400"></div>
+                <div class="flex items-center gap-3 mb-3">
+                    <div class="w-8 h-8 rounded-xl bg-white/10 flex items-center justify-center text-zinc-200">
+                        <i class="fa-solid fa-chart-pie text-sm"></i>
+                    </div>
+                    <h2 class="text-lg sm:text-xl font-black uppercase tracking-tight text-white">02. Decisões Orientadas a Dados: OKRs vs. KPIs</h2>
+                </div>
+                <p class="text-xs sm:text-sm text-zinc-300 font-light leading-relaxed mb-4">
+                    Gerenciar produtos sem métricas claras é navegar sem bússola. Diferenciar metas estratégicas e indicadores operacionais é fundamental para orientar equipes ágeis com autonomia:
+                </p>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-left mb-4">
+                    <div class="p-4 rounded-2xl bg-neutral-900/60 border border-white/5">
+                        <div class="flex items-center gap-2 mb-2">
+                            <span class="px-2 py-0.5 rounded text-[9px] font-mono bg-zinc-800 text-zinc-200 uppercase font-bold">OKRs</span>
+                            <span class="text-xs font-bold text-white uppercase">Objectives & Key Results</span>
+                        </div>
+                        <p class="text-xs text-zinc-400 leading-relaxed">
+                            Definem a direção estratégica de médio prazo. Exemplo: <em>Objetivo:</em> Tornar o onboarding do sistema o mais rápido do setor. <em>Key Result:</em> Reduzir o tempo de ativação de 15 para 4 minutos até o fim do trimestre.
+                        </p>
+                    </div>
+                    <div class="p-4 rounded-2xl bg-neutral-900/60 border border-white/5">
+                        <div class="flex items-center gap-2 mb-2">
+                            <span class="px-2 py-0.5 rounded text-[9px] font-mono bg-zinc-800 text-zinc-200 uppercase font-bold">KPIs</span>
+                            <span class="text-xs font-bold text-white uppercase">Key Performance Indicators</span>
+                        </div>
+                        <p class="text-xs text-zinc-400 leading-relaxed">
+                            Métricas contínuas de saúde operacional do produto no dia a dia, tais como Churn Rate, LTV (Lifetime Value), CAC (Custo de Aquisição de Clientes), NPS e disponibilidade (Uptime).
+                        </p>
+                    </div>
+                </div>
+
+                <!-- CARDS DE MÉTRICAS ÁGEIS -->
+                <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 text-left">
+                    <div class="p-3 rounded-2xl bg-neutral-900/60 border border-white/5">
+                        <span class="text-zinc-500 font-mono text-[9px] uppercase font-bold">Velocidade</span>
+                        <h3 class="text-xs font-bold text-zinc-200 uppercase mt-1">Velocity</h3>
+                        <p class="text-[11px] text-zinc-400">Capacidade média de entrega em Story Points por Sprint.</p>
+                    </div>
+                    <div class="p-3 rounded-2xl bg-neutral-900/60 border border-white/5">
+                        <span class="text-zinc-500 font-mono text-[9px] uppercase font-bold">Lead Time</span>
+                        <h3 class="text-xs font-bold text-zinc-200 uppercase mt-1">Tempo Total</h3>
+                        <p class="text-[11px] text-zinc-400">Tempo desde a ideia entrar no backlog até chegar em produção.</p>
+                    </div>
+                    <div class="p-3 rounded-2xl bg-neutral-900/60 border border-white/5">
+                        <span class="text-zinc-500 font-mono text-[9px] uppercase font-bold">Cycle Time</span>
+                        <h3 class="text-xs font-bold text-zinc-200 uppercase mt-1">Tempo Técnico</h3>
+                        <p class="text-[11px] text-zinc-400">Tempo que a tarefa leva entre começar o código e o deploy.</p>
+                    </div>
+                    <div class="p-3 rounded-2xl bg-neutral-900/60 border border-white/5">
+                        <span class="text-zinc-500 font-mono text-[9px] uppercase font-bold">Throughput</span>
+                        <h3 class="text-xs font-bold text-zinc-200 uppercase mt-1">Vazão</h3>
+                        <p class="text-[11px] text-zinc-400">Quantidade de itens concluídos por intervalo temporal.</p>
+                    </div>
+                </div>
+            </article>
+
+            <!-- ==========================================================================
+                 ARTIGO 3: REFINAMENTO, PRIORIZAÇÃO E RITUAIS ÁGEIS
+                 ========================================================================== -->
+            <article class="p-6 sm:p-8 rounded-3xl bg-white/[0.03] border border-white/10 backdrop-blur-sm relative overflow-hidden transition-all hover:border-white/20">
+                <div class="absolute top-0 left-0 w-1 h-full bg-zinc-500"></div>
+                <div class="flex items-center gap-3 mb-3">
+                    <div class="w-8 h-8 rounded-xl bg-white/10 flex items-center justify-center text-zinc-200">
+                        <i class="fa-solid fa-list-check text-sm"></i>
+                    </div>
+                    <h2 class="text-lg sm:text-xl font-black uppercase tracking-tight text-white">03. Priorização de Backlog e Rituais Scrum</h2>
+                </div>
+                <p class="text-xs sm:text-sm text-zinc-300 font-light leading-relaxed mb-5">
+                    Um backlog desorganizado gera frustração técnica e perda de prazo. Para transformar hipóteses em incrementos funcionais de software, utilizo frameworks consagrados de priorização e facilitação de rituais:
+                </p>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 text-left">
+                    <div class="p-3.5 rounded-2xl bg-neutral-900/80 border border-white/10">
+                        <span class="text-xs font-mono text-zinc-400 font-bold block mb-1">RICE Score</span>
+                        <p class="text-[11px] text-zinc-300 leading-normal">Cálculo de priorização ponderando Alcance (Reach), Impacto, Confiança e Esforço de engenharia.</p>
+                    </div>
+                    <div class="p-3.5 rounded-2xl bg-neutral-900/80 border border-white/10">
+                        <span class="text-xs font-mono text-zinc-400 font-bold block mb-1">MoSCoW</span>
+                        <p class="text-[11px] text-zinc-300 leading-normal">Classificação clara de requisitos entre Must Have, Should Have, Could Have e Won't Have.</p>
+                    </div>
+                    <div class="p-3.5 rounded-2xl bg-neutral-900/80 border border-white/10">
+                        <span class="text-xs font-mono text-zinc-400 font-bold block mb-1">User Stories & AC</span>
+                        <p class="text-[11px] text-zinc-300 leading-normal">Escrita estruturada com Critérios de Aceite (Gherkin/BDD) e definição clara de pronto (DoD).</p>
+                    </div>
+                    <div class="p-3.5 rounded-2xl bg-neutral-900/80 border border-white/10">
+                        <span class="text-xs font-mono text-zinc-400 font-bold block mb-1">Retrospectivas</span>
+                        <p class="text-[11px] text-zinc-300 leading-normal">Cultura blameless focada em aperfeiçoamento contínuo das dinâmicas e processos do time.</p>
+                    </div>
+                </div>
+            </article>
+
+        </div>
+
+        <!-- RODAPÉ DA PÁGINA -->
+        <footer class="mt-16 pt-8 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-4 text-center sm:text-left">
+            <div class="text-xs text-zinc-500 font-bold uppercase tracking-widest">
+                Juraci Tito Neto • <span class="text-zinc-300">Product Management & Agilidade</span>
+            </div>
+            <a href="../index.html" class="text-xs text-zinc-400 hover:text-white uppercase tracking-wider font-bold transition-colors inline-flex items-center gap-1.5">
+                Voltar à Página Inicial <i class="fa-solid fa-arrow-right text-[10px]"></i>
+            </a>
+        </footer>
+
+    </main>
+
+</body>
+</html>

@@ -17,7 +17,7 @@ document.addEventListener('DOMContentLoaded', () => {
             tech: ['Scrum Framework', 'Product Backlog Refinement', 'User Stories', 'Jira / Confluence'],
             image: 'https://images.unsplash.com/photo-1542626991-cbc4e32524cc?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80', 
             text: '💡 "Gerenciar produtos é transformar caos em valor tangível através de backlogs limpos, rituais ágeis e governança baseada em ROI."\n\nLiderança estratégica focada em traduzir requisitos complexos de negócios e dores reais de usuários em backlogs altamente estruturados e priorizados (RICE/MOSCOW). Experiência sólida na facilitação de rituais Scrum, escrita de User Stories acionáveis com critérios de aceite rigorosos e governança ágil voltada para a entrega contínua de valor.',
-            link: 'https://drive.google.com/drive/folders/1-eXmQNyc6nnpLboz3JEBETfjL5tW-S10?usp=sharing'
+            link: 'pages/product_management.html'
         },
 
         'ux-ui-design': {
@@ -44,7 +44,7 @@ document.addEventListener('DOMContentLoaded', () => {
             tech: ['Gamificação', 'HTML5 Canvas', 'Product Lifecycle', 'Mentoria Técnica'],
             image: 'https://images.unsplash.com/photo-1598520106830-8c45c2035460?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80', 
             text: '💡 "O conhecimento só é pleno quando compartilhado. Concipio ecossistemas próprios disruptivos e atuo moldando mentes para o mercado."\n\nAmbiente prático de inovação e engenharia. Compreende a gestão do ciclo de vida de aplicações próprias disruptivas (como o Over Power e o Magman) e atuação em workshops de extensão educacional, lecionando design centrado no usuário e melhores práticas de entrega de software corporativo para o mercado.',
-            link: 'https://github.com/Magneto1000'
+            link: 'pages/labs_workshops.html'
         }
     };
 
