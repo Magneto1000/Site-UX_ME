@@ -1,0 +1,679 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Software Engineering & Architecture | Juraci Tito Neto</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../css/css.css">
+</head>
+<body class="bg-neutral-950 text-white min-h-screen font-sans antialiased selection:bg-zinc-800 selection:text-white">
+
+    <!-- PLANO DE FUNDO CINEMATOGRÁFICO MONOCROMÁTICO -->
+    <div class="fixed inset-0 z-0 pointer-events-none overflow-hidden">
+        <div class="absolute inset-0 bg-neutral-950"></div>
+        <div class="absolute inset-0 bg-[radial-gradient(circle_at_top,_var(--tw-gradient-stops))] from-zinc-900/40 via-neutral-950/80 to-neutral-950"></div>
+        <div class="absolute inset-0 bg-gradient-to-b from-transparent via-neutral-950/70 to-neutral-950"></div>
+    </div>
+
+    <!-- CABEÇALHO FIXO COM NAVEGAÇÃO -->
+    <header class="sticky top-0 z-50 backdrop-blur-xl bg-neutral-950/80 border-b border-white/10 px-4 sm:px-10 py-3 sm:py-4 transition-all">
+        <div class="max-w-5xl mx-auto flex items-center justify-between">
+            <a href="../index.html" class="inline-flex items-center gap-2 px-3.5 py-2 rounded-xl bg-white/5 hover:bg-white/10 border border-white/10 text-[11px] sm:text-xs uppercase tracking-wider text-zinc-300 hover:text-white transition-all active:scale-95 shadow-md">
+                <i class="fa-solid fa-arrow-left text-xs"></i>
+                <span>Voltar ao Início</span>
+            </a>
+
+            <div class="flex items-center gap-2.5">
+                <span class="text-[10px] font-mono tracking-wider uppercase text-zinc-500 hidden sm:inline">Engenharia • Padrões de Projeto • Full-Stack</span>
+                <a href="https://web.whatsapp.com/send?phone=5522992296380&text=Ol%C3%A1!" target="_blank" rel="noopener noreferrer" 
+                   class="w-9 h-9 sm:w-10 sm:h-10 bg-zinc-800 hover:bg-zinc-700 border border-white/15 rounded-xl flex items-center justify-center text-white shadow-md transition-all active:scale-95" title="Contato WhatsApp">
+                    <i class="fa-brands fa-whatsapp text-sm sm:text-base"></i>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- CONTEÚDO PRINCIPAL -->
+    <main class="relative z-10 max-w-5xl mx-auto px-4 sm:px-8 md:px-10 pt-6 sm:pt-8 pb-20">
+        
+        <!-- HERO / INTRODUÇÃO DA PÁGINA -->
+        <header class="mb-8 sm:mb-10 text-left">
+            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/5 border border-white/10 mb-3">
+                <span class="w-2 h-2 rounded-full bg-zinc-300 animate-pulse"></span>
+                <span class="text-[10px] text-zinc-400 font-bold uppercase tracking-wider">Arquitetura de Sistemas & Código Limpo</span>
+            </div>
+            <h1 class="text-2xl sm:text-4xl md:text-5xl lg:text-6xl font-black uppercase tracking-tight text-white drop-shadow-md leading-[1.05] mb-3 break-words">
+                Software Engineering & <br>
+                <span class="text-transparent bg-clip-text bg-gradient-to-r from-zinc-200 via-neutral-300 to-zinc-500">System Architecture</span>
+            </h1>
+            <p class="text-xs sm:text-sm md:text-base text-zinc-400 font-light leading-relaxed max-w-3xl break-words">
+                Código performático é aquele que resolve regras de negócio complexas mantendo uma esteira de deploy limpa e escalabilidade sã. Do domínio de algoritmos puros em Python à implementação de arquiteturas em camadas (MVC/N-Tier) com persistência relacional e esteiras web full-stack.
+            </p>
+
+            <!-- METADADOS TÉCNICOS -->
+            <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 mt-6 pt-4 border-t border-white/10">
+                <div class="min-w-0">
+                    <span class="text-[9px] font-mono uppercase text-zinc-500 font-bold block mb-0.5">Linguagem Core</span>
+                    <span class="text-xs font-bold text-white uppercase break-words">Python 3.x / JavaScript</span>
+                </div>
+                <div class="min-w-0">
+                    <span class="text-[9px] font-mono uppercase text-zinc-500 font-bold block mb-0.5">Padrão Arquitetural</span>
+                    <span class="text-xs font-bold text-white uppercase break-words">Layered MVC / RESTful</span>
+                </div>
+                <div class="min-w-0">
+                    <span class="text-[9px] font-mono uppercase text-zinc-500 font-bold block mb-0.5">Persistência</span>
+                    <span class="text-xs font-bold text-white uppercase break-words">SQLite / Supabase (SQL)</span>
+                </div>
+                <div class="min-w-0">
+                    <span class="text-[9px] font-mono uppercase text-zinc-500 font-bold block mb-0.5">Stack Web</span>
+                    <span class="text-xs font-bold text-white uppercase break-words">Next.js • React • Tailwind</span>
+                </div>
+            </div>
+        </header>
+
+        <!-- ==========================================================================
+             SEÇÃO 1: PADRÕES ARQUITETURAIS, DIAGRAMAS DE SISTEMA & ARTIGO TÉCNICO
+             ========================================================================== -->
+        <section class="mb-10 sm:mb-12">
+            <article class="p-4 sm:p-6 md:p-8 rounded-2xl sm:rounded-3xl bg-white/[0.03] border border-white/10 backdrop-blur-sm relative overflow-hidden shadow-xl">
+                <div class="absolute top-0 left-0 w-1 h-full bg-zinc-300"></div>
+                
+                <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-3">
+                    <div class="flex items-center gap-2.5 sm:gap-3">
+                        <div class="w-8 h-8 rounded-xl bg-white/10 flex items-center justify-center text-zinc-200 shrink-0">
+                            <i class="fa-solid fa-network-wired text-sm"></i>
+                        </div>
+                        <span class="text-[10px] font-mono text-zinc-400 font-bold uppercase tracking-wider">Engenharia de Software • Governança Estrutural</span>
+                    </div>
+                    <span class="px-2.5 py-0.5 rounded text-[9px] font-mono bg-zinc-800 text-zinc-300 uppercase font-bold border border-white/5 w-max">System Design</span>
+                </div>
+
+                <h2 class="text-base sm:text-xl md:text-2xl font-black uppercase tracking-tight text-white mb-2 break-words">
+                    Padrões Arquiteturais, Estilos de Sistemas & Diagramas
+                </h2>
+
+                <p class="text-xs sm:text-sm text-zinc-300 font-light leading-relaxed mb-6 break-words">
+                    A arquitetura de software estabelece as restrições fundamentais, os limites de contexto (*bounded contexts*) e as garantias de qualidade de um sistema. Desenvolver soluções corporativas exige analisar os <strong>trade-offs</strong> entre acoplamento, latência, consistência de dados (Teorema CAP) e custo operacional de infraestrutura.
+                </p>
+
+                <!-- GRID DE PADRÕES ARQUITETURAIS -->
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4 mb-6 text-left">
+                    <div class="min-w-0 p-3.5 sm:p-4 rounded-xl bg-neutral-900/60 border border-white/5">
+                        <div class="flex items-center gap-2 mb-1.5 flex-wrap">
+                            <span class="px-2 py-0.5 rounded text-[9px] font-mono bg-zinc-800 text-zinc-200 uppercase font-bold">Estilo 01</span>
+                            <span class="text-xs font-bold text-white uppercase break-words">Arquitetura Monolítica vs. Microsserviços</span>
+                        </div>
+                        <p class="text-xs text-zinc-400 leading-relaxed break-words">
+                            Enquanto o <strong>Monólito Modular</strong> oferece simplicidade de deploy, transações ACID nativas e menor sobrecarga de rede, os <strong>Microsserviços</strong> fornecem escalabilidade horizontal independente e isolamento de falhas ao custo de complexidade em observabilidade, orquestração e consistência eventual.
+                        </p>
+                    </div>
+
+                    <div class="min-w-0 p-3.5 sm:p-4 rounded-xl bg-neutral-900/60 border border-white/5">
+                        <div class="flex items-center gap-2 mb-1.5 flex-wrap">
+                            <span class="px-2 py-0.5 rounded text-[9px] font-mono bg-zinc-800 text-zinc-200 uppercase font-bold">Estilo 02</span>
+                            <span class="text-xs font-bold text-white uppercase break-words">Arquitetura Hexagonal (Ports & Adapters)</span>
+                        </div>
+                        <p class="text-xs text-zinc-400 leading-relaxed break-words">
+                            Desacoplamento total do domínio central em relação a dependências externas (bancos de dados, frameworks web e filas). As regras de negócio comunicam-se exclusivamente através de <em>Portas</em> (interfaces), enquanto os <em>Adaptadores</em> lidam com protocolos de I/O específicos.
+                        </p>
+                    </div>
+
+                    <div class="min-w-0 p-3.5 sm:p-4 rounded-xl bg-neutral-900/60 border border-white/5">
+                        <div class="flex items-center gap-2 mb-1.5 flex-wrap">
+                            <span class="px-2 py-0.5 rounded text-[9px] font-mono bg-zinc-800 text-zinc-200 uppercase font-bold">Estilo 03</span>
+                            <span class="text-xs font-bold text-white uppercase break-words">Event-Driven Architecture (EDA)</span>
+                        </div>
+                        <p class="text-xs text-zinc-400 leading-relaxed break-words">
+                            Sistemas orientados a eventos onde componentes reagem assincronamente a mudanças de estado transmitidas via mensageria/brokers (ex: Kafka, RabbitMQ). Maximiza a resiliência e reduz acoplamento temporal entre emissores e consumidores.
+                        </p>
+                    </div>
+
+                    <div class="min-w-0 p-3.5 sm:p-4 rounded-xl bg-neutral-900/60 border border-white/5">
+                        <div class="flex items-center gap-2 mb-1.5 flex-wrap">
+                            <span class="px-2 py-0.5 rounded text-[9px] font-mono bg-zinc-800 text-zinc-200 uppercase font-bold">Estilo 04</span>
+                            <span class="text-xs font-bold text-white uppercase break-words">CQRS & Clean Architecture</span>
+                        </div>
+                        <p class="text-xs text-zinc-400 leading-relaxed break-words">
+                            Segregação de Responsabilidade entre Comando e Consulta (CQRS), separando os caminhos de escrita e leitura de dados para otimizar throughput em bancos de alta volumetria sob as diretrizes de integridade da Clean Architecture.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- GALERIA MODULAR DE DIAGRAMAS ARQUITETURAIS -->
+                <div class="mb-6">
+                    <span class="text-[10px] text-zinc-400 font-black uppercase tracking-wider block mb-2.5">Diagramas de Arquitetura de Sistemas</span>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3">
+                        
+                        <!-- Diagrama 1 -->
+                        <div class="group/img relative aspect-video rounded-xl overflow-hidden bg-neutral-900 border border-white/10 cursor-pointer" onclick="window.open(this.querySelector('img').src, '_blank')">
+                            <img src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=1000&q=80" alt="Diagrama de Microsserviços e APIs" class="w-full h-full object-cover grayscale contrast-125 group-hover/img:scale-105 group-hover/img:grayscale-0 transition-all duration-300">
+                            <div class="absolute inset-0 bg-black/40 opacity-0 group-hover/img:opacity-100 transition-opacity flex flex-col items-center justify-center gap-1">
+                                <i class="fa-solid fa-expand text-white text-sm"></i>
+                                <span class="text-[9px] font-mono text-zinc-200">Expandir Diagrama</span>
+                            </div>
+                            <span class="absolute bottom-2 left-2 px-2 py-0.5 rounded bg-black/80 text-[8px] font-mono text-zinc-300">01. API Gateway & Microsserviços</span>
+                        </div>
+
+                        <!-- Diagrama 2 -->
+                        <div class="group/img relative aspect-video rounded-xl overflow-hidden bg-neutral-900 border border-white/10 cursor-pointer" onclick="window.open(this.querySelector('img').src, '_blank')">
+                            <img src="https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=1000&q=80" alt="Diagrama Clean Architecture e Camadas" class="w-full h-full object-cover grayscale contrast-125 group-hover/img:scale-105 group-hover/img:grayscale-0 transition-all duration-300">
+                            <div class="absolute inset-0 bg-black/40 opacity-0 group-hover/img:opacity-100 transition-opacity flex flex-col items-center justify-center gap-1">
+                                <i class="fa-solid fa-expand text-white text-sm"></i>
+                                <span class="text-[9px] font-mono text-zinc-200">Expandir Diagrama</span>
+                            </div>
+                            <span class="absolute bottom-2 left-2 px-2 py-0.5 rounded bg-black/80 text-[8px] font-mono text-zinc-300">02. Clean / Hexagonal Ports</span>
+                        </div>
+
+                        <!-- Diagrama 3 -->
+                        <div class="group/img relative aspect-video rounded-xl overflow-hidden bg-neutral-900 border border-white/10 cursor-pointer sm:col-span-2 md:col-span-1" onclick="window.open(this.querySelector('img').src, '_blank')">
+                            <img src="https://images.unsplash.com/photo-1618401471353-b98aedd04e11?auto=format&fit=crop&w=1000&q=80" alt="Diagrama Pipeline de Mensageria e Fila" class="w-full h-full object-cover grayscale contrast-125 group-hover/img:scale-105 group-hover/img:grayscale-0 transition-all duration-300">
+                            <div class="absolute inset-0 bg-black/40 opacity-0 group-hover/img:opacity-100 transition-opacity flex flex-col items-center justify-center gap-1">
+                                <i class="fa-solid fa-expand text-white text-sm"></i>
+                                <span class="text-[9px] font-mono text-zinc-200">Expandir Diagrama</span>
+                            </div>
+                            <span class="absolute bottom-2 left-2 px-2 py-0.5 rounded bg-black/80 text-[8px] font-mono text-zinc-300">03. Pipeline Event-Driven (EDA)</span>
+                        </div>
+
+                    </div>
+                </div>
+
+                <!-- CALL-TO-ACTION: ARTIGO EM PDF SOBRE ARQUITETURA -->
+                <div class="p-4 sm:p-5 rounded-2xl bg-neutral-900/80 border border-white/10 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
+                    <div class="min-w-0">
+                        <span class="text-[9px] font-mono uppercase text-zinc-500 font-bold block mb-0.5">Documentação & Produção Intelectual</span>
+                        <h4 class="text-xs sm:text-sm font-bold text-white uppercase break-words">Artigo Técnico: Fundamentos, Padrões e Decisões Arquiteturais</h4>
+                        <p class="text-xs text-zinc-400 font-light leading-relaxed mt-0.5 break-words">
+                            Análise crítica sobre escalabilidade, isolamento de domínios e escolhas arquiteturais em projetos de software corporativo.
+                        </p>
+                    </div>
+                    
+                    <a href="../midias/artigo_arquitetura.pdf" target="_blank" rel="noopener noreferrer" 
+                       class="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-white/10 hover:bg-white/20 active:scale-95 border border-white/15 text-xs font-bold uppercase tracking-wider text-white transition-all shadow-md shrink-0 w-full sm:w-auto justify-center">
+                        <i class="fa-solid fa-file-pdf text-zinc-300 text-xs"></i>
+                        <span>Ler Artigo em PDF</span>
+                        <i class="fa-solid fa-arrow-up-right-from-square text-[9px] text-zinc-400"></i>
+                    </a>
+                </div>
+
+            </article>
+        </section>
+
+        <!-- ==========================================================================
+             SEÇÃO 2: ECOSSISTEMA FULL-STACK & SITES DE CLIENTES EM PRODUÇÃO
+             ========================================================================== -->
+        <section class="mb-10 sm:mb-12">
+            <div class="border-b border-white/10 pb-3 mb-6">
+                <span class="text-[10px] font-mono text-zinc-400 uppercase tracking-wider font-bold block mb-0.5">Aplicações Reais em Produção</span>
+                <h2 class="text-xl sm:text-2xl md:text-3xl font-black uppercase tracking-tight text-white break-words">
+                    Ecossistema Web, Bancos de Dados & Sites de Clientes
+                </h2>
+                <p class="text-xs sm:text-sm text-zinc-400 font-light mt-1 break-words">
+                    Projetos implantados em nuvem combinando Next.js, arquitetura baseada em componentes, autenticação segura e bancos relacionais na nuvem (Supabase SQL).
+                </p>
+            </div>
+
+            <!-- PROJETO 1: MEU BLOG COM NEXT.JS E SUPABASE -->
+            <article class="p-4 sm:p-6 md:p-8 rounded-2xl sm:rounded-3xl bg-white/[0.03] border border-white/10 backdrop-blur-sm relative overflow-hidden shadow-xl mb-6">
+                <div class="absolute top-0 left-0 w-1 h-full bg-zinc-300"></div>
+
+                <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-3">
+                    <div class="flex items-center gap-2.5">
+                        <div class="w-8 h-8 rounded-xl bg-white/10 flex items-center justify-center text-zinc-200 shrink-0">
+                            <i class="fa-solid fa-database text-sm"></i>
+                        </div>
+                        <span class="text-[10px] font-mono text-zinc-400 font-bold uppercase tracking-wider break-words">Full-Stack Application • SQL Cloud</span>
+                    </div>
+                    <a href="https://meu-blog-jade.vercel.app" target="_blank" rel="noopener noreferrer" class="px-3 py-1 rounded-lg text-xs font-bold bg-white/10 hover:bg-white/20 border border-white/15 text-white transition-all w-max inline-flex items-center gap-1.5 active:scale-95">
+                        <span>Acessar Plataforma Web</span>
+                        <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i>
+                    </a>
+                </div>
+
+                <h3 class="text-base sm:text-xl md:text-2xl font-black uppercase tracking-tight text-white mb-2 break-words">
+                    Repositório Próprio de Artigos: JN Tito Neto Blog
+                </h3>
+
+                <p class="text-xs sm:text-sm text-zinc-300 font-light leading-relaxed mb-4 break-words">
+                    Plataforma moderna de publicação de conteúdos técnicos desenvolvida em <strong>Next.js</strong> e <strong>TypeScript</strong>. O sistema conta com módulo de autenticação de usuários, painel administrativo protegido para criação e edição de artigos em tempo real e banco de dados relacional hospedado na infraestrutura gerenciada do <strong>Supabase (PostgreSQL)</strong>.
+                </p>
+
+                <!-- GRID COM AS TELAS DO BLOG DO REPOSITÓRIO SKILLS -->
+                <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-5 gap-2.5 mb-4">
+                    <div class="p-1.5 rounded-lg bg-neutral-900 border border-white/10 cursor-pointer group" onclick="window.open('/midias/blog_my/area_principal.jpeg', '_blank')">
+                        <div class="aspect-video rounded overflow-hidden bg-black mb-1">
+                            <img src="/midias/blog_my/area_principal.jpeg" alt="Área Principal" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-300">
+                        </div>
+                        <span class="text-[9px] font-mono text-zinc-400 block text-center break-words">Área Principal</span>
+                    </div>
+
+                    <div class="p-1.5 rounded-lg bg-neutral-900 border border-white/10 cursor-pointer group" onclick="window.open('/midias/blog_my/tela_user.jpeg', '_blank')">
+                        <div class="aspect-video rounded overflow-hidden bg-black mb-1">
+                            <img src="/midias/blog_my/tela_user.jpeg" alt="Painel do Usuário" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-300">
+                        </div>
+                        <span class="text-[9px] font-mono text-zinc-400 block text-center break-words">Painel do Usuário</span>
+                    </div>
+
+                    <div class="p-1.5 rounded-lg bg-neutral-900 border border-white/10 cursor-pointer group" onclick="window.open('/midias/blog_my/tela_2.jpeg', '_blank')">
+                        <div class="aspect-video rounded overflow-hidden bg-black mb-1">
+                            <img src="/midias/blog_my/tela_2.jpeg" alt="Feed de Artigos" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-300">
+                        </div>
+                        <span class="text-[9px] font-mono text-zinc-400 block text-center break-words">Feed de Leitura</span>
+                    </div>
+
+                    <div class="p-1.5 rounded-lg bg-neutral-900 border border-white/10 cursor-pointer group" onclick="window.open('/midias/blog_my/edit_created.jpeg', '_blank')">
+                        <div class="aspect-video rounded overflow-hidden bg-black mb-1">
+                            <img src="/midias/blog_my/edit_created.jpeg" alt="Editor de Conteúdo" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-300">
+                        </div>
+                        <span class="text-[9px] font-mono text-zinc-400 block text-center break-words">Editor CMS</span>
+                    </div>
+
+                    <div class="p-1.5 rounded-lg bg-neutral-900 border border-white/10 cursor-pointer group" onclick="window.open('/midias/blog_my/tela_login.jpeg', '_blank')">
+                        <div class="aspect-video rounded overflow-hidden bg-black mb-1">
+                            <img src="/midias/blog_my/tela_login.jpeg" alt="Tela de Autenticação" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-300">
+                        </div>
+                        <span class="text-[9px] font-mono text-zinc-400 block text-center break-words">Autenticação</span>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 text-left">
+                    <div class="min-w-0 p-3 rounded-xl bg-neutral-900/60 border border-white/5">
+                        <span class="text-[10px] font-mono text-zinc-400 font-bold block mb-1">PostgreSQL & Supabase</span>
+                        <p class="text-xs text-zinc-300 leading-normal">Tabelas normalizadas, políticas de segurança por linha (RLS) e triggers para integridade de dados.</p>
+                    </div>
+                    <div class="min-w-0 p-3 rounded-xl bg-neutral-900/60 border border-white/5">
+                        <span class="text-[10px] font-mono text-zinc-400 font-bold block mb-1">Next.js App Router</span>
+                        <p class="text-xs text-zinc-300 leading-normal">Renderização híbrida no servidor (SSR) combinada com componentes reativos para máxima velocidade.</p>
+                    </div>
+                    <div class="min-w-0 p-3 rounded-xl bg-neutral-900/60 border border-white/5 sm:col-span-2 md:col-span-1">
+                        <span class="text-[10px] font-mono text-zinc-400 font-bold block mb-1">Esteira CI/CD</span>
+                        <p class="text-xs text-zinc-300 leading-normal">Deploy contínuo automatizado na Vercel a cada commit na branch principal do repositório Git.</p>
+                    </div>
+                </div>
+            </article>
+
+            <!-- PROJETO 2: SITES DE CLIENTES COMERCIAIS & LANDING PAGES -->
+            <article class="p-4 sm:p-6 md:p-8 rounded-2xl sm:rounded-3xl bg-white/[0.03] border border-white/10 backdrop-blur-sm relative overflow-hidden shadow-xl">
+                <div class="absolute top-0 left-0 w-1 h-full bg-zinc-400"></div>
+
+                <div class="flex items-center gap-2.5 mb-3">
+                    <div class="w-8 h-8 rounded-xl bg-white/10 flex items-center justify-center text-zinc-200 shrink-0">
+                        <i class="fa-solid fa-layer-group text-sm"></i>
+                    </div>
+                    <span class="text-[10px] font-mono text-zinc-400 font-bold uppercase tracking-wider">Aplicações Comerciais e Institucionais</span>
+                </div>
+
+                <h3 class="text-base sm:text-xl md:text-2xl font-black uppercase tracking-tight text-white mb-2 break-words">
+                    Desenvolvimento de Soluções Digitais para Empresas
+                </h3>
+
+                <p class="text-xs sm:text-sm text-zinc-300 font-light leading-relaxed mb-6 break-words">
+                    Criação de ecossistemas web sob medida para o setor empresarial e varejo, combinando tempos de carregamento ultrarrápidos, design centrado na conversão e integração direta com canais de atendimento:
+                </p>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    
+                    <!-- Cliente 1: Livia Modas -->
+                    <div class="min-w-0 p-4 rounded-xl bg-neutral-900/80 border border-white/5 flex flex-col justify-between">
+                        <div>
+                            <div class="aspect-video rounded-lg overflow-hidden bg-black mb-3 cursor-pointer" onclick="window.open('https://sites-clientes-six.vercel.app/', '_blank')">
+                                <img src="https://images.unsplash.com/photo-1573166364266-356ef04ae798?q=80&w=869&auto=format&fit=crop" alt="Livia Modas" class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-300">
+                            </div>
+                            <span class="text-[9px] font-mono text-zinc-500 uppercase font-bold block mb-0.5">Varejo & Moda</span>
+                            <h4 class="text-sm font-bold text-white uppercase break-words mb-1">Livia Modas & Beauty Studio</h4>
+                            <p class="text-xs text-zinc-400 leading-relaxed font-light mb-3 break-words">
+                                Landing page de alto impacto visual para loja de moda e estúdio de beleza, com vitrine de catálogo interativa e conversão direta para pedidos.
+                            </p>
+                        </div>
+                        <a href="https://sites-clientes-six.vercel.app/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 text-xs font-bold text-zinc-200 hover:text-white underline transition-colors pt-2 border-t border-white/5">
+                            <span>Visitar site em produção</span>
+                            <i class="fa-solid fa-arrow-up-right-from-square text-[9px]"></i>
+                        </a>
+                    </div>
+
+                    <!-- Cliente 2: Tito Impermeabilização -->
+                    <div class="min-w-0 p-4 rounded-xl bg-neutral-900/80 border border-white/5 flex flex-col justify-between">
+                        <div>
+                            <div class="aspect-video rounded-lg overflow-hidden bg-black mb-3 cursor-pointer" onclick="window.open('https://tito-impermeabilizacao.vercel.app/', '_blank')">
+                                <img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?q=80&w=1000&auto=format&fit=crop" alt="Tito Impermeabilização" class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-300">
+                            </div>
+                            <span class="text-[9px] font-mono text-zinc-500 uppercase font-bold block mb-0.5">Engenharia de Proteção</span>
+                            <h4 class="text-sm font-bold text-white uppercase break-words mb-1">Tito Impermeabilização</h4>
+                            <p class="text-xs text-zinc-400 leading-relaxed font-light mb-3 break-words">
+                                Site institucional corporativo focado em serviços técnicos de impermeabilização predial e industrial, apresentando laudos técnicos e portfólio.
+                            </p>
+                        </div>
+                        <a href="https://tito-impermeabilizacao.vercel.app/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 text-xs font-bold text-zinc-200 hover:text-white underline transition-colors pt-2 border-t border-white/5">
+                            <span>Visitar site em produção</span>
+                            <i class="fa-solid fa-arrow-up-right-from-square text-[9px]"></i>
+                        </a>
+                    </div>
+
+                    <!-- Cliente 3: M.A Construções -->
+                    <div class="min-w-0 p-4 rounded-xl bg-neutral-900/80 border border-white/5 flex flex-col justify-between">
+                        <div>
+                            <div class="aspect-video rounded-lg overflow-hidden bg-black mb-3 cursor-pointer" onclick="window.open('https://ma-construcoes.vercel.app/', '_blank')">
+                                <img src="https://images.unsplash.com/photo-1541888946425-d0fbb18615f3?q=80&w=1000&auto=format&fit=crop" alt="M.A Construções" class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-300">
+                            </div>
+                            <span class="text-[9px] font-mono text-zinc-500 uppercase font-bold block mb-0.5">Construção Civil</span>
+                            <h4 class="text-sm font-bold text-white uppercase break-words mb-1">M.A Construções</h4>
+                            <p class="text-xs text-zinc-400 leading-relaxed font-light mb-3 break-words">
+                                Plataforma institucional projetada para captação de clientes e apresentação de obras residenciais e comerciais de médio e grande porte.
+                            </p>
+                        </div>
+                        <a href="https://ma-construcoes.vercel.app/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 text-xs font-bold text-zinc-200 hover:text-white underline transition-colors pt-2 border-t border-white/5">
+                            <span>Visitar site em produção</span>
+                            <i class="fa-solid fa-arrow-up-right-from-square text-[9px]"></i>
+                        </a>
+                    </div>
+
+                    <!-- Cliente 4: UUP Software Solutions -->
+                    <div class="min-w-0 p-4 rounded-xl bg-neutral-900/80 border border-white/5 flex flex-col justify-between">
+                        <div>
+                            <div class="aspect-video rounded-lg overflow-hidden bg-black mb-3 cursor-pointer" onclick="window.open('https://uup-site.vercel.app/', '_blank')">
+                                <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=1000&auto=format&fit=crop" alt="UUP Software Solutions" class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-300">
+                            </div>
+                            <span class="text-[9px] font-mono text-zinc-500 uppercase font-bold block mb-0.5">Tecnologia & Inovação</span>
+                            <h4 class="text-sm font-bold text-white uppercase break-words mb-1">UUP Software Solutions</h4>
+                            <p class="text-xs text-zinc-400 leading-relaxed font-light mb-3 break-words">
+                                Plataforma corporativa de soluções de software voltada para aceleração digital de micro e pequenas empresas, automações e consultoria.
+                            </p>
+                        </div>
+                        <a href="https://uup-site.vercel.app/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 text-xs font-bold text-zinc-200 hover:text-white underline transition-colors pt-2 border-t border-white/5">
+                            <span>Visitar site em produção</span>
+                            <i class="fa-solid fa-arrow-up-right-from-square text-[9px]"></i>
+                        </a>
+                    </div>
+
+                </div>
+            </article>
+        </section>
+
+        <!-- ==========================================================================
+             SEÇÃO 3: PROJETO DE SISTEMA COMPLETO — LOJA DE ALUGUEL DE CARROS (MVC)
+             ========================================================================== -->
+        <section class="mb-10 sm:mb-12">
+            <div class="border-b border-white/10 pb-3 mb-6">
+                <span class="text-[10px] font-mono text-zinc-400 uppercase tracking-wider font-bold block mb-0.5">Software Production-Ready</span>
+                <h2 class="text-xl sm:text-2xl md:text-3xl font-black uppercase tracking-tight text-white break-words">
+                    Sistema Desktop: Loja de Aluguel de Carros
+                </h2>
+                <p class="text-xs sm:text-sm text-zinc-400 font-light mt-1 break-words">Implementação completa de arquitetura em camadas N-Tier / Model-View-Controller com persistência em SQLite.</p>
+            </div>
+
+            <article class="p-4 sm:p-6 md:p-8 rounded-2xl sm:rounded-3xl bg-white/[0.03] border border-white/10 backdrop-blur-sm relative overflow-hidden shadow-xl mb-6">
+                <div class="absolute top-0 left-0 w-1 h-full bg-zinc-400"></div>
+
+                <div class="flex items-center gap-2 mb-2">
+                    <span class="px-2 py-0.5 rounded text-[9px] font-mono bg-zinc-800 text-zinc-200 uppercase font-bold">Padrão Arquitetural</span>
+                    <span class="text-xs font-bold text-white uppercase">Isolamento de Responsabilidades (SoC)</span>
+                </div>
+
+                <p class="text-xs sm:text-sm text-zinc-300 font-light leading-relaxed mb-6 break-words">
+                    O software foi projetado desacoplando estritamente a interface com o usuário da lógica de acesso ao banco de dados relacional. Cada componente possui responsabilidade única, viabilizando que a camada gráfica seja substituída por uma API REST ou aplicação web sem exigir qualquer alteração no esquema relacional ou nas regras de negócio subjacentes.
+                </p>
+
+                <!-- DESMONTE DAS 4 CAMADAS (N-TIER) -->
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4 mb-6 text-left">
+                    <div class="min-w-0 p-3.5 sm:p-4 rounded-xl bg-neutral-900/60 border border-white/5">
+                        <div class="flex items-center gap-2 mb-1.5 flex-wrap">
+                            <span class="px-2 py-0.5 rounded text-[9px] font-mono bg-zinc-800 text-zinc-200 uppercase font-bold">carros.db</span>
+                            <span class="text-xs font-bold text-white uppercase break-words">Camada de Persistência</span>
+                        </div>
+                        <p class="text-xs text-zinc-400 leading-relaxed break-words">
+                            Banco relacional em SQLite com integridade referencial, chaves primárias autoincrementais, índices para otimização de busca e transações estruturadas para evitar concorrência desordenada.
+                        </p>
+                    </div>
+
+                    <div class="min-w-0 p-3.5 sm:p-4 rounded-xl bg-neutral-900/60 border border-white/5">
+                        <div class="flex items-center gap-2 mb-1.5 flex-wrap">
+                            <span class="px-2 py-0.5 rounded text-[9px] font-mono bg-zinc-800 text-zinc-200 uppercase font-bold">database.py</span>
+                            <span class="text-xs font-bold text-white uppercase break-words">Model & Data Access Layer</span>
+                        </div>
+                        <p class="text-xs text-zinc-400 leading-relaxed break-words">
+                            Encapsula todo o CRUD (Create, Read, Update, Delete). Isola consultas e queries parametrizadas SQL para mitigar riscos de injeção e gerencia abertura/fechamento seguro de conexões.
+                        </p>
+                    </div>
+
+                    <div class="min-w-0 p-3.5 sm:p-4 rounded-xl bg-neutral-900/60 border border-white/5">
+                        <div class="flex items-center gap-2 mb-1.5 flex-wrap">
+                            <span class="px-2 py-0.5 rounded text-[9px] font-mono bg-zinc-800 text-zinc-200 uppercase font-bold">gui.py</span>
+                            <span class="text-xs font-bold text-white uppercase break-words">View Layer (Interface UX)</span>
+                        </div>
+                        <p class="text-xs text-zinc-400 leading-relaxed break-words">
+                            Gerencia telas gráficas, validação prévia de entradas do usuário, renderização de tabelas e captura de eventos visuais sem executar regras de banco diretamente.
+                        </p>
+                    </div>
+
+                    <div class="min-w-0 p-3.5 sm:p-4 rounded-xl bg-neutral-900/60 border border-white/5">
+                        <div class="flex items-center gap-2 mb-1.5 flex-wrap">
+                            <span class="px-2 py-0.5 rounded text-[9px] font-mono bg-zinc-800 text-zinc-200 uppercase font-bold">main.py</span>
+                            <span class="text-xs font-bold text-white uppercase break-words">Bootstrap & Orquestração</span>
+                        </div>
+                        <p class="text-xs text-zinc-400 leading-relaxed break-words">
+                            Ponto de entrada do sistema. Valida a existência e integridade do banco de dados, carrega dependências essenciais de bibliotecas e instancia o loop principal da aplicação.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- GALERIA ARQUITETURAL DO SISTEMA DE CARROS -->
+                <div>
+                    <span class="text-[10px] text-zinc-400 font-black uppercase tracking-wider block mb-2.5">Evidências de Arquitetura e Telas</span>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3">
+                        <div class="group/img relative aspect-video rounded-xl overflow-hidden bg-neutral-900 border border-white/10 cursor-pointer" onclick="window.open('/midias/project_codes/python/interface_alugueldecarros.png', '_blank')">
+                            <img src="/midias/project_codes/python/interface_alugueldecarros.png" alt="Interface Aluguel de Carros" class="w-full h-full object-cover grayscale contrast-125 group-hover/img:scale-105 group-hover/img:grayscale-0 transition-all duration-300">
+                            <div class="absolute inset-0 bg-black/40 opacity-0 group-hover/img:opacity-100 transition-opacity flex items-center justify-center">
+                                <i class="fa-solid fa-expand text-white text-sm"></i>
+                            </div>
+                        </div>
+
+                        <div class="group/img relative aspect-video rounded-xl overflow-hidden bg-neutral-900 border border-white/10 cursor-pointer" onclick="window.open('/midias/project_codes/python/visão arquitetural.png', '_blank')">
+                            <img src="/midias/project_codes/python/visão arquitetural.png" alt="Visão Arquitetural MVC" class="w-full h-full object-cover grayscale contrast-125 group-hover/img:scale-105 group-hover/img:grayscale-0 transition-all duration-300">
+                            <div class="absolute inset-0 bg-black/40 opacity-0 group-hover/img:opacity-100 transition-opacity flex items-center justify-center">
+                                <i class="fa-solid fa-expand text-white text-sm"></i>
+                            </div>
+                        </div>
+
+                        <div class="group/img relative aspect-video rounded-xl overflow-hidden bg-neutral-900 border border-white/10 cursor-pointer" onclick="window.open('/midias/project_codes/python/main.png', '_blank')">
+                            <img src="/midias/project_codes/python/main.png" alt="Main e Dependências" class="w-full h-full object-cover grayscale contrast-125 group-hover/img:scale-105 group-hover/img:grayscale-0 transition-all duration-300">
+                            <div class="absolute inset-0 bg-black/40 opacity-0 group-hover/img:opacity-100 transition-opacity flex items-center justify-center">
+                                <i class="fa-solid fa-expand text-white text-sm"></i>
+                            </div>
+                        </div>
+
+                        <div class="group/img relative aspect-video rounded-xl overflow-hidden bg-neutral-900 border border-white/10 cursor-pointer" onclick="window.open('/midias/project_codes/python/banco_de_dados.png', '_blank')">
+                            <img src="/midias/project_codes/python/banco_de_dados.png" alt="Banco de Dados Relacional" class="w-full h-full object-cover grayscale contrast-125 group-hover/img:scale-105 group-hover/img:grayscale-0 transition-all duration-300">
+                            <div class="absolute inset-0 bg-black/40 opacity-0 group-hover/img:opacity-100 transition-opacity flex items-center justify-center">
+                                <i class="fa-solid fa-expand text-white text-sm"></i>
+                            </div>
+                        </div>
+
+                        <div class="group/img relative aspect-video rounded-xl overflow-hidden bg-neutral-900 border border-white/10 cursor-pointer" onclick="window.open('/midias/project_codes/python/gui1.png', '_blank')">
+                            <img src="/midias/project_codes/python/gui1.png" alt="Interface Gráfica Tela 1" class="w-full h-full object-cover grayscale contrast-125 group-hover/img:scale-105 group-hover/img:grayscale-0 transition-all duration-300">
+                            <div class="absolute inset-0 bg-black/40 opacity-0 group-hover/img:opacity-100 transition-opacity flex items-center justify-center">
+                                <i class="fa-solid fa-expand text-white text-sm"></i>
+                            </div>
+                        </div>
+
+                        <div class="group/img relative aspect-video rounded-xl overflow-hidden bg-neutral-900 border border-white/10 cursor-pointer" onclick="window.open('/midias/project_codes/python/gui2.png', '_blank')">
+                            <img src="/midias/project_codes/python/gui2.png" alt="Interface Gráfica Tela 2" class="w-full h-full object-cover grayscale contrast-125 group-hover/img:scale-105 group-hover/img:grayscale-0 transition-all duration-300">
+                            <div class="absolute inset-0 bg-black/40 opacity-0 group-hover/img:opacity-100 transition-opacity flex items-center justify-center">
+                                <i class="fa-solid fa-expand text-white text-sm"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </article>
+        </section>
+
+        <!-- ==========================================================================
+             SEÇÃO 4: MARATONA DOS 100 EXERCÍCIOS DE ALGORITMOS
+             ========================================================================== -->
+        <section class="mb-10 sm:mb-12">
+            <div class="border-b border-white/10 pb-3 mb-6">
+                <span class="text-[10px] font-mono text-zinc-400 uppercase tracking-wider font-bold block mb-0.5">Treinamento Intensivo</span>
+                <h2 class="text-xl sm:text-2xl md:text-3xl font-black uppercase tracking-tight text-white break-words">
+                    A Batalha dos 100 Algoritmos no Jupyter
+                </h2>
+                <p class="text-xs sm:text-sm text-zinc-400 font-light mt-1 break-words">Construção de resiliência e raciocínio lógico através de desafios algorítmicos diários.</p>
+            </div>
+
+            <!-- OS 4 PILARES DO DESAFIO -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 text-left mb-6">
+                <div class="min-w-0 p-3.5 sm:p-4 rounded-xl bg-neutral-900/60 border border-white/5">
+                    <span class="text-xs font-mono text-zinc-400 font-bold block mb-1 break-words">1. Raciocínio Algorítmico</span>
+                    <p class="text-xs text-zinc-300 leading-normal break-words">Gestão de estados complexos (como contagem de cédulas e validações prévias) antes mesmo da digitação de código.</p>
+                </div>
+
+                <div class="min-w-0 p-3.5 sm:p-4 rounded-xl bg-neutral-900/60 border border-white/5">
+                    <span class="text-xs font-mono text-zinc-400 font-bold block mb-1 break-words">2. Versatilidade Multidomínio</span>
+                    <p class="text-xs text-zinc-300 leading-normal break-words">Domínio sobre segurança de strings, consumo assíncrono de APIs externas e manipulação de matrizes de dados.</p>
+                </div>
+
+                <div class="min-w-0 p-3.5 sm:p-4 rounded-xl bg-neutral-900/60 border border-white/5">
+                    <span class="text-xs font-mono text-zinc-400 font-bold block mb-1 break-words">3. Autonomia Prática</span>
+                    <p class="text-xs text-zinc-300 leading-normal break-words">Transição de espectador de tutoriais para engenheiro ativo que desenha e otimiza a própria solução do zero.</p>
+                </div>
+
+                <div class="min-w-0 p-3.5 sm:p-4 rounded-xl bg-neutral-900/60 border border-white/5">
+                    <span class="text-xs font-mono text-zinc-400 font-bold block mb-1 break-words">4. Portfolio-Ready</span>
+                    <p class="text-xs text-zinc-300 leading-normal break-words">Evidência tangível de consistência, resolução de problemas e domínio da sintaxe para avaliadores técnicos.</p>
+                </div>
+            </div>
+
+            <!-- GRID COM OS 10 PRIMEIROS DESAFIOS REGISTRADOS -->
+            <div class="p-4 sm:p-6 rounded-2xl sm:rounded-3xl bg-white/[0.02] border border-white/10">
+                <span class="text-[10px] text-zinc-400 font-black uppercase tracking-wider block mb-3">Evidências do Jupyter Notebook (Desafios 01 ao 10)</span>
+                
+                <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-5 gap-2.5">
+                    <div class="p-1.5 rounded-lg bg-neutral-900 border border-white/10 cursor-pointer group" onclick="window.open('/midias/project_codes/python/exerc_py1.png', '_blank')">
+                        <div class="aspect-video rounded overflow-hidden bg-black mb-1">
+                            <img src="/midias/project_codes/python/exerc_py1.png" alt="Desafio 01" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-300">
+                        </div>
+                        <span class="text-[9px] font-mono text-zinc-400 block text-center break-words">Exercício 01</span>
+                    </div>
+
+                    <div class="p-1.5 rounded-lg bg-neutral-900 border border-white/10 cursor-pointer group" onclick="window.open('/midias/project_codes/python/exer_py2.png', '_blank')">
+                        <div class="aspect-video rounded overflow-hidden bg-black mb-1">
+                            <img src="/midias/project_codes/python/exer_py2.png" alt="Desafio 02" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-300">
+                        </div>
+                        <span class="text-[9px] font-mono text-zinc-400 block text-center break-words">Exercício 02</span>
+                    </div>
+
+                    <div class="p-1.5 rounded-lg bg-neutral-900 border border-white/10 cursor-pointer group" onclick="window.open('/midias/project_codes/python/exerc_py3.png', '_blank')">
+                        <div class="aspect-video rounded overflow-hidden bg-black mb-1">
+                            <img src="/midias/project_codes/python/exerc_py3.png" alt="Desafio 03" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-300">
+                        </div>
+                        <span class="text-[9px] font-mono text-zinc-400 block text-center break-words">Exercício 03</span>
+                    </div>
+
+                    <div class="p-1.5 rounded-lg bg-neutral-900 border border-white/10 cursor-pointer group" onclick="window.open('/midias/project_codes/python/exerc_py4.png', '_blank')">
+                        <div class="aspect-video rounded overflow-hidden bg-black mb-1">
+                            <img src="/midias/project_codes/python/exerc_py4.png" alt="Desafio 04" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-300">
+                        </div>
+                        <span class="text-[9px] font-mono text-zinc-400 block text-center break-words">Exercício 04</span>
+                    </div>
+
+                    <div class="p-1.5 rounded-lg bg-neutral-900 border border-white/10 cursor-pointer group" onclick="window.open('/midias/project_codes/python/exerc_py5.png', '_blank')">
+                        <div class="aspect-video rounded overflow-hidden bg-black mb-1">
+                            <img src="/midias/project_codes/python/exerc_py5.png" alt="Desafio 05" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-300">
+                        </div>
+                        <span class="text-[9px] font-mono text-zinc-400 block text-center break-words">Exercício 05</span>
+                    </div>
+
+                    <div class="p-1.5 rounded-lg bg-neutral-900 border border-white/10 cursor-pointer group" onclick="window.open('/midias/project_codes/python/exerc-py6.png', '_blank')">
+                        <div class="aspect-video rounded overflow-hidden bg-black mb-1">
+                            <img src="/midias/project_codes/python/exerc-py6.png" alt="Desafio 06" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-300">
+                        </div>
+                        <span class="text-[9px] font-mono text-zinc-400 block text-center break-words">Exercício 06</span>
+                    </div>
+
+                    <div class="p-1.5 rounded-lg bg-neutral-900 border border-white/10 cursor-pointer group" onclick="window.open('/midias/project_codes/python/exerc_py7.png', '_blank')">
+                        <div class="aspect-video rounded overflow-hidden bg-black mb-1">
+                            <img src="/midias/project_codes/python/exerc_py7.png" alt="Desafio 07" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-300">
+                        </div>
+                        <span class="text-[9px] font-mono text-zinc-400 block text-center break-words">Exercício 07</span>
+                    </div>
+
+                    <div class="p-1.5 rounded-lg bg-neutral-900 border border-white/10 cursor-pointer group" onclick="window.open('/midias/project_codes/python/exerc_py8.png', '_blank')">
+                        <div class="aspect-video rounded overflow-hidden bg-black mb-1">
+                            <img src="/midias/project_codes/python/exerc_py8.png" alt="Desafio 08" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-300">
+                        </div>
+                        <span class="text-[9px] font-mono text-zinc-400 block text-center break-words">Exercício 08</span>
+                    </div>
+
+                    <div class="p-1.5 rounded-lg bg-neutral-900 border border-white/10 cursor-pointer group" onclick="window.open('/midias/project_codes/python/exerc_py9.png', '_blank')">
+                        <div class="aspect-video rounded overflow-hidden bg-black mb-1">
+                            <img src="/midias/project_codes/python/exerc_py9.png" alt="Desafio 09" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-300">
+                        </div>
+                        <span class="text-[9px] font-mono text-zinc-400 block text-center break-words">Exercício 09</span>
+                    </div>
+
+                    <div class="p-1.5 rounded-lg bg-neutral-900 border border-white/10 cursor-pointer group" onclick="window.open('/midias/project_codes/python/exerc _py10.png', '_blank')">
+                        <div class="aspect-video rounded overflow-hidden bg-black mb-1">
+                            <img src="/midias/project_codes/python/exerc _py10.png" alt="Desafio 10" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-300">
+                        </div>
+                        <span class="text-[9px] font-mono text-zinc-400 block text-center break-words">Exercício 10</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==========================================================================
+             SEÇÃO 5: A VISÃO DO ARQUITETO & TRADE-OFFS TÉCNICOS
+             ========================================================================== -->
+        <section class="space-y-6 sm:space-y-8 mb-10 sm:mb-12">
+            <article class="p-4 sm:p-6 md:p-8 rounded-2xl sm:rounded-3xl bg-white/[0.03] border border-white/10 backdrop-blur-sm relative overflow-hidden">
+                <div class="absolute top-0 left-0 w-1 h-full bg-zinc-500"></div>
+                <div class="flex items-center gap-2.5 sm:gap-3 mb-3">
+                    <div class="w-8 h-8 rounded-xl bg-white/10 flex items-center justify-center text-zinc-200 shrink-0">
+                        <i class="fa-solid fa-microchip text-sm"></i>
+                    </div>
+                    <h3 class="text-base sm:text-lg md:text-xl font-black uppercase tracking-tight text-white break-words">
+                        Desafios e Limitações na Visão de um Arquiteto
+                    </h3>
+                </div>
+
+                <p class="text-xs sm:text-sm text-zinc-300 font-light leading-relaxed mb-4 break-words">
+                    Como programador e estudante de Engenharia de Software, encaro o Python e as tecnologias de backend como ferramentas de alta potência que exigem decisões conscientes de trade-off. Minha filosofia baseia-se em utilizar a simplicidade da linguagem para resolver a complexidade da arquitetura moderna sem ignorar seus gargalos intrínsecos.
+                </p>
+
+                <p class="text-xs sm:text-sm text-zinc-300 font-light leading-relaxed mb-6 break-words">
+                    Trato como prioridade o equilíbrio entre agilidade de desenvolvimento e robustez estrutural. Em aplicações web, adoto estratégias de renderização no servidor (SSR) com Next.js para mitigar carga no cliente, aliando bancos relacionais sob políticas de segurança por linha (RLS) no PostgreSQL. No ecossistema Python, aplico assincronismo (<code class="text-zinc-200 font-mono text-xs">asyncio</code>) e multiprocessamento para contornar o Global Interpreter Lock (GIL) em tarefas intensivas de CPU, mantendo a integridade dos ambientes de execução encapsulados via Docker.
+                </p>
+
+                <!-- OS 3 PILARES ARQUITETURAIS -->
+                <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 text-left">
+                    <div class="min-w-0 p-3.5 sm:p-4 rounded-xl bg-neutral-900/60 border border-white/5">
+                        <span class="text-xs font-bold text-white uppercase block mb-1 break-words">Prototipagem Rápida & PoC</span>
+                        <p class="text-xs text-zinc-400 leading-relaxed break-words">Validação de hipóteses de negócio e modelagens complexas antes da alocação pesada de recursos de engenharia.</p>
+                    </div>
+
+                    <div class="min-w-0 p-3.5 sm:p-4 rounded-xl bg-neutral-900/60 border border-white/5">
+                        <span class="text-xs font-bold text-white uppercase block mb-1 break-words">Domínio de Dados e SQL</span>
+                        <p class="text-xs text-zinc-400 leading-relaxed break-words">Criação de esquemas relacionais seguros, consultas indexadas e tratamento rigoroso de integridade referencial.</p>
+                    </div>
+
+                    <div class="min-w-0 p-3.5 sm:p-4 rounded-xl bg-neutral-900/60 border border-white/5 sm:col-span-2 sm:mx-auto md:col-span-1 md:mx-0 w-full">
+                        <span class="text-xs font-bold text-white uppercase block mb-1 break-words">Automação & Deploy Contínuo</span>
+                        <p class="text-xs text-zinc-400 leading-relaxed break-words">Padronização de esteiras de entrega contínua com Git, GitHub e ambientes previsíveis em nuvem.</p>
+                    </div>
+                </div>
+            </article>
+        </section>
+
+        <!-- RODAPÉ DA PÁGINA -->
+        <footer class="mt-14 pt-6 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-4 text-center sm:text-left">
+            <div class="text-xs text-zinc-500 font-bold uppercase tracking-wider">
+                Juraci Tito Neto • <span class="text-zinc-300">Software Engineering & Architecture</span>
+            </div>
+            <a href="../index.html" class="text-xs text-zinc-400 hover:text-white uppercase tracking-wider font-bold transition-colors inline-flex items-center gap-1.5">
+                Voltar ao Início <i class="fa-solid fa-arrow-right text-[10px]"></i>
+            </a>
+        </footer>
+
+    </main>
+
+</body>
+</html>

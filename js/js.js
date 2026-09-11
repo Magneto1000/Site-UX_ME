@@ -35,7 +35,7 @@ document.addEventListener('DOMContentLoaded', () => {
             tech: ['React.js', 'Node.js', 'JavaScript / Python', 'SQL Databases'],
             image: 'https://images.unsplash.com/photo-1607799279861-4dd421887fb3?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80', 
             text: '💡 "Código performático é aquele que resolve regras de negócio complexas mantendo uma esteira de deploy limpa e escalabilidade sã."\n\nDesenho, modelagem UML e codificação de sistemas ponta a ponta (Full-Stack). Atuação com controle de versão rigoroso via Git/GitHub por linha de comando, estruturando arquiteturas de software escaláveis e esteiras de deploy limpas que casam perfeitamente as regras de negócio com uma renderização fluida na interface.',
-            link: 'https://github.com/Magneto1000'
+            link: 'pages/software_architecture.html'
         },
 
         'labs-workshops': {
