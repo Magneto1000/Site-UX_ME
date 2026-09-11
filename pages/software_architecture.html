@@ -9,15 +9,14 @@
     <link rel="stylesheet" href="../css/css.css">
 </head>
 <body class="bg-neutral-950 text-white min-h-screen font-sans antialiased selection:bg-zinc-800 selection:text-white">
-
-    <!-- PLANO DE FUNDO CINEMATOGRÁFICO MONOCROMÁTICO -->
+ 
     <div class="fixed inset-0 z-0 pointer-events-none overflow-hidden">
         <div class="absolute inset-0 bg-neutral-950"></div>
         <div class="absolute inset-0 bg-[radial-gradient(circle_at_top,_var(--tw-gradient-stops))] from-zinc-900/40 via-neutral-950/80 to-neutral-950"></div>
         <div class="absolute inset-0 bg-gradient-to-b from-transparent via-neutral-950/70 to-neutral-950"></div>
     </div>
 
-    <!-- CABEÇALHO FIXO COM NAVEGAÇÃO -->
+    
     <header class="sticky top-0 z-50 backdrop-blur-xl bg-neutral-950/80 border-b border-white/10 px-4 sm:px-10 py-3 sm:py-4 transition-all">
         <div class="max-w-5xl mx-auto flex items-center justify-between">
             <a href="../index.html" class="inline-flex items-center gap-2 px-3.5 py-2 rounded-xl bg-white/5 hover:bg-white/10 border border-white/10 text-[11px] sm:text-xs uppercase tracking-wider text-zinc-300 hover:text-white transition-all active:scale-95 shadow-md">
@@ -35,10 +34,10 @@
         </div>
     </header>
 
-    <!-- CONTEÚDO PRINCIPAL -->
+ 
     <main class="relative z-10 max-w-5xl mx-auto px-4 sm:px-8 md:px-10 pt-6 sm:pt-8 pb-20">
         
-        <!-- HERO / INTRODUÇÃO DA PÁGINA -->
+        <! 
         <header class="mb-8 sm:mb-10 text-left">
             <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/5 border border-white/10 mb-3">
                 <span class="w-2 h-2 rounded-full bg-zinc-300 animate-pulse"></span>
@@ -52,7 +51,7 @@
                 Código performático é aquele que resolve regras de negócio complexas mantendo uma esteira de deploy limpa e escalabilidade sã. Do domínio de algoritmos puros em Python à implementação de arquiteturas em camadas (MVC/N-Tier) com persistência relacional e esteiras web full-stack.
             </p>
 
-            <!-- METADADOS TÉCNICOS -->
+             
             <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 mt-6 pt-4 border-t border-white/10">
                 <div class="min-w-0">
                     <span class="text-[9px] font-mono uppercase text-zinc-500 font-bold block mb-0.5">Linguagem Core</span>
@@ -71,11 +70,7 @@
                     <span class="text-xs font-bold text-white uppercase break-words">Next.js • React • Tailwind</span>
                 </div>
             </div>
-        </header>
-
-        <!-- ==========================================================================
-             SEÇÃO 1: PADRÕES ARQUITETURAIS, DIAGRAMAS DE SISTEMA & ARTIGO TÉCNICO
-             ========================================================================== -->
+ 
         <section class="mb-10 sm:mb-12">
             <article class="p-4 sm:p-6 md:p-8 rounded-2xl sm:rounded-3xl bg-white/[0.03] border border-white/10 backdrop-blur-sm relative overflow-hidden shadow-xl">
                 <div class="absolute top-0 left-0 w-1 h-full bg-zinc-300"></div>
@@ -98,7 +93,7 @@
                     A arquitetura de software estabelece as restrições fundamentais, os limites de contexto (*bounded contexts*) e as garantias de qualidade de um sistema. Desenvolver soluções corporativas exige analisar os <strong>trade-offs</strong> entre acoplamento, latência, consistência de dados (Teorema CAP) e custo operacional de infraestrutura.
                 </p>
 
-                <!-- GRID DE PADRÕES ARQUITETURAIS -->
+     
                 <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4 mb-6 text-left">
                     <div class="min-w-0 p-3.5 sm:p-4 rounded-xl bg-neutral-900/60 border border-white/5">
                         <div class="flex items-center gap-2 mb-1.5 flex-wrap">
@@ -141,12 +136,12 @@
                     </div>
                 </div>
 
-                <!-- GALERIA MODULAR DE DIAGRAMAS ARQUITETURAIS -->
+        
                 <div class="mb-6">
                     <span class="text-[10px] text-zinc-400 font-black uppercase tracking-wider block mb-2.5">Diagramas de Arquitetura de Sistemas</span>
                     <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3">
                         
-                        <!-- Diagrama 1 -->
+                  n
                         <div class="group/img relative aspect-video rounded-xl overflow-hidden bg-neutral-900 border border-white/10 cursor-pointer" onclick="window.open(this.querySelector('img').src, '_blank')">
                             <img src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=1000&q=80" alt="Diagrama de Microsserviços e APIs" class="w-full h-full object-cover grayscale contrast-125 group-hover/img:scale-105 group-hover/img:grayscale-0 transition-all duration-300">
                             <div class="absolute inset-0 bg-black/40 opacity-0 group-hover/img:opacity-100 transition-opacity flex flex-col items-center justify-center gap-1">
@@ -156,7 +151,7 @@
                             <span class="absolute bottom-2 left-2 px-2 py-0.5 rounded bg-black/80 text-[8px] font-mono text-zinc-300">01. API Gateway & Microsserviços</span>
                         </div>
 
-                        <!-- Diagrama 2 -->
+                      
                         <div class="group/img relative aspect-video rounded-xl overflow-hidden bg-neutral-900 border border-white/10 cursor-pointer" onclick="window.open(this.querySelector('img').src, '_blank')">
                             <img src="https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=1000&q=80" alt="Diagrama Clean Architecture e Camadas" class="w-full h-full object-cover grayscale contrast-125 group-hover/img:scale-105 group-hover/img:grayscale-0 transition-all duration-300">
                             <div class="absolute inset-0 bg-black/40 opacity-0 group-hover/img:opacity-100 transition-opacity flex flex-col items-center justify-center gap-1">
@@ -166,7 +161,7 @@
                             <span class="absolute bottom-2 left-2 px-2 py-0.5 rounded bg-black/80 text-[8px] font-mono text-zinc-300">02. Clean / Hexagonal Ports</span>
                         </div>
 
-                        <!-- Diagrama 3 -->
+                       
                         <div class="group/img relative aspect-video rounded-xl overflow-hidden bg-neutral-900 border border-white/10 cursor-pointer sm:col-span-2 md:col-span-1" onclick="window.open(this.querySelector('img').src, '_blank')">
                             <img src="https://images.unsplash.com/photo-1618401471353-b98aedd04e11?auto=format&fit=crop&w=1000&q=80" alt="Diagrama Pipeline de Mensageria e Fila" class="w-full h-full object-cover grayscale contrast-125 group-hover/img:scale-105 group-hover/img:grayscale-0 transition-all duration-300">
                             <div class="absolute inset-0 bg-black/40 opacity-0 group-hover/img:opacity-100 transition-opacity flex flex-col items-center justify-center gap-1">
@@ -179,7 +174,7 @@
                     </div>
                 </div>
 
-                <!-- CALL-TO-ACTION: ARTIGO EM PDF SOBRE ARQUITETURA -->
+    
                 <div class="p-4 sm:p-5 rounded-2xl bg-neutral-900/80 border border-white/10 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
                     <div class="min-w-0">
                         <span class="text-[9px] font-mono uppercase text-zinc-500 font-bold block mb-0.5">Documentação & Produção Intelectual</span>
@@ -200,9 +195,7 @@
             </article>
         </section>
 
-        <!-- ==========================================================================
-             SEÇÃO 2: ECOSSISTEMA FULL-STACK & SITES DE CLIENTES EM PRODUÇÃO
-             ========================================================================== -->
+        
         <section class="mb-10 sm:mb-12">
             <div class="border-b border-white/10 pb-3 mb-6">
                 <span class="text-[10px] font-mono text-zinc-400 uppercase tracking-wider font-bold block mb-0.5">Aplicações Reais em Produção</span>
@@ -213,8 +206,7 @@
                     Projetos implantados em nuvem combinando Next.js, arquitetura baseada em componentes, autenticação segura e bancos relacionais na nuvem (Supabase SQL).
                 </p>
             </div>
-
-            <!-- PROJETO 1: MEU BLOG COM NEXT.JS E SUPABASE -->
+ 
             <article class="p-4 sm:p-6 md:p-8 rounded-2xl sm:rounded-3xl bg-white/[0.03] border border-white/10 backdrop-blur-sm relative overflow-hidden shadow-xl mb-6">
                 <div class="absolute top-0 left-0 w-1 h-full bg-zinc-300"></div>
 
@@ -239,7 +231,7 @@
                     Plataforma moderna de publicação de conteúdos técnicos desenvolvida em <strong>Next.js</strong> e <strong>TypeScript</strong>. O sistema conta com módulo de autenticação de usuários, painel administrativo protegido para criação e edição de artigos em tempo real e banco de dados relacional hospedado na infraestrutura gerenciada do <strong>Supabase (PostgreSQL)</strong>.
                 </p>
 
-                <!-- GRID COM AS TELAS DO BLOG DO REPOSITÓRIO SKILLS -->
+     
                 <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-5 gap-2.5 mb-4">
                     <div class="p-1.5 rounded-lg bg-neutral-900 border border-white/10 cursor-pointer group" onclick="window.open('/midias/blog_my/area_principal.jpeg', '_blank')">
                         <div class="aspect-video rounded overflow-hidden bg-black mb-1">
@@ -293,7 +285,7 @@
                 </div>
             </article>
 
-            <!-- PROJETO 2: SITES DE CLIENTES COMERCIAIS & LANDING PAGES -->
+     
             <article class="p-4 sm:p-6 md:p-8 rounded-2xl sm:rounded-3xl bg-white/[0.03] border border-white/10 backdrop-blur-sm relative overflow-hidden shadow-xl">
                 <div class="absolute top-0 left-0 w-1 h-full bg-zinc-400"></div>
 
@@ -314,11 +306,11 @@
 
                 <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     
-                    <!-- Cliente 1: Livia Modas -->
+                 
                     <div class="min-w-0 p-4 rounded-xl bg-neutral-900/80 border border-white/5 flex flex-col justify-between">
                         <div>
                             <div class="aspect-video rounded-lg overflow-hidden bg-black mb-3 cursor-pointer" onclick="window.open('https://sites-clientes-six.vercel.app/', '_blank')">
-                                <img src="https://images.unsplash.com/photo-1573166364266-356ef04ae798?q=80&w=869&auto=format&fit=crop" alt="Livia Modas" class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-300">
+                                <img src="/midias/frontend/paginasilvia1.png" alt="Livia Modas" class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-300">
                             </div>
                             <span class="text-[9px] font-mono text-zinc-500 uppercase font-bold block mb-0.5">Varejo & Moda</span>
                             <h4 class="text-sm font-bold text-white uppercase break-words mb-1">Livia Modas & Beauty Studio</h4>
@@ -332,11 +324,11 @@
                         </a>
                     </div>
 
-                    <!-- Cliente 2: Tito Impermeabilização -->
+                   
                     <div class="min-w-0 p-4 rounded-xl bg-neutral-900/80 border border-white/5 flex flex-col justify-between">
                         <div>
                             <div class="aspect-video rounded-lg overflow-hidden bg-black mb-3 cursor-pointer" onclick="window.open('https://tito-impermeabilizacao.vercel.app/', '_blank')">
-                                <img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?q=80&w=1000&auto=format&fit=crop" alt="Tito Impermeabilização" class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-300">
+                                <img src="/midias/frontend/tito_impermeabilizacao.png" alt="Tito Impermeabilização" class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-300">
                             </div>
                             <span class="text-[9px] font-mono text-zinc-500 uppercase font-bold block mb-0.5">Engenharia de Proteção</span>
                             <h4 class="text-sm font-bold text-white uppercase break-words mb-1">Tito Impermeabilização</h4>
@@ -350,11 +342,11 @@
                         </a>
                     </div>
 
-                    <!-- Cliente 3: M.A Construções -->
+         
                     <div class="min-w-0 p-4 rounded-xl bg-neutral-900/80 border border-white/5 flex flex-col justify-between">
                         <div>
                             <div class="aspect-video rounded-lg overflow-hidden bg-black mb-3 cursor-pointer" onclick="window.open('https://ma-construcoes.vercel.app/', '_blank')">
-                                <img src="https://images.unsplash.com/photo-1541888946425-d0fbb18615f3?q=80&w=1000&auto=format&fit=crop" alt="M.A Construções" class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-300">
+                                <img src="/midias/frontend/ma_engenharia.png" alt="M.A Construções" class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-300">
                             </div>
                             <span class="text-[9px] font-mono text-zinc-500 uppercase font-bold block mb-0.5">Construção Civil</span>
                             <h4 class="text-sm font-bold text-white uppercase break-words mb-1">M.A Construções</h4>
@@ -368,11 +360,11 @@
                         </a>
                     </div>
 
-                    <!-- Cliente 4: UUP Software Solutions -->
+           
                     <div class="min-w-0 p-4 rounded-xl bg-neutral-900/80 border border-white/5 flex flex-col justify-between">
                         <div>
                             <div class="aspect-video rounded-lg overflow-hidden bg-black mb-3 cursor-pointer" onclick="window.open('https://uup-site.vercel.app/', '_blank')">
-                                <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=1000&auto=format&fit=crop" alt="UUP Software Solutions" class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-300">
+                                <img src="/midias/frontend/tela1_inicial.png" alt="UUP Software Solutions" class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-300">
                             </div>
                             <span class="text-[9px] font-mono text-zinc-500 uppercase font-bold block mb-0.5">Tecnologia & Inovação</span>
                             <h4 class="text-sm font-bold text-white uppercase break-words mb-1">UUP Software Solutions</h4>
@@ -390,9 +382,7 @@
             </article>
         </section>
 
-        <!-- ==========================================================================
-             SEÇÃO 3: PROJETO DE SISTEMA COMPLETO — LOJA DE ALUGUEL DE CARROS (MVC)
-             ========================================================================== -->
+ 
         <section class="mb-10 sm:mb-12">
             <div class="border-b border-white/10 pb-3 mb-6">
                 <span class="text-[10px] font-mono text-zinc-400 uppercase tracking-wider font-bold block mb-0.5">Software Production-Ready</span>
@@ -414,7 +404,7 @@
                     O software foi projetado desacoplando estritamente a interface com o usuário da lógica de acesso ao banco de dados relacional. Cada componente possui responsabilidade única, viabilizando que a camada gráfica seja substituída por uma API REST ou aplicação web sem exigir qualquer alteração no esquema relacional ou nas regras de negócio subjacentes.
                 </p>
 
-                <!-- DESMONTE DAS 4 CAMADAS (N-TIER) -->
+             
                 <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4 mb-6 text-left">
                     <div class="min-w-0 p-3.5 sm:p-4 rounded-xl bg-neutral-900/60 border border-white/5">
                         <div class="flex items-center gap-2 mb-1.5 flex-wrap">
@@ -457,7 +447,7 @@
                     </div>
                 </div>
 
-                <!-- GALERIA ARQUITETURAL DO SISTEMA DE CARROS -->
+ 
                 <div>
                     <span class="text-[10px] text-zinc-400 font-black uppercase tracking-wider block mb-2.5">Evidências de Arquitetura e Telas</span>
                     <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3">
@@ -507,9 +497,7 @@
             </article>
         </section>
 
-        <!-- ==========================================================================
-             SEÇÃO 4: MARATONA DOS 100 EXERCÍCIOS DE ALGORITMOS
-             ========================================================================== -->
+    
         <section class="mb-10 sm:mb-12">
             <div class="border-b border-white/10 pb-3 mb-6">
                 <span class="text-[10px] font-mono text-zinc-400 uppercase tracking-wider font-bold block mb-0.5">Treinamento Intensivo</span>
@@ -519,7 +507,7 @@
                 <p class="text-xs sm:text-sm text-zinc-400 font-light mt-1 break-words">Construção de resiliência e raciocínio lógico através de desafios algorítmicos diários.</p>
             </div>
 
-            <!-- OS 4 PILARES DO DESAFIO -->
+   
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 text-left mb-6">
                 <div class="min-w-0 p-3.5 sm:p-4 rounded-xl bg-neutral-900/60 border border-white/5">
                     <span class="text-xs font-mono text-zinc-400 font-bold block mb-1 break-words">1. Raciocínio Algorítmico</span>
@@ -542,7 +530,7 @@
                 </div>
             </div>
 
-            <!-- GRID COM OS 10 PRIMEIROS DESAFIOS REGISTRADOS -->
+      
             <div class="p-4 sm:p-6 rounded-2xl sm:rounded-3xl bg-white/[0.02] border border-white/10">
                 <span class="text-[10px] text-zinc-400 font-black uppercase tracking-wider block mb-3">Evidências do Jupyter Notebook (Desafios 01 ao 10)</span>
                 
@@ -620,9 +608,7 @@
             </div>
         </section>
 
-        <!-- ==========================================================================
-             SEÇÃO 5: A VISÃO DO ARQUITETO & TRADE-OFFS TÉCNICOS
-             ========================================================================== -->
+
         <section class="space-y-6 sm:space-y-8 mb-10 sm:mb-12">
             <article class="p-4 sm:p-6 md:p-8 rounded-2xl sm:rounded-3xl bg-white/[0.03] border border-white/10 backdrop-blur-sm relative overflow-hidden">
                 <div class="absolute top-0 left-0 w-1 h-full bg-zinc-500"></div>
