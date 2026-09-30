@@ -147,7 +147,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 if (effectiveKey === 'user-support') {
                     serviceCta.removeAttribute('target');
                     serviceCta.removeAttribute('rel');
-                    serviceCta.innerHTML = 'Ver Case de Suporte & Vídeo <i class="fa-solid fa-arrow-right text-[10px] ml-1.5"></i>';
+                    serviceCta.innerHTML = 'Veja um pouco mais <i class="fa-solid fa-arrow-right text-[10px] ml-1.5"></i>';
                 } else if (targetUrl.startsWith('http')) {
                     serviceCta.setAttribute('target', '_blank');
                     serviceCta.setAttribute('rel', 'noopener noreferrer');
@@ -155,7 +155,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 } else {
                     serviceCta.removeAttribute('target');
                     serviceCta.removeAttribute('rel');
-                    serviceCta.innerHTML = 'Acessar Estudo de Caso <i class="fa-solid fa-arrow-right text-[10px] ml-1.5"></i>';
+                    serviceCta.innerHTML = 'Veja um pouco mais <i class="fa-solid fa-arrow-right text-[10px] ml-1.5"></i>';
                 }
             }
             
