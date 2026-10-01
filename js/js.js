@@ -7,7 +7,7 @@ document.addEventListener('DOMContentLoaded', () => {
             title: 'Technical Support & Customer Experience (CX)',
             tech: ['💡 "A eficiência do suporte não está apenas em resolver chamados, mas em transformar a dor do usuário em evolução contínua para o produto."'],
             image: 'https://images.unsplash.com/photo-1581094794329-c8112a89af12?q=80&w=987&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D', 
-            text: 'Atuação estratégica na gestão do ciclo completo de chamados e suporte ao cliente, combinando triagem assertiva, priorização por SLAs e comunicação humanizada via canais digitais. Diagnóstico técnico de incidentes e identificação de gargalos operacionais diretamente na ponta, traduzindo o feedback do usuário final em melhorias contínuas, otimização de fluxos e redução de chamados recorrentes.',
+            text: 'Atuação estratégica com mais de 3 anos de experiência na gestão do ciclo completo de chamados e suporte ao cliente, combinando triagem assertiva, priorização por SLAs e comunicação humanizada via canais digitais. Diagnóstico técnico de incidentes e identificação de gargalos operacionais diretamente na ponta, traduzindo o feedback do usuário final em melhorias contínuas, otimização de fluxos e redução de chamados recorrentes.',
             link: 'pages/suporte_cx.html' // Corrigido de ctaLink para link padrão
         },
 
